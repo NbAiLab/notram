@@ -1,2 +1,53 @@
-# notram
-Norwegian Transformer Model
+# Norwegian Transformer Model
+This is the repository for the project "NoTraM - Norwegian Transformer Model" owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models.
+
+# Available datasources
+
+### Bokmål
+| Sources  |   Words | 
+| -------- |  -----:| 
+| Parliament Talks  |  58 841 660 | 
+| Wikipedia |  153 183 516 | 
+| Newspaper  |  745 757 438 | 
+| Newspaper_xml  |  65 094 804 | 
+| **Total**  |  **1 022 877 418** | 
+
+
+### Nynorsk
+| Sources  |   Words | 
+| -------- |  -----:| 
+| Wikipedia |  35 051 361 | | 
+| Newspaper_xml  |  41 664 447 | 
+| **Total**  |  **76 715 808** | 
+
+
+Here is a [summary](https://github.com/peregilk/NoTraM/blob/master/filestructure.md) of all the avilable datasources and pre-processed files.
+
+# Utils
+In this directory there is a collection of corpus cleaners/filters. There is one script per datacorpus. The purpose of the filters is to go through the corpuses and clean the text. The output format is a txt-file where documents (in most cases paragraphs) are separated by a single linebreak. The format should be standard UTF-8. No sentence segmentation and/or deduplication is done at this stage. Each of the scripts does some basic cleaning but currently no filtering based on length.
+
+### Basic commands for creating the txt-files where documents/paragraphs are separated by single linebreaks
+```bash
+python utils/clean_parliament.py --input_file data/rawfiles/parliament_speeches_1998_2016.csv --output_file data/output/sentences/parliament_speeches_1998_2016_rawarticles.txt &&
+python utils/clean_wikipedia.py --input data/rawfiles/nob.wikipedia.json --output_file data/output/sentences/nob.wikipedia.txt &&
+python utils/clean_newspapers.py --input data/rawfiles --output_file data/output/sentences/norsk_aviskorpus_html.txt &&
+python utils/clean_newspapers_xml.py --language nob --input data/rawfiles --output_file data/output/sentences/norsk_aviskorpus_xml_bokmal.txt &&
+
+python utils/clean_wikipedia.py --input data/rawfiles/nno.wikipedia.json --output_file data/output/sentences/nno.wikipedia.txt &&
+python utils/clean_newspapers_xml.py --language nno --input data/rawfiles --output_file data/output/sentences/norsk_aviskorpus_xml_nynorsk.txt
+```
+
+The last script does basic filtering (based on minimum three words per article). It also does deduplication and shuffles the entire dataset.
+```bash
+python utils/norwegian_sentence_segmentation.py --input data/output/sentences --output_file data/output/corpus/all_040920.txt -d True -r True
+```
+
+# Resources
+
+### Vocabulary tools
+* [bert-vocab-builder](https://github.com/kwonmha/bert-vocab-builder)
+
+### Corpora resources
+* [Parallel Corpora for European Languages](https://paracrawl.eu/)
+* [OSCAR - Filtered Common Crawl](https://oscar-corpus.com/)
+
