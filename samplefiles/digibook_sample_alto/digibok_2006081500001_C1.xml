@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="//Produksjon5/docworks/docWORKSshare/schema/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/TR/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.0-7.25</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>Finereader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="9" FONTFAMILY="Fraktur" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_1" FONTSIZE="8" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_2" FONTSIZE="10" FONTFAMILY="Fraktur" FONTSTYLE="bold"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+		<ParagraphStyle ID="PAR_RIGHT" ALIGN="Right"/>
+	</Styles>
+	<Layout>
+		<Page ID="P233" PHYSICAL_IMG_NR="233" HEIGHT="921" WIDTH="554" PRINTED_IMG_NR="225">
+			<TopMargin ID="P233_TM00001" HPOS="0" VPOS="0" WIDTH="554" HEIGHT="85">
+				<TextBlock ID="P233_TB00001" HPOS="46" VPOS="31" WIDTH="80" HEIGHT="26" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P233_TL00001" HPOS="48" VPOS="32" WIDTH="78" HEIGHT="25">
+						<String ID="P233_ST00001" HPOS="48" VPOS="32" WIDTH="78" HEIGHT="25" CONTENT="&lt;w.«v" WC="0.52" CC="39182"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P233_TB00002" HPOS="498" VPOS="54" WIDTH="23" HEIGHT="29" STYLEREFS="TXT_1 PAR_RIGHT">
+					<TextLine ID="P233_TL00002" HPOS="519" VPOS="81" WIDTH="2" HEIGHT="2">
+						<String ID="P233_ST00002" HPOS="519" VPOS="81" WIDTH="2" HEIGHT="2" CONTENT="225" WC="1.00" CC="000"/>
+					</TextLine>
+				</TextBlock>
+			</TopMargin>
+			<LeftMargin ID="P233_LM00001" HPOS="0" VPOS="85" WIDTH="13" HEIGHT="1453"/>
+			<RightMargin ID="P233_RM00001" HPOS="527" VPOS="85" WIDTH="27" HEIGHT="1453"/>
+			<BottomMargin ID="P233_BM00001" HPOS="0" VPOS="1538" WIDTH="554" HEIGHT="-617"/>
+			<PrintSpace ID="P233_PS00001" HPOS="13" VPOS="85" WIDTH="514" HEIGHT="1453">
+				<TextBlock ID="P233_TB00003" HPOS="16" VPOS="66" WIDTH="121" HEIGHT="88" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P233_TL00003" HPOS="38" VPOS="67" WIDTH="99" HEIGHT="46">
+						<String ID="P233_ST00003" HPOS="38" VPOS="67" WIDTH="99" HEIGHT="46" CONTENT=",*U*j" WC="0.51" CC="07574"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P233_TB00004" HPOS="27" VPOS="202" WIDTH="143" HEIGHT="30" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P233_TL00004" HPOS="27" VPOS="202" WIDTH="16" HEIGHT="30">
+						<String ID="P233_ST00004" HPOS="27" VPOS="202" WIDTH="16" HEIGHT="30" CONTENT="J" WC="0.93" CC="1"/>
+					</TextLine>
+				</TextBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

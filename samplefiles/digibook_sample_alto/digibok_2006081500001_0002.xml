@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="//Produksjon5/docworks/docWORKSshare/schema/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/TR/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.0-7.25</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>Finereader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="15" FONTFAMILY="Fraktur"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P2" PHYSICAL_IMG_NR="2" HEIGHT="1737" WIDTH="1107">
+			<TopMargin ID="P2_TM00001" HPOS="0" VPOS="0" WIDTH="1107" HEIGHT="30"/>
+			<LeftMargin ID="P2_LM00001" HPOS="0" VPOS="30" WIDTH="22" HEIGHT="1706"/>
+			<RightMargin ID="P2_RM00001" HPOS="1106" VPOS="30" WIDTH="1" HEIGHT="1706"/>
+			<BottomMargin ID="P2_BM00001" HPOS="0" VPOS="1736" WIDTH="1107" HEIGHT="1"/>
+			<PrintSpace ID="P2_PS00001" HPOS="22" VPOS="30" WIDTH="1084" HEIGHT="1706">
+				<TextBlock ID="P2_TB00001" HPOS="246" VPOS="1689" WIDTH="53" HEIGHT="16"/>
+				<TextBlock ID="P2_TB00002" HPOS="636" VPOS="1690" WIDTH="459" HEIGHT="46"/>
+				<TextBlock ID="P2_TB00003" HPOS="504" VPOS="1722" WIDTH="4" HEIGHT="9"/>
+				<ComposedBlock ID="P2_CB00001" HPOS="22" VPOS="30" WIDTH="1084" HEIGHT="1668" STYLEREFS="TXT_0 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P2_CB00001_SUB" HPOS="22" VPOS="30" WIDTH="1084" HEIGHT="1668"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><mods xmlns="http://www.loc.gov/mods/v3" xmlns:nbmodsext="http://www.nb.no/NBModsExtension/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.6" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+   <titleInfo>
+      <title>Oversættelse med Anmærkninger af det Interessanteste af "Excursions in New South-Wales, Western Australia and Van Diemens Land during the Years 1830,31,32,33" By Lieut. Broton R. N. London. Richard Bentley new Burlington Street 1835</title>
+      <subTitle>med Fortegnelse over hvad Oversætteren har ladet trykke, og hans Selv-Biographie</subTitle>
+   </titleInfo>
+   <titleInfo displayLabel="Originaltittel" type="alternative">
+      <title>Excursions in New South-Wales, Western Australia and Van Diemens Land during the Years 1830, 31, 32, 33</title>
+   </titleInfo>
+   <name type="personal" usage="primary">
+      <namePart>Breton, W.H.</namePart>
+      <namePart type="date">1799-1889</namePart>
+      <role>
+         <roleTerm authority="marcrelator" type="code">aut</roleTerm>
+      </role>
+      <nameIdentifier>bibsys.no:authority:2133257</nameIdentifier>
+   </name>
+   <name type="personal">
+      <namePart>Hertzberg, Nils</namePart>
+      <namePart type="date">1759-1841</namePart>
+      <role>
+         <roleTerm authority="marcrelator" type="code">trl</roleTerm>
+      </role>
+      <nameIdentifier>bibsys.no:authority:2114249</nameIdentifier>
+   </name>
+   <name type="personal">
+      <namePart>Rode, Carl Ferdinand, (Carl Ferdinand)</namePart>
+      <namePart type="date">1789-1834</namePart>
+      <role>
+         <roleTerm authority="marcrelator" type="code">prt</roleTerm>
+      </role>
+      <nameIdentifier>bibsys.no:authority:90361376</nameIdentifier>
+   </name>
+   <typeOfResource>text</typeOfResource>
+   <genre authority="marcgt">biography</genre>
+   <genre type="literaryform">notfiction</genre>
+   <subject authority="norbok">
+      <genre>Reiseskildring</genre>
+   </subject>
+   <subject authority="">
+      <genre>Biografi</genre>
+   </subject>
+   <subject authority="norbok">
+      <genre/>
+   </subject>
+   <originInfo>
+      <place>
+         <placeTerm authority="marccountry" type="code">no</placeTerm>
+      </place>
+      <place>
+         <placeTerm type="text">Bergen</placeTerm>
+      </place>
+      <publisher>Trykt i C. sal. Rodes Bogtrykkerie</publisher>
+      <dateIssued>1835</dateIssued>
+      <issuance>monographic</issuance>
+   </originInfo>
+   <language>
+      <languageTerm authority="iso639-2b" type="code">dan</languageTerm>
+   </language>
+   <language objectPart="translation">
+      <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+   </language>
+   <physicalDescription>
+      <form authority="marcform">print</form>
+      <form authority="marccategory">electronic resource</form>
+      <form authority="marcsmd">remote</form>
+      <form authority="marccategory">text</form>
+      <form authority="marcsmd">regular print</form>
+      <extent>IX, 286 s. 8°</extent>
+   </physicalDescription>
+   <accessCondition type="restriction on access"/>
+   <note altRepGroup="00" type="statement of responsibility">ved N. Hertzberg, Provst, Sognepræst til Kinservigs Kald, Medlem af Norske Videnskabers Selskab i Trondhjem, Ridder af Dannebrog-Ordenen</note>
+   <note>Feilpagineringer: etter s. 45 følger s. 47, paginering 119 brukt to ganger</note>
+   <note>Formatangivelse etter Norsk Bog-Fortegnelse 1814-1847, s. 24</note>
+   <note>Av innholdet: Niels Hertzbergs bibliografi (s. 195). Niels Hertzbergs biografi (s. 207)</note>
+   <note type="reproduction">Elektronisk reproduksjon [Norge] Nasjonalbiblioteket Digital 2014-01-13</note>
+   <subject authority="bare">
+      <name type="personal">
+         <namePart>Hertzberg, Nils</namePart>
+         <namePart type="date">1759-1841</namePart>
+      </name>
+   </subject>
+   <subject authority="bare">
+      <name type="personal">
+         <namePart>Hertzberg, Nils</namePart>
+         <namePart type="date">1759-1841</namePart>
+      </name>
+   </subject>
+   <subject authority="norbok">
+      <topic>Reiser</topic>
+   </subject>
+   <subject authority="norbok">
+      <topic>Ekspedisjoner</topic>
+   </subject>
+   <subject authority="">
+      <topic>1800-tallet</topic>
+   </subject>
+   <subject authority="norbok">
+      <topic/>
+   </subject>
+   <subject authority="norbok">
+      <geographic>Australia</geographic>
+   </subject>
+   <subject authority="norbok">
+      <geographic>Tasmania</geographic>
+   </subject>
+   <subject authority="norbok"/>
+   <subject>
+      <topic>ekspedisjoner</topic>
+   </subject>
+   <subject>
+      <hierarchicalGeographic>
+         <country>Norge</country>
+         <city>Bergen</city>
+      </hierarchicalGeographic>
+   </subject>
+   <classification authority="oosk">Y XII</classification>
+   <location>
+      <url displayLabel="Fulltekst NB digitalisert" note="Elektronisk reproduksjon. Gratis" usage="primary display">http://urn.nb.no/URN:NBN:no-nb_digibok_2014010224001</url>
+   </location>
+   <location>
+      <url displayLabel="electronic resource" note="public" usage="primary display">http://urn.nb.no/URN:NBN:no-nb_digibok_2014010224001</url>
+   </location>
+   <identifier type="urn">URN:NBN:no-nb_digibok_2014010224001</identifier>
+   <location>
+      <physicalLocation authority="isil">NO-0030100</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0030100</subLocation>
+            <note>(ib.) (Til bruk på NB Oslos lesesal)</note>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0183300</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0183300</subLocation>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0030100</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0030100</subLocation>
+            <note>(Ikke til hjemlån)</note>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0030100</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0030100</subLocation>
+            <note>(ib.) (Proveniens Johan Schweigaard) (Til bruk på NB Oslos lesesal)</note>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0030100</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0030100</subLocation>
+            <note>(h.) (Til bruk på NB Oslos lesesal)</note>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0183300</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0183300</subLocation>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <location>
+      <physicalLocation authority="isil">NO-0030100</physicalLocation>
+      <holdingSimple>
+         <copyInformation>
+            <subLocation>0030100</subLocation>
+            <note>(ib.) (nyere halvbind) (Proveniens: Ludvig Daae 1868) (Til bruk på NB Oslos lesesal)</note>
+         </copyInformation>
+      </holdingSimple>
+   </location>
+   <identifier type="oldoaiid">oai:bibsys.no:biblio:942743113</identifier>
+   <identifier type="oldoaiid">oai:bibsys.no:biblio:140073124</identifier>
+   <identifier type="uri">http://urn.nb.no/URN:NBN:no-nb_digibok_2014010224001</identifier>
+   <recordInfo>
+      <descriptionStandard>katreg</descriptionStandard>
+      <recordContentSource authority="marcorg">NO-TrBIB</recordContentSource>
+      <recordCreationDate encoding="marc">140227</recordCreationDate>
+      <recordChangeDate encoding="iso8601">20170913094927.0</recordChangeDate>
+      <recordIdentifier source="nb.bibsys.no">999427431134702202</recordIdentifier>
+      <recordOrigin>Converted from MARCXML to MODS version 3.6 using a customized MARC21slim2MODS3-5.xsl
+                (based on 3.5 Revision 1.106 2014/12/19)</recordOrigin>
+      <languageOfCataloging>
+         <languageTerm authority="iso639-2b" type="code">nob</languageTerm>
+      </languageOfCataloging>
+   </recordInfo>
+   <relatedItem displayLabel="Del av Bibliografien" type="host">
+      <titleInfo>
+         <title>Schweigaardsamlingen</title>
+      </titleInfo>
+      <genre authority="marcgt">bibliography</genre>
+   </relatedItem>
+   <relatedItem displayLabel="Del av Bibliografien" type="host">
+      <titleInfo>
+         <title>Norske bøker 1519-1850</title>
+      </titleInfo>
+      <genre authority="marcgt">bibliography</genre>
+   </relatedItem>
+   <relatedItem displayLabel="Del av Bibliografien" type="host">
+      <titleInfo>
+         <title>Norbok</title>
+      </titleInfo>
+      <genre authority="marcgt">bibliography</genre>
+   </relatedItem>
+<identifier type="sesamid">b2b95cf882ebe2f166594ad2c6f83222</identifier><identifier type="oaiid">oai:nb.bibsys.no:999427431134702202</identifier></mods>

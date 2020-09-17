@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="//Produksjon5/docworks/docWORKSshare/schema/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/TR/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.0-7.25</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>Finereader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="18" FONTFAMILY="Fraktur" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_1" FONTSIZE="11" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_2" FONTSIZE="9" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_3" FONTSIZE="12" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_4" FONTSIZE="13" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_5" FONTSIZE="8" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_6" FONTSIZE="21" FONTFAMILY="Fraktur"/>
+		<TextStyle ID="TXT_7" FONTSIZE="10" FONTFAMILY="Fraktur" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_8" FONTSIZE="14" FONTFAMILY="Fraktur"/>
+		<ParagraphStyle ID="PAR_RIGHT" ALIGN="Right"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+		<ParagraphStyle ID="PAR_CENTER" ALIGN="Center"/>
+	</Styles>
+	<Layout>
+		<Page ID="P1" PHYSICAL_IMG_NR="1" HEIGHT="1737" WIDTH="1107">
+			<TopMargin ID="P1_TM00001" HPOS="0" VPOS="0" WIDTH="1107" HEIGHT="0"/>
+			<LeftMargin ID="P1_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="1572"/>
+			<RightMargin ID="P1_RM00001" HPOS="1107" VPOS="0" WIDTH="0" HEIGHT="1572"/>
+			<BottomMargin ID="P1_BM00001" HPOS="0" VPOS="1572" WIDTH="1107" HEIGHT="165"/>
+			<PrintSpace ID="P1_PS00001" HPOS="0" VPOS="0" WIDTH="1107" HEIGHT="1572">
+				<TextBlock ID="P1_TB00001" HPOS="564" VPOS="0" WIDTH="222" HEIGHT="71" STYLEREFS="TXT_0 PAR_RIGHT">
+					<TextLine ID="P1_TL00001" HPOS="568" VPOS="15" WIDTH="217" HEIGHT="56">
+						<String ID="P1_ST00001" HPOS="568" VPOS="15" WIDTH="217" HEIGHT="56" CONTENT="-*ssoin" WC="0.65" CC="1954122"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00002" HPOS="476" VPOS="403" WIDTH="82" HEIGHT="22" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P1_TL00002" HPOS="476" VPOS="404" WIDTH="82" HEIGHT="21">
+						<String ID="P1_ST00002" HPOS="476" VPOS="404" WIDTH="82" HEIGHT="21" CONTENT="over" WC="0.94" CC="0111"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00003" HPOS="56" VPOS="563" WIDTH="922" HEIGHT="94"/>
+				<TextBlock ID="P1_TB00004" HPOS="501" VPOS="800" WIDTH="36" HEIGHT="31" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P1_TL00003" HPOS="502" VPOS="801" WIDTH="35" HEIGHT="26">
+						<String ID="P1_ST00003" HPOS="502" VPOS="810" WIDTH="12" HEIGHT="17" CONTENT="a" WC="0.78" CC="2"/>
+						<SP ID="P1_SP00001" HPOS="514" VPOS="827" WIDTH="16"/>
+						<String ID="P1_ST00004" HPOS="530" VPOS="801" WIDTH="7" HEIGHT="24" CONTENT="f" WC="0.74" CC="3"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00005" HPOS="351" VPOS="932" WIDTH="339" HEIGHT="38" STYLEREFS="TXT_3 PAR_LEFT">
+					<TextLine ID="P1_TL00004" HPOS="352" VPOS="933" WIDTH="338" HEIGHT="37">
+						<String ID="P1_ST00005" HPOS="352" VPOS="933" WIDTH="138" HEIGHT="33" CONTENT="Anton" WC="0.81" CC="41221"/>
+						<SP ID="P1_SP00002" HPOS="490" VPOS="966" WIDTH="28"/>
+						<String ID="P1_ST00006" HPOS="518" VPOS="933" WIDTH="172" HEIGHT="37" CONTENT="Schjoth." WC="0.89" CC="41121120"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00006" HPOS="368" VPOS="1047" WIDTH="331" HEIGHT="94" STYLEREFS="TXT_4 PAR_LEFT">
+					<TextLine ID="P1_TL00005" HPOS="369" VPOS="1048" WIDTH="173" HEIGHT="42">
+						<String ID="P1_ST00007" HPOS="369" VPOS="1052" WIDTH="62" HEIGHT="38" CONTENT="NB" WC="0.83" CC="30"/>
+						<SP ID="P1_SP00003" HPOS="431" VPOS="1090" WIDTH="8"/>
+						<String ID="P1_ST00008" HPOS="439" VPOS="1048" WIDTH="103" HEIGHT="35" CONTENT="Bana" WC="0.91" CC="3101"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00007" HPOS="236" VPOS="1454" WIDTH="566" HEIGHT="35" STYLEREFS="TXT_5 PAR_LEFT">
+					<TextLine ID="P1_TL00006" HPOS="237" VPOS="1455" WIDTH="565" HEIGHT="34">
+						<String ID="P1_ST00009" HPOS="237" VPOS="1463" WIDTH="25" HEIGHT="26" CONTENT="I." WC="0.78" CC="40"/>
+						<SP ID="P1_SP00004" HPOS="262" VPOS="1489" WIDTH="17"/>
+						<String ID="P1_ST00010" HPOS="279" VPOS="1463" WIDTH="48" HEIGHT="25" CONTENT="Chr." WC="0.85" CC="3210"/>
+						<SP ID="P1_SP00005" HPOS="327" VPOS="1489" WIDTH="17"/>
+						<String ID="P1_ST00011" HPOS="344" VPOS="1461" WIDTH="109" HEIGHT="27" CONTENT="Abclslcds" WC="0.80" CC="622210223"/>
+						<SP ID="P1_SP00006" HPOS="453" VPOS="1489" WIDTH="18"/>
+						<String ID="P1_ST00012" HPOS="471" VPOS="1463" WIDTH="25" HEIGHT="25" CONTENT="og" WC="0.85" CC="22"/>
+						<SP ID="P1_SP00007" HPOS="496" VPOS="1489" WIDTH="18"/>
+						<String ID="P1_ST00013" HPOS="514" VPOS="1459" WIDTH="30" HEIGHT="26" CONTENT="A." WC="0.85" CC="30"/>
+						<SP ID="P1_SP00008" HPOS="544" VPOS="1489" WIDTH="15"/>
+						<String ID="P1_ST00014" HPOS="559" VPOS="1457" WIDTH="40" HEIGHT="26" CONTENT="Ch." WC="0.58" CC="840"/>
+						<SP ID="P1_SP00009" HPOS="599" VPOS="1489" WIDTH="16"/>
+						<String ID="P1_ST00015" HPOS="615" VPOS="1457" WIDTH="88" HEIGHT="22" CONTENT="Ulsllns" WC="0.78" CC="2215203"/>
+						<SP ID="P1_SP00010" HPOS="703" VPOS="1489" WIDTH="16"/>
+						<String ID="P1_ST00016" HPOS="719" VPOS="1455" WIDTH="83" HEIGHT="28" CONTENT="Forlag" WC="0.86" CC="212211"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00008" HPOS="472" VPOS="1544" WIDTH="116" HEIGHT="28" STYLEREFS="TXT_3 PAR_CENTER">
+					<TextLine ID="P1_TL00007" HPOS="473" VPOS="1544" WIDTH="115" HEIGHT="28">
+						<String ID="P1_ST00017" HPOS="473" VPOS="1546" WIDTH="46" HEIGHT="26" CONTENT="18" WC="0.87" CC="12"/>
+						<SP ID="P1_SP00011" HPOS="519" VPOS="1572" WIDTH="14"/>
+						<String ID="P1_ST00018" HPOS="533" VPOS="1544" WIDTH="55" HEIGHT="28" CONTENT="49." WC="0.88" CC="212"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P1_CB00001" HPOS="310" VPOS="24" WIDTH="102" HEIGHT="33" TYPE="Formula">
+					<TextBlock ID="P1_TB00009" HPOS="310" VPOS="24" WIDTH="102" HEIGHT="33"/>
+				</ComposedBlock>
+				<ComposedBlock ID="P1_CB00002" HPOS="201" VPOS="116" WIDTH="748" HEIGHT="216" TYPE="Formula">
+					<TextBlock ID="P1_TB00010" HPOS="201" VPOS="116" WIDTH="748" HEIGHT="216" STYLEREFS="TXT_6 PAR_LEFT">
+						<TextLine ID="P1_TL00008" HPOS="203" VPOS="202" WIDTH="641" HEIGHT="67">
+							<String ID="P1_ST00019" HPOS="203" VPOS="203" WIDTH="323" HEIGHT="65" CONTENT="Geographisk" WC="0.86" CC="22211121222"/>
+							<SP ID="P1_SP00012" HPOS="526" VPOS="268" WIDTH="39"/>
+							<String ID="P1_ST00020" HPOS="565" VPOS="202" WIDTH="279" HEIGHT="67" CONTENT="Peskrivelse" WC="0.85" CC="41211022221"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="P1_CB00003" HPOS="193" VPOS="1271" WIDTH="678" HEIGHT="34" TYPE="Formula">
+					<TextBlock ID="P1_TB00011" HPOS="193" VPOS="1271" WIDTH="678" HEIGHT="34" STYLEREFS="TXT_7 PAR_LEFT">
+						<TextLine ID="P1_TL00009" HPOS="259" VPOS="1273" WIDTH="533" HEIGHT="32">
+							<String ID="P1_ST00021" HPOS="259" VPOS="1273" WIDTH="349" HEIGHT="32" CONTENT="o-^^^QS-e^-H^^i©^" WC="0.32" CC="61999273592899279"/>
+							<String ID="P1_ST00022" HPOS="613" VPOS="1277" WIDTH="162" HEIGHT="21" CONTENT="l^*-*^-*^-" WC="0.43" CC="1942991792"/>
+							<String ID="P1_ST00023" HPOS="779" VPOS="1278" WIDTH="13" HEIGHT="14" CONTENT="0" WC="0.85" CC="2"/>
+							<SP ID="P1_SP00013" HPOS="792" VPOS="1305" WIDTH="0"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+				<ComposedBlock ID="P1_CB00004" HPOS="379" VPOS="1376" WIDTH="303" HEIGHT="44" TYPE="Formula">
+					<TextBlock ID="P1_TB00012" HPOS="379" VPOS="1376" WIDTH="303" HEIGHT="44" STYLEREFS="TXT_8 PAR_CENTER">
+						<TextLine ID="P1_TL00010" HPOS="380" VPOS="1377" WIDTH="302" HEIGHT="43">
+							<String ID="P1_ST00024" HPOS="380" VPOS="1377" WIDTH="302" HEIGHT="43" CONTENT="Christiania." WC="0.82" CC="921013111120"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

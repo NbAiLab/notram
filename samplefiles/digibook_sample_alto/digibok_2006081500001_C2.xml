@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="//Produksjon5/docworks/docWORKSshare/schema/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/TR/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.0-7.25</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>Finereader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles/>
+	<Layout>
+		<Page ID="P234" PHYSICAL_IMG_NR="234" HEIGHT="921" WIDTH="90">
+			<TopMargin ID="P234_TM00001" HPOS="0" VPOS="0" WIDTH="90" HEIGHT="0"/>
+			<LeftMargin ID="P234_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="921"/>
+			<RightMargin ID="P234_RM00001" HPOS="90" VPOS="0" WIDTH="0" HEIGHT="921"/>
+			<BottomMargin ID="P234_BM00001" HPOS="0" VPOS="921" WIDTH="90" HEIGHT="0"/>
+			<PrintSpace ID="P234_PS00001" HPOS="0" VPOS="0" WIDTH="90" HEIGHT="921"/>
+		</Page>
+	</Layout>
+</alto>

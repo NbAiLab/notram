@@ -1,0 +1,16 @@
+tensorflow==2.2.0
+gin-config
+tensorflow_hub
+tensorflow_addons
+tqdm
+pandas
+scikit-learn
+google-cloud-storage
+spacy
+emoji
+unidecode
+cloud-tpu-client
+sentencepiece
+pandarallel
+ftfy
+pymods

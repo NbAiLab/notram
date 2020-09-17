@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="//Produksjon5/docworks/docWORKSshare/schema/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/TR/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.0-7.25</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>Finereader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="11" FONTFAMILY="Fraktur" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_1" FONTSIZE="11" FONTFAMILY="Fraktur" FONTSTYLE="italics"/>
+		<TextStyle ID="TXT_2" FONTSIZE="11" FONTFAMILY="Fraktur"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P237" PHYSICAL_IMG_NR="237" HEIGHT="909" WIDTH="591">
+			<TopMargin ID="P237_TM00001" HPOS="0" VPOS="0" WIDTH="591" HEIGHT="68">
+				<TextBlock ID="P237_TB00001" HPOS="484" VPOS="54" WIDTH="4" HEIGHT="12"/>
+			</TopMargin>
+			<LeftMargin ID="P237_LM00001" HPOS="0" VPOS="68" WIDTH="0" HEIGHT="1470"/>
+			<RightMargin ID="P237_RM00001" HPOS="953" VPOS="68" WIDTH="-362" HEIGHT="1470"/>
+			<BottomMargin ID="P237_BM00001" HPOS="0" VPOS="1538" WIDTH="591" HEIGHT="-629"/>
+			<PrintSpace ID="P237_PS00001" HPOS="0" VPOS="68" WIDTH="953" HEIGHT="1470">
+				<TextBlock ID="P237_TB00002" HPOS="245" VPOS="91" WIDTH="185" HEIGHT="63" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P237_TL00001" HPOS="389" VPOS="98" WIDTH="41" HEIGHT="47">
+						<String ID="P237_ST00001" HPOS="389" VPOS="98" WIDTH="41" HEIGHT="47" CONTENT="yC" WC="0.70" CC="24"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P237_TB00003" HPOS="82" VPOS="165" WIDTH="486" HEIGHT="71" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P237_TL00002" HPOS="160" VPOS="199" WIDTH="371" HEIGHT="37">
+						<String ID="P237_ST00002" HPOS="160" VPOS="226" WIDTH="6" HEIGHT="10" CONTENT="(f(" WC="0.37" CC="006" STYLEREFS="TXT_2"/>
+						<String ID="P237_ST00003" HPOS="164" VPOS="204" WIDTH="39" HEIGHT="32" CONTENT="fp" WC="0.44" CC="65"/>
+						<String ID="P237_ST00004" HPOS="206" VPOS="204" WIDTH="12" HEIGHT="17" CONTENT="r" WC="0.85" CC="2"/>
+						<String ID="P237_ST00005" HPOS="213" VPOS="206" WIDTH="15" HEIGHT="27" CONTENT="]-" WC="0.57" CC="53"/>
+						<String ID="P237_ST00006" HPOS="227" VPOS="226" WIDTH="5" HEIGHT="8" CONTENT="l" STYLE="subscript" WC="0.85" CC="2"/>
+						<String ID="P237_ST00007" HPOS="242" VPOS="205" WIDTH="67" HEIGHT="28" CONTENT="3ey6" WC="0.38" CC="8259"/>
+						<SP ID="P237_SP00001" HPOS="309" VPOS="236" WIDTH="35"/>
+						<String ID="P237_ST00008" HPOS="344" VPOS="210" WIDTH="96" HEIGHT="21" CONTENT="yfi^rt" WC="0.33" CC="333999"/>
+						<SP ID="P237_SP00002" HPOS="440" VPOS="236" WIDTH="8"/>
+						<String ID="P237_ST00009" HPOS="448" VPOS="199" WIDTH="75" HEIGHT="27" CONTENT="/*WI&gt;" WC="0.48" CC="19248" STYLEREFS="TXT_2"/>
+						<String ID="P237_ST00010" HPOS="523" VPOS="217" WIDTH="8" HEIGHT="11" CONTENT="■." WC="0.94" CC="11" STYLEREFS="TXT_2"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P237_TB00004" HPOS="55" VPOS="243" WIDTH="70" HEIGHT="47"/>
+				<TextBlock ID="P237_TB00005" HPOS="52" VPOS="516" WIDTH="35" HEIGHT="84"/>
+				<TextBlock ID="P237_TB00006" HPOS="517" VPOS="611" WIDTH="35" HEIGHT="44"/>
+				<TextBlock ID="P237_TB00007" HPOS="53" VPOS="834" WIDTH="71" HEIGHT="33"/>
+				<TextBlock ID="P237_TB00008" HPOS="473" VPOS="843" WIDTH="71" HEIGHT="39"/>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>
