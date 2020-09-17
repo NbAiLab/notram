@@ -9,6 +9,9 @@ from os import path
 
 from xmlHandler import xmlHandler
 
+content=""
+globalAntallOver98=0
+globalAntallOrd=0
 
 def findAllTextBlocks(filen,urn):
     blockList=[]
@@ -19,6 +22,10 @@ def findAllTextBlocks(filen,urn):
     findTextInTextBlocks(handler,urn,blockList)
 
 def findTextInTextBlocks(hdl,urn,bList):
+    global globalAntallOrd
+    global content
+    global globalAntallOver98
+
     for block in bList:
         searchString="Layout/Page/PrintSpace/TextBlock[@ID='" + block +"']"
         res = hdl.findAllNodes(searchString)
@@ -26,31 +33,59 @@ def findTextInTextBlocks(hdl,urn,bList):
             res3 = hdl.findInSub(i, "TextLine/String")
             localstr=""
             sumwc=0
+            antallOver98=0
+            antallOver95 = 0
             for k in res3:
-                if 'SUBS_TYPE' in k.attrib and k.attrib['SUBS_TYPE'].strip() =='HypPart':
-                    print("kkkkk")
+                if 'SUBS_TYPE' not in k.attrib:
+                    localstr += k.attrib['CONTENT'].strip()
+                    localwc = float(k.attrib['WC'].strip())
+                    sumwc += localwc
+                    localstr += " "
+                    if (localwc >= 0.98):
+                        antallOver98 += 1
+                        globalAntallOver98 += 1
+                    if (localwc >= 0.95):
+                        antallOver95 += 1
+                    globalAntallOrd += 1
 
+                elif 'SUBS_TYPE' in k.attrib and k.attrib['SUBS_TYPE'].strip() =='HypPart2':
+                    localstr += k.attrib['SUBS_CONTENT'].strip()
+                    localwc = float(k.attrib['WC'].strip())
+                    sumwc += localwc
+                    localstr += " "
+                    if (localwc >= 0.98):
+                        antallOver98 += 1
+                        globalAntallOver98 += 1
+                    if (localwc >= 0.95):
+                        antallOver95 += 1
+                    globalAntallOrd += 1
+                elif 'SUBS_TYPE' in k.attrib and k.attrib['SUBS_TYPE'].strip() == 'HypPart1':
+                    localwc = float(k.attrib['WC'].strip())
+                    sumwc += localwc
+                    if (localwc >= 0.98):
+                        antallOver98 += 1
+                        globalAntallOver98 += 1
+                    if (localwc >= 0.95):
+                        antallOver95 += 1
+                    globalAntallOrd += 1
 
-                localstr+=k.attrib['CONTENT'].strip()
-                localwc = float(k.attrib['WC'].strip())
-                sumwc+=localwc
-                localstr += " "
             if (len(res3)>0):
-                print(urn + " " + block + " " + " " + str(round(sumwc/len(res3),2)) )
-                print(localstr)
-                print("\n")
+                content+=urn + "_" + block + "_" + str(round(antallOver98/len(res3),2)) + "\n"
+                content+=localstr + "\n"
+                #globalAntallOrd += 1
+                #print(urn + "_" + block + "_" + str(round(antallOver98/len(res3),2)) )
+                #print(localstr)
+                #print("\n")
 
 
 def main(inputDir):
-    infiles = sorted(glob.glob(inputDir + '/digibok_[0-9]*_[0-9]*.xml'))
-    print(infiles)
-    sys.exit()
-    currentUrn=infiles[0].split('/')[-1].split('.')[0]
 
+    infiles = sorted(glob.glob(inputDir + '/digibok_[0-9]*_[0-9]*.xml'))
+    currentUrn=infiles[0].split('/')[-1].split('_')[0] + "_" + infiles[0].split('/')[-1].split('_')[1]
     for i in infiles:
         findAllTextBlocks(i,currentUrn)
-
-
+    print(currentUrn+ "_"+ str(round(globalAntallOver98/globalAntallOrd,2)))
+    print(content)
 
 
 def getStringFromTextblock(hdl,composedBlockNode,indexNo, outputDir):
