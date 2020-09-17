@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_C2.tiff</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="12" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_1" FONTSIZE="5" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_2" FONTSIZE="6" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_3" FONTSIZE="11" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_4" FONTSIZE="14" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P34" PHYSICAL_IMG_NR="34" HEIGHT="1773" WIDTH="134" PC="0.217">
+			<TopMargin ID="P34_TM00001" HPOS="0" VPOS="0" WIDTH="359" HEIGHT="0"/>
+			<LeftMargin ID="P34_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="4728"/>
+			<RightMargin ID="P34_RM00001" HPOS="357" VPOS="0" WIDTH="2" HEIGHT="4728"/>
+			<BottomMargin ID="P34_BM00001" HPOS="0" VPOS="4728" WIDTH="359" HEIGHT="1"/>
+			<PrintSpace ID="P34_PS00001" HPOS="0" VPOS="0" WIDTH="357" HEIGHT="4728">
+				<TextBlock ID="P34_TB00001" HPOS="85" VPOS="69" WIDTH="174" HEIGHT="324"/>
+				<TextBlock ID="P34_TB00002" HPOS="75" VPOS="1190" WIDTH="93" HEIGHT="65" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P34_TL00001" HPOS="28" VPOS="446" WIDTH="35" HEIGHT="25">
+						<String ID="P34_ST00001" HPOS="28" VPOS="446" WIDTH="35" HEIGHT="25" CONTENT="hå" WC="0.21" CC="87"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P34_TB00003" HPOS="83" VPOS="3138" WIDTH="124" HEIGHT="47" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P34_TL00002" HPOS="31" VPOS="1182" WIDTH="46" HEIGHT="12">
+						<String ID="P34_ST00002" HPOS="31" VPOS="1182" WIDTH="46" HEIGHT="12" CONTENT="i^J^L.." WC="0.22" CC="8898926"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P34_CB00001" HPOS="122" VPOS="3973" WIDTH="183" HEIGHT="565" TYPE="Table">
+					<TextBlock ID="P34_TB00004" HPOS="52" VPOS="1491" WIDTH="36" HEIGHT="161" STYLEREFS="TXT_2 PAR_LEFT">
+						<TextLine ID="P34_TL00003" HPOS="52" VPOS="1491" WIDTH="33" HEIGHT="16">
+							<String ID="P34_ST00003" HPOS="52" VPOS="1491" WIDTH="33" HEIGHT="16" CONTENT="(T\" WC="0.24" CC="597"/>
+						</TextLine>
+						<TextLine ID="P34_TL00004" HPOS="55" VPOS="1588" WIDTH="31" HEIGHT="27">
+							<String ID="P34_ST00004" HPOS="55" VPOS="1588" WIDTH="31" HEIGHT="27" CONTENT="tr" WC="0.85" CC="02" STYLEREFS="TXT_3"/>
+						</TextLine>
+						<TextLine ID="P34_TL00005" HPOS="55" VPOS="1615" WIDTH="31" HEIGHT="37">
+							<String ID="P34_ST00005" HPOS="55" VPOS="1615" WIDTH="31" HEIGHT="37" CONTENT="y" WC="0.08" CC="9" STYLEREFS="TXT_4"/>
+						</TextLine>
+					</TextBlock>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

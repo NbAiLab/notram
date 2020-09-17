@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0032.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="11" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_1" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P32" PHYSICAL_IMG_NR="32" HEIGHT="1702" WIDTH="1619" PC="0.905">
+			<TopMargin ID="P32_TM00001" HPOS="0" VPOS="0" WIDTH="4318" HEIGHT="0"/>
+			<LeftMargin ID="P32_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="4540"/>
+			<RightMargin ID="P32_RM00001" HPOS="4316" VPOS="0" WIDTH="2" HEIGHT="4540"/>
+			<BottomMargin ID="P32_BM00001" HPOS="0" VPOS="4540" WIDTH="4318" HEIGHT="2"/>
+			<PrintSpace ID="P32_PS00001" HPOS="0" VPOS="0" WIDTH="4316" HEIGHT="4540">
+				<TextBlock ID="P32_TB00001" HPOS="623" VPOS="1402" WIDTH="764" HEIGHT="354" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00001" HPOS="234" VPOS="526" WIDTH="276" HEIGHT="41">
+						<String ID="P32_ST00001" HPOS="234" VPOS="526" WIDTH="276" HEIGHT="41" CONTENT="Copyright©2oll" WC="0.67" CC="30650045050445"/>
+					</TextLine>
+					<TextLine ID="P32_TL00002" HPOS="234" VPOS="574" WIDTH="286" HEIGHT="39">
+						<String ID="P32_ST00002" HPOS="234" VPOS="575" WIDTH="107" HEIGHT="28" CONTENT="Embla" WC="0.99" CC="00036"/>
+						<SP ID="P32_SP00001" HPOS="341" VPOS="603" WIDTH="12"/>
+						<String ID="P32_ST00003" HPOS="353" VPOS="574" WIDTH="107" HEIGHT="39" CONTENT="Forlag" WC="0.98" CC="311008"/>
+						<SP ID="P32_SP00002" HPOS="460" VPOS="613" WIDTH="10"/>
+						<String ID="P32_ST00004" HPOS="470" VPOS="575" WIDTH="50" HEIGHT="28" CONTENT="AS" WC="0.96" CC="00"/>
+					</TextLine>
+					<TextLine ID="P32_TL00003" HPOS="234" VPOS="622" WIDTH="280" HEIGHT="36">
+						<String ID="P32_ST00005" HPOS="234" VPOS="622" WIDTH="146" HEIGHT="36" CONTENT="Kongens" WC="0.98" CC="0378040"/>
+						<SP ID="P32_SP00003" HPOS="380" VPOS="658" WIDTH="12"/>
+						<String ID="P32_ST00006" HPOS="392" VPOS="625" WIDTH="71" HEIGHT="33" CONTENT="gate" WC="0.96" CC="9080"/>
+						<SP ID="P32_SP00004" HPOS="463" VPOS="658" WIDTH="12"/>
+						<String ID="P32_ST00007" HPOS="475" VPOS="622" WIDTH="39" HEIGHT="27" CONTENT="28" WC="0.72" CC="50"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00002" HPOS="625" VPOS="1780" WIDTH="620" HEIGHT="101" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00004" HPOS="235" VPOS="668" WIDTH="232" HEIGHT="37">
+						<String ID="P32_ST00008" HPOS="235" VPOS="669" WIDTH="75" HEIGHT="27" CONTENT="7713" WC="0.82" CC="0150"/>
+						<SP ID="P32_SP00005" HPOS="310" VPOS="696" WIDTH="12"/>
+						<String ID="P32_ST00009" HPOS="322" VPOS="668" WIDTH="145" HEIGHT="37" CONTENT="Steinkjer" WC="1.00" CC="000000504"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00003" HPOS="623" VPOS="2025" WIDTH="1302" HEIGHT="229" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00005" HPOS="234" VPOS="760" WIDTH="488" HEIGHT="40">
+						<String ID="P32_ST00010" HPOS="234" VPOS="762" WIDTH="116" HEIGHT="38" CONTENT="E-post:" WC="0.82" CC="2050004"/>
+						<SP ID="P32_SP00006" HPOS="350" VPOS="800" WIDTH="12"/>
+						<String ID="P32_ST00011" HPOS="362" VPOS="760" WIDTH="360" HEIGHT="40" CONTENT="post@emblaforlag.no" WC="0.87" CC="0000003010523100203"/>
+					</TextLine>
+					<TextLine ID="P32_TL00006" HPOS="234" VPOS="807" WIDTH="361" HEIGHT="38">
+						<String ID="P32_ST00012" HPOS="234" VPOS="807" WIDTH="361" HEIGHT="38" CONTENT="www.emblaforlag.no" WC="0.78" CC="400100060623209300"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00004" HPOS="623" VPOS="2276" WIDTH="909" HEIGHT="198" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00007" HPOS="234" VPOS="853" WIDTH="328" HEIGHT="29">
+						<String ID="P32_ST00013" HPOS="234" VPOS="853" WIDTH="130" HEIGHT="29" CONTENT="Telefon:" WC="1.00" CC="10000200"/>
+						<SP ID="P32_SP00007" HPOS="364" VPOS="882" WIDTH="14"/>
+						<String ID="P32_ST00014" HPOS="378" VPOS="855" WIDTH="35" HEIGHT="27" CONTENT="74" WC="1.00" CC="00"/>
+						<SP ID="P32_SP00008" HPOS="413" VPOS="882" WIDTH="14"/>
+						<String ID="P32_ST00015" HPOS="427" VPOS="854" WIDTH="36" HEIGHT="28" CONTENT="16" WC="1.00" CC="00"/>
+						<SP ID="P32_SP00009" HPOS="463" VPOS="882" WIDTH="12"/>
+						<String ID="P32_ST00016" HPOS="475" VPOS="854" WIDTH="39" HEIGHT="28" CONTENT="40" WC="0.47" CC="64"/>
+						<SP ID="P32_SP00010" HPOS="514" VPOS="882" WIDTH="12"/>
+						<String ID="P32_ST00017" HPOS="526" VPOS="854" WIDTH="36" HEIGHT="28" CONTENT="00" WC="0.49" CC="54"/>
+					</TextLine>
+					<TextLine ID="P32_TL00008" HPOS="234" VPOS="900" WIDTH="341" HEIGHT="28">
+						<String ID="P32_ST00018" HPOS="234" VPOS="900" WIDTH="144" HEIGHT="28" CONTENT="Telefaks:" WC="1.00" CC="200060000"/>
+						<SP ID="P32_SP00011" HPOS="378" VPOS="928" WIDTH="13"/>
+						<String ID="P32_ST00019" HPOS="391" VPOS="901" WIDTH="36" HEIGHT="27" CONTENT="74" WC="1.00" CC="00"/>
+						<SP ID="P32_SP00012" HPOS="427" VPOS="928" WIDTH="14"/>
+						<String ID="P32_ST00020" HPOS="441" VPOS="901" WIDTH="36" HEIGHT="27" CONTENT="16" WC="1.00" CC="00"/>
+						<SP ID="P32_SP00013" HPOS="477" VPOS="928" WIDTH="12"/>
+						<String ID="P32_ST00021" HPOS="489" VPOS="901" WIDTH="39" HEIGHT="27" CONTENT="40" WC="0.76" CC="04"/>
+						<SP ID="P32_SP00014" HPOS="528" VPOS="928" WIDTH="12"/>
+						<String ID="P32_ST00022" HPOS="540" VPOS="901" WIDTH="35" HEIGHT="27" CONTENT="60" WC="0.92" CC="01"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00005" HPOS="628" VPOS="2643" WIDTH="842" HEIGHT="109" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00009" HPOS="236" VPOS="992" WIDTH="315" HEIGHT="40">
+						<String ID="P32_ST00023" HPOS="236" VPOS="994" WIDTH="50" HEIGHT="27" CONTENT="All" WC="1.00" CC="000"/>
+						<SP ID="P32_SP00015" HPOS="286" VPOS="1021" WIDTH="12"/>
+						<String ID="P32_ST00024" HPOS="298" VPOS="992" WIDTH="94" HEIGHT="40" CONTENT="rights" WC="0.99" CC="008600"/>
+						<SP ID="P32_SP00016" HPOS="392" VPOS="1032" WIDTH="12"/>
+						<String ID="P32_ST00025" HPOS="404" VPOS="994" WIDTH="147" HEIGHT="27" CONTENT="reserved" WC="0.99" CC="00000000"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00006" HPOS="627" VPOS="2894" WIDTH="1364" HEIGHT="105" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00010" HPOS="235" VPOS="1086" WIDTH="512" HEIGHT="39">
+						<String ID="P32_ST00026" HPOS="235" VPOS="1087" WIDTH="230" HEIGHT="38" CONTENT="Illustrasjoner:" WC="0.84" CC="002000210600055"/>
+						<SP ID="P32_SP00017" HPOS="465" VPOS="1125" WIDTH="14"/>
+						<String ID="P32_ST00027" HPOS="479" VPOS="1087" WIDTH="125" HEIGHT="38" CONTENT="Solveig" WC="1.00" CC="0100000"/>
+						<SP ID="P32_SP00018" HPOS="604" VPOS="1125" WIDTH="11"/>
+						<String ID="P32_ST00028" HPOS="615" VPOS="1086" WIDTH="54" HEIGHT="28" CONTENT="Lid" WC="0.98" CC="600"/>
+						<SP ID="P32_SP00019" HPOS="669" VPOS="1125" WIDTH="13"/>
+						<String ID="P32_ST00029" HPOS="682" VPOS="1086" WIDTH="65" HEIGHT="29" CONTENT="Ball" WC="0.98" CC="4021"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00007" HPOS="630" VPOS="3146" WIDTH="1082" HEIGHT="76" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00011" HPOS="236" VPOS="1181" WIDTH="406" HEIGHT="27">
+						<String ID="P32_ST00030" HPOS="236" VPOS="1181" WIDTH="95" HEIGHT="27" CONTENT="ISBN:" WC="0.98" CC="00525"/>
+						<SP ID="P32_SP00020" HPOS="331" VPOS="1208" WIDTH="12"/>
+						<String ID="P32_ST00031" HPOS="343" VPOS="1181" WIDTH="299" HEIGHT="27" CONTENT="978-82-92577-60-8" WC="0.86" CC="03040702500000000"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P32_TB00008" HPOS="627" VPOS="3268" WIDTH="1959" HEIGHT="100" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P32_TL00012" HPOS="236" VPOS="1227" WIDTH="734" HEIGHT="36">
+						<String ID="P32_ST00032" HPOS="236" VPOS="1227" WIDTH="92" HEIGHT="36" CONTENT="Trykk" WC="0.99" CC="02600"/>
+						<SP ID="P32_SP00021" HPOS="328" VPOS="1263" WIDTH="10"/>
+						<String ID="P32_ST00033" HPOS="338" VPOS="1237" WIDTH="34" HEIGHT="26" CONTENT="og" WC="0.97" CC="00"/>
+						<SP ID="P32_SP00022" HPOS="372" VPOS="1263" WIDTH="10"/>
+						<String ID="P32_ST00034" HPOS="382" VPOS="1227" WIDTH="182" HEIGHT="36" CONTENT="innbinding:" WC="1.00" CC="03000000404"/>
+						<SP ID="P32_SP00023" HPOS="564" VPOS="1263" WIDTH="12"/>
+						<String ID="P32_ST00035" HPOS="576" VPOS="1228" WIDTH="112" HEIGHT="26" CONTENT="Livonia" WC="0.89" CC="0102002"/>
+						<SP ID="P32_SP00024" HPOS="688" VPOS="1263" WIDTH="11"/>
+						<String ID="P32_ST00036" HPOS="699" VPOS="1228" WIDTH="89" HEIGHT="30" CONTENT="Print," WC="0.88" CC="000007"/>
+						<SP ID="P32_SP00025" HPOS="788" VPOS="1263" WIDTH="12"/>
+						<String ID="P32_ST00037" HPOS="800" VPOS="1228" WIDTH="89" HEIGHT="26" CONTENT="Latvia" WC="0.99" CC="600000"/>
+						<SP ID="P32_SP00026" HPOS="889" VPOS="1263" WIDTH="11"/>
+						<String ID="P32_ST00038" HPOS="900" VPOS="1228" WIDTH="70" HEIGHT="26" CONTENT="2011" WC="0.87" CC="0500"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P32_CB00001" HPOS="2679" VPOS="2316" WIDTH="1573" HEIGHT="2220" STYLEREFS="TXT_1 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P32_CB00001_SUB" HPOS="2679" VPOS="2316" WIDTH="1573" HEIGHT="2220"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

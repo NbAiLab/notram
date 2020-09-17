@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0025.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="20" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_1" FONTSIZE="12" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_2" FONTSIZE="9" FONTFAMILY="Times New Roman" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_3" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P25" PHYSICAL_IMG_NR="25" HEIGHT="1702" WIDTH="1624" PC="0.938">
+			<TopMargin ID="P25_TM00001" HPOS="0" VPOS="0" WIDTH="4330" HEIGHT="737"/>
+			<LeftMargin ID="P25_LM00001" HPOS="0" VPOS="737" WIDTH="7" HEIGHT="3417"/>
+			<RightMargin ID="P25_RM00001" HPOS="3629" VPOS="737" WIDTH="701" HEIGHT="3417"/>
+			<BottomMargin ID="P25_BM00001" HPOS="0" VPOS="4154" WIDTH="4330" HEIGHT="386"/>
+			<PrintSpace ID="P25_PS00001" HPOS="7" VPOS="737" WIDTH="3622" HEIGHT="3417">
+				<TextBlock ID="P25_TB00001" HPOS="989" VPOS="958" WIDTH="2640" HEIGHT="1773" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P25_TL00001" HPOS="376" VPOS="359" WIDTH="897" HEIGHT="77">
+						<String ID="P25_ST00001" HPOS="376" VPOS="362" WIDTH="93" HEIGHT="51" CONTENT="Nå" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00001" HPOS="469" VPOS="413" WIDTH="22"/>
+						<String ID="P25_ST00002" HPOS="491" VPOS="379" WIDTH="98" HEIGHT="34" CONTENT="var" WC="0.96" CC="055"/>
+						<SP ID="P25_SP00002" HPOS="589" VPOS="413" WIDTH="21"/>
+						<String ID="P25_ST00003" HPOS="610" VPOS="363" WIDTH="72" HEIGHT="51" CONTENT="de" WC="0.85" CC="02"/>
+						<SP ID="P25_SP00003" HPOS="682" VPOS="414" WIDTH="21"/>
+						<String ID="P25_ST00004" HPOS="703" VPOS="359" WIDTH="225" HEIGHT="57" CONTENT="hundre" WC="0.98" CC="656043"/>
+						<SP ID="P25_SP00004" HPOS="928" VPOS="416" WIDTH="24"/>
+						<String ID="P25_ST00005" HPOS="952" VPOS="365" WIDTH="165" HEIGHT="52" CONTENT="årene" WC="1.00" CC="00020"/>
+						<SP ID="P25_SP00005" HPOS="1117" VPOS="417" WIDTH="21"/>
+						<String ID="P25_ST00006" HPOS="1138" VPOS="367" WIDTH="135" HEIGHT="69" CONTENT="gått," WC="0.98" CC="80002"/>
+					</TextLine>
+					<TextLine ID="P25_TL00002" HPOS="376" VPOS="448" WIDTH="853" HEIGHT="68">
+						<String ID="P25_ST00007" HPOS="376" VPOS="462" WIDTH="77" HEIGHT="54" CONTENT="og" WC="0.56" CC="08"/>
+						<SP ID="P25_SP00006" HPOS="453" VPOS="516" WIDTH="21"/>
+						<String ID="P25_ST00008" HPOS="474" VPOS="448" WIDTH="304" HEIGHT="51" CONTENT="Tornerose" WC="1.00" CC="004000000"/>
+						<SP ID="P25_SP00007" HPOS="778" VPOS="516" WIDTH="22"/>
+						<String ID="P25_ST00009" HPOS="800" VPOS="448" WIDTH="180" HEIGHT="53" CONTENT="skulle" WC="0.98" CC="406400"/>
+						<SP ID="P25_SP00008" HPOS="980" VPOS="516" WIDTH="22"/>
+						<String ID="P25_ST00010" HPOS="1002" VPOS="450" WIDTH="227" HEIGHT="52" CONTENT="vekkes." WC="0.99" CC="0000044"/>
+					</TextLine>
+					<TextLine ID="P25_TL00003" HPOS="374" VPOS="532" WIDTH="724" HEIGHT="73">
+						<String ID="P25_ST00011" HPOS="374" VPOS="532" WIDTH="89" HEIGHT="50" CONTENT="Da" WC="0.73" CC="04"/>
+						<SP ID="P25_SP00009" HPOS="463" VPOS="582" WIDTH="23"/>
+						<String ID="P25_ST00012" HPOS="486" VPOS="534" WIDTH="233" HEIGHT="67" CONTENT="prinsen" WC="0.99" CC="3100304"/>
+						<SP ID="P25_SP00010" HPOS="719" VPOS="601" WIDTH="20"/>
+						<String ID="P25_ST00013" HPOS="739" VPOS="541" WIDTH="240" HEIGHT="45" CONTENT="nærmet" WC="0.89" CC="006000"/>
+						<SP ID="P25_SP00011" HPOS="979" VPOS="601" WIDTH="21"/>
+						<String ID="P25_ST00014" HPOS="1000" VPOS="552" WIDTH="98" HEIGHT="53" CONTENT="seg" WC="0.96" CC="209"/>
+					</TextLine>
+					<TextLine ID="P25_TL00004" HPOS="374" VPOS="612" WIDTH="961" HEIGHT="66">
+						<String ID="P25_ST00015" HPOS="374" VPOS="612" WIDTH="408" HEIGHT="66" CONTENT="tornehekken," WC="0.77" CC="006702000441"/>
+						<SP ID="P25_SP00012" HPOS="782" VPOS="678" WIDTH="24"/>
+						<String ID="P25_ST00016" HPOS="806" VPOS="619" WIDTH="59" HEIGHT="50" CONTENT="så" WC="0.89" CC="20"/>
+						<SP ID="P25_SP00013" HPOS="865" VPOS="678" WIDTH="19"/>
+						<String ID="P25_ST00017" HPOS="884" VPOS="614" WIDTH="119" HEIGHT="55" CONTENT="han" WC="0.95" CC="507"/>
+						<SP ID="P25_SP00014" HPOS="1003" VPOS="678" WIDTH="21"/>
+						<String ID="P25_ST00018" HPOS="1024" VPOS="627" WIDTH="54" HEIGHT="44" CONTENT="at" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00015" HPOS="1078" VPOS="678" WIDTH="21"/>
+						<String ID="P25_ST00019" HPOS="1099" VPOS="620" WIDTH="114" HEIGHT="51" CONTENT="den" WC="1.00" CC="000"/>
+						<SP ID="P25_SP00016" HPOS="1213" VPOS="678" WIDTH="21"/>
+						<String ID="P25_ST00020" HPOS="1234" VPOS="638" WIDTH="101" HEIGHT="34" CONTENT="var" WC="0.98" CC="006"/>
+					</TextLine>
+					<TextLine ID="P25_TL00005" HPOS="374" VPOS="698" WIDTH="987" HEIGHT="65">
+						<String ID="P25_ST00021" HPOS="374" VPOS="698" WIDTH="106" HEIGHT="53" CONTENT="full" WC="0.98" CC="4500"/>
+						<SP ID="P25_SP00017" HPOS="480" VPOS="751" WIDTH="23"/>
+						<String ID="P25_ST00022" HPOS="503" VPOS="717" WIDTH="70" HEIGHT="34" CONTENT="av" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00018" HPOS="573" VPOS="751" WIDTH="19"/>
+						<String ID="P25_ST00023" HPOS="592" VPOS="708" WIDTH="166" HEIGHT="55" CONTENT="store," WC="0.99" CC="000502"/>
+						<SP ID="P25_SP00019" HPOS="758" VPOS="763" WIDTH="23"/>
+						<String ID="P25_ST00024" HPOS="781" VPOS="702" WIDTH="169" HEIGHT="53" CONTENT="vakre" WC="0.99" CC="00060"/>
+						<SP ID="P25_SP00020" HPOS="950" VPOS="763" WIDTH="20"/>
+						<String ID="P25_ST00025" HPOS="970" VPOS="703" WIDTH="285" HEIGHT="53" CONTENT="blomster." WC="1.00" CC="000000004"/>
+						<SP ID="P25_SP00021" HPOS="1255" VPOS="763" WIDTH="23"/>
+						<String ID="P25_ST00026" HPOS="1278" VPOS="707" WIDTH="83" HEIGHT="50" CONTENT="De" WC="1.00" CC="00"/>
+					</TextLine>
+					<TextLine ID="P25_TL00006" HPOS="373" VPOS="783" WIDTH="943" HEIGHT="76">
+						<String ID="P25_ST00027" HPOS="373" VPOS="784" WIDTH="114" HEIGHT="52" CONTENT="vek" WC="1.00" CC="000"/>
+						<SP ID="P25_SP00022" HPOS="487" VPOS="836" WIDTH="20"/>
+						<String ID="P25_ST00028" HPOS="507" VPOS="784" WIDTH="59" HEIGHT="52" CONTENT="til" WC="0.99" CC="001"/>
+						<SP ID="P25_SP00023" HPOS="566" VPOS="836" WIDTH="21"/>
+						<String ID="P25_ST00029" HPOS="587" VPOS="786" WIDTH="123" HEIGHT="51" CONTENT="side" WC="1.00" CC="0000"/>
+						<SP ID="P25_SP00024" HPOS="710" VPOS="837" WIDTH="24"/>
+						<String ID="P25_ST00030" HPOS="734" VPOS="786" WIDTH="75" HEIGHT="52" CONTENT="da" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00025" HPOS="809" VPOS="838" WIDTH="18"/>
+						<String ID="P25_ST00031" HPOS="827" VPOS="783" WIDTH="116" HEIGHT="55" CONTENT="han" WC="0.98" CC="005"/>
+						<SP ID="P25_SP00026" HPOS="943" VPOS="838" WIDTH="20"/>
+						<String ID="P25_ST00032" HPOS="963" VPOS="788" WIDTH="152" HEIGHT="62" CONTENT="kom," WC="1.00" CC="0002"/>
+						<SP ID="P25_SP00027" HPOS="1115" VPOS="850" WIDTH="23"/>
+						<String ID="P25_ST00033" HPOS="1138" VPOS="807" WIDTH="76" HEIGHT="52" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00028" HPOS="1214" VPOS="859" WIDTH="20"/>
+						<String ID="P25_ST00034" HPOS="1234" VPOS="790" WIDTH="82" HEIGHT="52" CONTENT="lot" WC="1.00" CC="000"/>
+					</TextLine>
+					<TextLine ID="P25_TL00007" HPOS="371" VPOS="864" WIDTH="924" HEIGHT="79">
+						<String ID="P25_ST00035" HPOS="371" VPOS="864" WIDTH="141" HEIGHT="56" CONTENT="ham" WC="1.00" CC="000"/>
+						<SP ID="P25_SP00029" HPOS="512" VPOS="920" WIDTH="21"/>
+						<String ID="P25_ST00036" HPOS="533" VPOS="869" WIDTH="183" HEIGHT="71" CONTENT="slippe" WC="0.76" CC="000670"/>
+						<SP ID="P25_SP00030" HPOS="716" VPOS="940" WIDTH="22"/>
+						<String ID="P25_ST00037" HPOS="738" VPOS="871" WIDTH="230" HEIGHT="52" CONTENT="uskadd" WC="0.99" CC="630000"/>
+						<SP ID="P25_SP00031" HPOS="968" VPOS="940" WIDTH="21"/>
+						<String ID="P25_ST00038" HPOS="989" VPOS="875" WIDTH="306" HEIGHT="68" CONTENT="igjennom." WC="0.99" CC="006005004"/>
+					</TextLine>
+					<TextLine ID="P25_TL00008" HPOS="371" VPOS="953" WIDTH="736" HEIGHT="71">
+						<String ID="P25_ST00039" HPOS="371" VPOS="955" WIDTH="21" HEIGHT="49" CONTENT="I" WC="1.00" CC="0"/>
+						<SP ID="P25_SP00032" HPOS="392" VPOS="1004" WIDTH="22"/>
+						<String ID="P25_ST00040" HPOS="414" VPOS="953" WIDTH="385" HEIGHT="71" CONTENT="slottsgården" WC="0.96" CC="000000000005"/>
+						<SP ID="P25_SP00033" HPOS="799" VPOS="1024" WIDTH="19"/>
+						<String ID="P25_ST00041" HPOS="818" VPOS="957" WIDTH="60" HEIGHT="51" CONTENT="så" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00034" HPOS="878" VPOS="1024" WIDTH="19"/>
+						<String ID="P25_ST00042" HPOS="897" VPOS="953" WIDTH="119" HEIGHT="56" CONTENT="han" WC="0.98" CC="006"/>
+						<SP ID="P25_SP00035" HPOS="1016" VPOS="1024" WIDTH="21"/>
+						<String ID="P25_ST00043" HPOS="1037" VPOS="957" WIDTH="70" HEIGHT="53" CONTENT="de" WC="1.00" CC="00"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P25_TB00002" HPOS="146" VPOS="2427" WIDTH="52" HEIGHT="67" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P25_TL00009" HPOS="55" VPOS="910" WIDTH="12" HEIGHT="25">
+						<String ID="P25_ST00044" HPOS="55" VPOS="910" WIDTH="12" HEIGHT="25" CONTENT="i" WC="0.43" CC="5"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P25_TB00003" HPOS="986" VPOS="2764" WIDTH="2526" HEIGHT="604" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P25_TL00010" HPOS="372" VPOS="1036" WIDTH="945" HEIGHT="74">
+						<String ID="P25_ST00045" HPOS="372" VPOS="1038" WIDTH="255" HEIGHT="52" CONTENT="sovende" WC="0.91" CC="0000600"/>
+						<SP ID="P25_SP00036" HPOS="627" VPOS="1090" WIDTH="17"/>
+						<String ID="P25_ST00046" HPOS="644" VPOS="1036" WIDTH="410" HEIGHT="74" CONTENT="jakthundene," WC="0.81" CC="600004400501"/>
+						<SP ID="P25_SP00037" HPOS="1054" VPOS="1110" WIDTH="23"/>
+						<String ID="P25_ST00047" HPOS="1077" VPOS="1045" WIDTH="16" HEIGHT="48" CONTENT="i" WC="1.00" CC="0"/>
+						<SP ID="P25_SP00038" HPOS="1093" VPOS="1110" WIDTH="22"/>
+						<String ID="P25_ST00048" HPOS="1115" VPOS="1043" WIDTH="202" HEIGHT="52" CONTENT="stallen" WC="1.00" CC="0000000"/>
+					</TextLine>
+					<TextLine ID="P25_TL00011" HPOS="371" VPOS="1118" WIDTH="835" HEIGHT="80">
+						<String ID="P25_ST00049" HPOS="371" VPOS="1123" WIDTH="62" HEIGHT="51" CONTENT="så" WC="0.80" CC="40"/>
+						<SP ID="P25_SP00039" HPOS="433" VPOS="1174" WIDTH="21"/>
+						<String ID="P25_ST00050" HPOS="454" VPOS="1118" WIDTH="117" HEIGHT="56" CONTENT="han" WC="0.98" CC="005"/>
+						<SP ID="P25_SP00040" HPOS="571" VPOS="1174" WIDTH="17"/>
+						<String ID="P25_ST00051" HPOS="588" VPOS="1120" WIDTH="251" HEIGHT="66" CONTENT="hestene," WC="0.88" CC="00300402"/>
+						<SP ID="P25_SP00041" HPOS="839" VPOS="1186" WIDTH="24"/>
+						<String ID="P25_ST00052" HPOS="863" VPOS="1143" WIDTH="74" HEIGHT="54" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00042" HPOS="937" VPOS="1197" WIDTH="21"/>
+						<String ID="P25_ST00053" HPOS="958" VPOS="1144" WIDTH="152" HEIGHT="53" CONTENT="oppe" WC="1.00" CC="0000"/>
+						<SP ID="P25_SP00043" HPOS="1110" VPOS="1197" WIDTH="21"/>
+						<String ID="P25_ST00054" HPOS="1131" VPOS="1129" WIDTH="75" HEIGHT="69" CONTENT="på" WC="1.00" CC="00"/>
+					</TextLine>
+					<TextLine ID="P25_TL00012" HPOS="370" VPOS="1205" WIDTH="862" HEIGHT="58">
+						<String ID="P25_ST00055" HPOS="370" VPOS="1206" WIDTH="156" HEIGHT="53" CONTENT="taket" WC="1.00" CC="00000"/>
+						<SP ID="P25_SP00044" HPOS="526" VPOS="1259" WIDTH="19"/>
+						<String ID="P25_ST00056" HPOS="545" VPOS="1209" WIDTH="59" HEIGHT="50" CONTENT="så" WC="1.00" CC="00"/>
+						<SP ID="P25_SP00045" HPOS="604" VPOS="1259" WIDTH="19"/>
+						<String ID="P25_ST00057" HPOS="623" VPOS="1205" WIDTH="120" HEIGHT="55" CONTENT="han" WC="0.96" CC="054"/>
+						<SP ID="P25_SP00046" HPOS="743" VPOS="1260" WIDTH="21"/>
+						<String ID="P25_ST00058" HPOS="764" VPOS="1209" WIDTH="188" HEIGHT="53" CONTENT="duene" WC="0.99" CC="03060"/>
+						<SP ID="P25_SP00047" HPOS="952" VPOS="1262" WIDTH="23"/>
+						<String ID="P25_ST00059" HPOS="975" VPOS="1228" WIDTH="126" HEIGHT="35" CONTENT="som" WC="1.00" CC="000"/>
+						<SP ID="P25_SP00048" HPOS="1101" VPOS="1263" WIDTH="21"/>
+						<String ID="P25_ST00060" HPOS="1122" VPOS="1219" WIDTH="110" HEIGHT="44" CONTENT="satt" WC="0.99" CC="4000"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P25_TB00004" HPOS="982" VPOS="3434" WIDTH="2098" HEIGHT="208" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P25_TL00013" HPOS="369" VPOS="1288" WIDTH="786" HEIGHT="78">
+						<String ID="P25_ST00061" HPOS="369" VPOS="1291" WIDTH="139" HEIGHT="52" CONTENT="med" WC="1.00" CC="000"/>
+						<SP ID="P25_SP00049" HPOS="508" VPOS="1343" WIDTH="20"/>
+						<String ID="P25_ST00062" HPOS="528" VPOS="1288" WIDTH="177" HEIGHT="57" CONTENT="hodet" WC="1.00" CC="00000"/>
+						<SP ID="P25_SP00050" HPOS="705" VPOS="1345" WIDTH="20"/>
+						<String ID="P25_ST00063" HPOS="725" VPOS="1294" WIDTH="185" HEIGHT="52" CONTENT="under" WC="0.98" CC="61005"/>
+						<SP ID="P25_SP00051" HPOS="910" VPOS="1346" WIDTH="20"/>
+						<String ID="P25_ST00064" HPOS="930" VPOS="1298" WIDTH="225" HEIGHT="68" CONTENT="vingen." WC="0.99" CC="0040044"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P25_TB00005" HPOS="562" VPOS="3776" WIDTH="229" HEIGHT="205" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P25_TL00014" HPOS="216" VPOS="1416" WIDTH="71" HEIGHT="33">
+						<String ID="P25_ST00065" HPOS="216" VPOS="1416" WIDTH="71" HEIGHT="33" CONTENT="*•«$&amp;" WC="0.18" CC="68789"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P25_TB00006" HPOS="102" VPOS="3888" WIDTH="118" HEIGHT="95"/>
+				<TextBlock ID="P25_TB00007" HPOS="247" VPOS="3978" WIDTH="7" HEIGHT="22"/>
+				<TextBlock ID="P25_TB00008" HPOS="300" VPOS="4015" WIDTH="487" HEIGHT="139"/>
+				<ComposedBlock ID="P25_CB00001" HPOS="14" VPOS="737" WIDTH="800" HEIGHT="1662" STYLEREFS="TXT_3 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P25_CB00001_SUB" HPOS="14" VPOS="737" WIDTH="800" HEIGHT="1662"/>
+				</ComposedBlock>
+				<ComposedBlock ID="P25_CB00002" HPOS="7" VPOS="2559" WIDTH="794" HEIGHT="1222" STYLEREFS="TXT_3 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P25_CB00002_SUB" HPOS="7" VPOS="2559" WIDTH="794" HEIGHT="1222"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

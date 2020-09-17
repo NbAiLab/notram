@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_C1.tiff</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="11" FONTFAMILY="Times New Roman" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_1" FONTSIZE="44" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_2" FONTSIZE="12" FONTFAMILY="Times New Roman" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_3" FONTSIZE="34" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_4" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P33" PHYSICAL_IMG_NR="33" HEIGHT="1773" WIDTH="1690" PC="0.233">
+			<TopMargin ID="P33_TM00001" HPOS="0" VPOS="0" WIDTH="4509" HEIGHT="759"/>
+			<LeftMargin ID="P33_LM00001" HPOS="0" VPOS="759" WIDTH="0" HEIGHT="3967"/>
+			<RightMargin ID="P33_RM00001" HPOS="4506" VPOS="759" WIDTH="3" HEIGHT="3967"/>
+			<BottomMargin ID="P33_BM00001" HPOS="0" VPOS="4726" WIDTH="4509" HEIGHT="3"/>
+			<PrintSpace ID="P33_PS00001" HPOS="0" VPOS="759" WIDTH="4506" HEIGHT="3967">
+				<TextBlock ID="P33_TB00001" HPOS="2709" VPOS="820" WIDTH="24" HEIGHT="23" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P33_TL00001" HPOS="1016" VPOS="307" WIDTH="9" HEIGHT="9">
+						<String ID="P33_ST00001" HPOS="1016" VPOS="307" WIDTH="9" HEIGHT="9" CONTENT="w" WC="0.17" CC="8"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P33_TB00002" HPOS="1497" VPOS="914" WIDTH="594" HEIGHT="288" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P33_TL00002" HPOS="561" VPOS="343" WIDTH="223" HEIGHT="108">
+						<String ID="P33_ST00002" HPOS="561" VPOS="343" WIDTH="223" HEIGHT="108" CONTENT="LUI" WC="0.43" CC="681"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P33_TB00003" HPOS="2377" VPOS="918" WIDTH="33" HEIGHT="56" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P33_TL00003" HPOS="892" VPOS="344" WIDTH="12" HEIGHT="21">
+						<String ID="P33_ST00003" HPOS="892" VPOS="344" WIDTH="12" HEIGHT="21" CONTENT="%" WC="0.05" CC="9"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P33_TB00004" HPOS="2933" VPOS="904" WIDTH="720" HEIGHT="215" STYLEREFS="TXT_3 PAR_LEFT">
+					<TextLine ID="P33_TL00004" HPOS="1100" VPOS="339" WIDTH="270" HEIGHT="81">
+						<String ID="P33_ST00004" HPOS="1100" VPOS="339" WIDTH="270" HEIGHT="81" CONTENT="IKH&lt;" WC="0.28" CC="3779"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P33_TB00005" HPOS="3627" VPOS="3068" WIDTH="239" HEIGHT="136"/>
+				<TextBlock ID="P33_TB00006" HPOS="276" VPOS="3299" WIDTH="97" HEIGHT="100"/>
+				<TextBlock ID="P33_TB00007" HPOS="210" VPOS="3465" WIDTH="268" HEIGHT="103"/>
+				<TextBlock ID="P33_TB00008" HPOS="218" VPOS="3568" WIDTH="151" HEIGHT="103"/>
+				<TextBlock ID="P33_TB00009" HPOS="176" VPOS="3647" WIDTH="227" HEIGHT="141"/>
+				<TextBlock ID="P33_TB00010" HPOS="2708" VPOS="4521" WIDTH="452" HEIGHT="134"/>
+				<ComposedBlock ID="P33_CB00001" HPOS="0" VPOS="1346" WIDTH="4047" HEIGHT="1643" STYLEREFS="TXT_4 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P33_CB00001_SUB" HPOS="0" VPOS="1346" WIDTH="4047" HEIGHT="1643"/>
+				</ComposedBlock>
+				<ComposedBlock ID="P33_CB00002" HPOS="782" VPOS="3620" WIDTH="2547" HEIGHT="823" STYLEREFS="TXT_4 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P33_CB00002_SUB" HPOS="782" VPOS="3620" WIDTH="2547" HEIGHT="823"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

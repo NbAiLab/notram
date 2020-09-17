@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0001.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="11" FONTFAMILY="Arial"/>
+		<TextStyle ID="TXT_1" FONTSIZE="9" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_2" FONTSIZE="21" FONTFAMILY="Times New Roman" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_3" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P1" PHYSICAL_IMG_NR="1" HEIGHT="1702" WIDTH="1615" PC="0.400">
+			<TopMargin ID="P1_TM00001" HPOS="0" VPOS="0" WIDTH="4310" HEIGHT="0"/>
+			<LeftMargin ID="P1_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="4538"/>
+			<RightMargin ID="P1_RM00001" HPOS="4308" VPOS="0" WIDTH="2" HEIGHT="4538"/>
+			<BottomMargin ID="P1_BM00001" HPOS="0" VPOS="4538" WIDTH="4310" HEIGHT="2"/>
+			<PrintSpace ID="P1_PS00001" HPOS="0" VPOS="0" WIDTH="4308" HEIGHT="4538">
+				<TextBlock ID="P1_TB00001" HPOS="1446" VPOS="301" WIDTH="1019" HEIGHT="341" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P1_TL00001" HPOS="556" VPOS="162" WIDTH="369" HEIGHT="46">
+						<String ID="P1_ST00001" HPOS="556" VPOS="162" WIDTH="52" HEIGHT="39" CONTENT="■" WC="0.20" CC="8"/>
+						<SP ID="P1_SP00001" HPOS="608" VPOS="201" WIDTH="10"/>
+						<String ID="P1_ST00002" HPOS="618" VPOS="166" WIDTH="307" HEIGHT="42" CONTENT="Nasjonalbiblioteket" WC="0.99" CC="9760776545650065200"/>
+					</TextLine>
+					<TextLine ID="P1_TL00002" HPOS="616" VPOS="207" WIDTH="234" HEIGHT="34">
+						<String ID="P1_ST00003" HPOS="616" VPOS="207" WIDTH="234" HEIGHT="34" CONTENT="Depotfoiblioteket" WC="0.25" CC="88888778887844856" STYLEREFS="TXT_1"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P1_TB00002" HPOS="1368" VPOS="3642" WIDTH="1556" HEIGHT="234" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P1_TL00003" HPOS="514" VPOS="1366" WIDTH="583" HEIGHT="88">
+						<String ID="P1_ST00004" HPOS="514" VPOS="1366" WIDTH="583" HEIGHT="88" CONTENT="ltAdLKp?OKL\Q" WC="0.16" CC="8886799868888"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P1_CB00001" HPOS="1097" VPOS="1792" WIDTH="1980" HEIGHT="1549" STYLEREFS="TXT_3 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P1_CB00001_SUB" HPOS="1097" VPOS="1792" WIDTH="1980" HEIGHT="1549"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

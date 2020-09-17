@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0019.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="20" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_1" FONTSIZE="33" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_2" FONTSIZE="45" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_3" FONTSIZE="1" FONTFAMILY="Arial"/>
+		<TextStyle ID="TXT_4" FONTSIZE="12" FONTFAMILY="Times New Roman" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_5" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P19" PHYSICAL_IMG_NR="19" HEIGHT="1702" WIDTH="1626" PC="0.837">
+			<TopMargin ID="P19_TM00001" HPOS="0" VPOS="0" WIDTH="4338" HEIGHT="0"/>
+			<LeftMargin ID="P19_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="4538"/>
+			<RightMargin ID="P19_RM00001" HPOS="4337" VPOS="0" WIDTH="1" HEIGHT="4538"/>
+			<BottomMargin ID="P19_BM00001" HPOS="0" VPOS="4538" WIDTH="4338" HEIGHT="2"/>
+			<PrintSpace ID="P19_PS00001" HPOS="0" VPOS="0" WIDTH="4337" HEIGHT="4538">
+				<TextBlock ID="P19_TB00001" HPOS="1223" VPOS="982" WIDTH="1786" HEIGHT="835" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P19_TL00001" HPOS="635" VPOS="369" WIDTH="333" HEIGHT="53">
+						<String ID="P19_ST00001" HPOS="635" VPOS="369" WIDTH="138" HEIGHT="51" CONTENT="Men" WC="0.97" CC="006"/>
+						<SP ID="P19_SP00001" HPOS="773" VPOS="420" WIDTH="21"/>
+						<String ID="P19_ST00002" HPOS="794" VPOS="370" WIDTH="174" HEIGHT="52" CONTENT="rundt" WC="0.98" CC="26600"/>
+					</TextLine>
+					<TextLine ID="P19_TL00002" HPOS="597" VPOS="451" WIDTH="408" HEIGHT="55">
+						<String ID="P19_ST00003" HPOS="597" VPOS="451" WIDTH="187" HEIGHT="53" CONTENT="slottet" WC="1.00" CC="0000010"/>
+						<SP ID="P19_SP00002" HPOS="784" VPOS="504" WIDTH="21"/>
+						<String ID="P19_ST00004" HPOS="805" VPOS="454" WIDTH="200" HEIGHT="52" CONTENT="vokste" WC="1.00" CC="020300"/>
+					</TextLine>
+					<TextLine ID="P19_TL00003" HPOS="458" VPOS="535" WIDTH="670" HEIGHT="72">
+						<String ID="P19_ST00005" HPOS="458" VPOS="535" WIDTH="98" HEIGHT="53" CONTENT="det" WC="1.00" CC="000"/>
+						<SP ID="P19_SP00003" HPOS="556" VPOS="588" WIDTH="21"/>
+						<String ID="P19_ST00006" HPOS="577" VPOS="554" WIDTH="118" HEIGHT="53" CONTENT="opp" WC="0.97" CC="042"/>
+						<SP ID="P19_SP00004" HPOS="695" VPOS="607" WIDTH="21"/>
+						<String ID="P19_ST00007" HPOS="716" VPOS="555" WIDTH="73" HEIGHT="34" CONTENT="en" WC="1.00" CC="00"/>
+						<SP ID="P19_SP00005" HPOS="789" VPOS="607" WIDTH="21"/>
+						<String ID="P19_ST00008" HPOS="810" VPOS="536" WIDTH="318" HEIGHT="56" CONTENT="tornehekk" WC="0.84" CC="006006000"/>
+					</TextLine>
+					<TextLine ID="P19_TL00004" HPOS="692" VPOS="634" WIDTH="214" HEIGHT="47">
+						<String ID="P19_ST00009" HPOS="692" VPOS="635" WIDTH="115" HEIGHT="46" CONTENT="Den" WC="1.00" CC="000"/>
+						<SP ID="P19_SP00006" HPOS="807" VPOS="681" WIDTH="17"/>
+						<String ID="P19_ST00010" HPOS="824" VPOS="634" WIDTH="82" HEIGHT="47" CONTENT="ble" WC="0.99" CC="003"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P19_TB00002" HPOS="1842" VPOS="1858" WIDTH="568" HEIGHT="396" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P19_TL00005" HPOS="705" VPOS="740" WIDTH="199" HEIGHT="105">
+						<String ID="P19_ST00011" HPOS="705" VPOS="740" WIDTH="199" HEIGHT="105" CONTENT="løyere" WC="0.54" CC="709055"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P19_TB00003" HPOS="1709" VPOS="2276" WIDTH="823" HEIGHT="950" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P19_TL00006" HPOS="678" VPOS="938" WIDTH="231" HEIGHT="153">
+						<String ID="P19_ST00012" HPOS="678" VPOS="938" WIDTH="231" HEIGHT="153" CONTENT="jyere," WC="0.34" CC="867771" STYLEREFS="TXT_2"/>
+					</TextLine>
+					<TextLine ID="P19_TL00007" HPOS="641" VPOS="1072" WIDTH="308" HEIGHT="72">
+						<String ID="P19_ST00013" HPOS="641" VPOS="1072" WIDTH="58" HEIGHT="52" CONTENT="til" WC="1.00" CC="000"/>
+						<SP ID="P19_SP00007" HPOS="699" VPOS="1124" WIDTH="21"/>
+						<String ID="P19_ST00014" HPOS="720" VPOS="1091" WIDTH="75" HEIGHT="53" CONTENT="og" WC="0.50" CC="09"/>
+						<SP ID="P19_SP00008" HPOS="795" VPOS="1144" WIDTH="21"/>
+						<String ID="P19_ST00015" HPOS="816" VPOS="1075" WIDTH="133" HEIGHT="51" CONTENT="med" WC="0.99" CC="300"/>
+					</TextLine>
+					<TextLine ID="P19_TL00008" HPOS="650" VPOS="1158" WIDTH="289" HEIGHT="52">
+						<String ID="P19_ST00016" HPOS="650" VPOS="1158" WIDTH="182" HEIGHT="52" CONTENT="tårnet" WC="1.00" CC="003000"/>
+						<SP ID="P19_SP00009" HPOS="832" VPOS="1210" WIDTH="18"/>
+						<String ID="P19_ST00017" HPOS="850" VPOS="1158" WIDTH="89" HEIGHT="52" CONTENT="ble" WC="0.99" CC="030"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P19_TB00004" HPOS="58" VPOS="2914" WIDTH="50" HEIGHT="48" STYLEREFS="TXT_3 PAR_LEFT">
+					<TextLine ID="P19_TL00009" HPOS="22" VPOS="1094" WIDTH="12" HEIGHT="14">
+						<String ID="P19_ST00018" HPOS="22" VPOS="1094" WIDTH="12" HEIGHT="14" CONTENT="■•-." WC="0.42" CC="8824"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P19_TB00005" HPOS="8" VPOS="2962" WIDTH="48" HEIGHT="101" STYLEREFS="TXT_4 PAR_LEFT">
+					<TextLine ID="P19_TL00010" HPOS="6" VPOS="1138" WIDTH="15" HEIGHT="11">
+						<String ID="P19_ST00019" HPOS="6" VPOS="1138" WIDTH="15" HEIGHT="11" CONTENT="," WC="0.22" CC="7"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P19_TB00006" HPOS="1819" VPOS="3309" WIDTH="557" HEIGHT="140" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P19_TL00011" HPOS="682" VPOS="1242" WIDTH="209" HEIGHT="51">
+						<String ID="P19_ST00020" HPOS="682" VPOS="1242" WIDTH="209" HEIGHT="51" CONTENT="dekket" WC="1.00" CC="000000"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P19_CB00001" HPOS="0" VPOS="3329" WIDTH="733" HEIGHT="743" STYLEREFS="TXT_5 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P19_CB00001_SUB" HPOS="0" VPOS="3329" WIDTH="733" HEIGHT="743"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

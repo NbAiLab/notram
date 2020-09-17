@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0017.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P17" PHYSICAL_IMG_NR="17" HEIGHT="1702" WIDTH="1621">
+			<TopMargin ID="P17_TM00001" HPOS="0" VPOS="0" WIDTH="4325" HEIGHT="0"/>
+			<LeftMargin ID="P17_LM00001" HPOS="0" VPOS="0" WIDTH="0" HEIGHT="4538"/>
+			<RightMargin ID="P17_RM00001" HPOS="4323" VPOS="0" WIDTH="2" HEIGHT="4538"/>
+			<BottomMargin ID="P17_BM00001" HPOS="0" VPOS="4538" WIDTH="4325" HEIGHT="2"/>
+			<PrintSpace ID="P17_PS00001" HPOS="0" VPOS="0" WIDTH="4323" HEIGHT="4538">
+				<ComposedBlock ID="P17_CB00001" HPOS="10" VPOS="1172" WIDTH="4303" HEIGHT="3364" STYLEREFS="TXT_0 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P17_CB00001_SUB" HPOS="10" VPOS="1172" WIDTH="4303" HEIGHT="3364"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

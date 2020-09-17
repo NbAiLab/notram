@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0014.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="21" FONTFAMILY="Times New Roman"/>
+		<TextStyle ID="TXT_1" FONTSIZE="10" FONTFAMILY="Arial" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_2" FONTSIZE="7" FONTFAMILY="Arial" FONTSTYLE="bold"/>
+		<TextStyle ID="TXT_3" FONTSIZE="12" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P14" PHYSICAL_IMG_NR="14" HEIGHT="1702" WIDTH="1621" PC="0.876">
+			<TopMargin ID="P14_TM00001" HPOS="0" VPOS="0" WIDTH="4321" HEIGHT="969"/>
+			<LeftMargin ID="P14_LM00001" HPOS="0" VPOS="969" WIDTH="613" HEIGHT="3059"/>
+			<RightMargin ID="P14_RM00001" HPOS="4299" VPOS="969" WIDTH="22" HEIGHT="3059"/>
+			<BottomMargin ID="P14_BM00001" HPOS="0" VPOS="4028" WIDTH="4321" HEIGHT="512"/>
+			<PrintSpace ID="P14_PS00001" HPOS="613" VPOS="969" WIDTH="3686" HEIGHT="3059">
+				<TextBlock ID="P14_TB00001" HPOS="613" VPOS="969" WIDTH="2211" HEIGHT="641" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P14_TL00001" HPOS="233" VPOS="364" WIDTH="774" HEIGHT="71">
+						<String ID="P14_ST00001" HPOS="233" VPOS="365" WIDTH="162" HEIGHT="53" CONTENT='"God' WC="0.99" CC="3000"/>
+						<SP ID="P14_SP00001" HPOS="395" VPOS="418" WIDTH="23"/>
+						<String ID="P14_ST00002" HPOS="418" VPOS="365" WIDTH="113" HEIGHT="70" CONTENT="dag" WC="0.94" CC="059"/>
+						<SP ID="P14_SP00002" HPOS="531" VPOS="435" WIDTH="20"/>
+						<String ID="P14_ST00003" HPOS="551" VPOS="364" WIDTH="370" HEIGHT="71" CONTENT='gamlemor",' WC="0.99" CC="9400004532"/>
+						<SP ID="P14_SP00003" HPOS="921" VPOS="435" WIDTH="25"/>
+						<String ID="P14_ST00004" HPOS="946" VPOS="380" WIDTH="61" HEIGHT="35" CONTENT="sa" WC="0.68" CC="33"/>
+					</TextLine>
+					<TextLine ID="P14_TL00002" HPOS="231" VPOS="447" WIDTH="828" HEIGHT="74">
+						<String ID="P14_ST00005" HPOS="231" VPOS="452" WIDTH="337" HEIGHT="69" CONTENT="prinsessen." WC="0.99" CC="75054313064"/>
+						<SP ID="P14_SP00004" HPOS="568" VPOS="521" WIDTH="26"/>
+						<String ID="P14_ST00006" HPOS="594" VPOS="450" WIDTH="167" HEIGHT="49" CONTENT='"Hva' WC="0.85" CC="0500"/>
+						<SP ID="P14_SP00005" HPOS="761" VPOS="521" WIDTH="20"/>
+						<String ID="P14_ST00007" HPOS="781" VPOS="465" WIDTH="57" HEIGHT="34" CONTENT="er" WC="0.73" CC="05"/>
+						<SP ID="P14_SP00006" HPOS="838" VPOS="521" WIDTH="23"/>
+						<String ID="P14_ST00008" HPOS="861" VPOS="447" WIDTH="100" HEIGHT="52" CONTENT="det" WC="1.00" CC="000"/>
+						<SP ID="P14_SP00007" HPOS="961" VPOS="521" WIDTH="22"/>
+						<String ID="P14_ST00009" HPOS="983" VPOS="447" WIDTH="76" HEIGHT="52" CONTENT="du" WC="0.66" CC="06"/>
+					</TextLine>
+					<TextLine ID="P14_TL00003" HPOS="230" VPOS="531" WIDTH="517" HEIGHT="73">
+						<String ID="P14_ST00010" HPOS="230" VPOS="531" WIDTH="202" HEIGHT="57" CONTENT="holder" WC="0.72" CC="631006"/>
+						<SP ID="P14_SP00008" HPOS="432" VPOS="588" WIDTH="20"/>
+						<String ID="P14_ST00011" HPOS="452" VPOS="535" WIDTH="74" HEIGHT="69" CONTENT="på" WC="0.59" CC="43"/>
+						<SP ID="P14_SP00009" HPOS="526" VPOS="604" WIDTH="20"/>
+						<String ID="P14_ST00012" HPOS="546" VPOS="533" WIDTH="201" HEIGHT="52" CONTENT='med?"' WC="1.00" CC="00000"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P14_TB00002" HPOS="627" VPOS="1869" WIDTH="1874" HEIGHT="192" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P14_TL00004" HPOS="235" VPOS="702" WIDTH="703" HEIGHT="71">
+						<String ID="P14_ST00013" HPOS="235" VPOS="706" WIDTH="123" HEIGHT="67" CONTENT='"Jeg' WC="0.92" CC="0300"/>
+						<SP ID="P14_SP00010" HPOS="358" VPOS="773" WIDTH="21"/>
+						<String ID="P14_ST00014" HPOS="379" VPOS="704" WIDTH="284" HEIGHT="69" CONTENT='spinner",' WC="1.00" CC="000000202"/>
+						<SP ID="P14_SP00011" HPOS="663" VPOS="773" WIDTH="26"/>
+						<String ID="P14_ST00015" HPOS="689" VPOS="720" WIDTH="61" HEIGHT="34" CONTENT="sa" WC="1.00" CC="00"/>
+						<SP ID="P14_SP00012" HPOS="750" VPOS="773" WIDTH="19"/>
+						<String ID="P14_ST00016" HPOS="769" VPOS="702" WIDTH="169" HEIGHT="52" CONTENT="kona." WC="0.98" CC="30914"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P14_TB00003" HPOS="627" VPOS="2316" WIDTH="2179" HEIGHT="649" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P14_TL00005" HPOS="236" VPOS="869" WIDTH="741" HEIGHT="57">
+						<String ID="P14_ST00017" HPOS="236" VPOS="875" WIDTH="169" HEIGHT="51" CONTENT='"Men' WC="1.00" CC="0000"/>
+						<SP ID="P14_SP00013" HPOS="405" VPOS="926" WIDTH="19"/>
+						<String ID="P14_ST00018" HPOS="424" VPOS="869" WIDTH="114" HEIGHT="55" CONTENT="hva" WC="0.33" CC="657"/>
+						<SP ID="P14_SP00014" HPOS="538" VPOS="926" WIDTH="20"/>
+						<String ID="P14_ST00019" HPOS="558" VPOS="889" WIDTH="58" HEIGHT="35" CONTENT="er" WC="0.69" CC="06"/>
+						<SP ID="P14_SP00015" HPOS="616" VPOS="926" WIDTH="22"/>
+						<String ID="P14_ST00020" HPOS="638" VPOS="872" WIDTH="100" HEIGHT="52" CONTENT="det" WC="1.00" CC="000"/>
+						<SP ID="P14_SP00016" HPOS="738" VPOS="926" WIDTH="19"/>
+						<String ID="P14_ST00021" HPOS="757" VPOS="871" WIDTH="85" HEIGHT="52" CONTENT="for" WC="0.98" CC="004"/>
+						<SP ID="P14_SP00017" HPOS="842" VPOS="926" WIDTH="20"/>
+						<String ID="P14_ST00022" HPOS="862" VPOS="888" WIDTH="115" HEIGHT="35" CONTENT="noe" WC="0.99" CC="020"/>
+					</TextLine>
+					<TextLine ID="P14_TL00006" HPOS="235" VPOS="957" WIDTH="817" HEIGHT="54">
+						<String ID="P14_ST00023" HPOS="235" VPOS="976" WIDTH="123" HEIGHT="35" CONTENT="som" WC="0.98" CC="220"/>
+						<SP ID="P14_SP00018" HPOS="358" VPOS="1011" WIDTH="21"/>
+						<String ID="P14_ST00024" HPOS="379" VPOS="974" WIDTH="225" HEIGHT="36" CONTENT="snurrer" WC="0.75" CC="0043305"/>
+						<SP ID="P14_SP00019" HPOS="604" VPOS="1011" WIDTH="22"/>
+						<String ID="P14_ST00025" HPOS="626" VPOS="957" WIDTH="65" HEIGHT="51" CONTENT="så" WC="0.87" CC="02"/>
+						<SP ID="P14_SP00020" HPOS="691" VPOS="1011" WIDTH="21"/>
+						<String ID="P14_ST00026" HPOS="712" VPOS="957" WIDTH="340" HEIGHT="51" CONTENT='morsomt?"' WC="0.93" CC="006000000"/>
+					</TextLine>
+					<TextLine ID="P14_TL00007" HPOS="235" VPOS="1044" WIDTH="555" HEIGHT="68">
+						<String ID="P14_ST00027" HPOS="235" VPOS="1049" WIDTH="193" HEIGHT="63" CONTENT="spurte" WC="1.00" CC="003000"/>
+						<SP ID="P14_SP00021" HPOS="428" VPOS="1112" WIDTH="22"/>
+						<String ID="P14_ST00028" HPOS="450" VPOS="1044" WIDTH="340" HEIGHT="68" CONTENT="prinsessen." WC="1.00" CC="04013000044"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P14_TB00004" HPOS="627" VPOS="3224" WIDTH="2118" HEIGHT="418" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P14_TL00008" HPOS="235" VPOS="1209" WIDTH="736" HEIGHT="71">
+						<String ID="P14_ST00029" HPOS="235" VPOS="1214" WIDTH="137" HEIGHT="49" CONTENT="Hun" WC="0.96" CC="064"/>
+						<SP ID="P14_SP00022" HPOS="372" VPOS="1263" WIDTH="20"/>
+						<String ID="P14_ST00030" HPOS="392" VPOS="1211" WIDTH="102" HEIGHT="52" CONTENT="tok" WC="0.98" CC="004"/>
+						<SP ID="P14_SP00023" HPOS="494" VPOS="1263" WIDTH="17"/>
+						<String ID="P14_ST00031" HPOS="511" VPOS="1213" WIDTH="207" HEIGHT="58" CONTENT="teinen," WC="1.00" CC="0000001"/>
+						<SP ID="P14_SP00024" HPOS="718" VPOS="1271" WIDTH="24"/>
+						<String ID="P14_ST00032" HPOS="742" VPOS="1227" WIDTH="71" HEIGHT="53" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P14_SP00025" HPOS="813" VPOS="1280" WIDTH="20"/>
+						<String ID="P14_ST00033" HPOS="833" VPOS="1209" WIDTH="138" HEIGHT="52" CONTENT="ville" WC="1.00" CC="00000"/>
+					</TextLine>
+					<TextLine ID="P14_TL00009" HPOS="235" VPOS="1291" WIDTH="794" HEIGHT="75">
+						<String ID="P14_ST00034" HPOS="235" VPOS="1314" WIDTH="178" HEIGHT="52" CONTENT="prøve" WC="1.00" CC="00000"/>
+						<SP ID="P14_SP00026" HPOS="413" VPOS="1366" WIDTH="24"/>
+						<String ID="P14_ST00035" HPOS="437" VPOS="1297" WIDTH="31" HEIGHT="51" CONTENT="å" WC="1.00" CC="0"/>
+						<SP ID="P14_SP00027" HPOS="468" VPOS="1366" WIDTH="22"/>
+						<String ID="P14_ST00036" HPOS="490" VPOS="1298" WIDTH="220" HEIGHT="68" CONTENT="spinne," WC="1.00" CC="0005002"/>
+						<SP ID="P14_SP00028" HPOS="710" VPOS="1366" WIDTH="22"/>
+						<String ID="P14_ST00037" HPOS="732" VPOS="1291" WIDTH="120" HEIGHT="55" CONTENT="hun" WC="0.94" CC="555"/>
+						<SP ID="P14_SP00029" HPOS="852" VPOS="1366" WIDTH="21"/>
+						<String ID="P14_ST00038" HPOS="873" VPOS="1294" WIDTH="156" HEIGHT="70" CONTENT="også." WC="0.98" CC="09302"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P14_TB00005" HPOS="3741" VPOS="3729" WIDTH="211" HEIGHT="120" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P14_TL00010" HPOS="1403" VPOS="1398" WIDTH="18" HEIGHT="23">
+						<String ID="P14_ST00039" HPOS="1403" VPOS="1398" WIDTH="18" HEIGHT="23" CONTENT="&lt;" WC="0.37" CC="6"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P14_TB00006" HPOS="4203" VPOS="3988" WIDTH="66" HEIGHT="40" STYLEREFS="TXT_2 PAR_LEFT">
+					<TextLine ID="P14_TL00011" HPOS="1576" VPOS="1495" WIDTH="24" HEIGHT="15">
+						<String ID="P14_ST00040" HPOS="1576" VPOS="1495" WIDTH="24" HEIGHT="15" CONTENT="'x_" WC="0.27" CC="794"/>
+					</TextLine>
+				</TextBlock>
+				<ComposedBlock ID="P14_CB00001" HPOS="2957" VPOS="1250" WIDTH="1342" HEIGHT="2113" STYLEREFS="TXT_3 PAR_LEFT" TYPE="Illustration">
+					<GraphicalElement ID="P14_CB00001_SUB" HPOS="2957" VPOS="1250" WIDTH="1342" HEIGHT="2113"/>
+				</ComposedBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

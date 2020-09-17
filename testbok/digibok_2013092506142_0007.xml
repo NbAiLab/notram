@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0007.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="21" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+		<ParagraphStyle ID="PAR_BLOCK" ALIGN="Block"/>
+	</Styles>
+	<Layout>
+		<Page ID="P7" PHYSICAL_IMG_NR="7" HEIGHT="1702" WIDTH="1621" PC="0.967">
+			<TopMargin ID="P7_TM00001" HPOS="0" VPOS="0" WIDTH="4321" HEIGHT="943"/>
+			<LeftMargin ID="P7_LM00001" HPOS="0" VPOS="943" WIDTH="667" HEIGHT="2676"/>
+			<RightMargin ID="P7_RM00001" HPOS="3639" VPOS="943" WIDTH="682" HEIGHT="2676"/>
+			<BottomMargin ID="P7_BM00001" HPOS="0" VPOS="3619" WIDTH="4321" HEIGHT="921"/>
+			<PrintSpace ID="P7_PS00001" HPOS="667" VPOS="943" WIDTH="2972" HEIGHT="2676">
+				<TextBlock ID="P7_TB00001" HPOS="677" VPOS="943" WIDTH="2962" HEIGHT="1047" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P7_TL00001" HPOS="255" VPOS="354" WIDTH="984" HEIGHT="75">
+						<String ID="P7_ST00001" HPOS="255" VPOS="359" WIDTH="126" HEIGHT="50" CONTENT="Den" WC="0.96" CC="305"/>
+						<SP ID="P7_SP00001" HPOS="381" VPOS="409" WIDTH="21"/>
+						<String ID="P7_ST00002" HPOS="402" VPOS="374" WIDTH="106" HEIGHT="35" CONTENT="ene" WC="0.92" CC="020"/>
+						<SP ID="P7_SP00002" HPOS="508" VPOS="409" WIDTH="21"/>
+						<String ID="P7_ST00003" HPOS="529" VPOS="375" WIDTH="110" HEIGHT="53" CONTENT="gav" WC="0.94" CC="941"/>
+						<SP ID="P7_SP00003" HPOS="639" VPOS="428" WIDTH="21"/>
+						<String ID="P7_ST00004" HPOS="660" VPOS="354" WIDTH="184" HEIGHT="56" CONTENT="henne" WC="0.97" CC="55550"/>
+						<SP ID="P7_SP00004" HPOS="844" VPOS="428" WIDTH="24"/>
+						<String ID="P7_ST00005" HPOS="868" VPOS="355" WIDTH="230" HEIGHT="74" CONTENT="godhet," WC="0.69" CC="9404003"/>
+						<SP ID="P7_SP00005" HPOS="1098" VPOS="429" WIDTH="26"/>
+						<String ID="P7_ST00006" HPOS="1124" VPOS="359" WIDTH="115" HEIGHT="52" CONTENT="den" WC="1.00" CC="000"/>
+					</TextLine>
+					<TextLine ID="P7_TL00002" HPOS="256" VPOS="438" WIDTH="1109" HEIGHT="76">
+						<String ID="P7_ST00007" HPOS="256" VPOS="441" WIDTH="176" HEIGHT="52" CONTENT="andre" WC="0.99" CC="00032"/>
+						<SP ID="P7_SP00006" HPOS="432" VPOS="493" WIDTH="23"/>
+						<String ID="P7_ST00008" HPOS="455" VPOS="438" WIDTH="313" HEIGHT="72" CONTENT="skjønnhet," WC="0.73" CC="4700067000"/>
+						<SP ID="P7_SP00007" HPOS="768" VPOS="510" WIDTH="24"/>
+						<String ID="P7_ST00009" HPOS="792" VPOS="442" WIDTH="117" HEIGHT="52" CONTENT="den" WC="0.98" CC="004"/>
+						<SP ID="P7_SP00008" HPOS="909" VPOS="510" WIDTH="21"/>
+						<String ID="P7_ST00010" HPOS="930" VPOS="443" WIDTH="170" HEIGHT="71" CONTENT="tredje" WC="0.99" CC="040070"/>
+						<SP ID="P7_SP00009" HPOS="1100" VPOS="514" WIDTH="22"/>
+						<String ID="P7_ST00011" HPOS="1122" VPOS="443" WIDTH="243" HEIGHT="62" CONTENT="rikdom," WC="1.00" CC="0000202"/>
+					</TextLine>
+					<TextLine ID="P7_TL00003" HPOS="256" VPOS="524" WIDTH="1007" HEIGHT="72">
+						<String ID="P7_ST00012" HPOS="256" VPOS="543" WIDTH="71" HEIGHT="53" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P7_SP00010" HPOS="327" VPOS="596" WIDTH="21"/>
+						<String ID="P7_ST00013" HPOS="348" VPOS="525" WIDTH="113" HEIGHT="53" CONTENT="slik" WC="1.00" CC="0000"/>
+						<SP ID="P7_SP00011" HPOS="461" VPOS="596" WIDTH="18"/>
+						<String ID="P7_ST00014" HPOS="479" VPOS="526" WIDTH="253" HEIGHT="52" CONTENT="fortsatte" WC="0.95" CC="001020000"/>
+						<SP ID="P7_SP00012" HPOS="732" VPOS="596" WIDTH="22"/>
+						<String ID="P7_ST00015" HPOS="754" VPOS="527" WIDTH="69" HEIGHT="52" CONTENT="de" WC="1.00" CC="00"/>
+						<SP ID="P7_SP00013" HPOS="823" VPOS="596" WIDTH="22"/>
+						<String ID="P7_ST00016" HPOS="845" VPOS="527" WIDTH="64" HEIGHT="52" CONTENT="til" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00014" HPOS="909" VPOS="596" WIDTH="21"/>
+						<String ID="P7_ST00017" HPOS="930" VPOS="524" WIDTH="121" HEIGHT="55" CONTENT="hun" WC="0.96" CC="650"/>
+						<SP ID="P7_SP00015" HPOS="1051" VPOS="596" WIDTH="17"/>
+						<String ID="P7_ST00018" HPOS="1068" VPOS="524" WIDTH="195" HEIGHT="56" CONTENT="hadde" WC="1.00" CC="00000"/>
+					</TextLine>
+					<TextLine ID="P7_TL00004" HPOS="254" VPOS="610" WIDTH="1104" HEIGHT="73">
+						<String ID="P7_ST00019" HPOS="254" VPOS="610" WIDTH="100" HEIGHT="52" CONTENT="fått" WC="0.99" CC="2200"/>
+						<SP ID="P7_SP00016" HPOS="354" VPOS="662" WIDTH="22"/>
+						<String ID="P7_ST00020" HPOS="376" VPOS="610" WIDTH="78" HEIGHT="52" CONTENT="alt" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00017" HPOS="454" VPOS="662" WIDTH="21"/>
+						<String ID="P7_ST00021" HPOS="475" VPOS="628" WIDTH="124" HEIGHT="35" CONTENT="som" WC="0.99" CC="300"/>
+						<SP ID="P7_SP00018" HPOS="599" VPOS="663" WIDTH="21"/>
+						<String ID="P7_ST00022" HPOS="620" VPOS="628" WIDTH="62" HEIGHT="35" CONTENT="er" WC="1.00" CC="00"/>
+						<SP ID="P7_SP00019" HPOS="682" VPOS="663" WIDTH="20"/>
+						<String ID="P7_ST00023" HPOS="702" VPOS="612" WIDTH="161" HEIGHT="51" CONTENT="verdt" WC="1.00" CC="20000"/>
+						<SP ID="P7_SP00020" HPOS="863" VPOS="663" WIDTH="22"/>
+						<String ID="P7_ST00024" HPOS="885" VPOS="613" WIDTH="33" HEIGHT="50" CONTENT="å" WC="0.79" CC="2"/>
+						<SP ID="P7_SP00021" HPOS="918" VPOS="663" WIDTH="22"/>
+						<String ID="P7_ST00025" HPOS="940" VPOS="613" WIDTH="176" HEIGHT="51" CONTENT="ønske" WC="1.00" CC="00300"/>
+						<SP ID="P7_SP00022" HPOS="1116" VPOS="664" WIDTH="24"/>
+						<String ID="P7_ST00026" HPOS="1140" VPOS="630" WIDTH="99" HEIGHT="53" CONTENT="seg" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00023" HPOS="1239" VPOS="683" WIDTH="19"/>
+						<String ID="P7_ST00027" HPOS="1258" VPOS="610" WIDTH="100" HEIGHT="55" CONTENT="her" WC="0.99" CC="002"/>
+					</TextLine>
+					<TextLine ID="P7_TL00005" HPOS="254" VPOS="695" WIDTH="267" HEIGHT="51">
+						<String ID="P7_ST00028" HPOS="254" VPOS="696" WIDTH="17" HEIGHT="49" CONTENT="i" WC="1.00" CC="0"/>
+						<SP ID="P7_SP00024" HPOS="271" VPOS="745" WIDTH="19"/>
+						<String ID="P7_ST00029" HPOS="290" VPOS="695" WIDTH="231" HEIGHT="51" CONTENT="verden." WC="1.00" CC="0000003"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P7_TB00002" HPOS="667" VPOS="2296" WIDTH="2925" HEIGHT="1323" STYLEREFS="TXT_0 PAR_BLOCK">
+					<TextLine ID="P7_TL00006" HPOS="253" VPOS="862" WIDTH="1094" HEIGHT="75">
+						<String ID="P7_ST00030" HPOS="253" VPOS="865" WIDTH="138" HEIGHT="51" CONTENT="Men" WC="0.97" CC="008"/>
+						<SP ID="P7_SP00025" HPOS="391" VPOS="916" WIDTH="23"/>
+						<String ID="P7_ST00031" HPOS="414" VPOS="864" WIDTH="75" HEIGHT="52" CONTENT="da" WC="1.00" CC="00"/>
+						<SP ID="P7_SP00026" HPOS="489" VPOS="916" WIDTH="20"/>
+						<String ID="P7_ST00032" HPOS="509" VPOS="864" WIDTH="180" HEIGHT="53" CONTENT="elleve" WC="1.00" CC="011000"/>
+						<SP ID="P7_SP00027" HPOS="689" VPOS="917" WIDTH="21"/>
+						<String ID="P7_ST00033" HPOS="710" VPOS="864" WIDTH="111" HEIGHT="53" CONTENT="feer" WC="0.99" CC="3000"/>
+						<SP ID="P7_SP00028" HPOS="821" VPOS="917" WIDTH="19"/>
+						<String ID="P7_ST00034" HPOS="840" VPOS="862" WIDTH="196" HEIGHT="56" CONTENT="hadde" WC="1.00" CC="00000"/>
+						<SP ID="P7_SP00029" HPOS="1036" VPOS="918" WIDTH="22"/>
+						<String ID="P7_ST00035" HPOS="1058" VPOS="874" WIDTH="128" HEIGHT="63" CONTENT="sagt" WC="1.00" CC="1000"/>
+						<SP ID="P7_SP00030" HPOS="1186" VPOS="937" WIDTH="20"/>
+						<String ID="P7_ST00036" HPOS="1206" VPOS="867" WIDTH="141" HEIGHT="51" CONTENT="fram" WC="0.98" CC="0460"/>
+					</TextLine>
+					<TextLine ID="P7_TL00007" HPOS="253" VPOS="948" WIDTH="1050" HEIGHT="63">
+						<String ID="P7_ST00037" HPOS="253" VPOS="948" WIDTH="255" HEIGHT="53" CONTENT="ønskene" WC="1.00" CC="0000000"/>
+						<SP ID="P7_SP00031" HPOS="508" VPOS="1001" WIDTH="21"/>
+						<String ID="P7_ST00038" HPOS="529" VPOS="952" WIDTH="137" HEIGHT="59" CONTENT="sine," WC="0.99" CC="20002"/>
+						<SP ID="P7_SP00032" HPOS="666" VPOS="1011" WIDTH="25"/>
+						<String ID="P7_ST00039" HPOS="691" VPOS="949" WIDTH="179" HEIGHT="53" CONTENT="trådte" WC="1.00" CC="000000"/>
+						<SP ID="P7_SP00033" HPOS="870" VPOS="1011" WIDTH="24"/>
+						<String ID="P7_ST00040" HPOS="894" VPOS="950" WIDTH="115" HEIGHT="52" CONTENT="den" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00034" HPOS="1009" VPOS="1011" WIDTH="19"/>
+						<String ID="P7_ST00041" HPOS="1028" VPOS="951" WIDTH="275" HEIGHT="53" CONTENT="trettende" WC="0.93" CC="060000000"/>
+					</TextLine>
+					<TextLine ID="P7_TL00008" HPOS="252" VPOS="1031" WIDTH="1047" HEIGHT="76">
+						<String ID="P7_ST00042" HPOS="252" VPOS="1032" WIDTH="270" HEIGHT="71" CONTENT="plutselig" WC="1.00" CC="415000000"/>
+						<SP ID="P7_SP00035" HPOS="522" VPOS="1103" WIDTH="19"/>
+						<String ID="P7_ST00043" HPOS="541" VPOS="1036" WIDTH="117" HEIGHT="49" CONTENT="inn." WC="0.98" CC="0063"/>
+						<SP ID="P7_SP00036" HPOS="658" VPOS="1103" WIDTH="24"/>
+						<String ID="P7_ST00044" HPOS="682" VPOS="1036" WIDTH="136" HEIGHT="50" CONTENT="Hun" WC="0.94" CC="456"/>
+						<SP ID="P7_SP00037" HPOS="818" VPOS="1103" WIDTH="19"/>
+						<String ID="P7_ST00045" HPOS="837" VPOS="1034" WIDTH="137" HEIGHT="53" CONTENT="ville" WC="1.00" CC="00000"/>
+						<SP ID="P7_SP00038" HPOS="974" VPOS="1103" WIDTH="19"/>
+						<String ID="P7_ST00046" HPOS="993" VPOS="1031" WIDTH="188" HEIGHT="57" CONTENT="hevne" WC="1.00" CC="00000"/>
+						<SP ID="P7_SP00039" HPOS="1181" VPOS="1103" WIDTH="22"/>
+						<String ID="P7_ST00047" HPOS="1203" VPOS="1053" WIDTH="96" HEIGHT="54" CONTENT="seg" WC="1.00" CC="000"/>
+					</TextLine>
+					<TextLine ID="P7_TL00009" HPOS="252" VPOS="1114" WIDTH="1020" HEIGHT="58">
+						<String ID="P7_ST00048" HPOS="252" VPOS="1117" WIDTH="148" HEIGHT="53" CONTENT="fordi" WC="0.99" CC="00400"/>
+						<SP ID="P7_SP00040" HPOS="400" VPOS="1170" WIDTH="21"/>
+						<String ID="P7_ST00049" HPOS="421" VPOS="1114" WIDTH="122" HEIGHT="56" CONTENT="hun" WC="0.96" CC="064"/>
+						<SP ID="P7_SP00041" HPOS="543" VPOS="1170" WIDTH="19"/>
+						<String ID="P7_ST00050" HPOS="562" VPOS="1118" WIDTH="134" HEIGHT="53" CONTENT="ikke" WC="1.00" CC="0000"/>
+						<SP ID="P7_SP00042" HPOS="696" VPOS="1171" WIDTH="20"/>
+						<String ID="P7_ST00051" HPOS="716" VPOS="1136" WIDTH="96" HEIGHT="35" CONTENT="var" WC="0.97" CC="035"/>
+						<SP ID="P7_SP00043" HPOS="812" VPOS="1171" WIDTH="18"/>
+						<String ID="P7_ST00052" HPOS="830" VPOS="1119" WIDTH="215" HEIGHT="52" CONTENT="buden." WC="0.75" CC="060044"/>
+						<SP ID="P7_SP00044" HPOS="1045" VPOS="1171" WIDTH="23"/>
+						<String ID="P7_ST00053" HPOS="1068" VPOS="1122" WIDTH="155" HEIGHT="50" CONTENT="Uten" WC="0.84" CC="0006"/>
+						<SP ID="P7_SP00045" HPOS="1223" VPOS="1172" WIDTH="19"/>
+						<String ID="P7_ST00054" HPOS="1242" VPOS="1121" WIDTH="30" HEIGHT="51" CONTENT="å" WC="1.00" CC="0"/>
+					</TextLine>
+					<TextLine ID="P7_TL00010" HPOS="251" VPOS="1198" WIDTH="990" HEIGHT="76">
+						<String ID="P7_ST00055" HPOS="251" VPOS="1198" WIDTH="142" HEIGHT="56" CONTENT="hilse" WC="0.90" CC="00230"/>
+						<SP ID="P7_SP00046" HPOS="393" VPOS="1254" WIDTH="23"/>
+						<String ID="P7_ST00056" HPOS="416" VPOS="1202" WIDTH="132" HEIGHT="53" CONTENT="eller" WC="1.00" CC="00000"/>
+						<SP ID="P7_SP00047" HPOS="548" VPOS="1255" WIDTH="20"/>
+						<String ID="P7_ST00057" HPOS="568" VPOS="1220" WIDTH="60" HEIGHT="35" CONTENT="se" WC="1.00" CC="00"/>
+						<SP ID="P7_SP00048" HPOS="628" VPOS="1255" WIDTH="23"/>
+						<String ID="P7_ST00058" HPOS="651" VPOS="1204" WIDTH="75" HEIGHT="70" CONTENT="på" WC="0.96" CC="00"/>
+						<SP ID="P7_SP00049" HPOS="726" VPOS="1274" WIDTH="20"/>
+						<String ID="P7_ST00059" HPOS="746" VPOS="1221" WIDTH="167" HEIGHT="44" CONTENT="noen," WC="0.98" CC="31090"/>
+						<SP ID="P7_SP00050" HPOS="913" VPOS="1274" WIDTH="25"/>
+						<String ID="P7_ST00060" HPOS="938" VPOS="1211" WIDTH="156" HEIGHT="63" CONTENT="ropte" WC="0.99" CC="50000"/>
+						<SP ID="P7_SP00051" HPOS="1094" VPOS="1274" WIDTH="21"/>
+						<String ID="P7_ST00061" HPOS="1115" VPOS="1201" WIDTH="126" HEIGHT="55" CONTENT="hun" WC="0.95" CC="066"/>
+					</TextLine>
+					<TextLine ID="P7_TL00011" HPOS="252" VPOS="1283" WIDTH="427" HEIGHT="74">
+						<String ID="P7_ST00062" HPOS="252" VPOS="1286" WIDTH="134" HEIGHT="52" CONTENT="med" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00052" HPOS="386" VPOS="1338" WIDTH="21"/>
+						<String ID="P7_ST00063" HPOS="407" VPOS="1283" WIDTH="117" HEIGHT="74" CONTENT="høy" WC="1.00" CC="000"/>
+						<SP ID="P7_SP00053" HPOS="524" VPOS="1357" WIDTH="20"/>
+						<String ID="P7_ST00064" HPOS="544" VPOS="1295" WIDTH="135" HEIGHT="45" CONTENT="røst:" WC="1.00" CC="30100"/>
+					</TextLine>
+				</TextBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>

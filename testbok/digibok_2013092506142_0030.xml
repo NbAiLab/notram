@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schema.ccs-gmbh.com/metae/alto-1-2.xsd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Description>
+		<MeasurementUnit>mm10</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>//Produksjon5.nb.no/ocr-output/Monografi_Default_Antiqua_Auto/digibok_2013092506142/images/digibok_2013092506142_0030.TIF</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCRPROCESSING_1">
+			<preProcessingStep>
+				<processingSoftware>
+					<softwareCreator>CCS Content Conversion Specialists GmbH, Germany</softwareCreator>
+					<softwareName>CCS docWORKS</softwareName>
+					<softwareVersion>6.6-2.1</softwareVersion>
+				</processingSoftware>
+			</preProcessingStep>
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareCreator>ABBYY (BIT Software), Russia</softwareCreator>
+					<softwareName>FineReader</softwareName>
+					<softwareVersion>8.1</softwareVersion>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Styles>
+		<TextStyle ID="TXT_0" FONTSIZE="6" FONTFAMILY="Times New Roman" FONTSTYLE="bold italics"/>
+		<TextStyle ID="TXT_1" FONTSIZE="20" FONTFAMILY="Times New Roman"/>
+		<ParagraphStyle ID="PAR_LEFT" ALIGN="Left"/>
+	</Styles>
+	<Layout>
+		<Page ID="P30" PHYSICAL_IMG_NR="30" HEIGHT="1702" WIDTH="1619" PC="0.947">
+			<TopMargin ID="P30_TM00001" HPOS="0" VPOS="0" WIDTH="4318" HEIGHT="965">
+				<TextBlock ID="P30_TB00001" HPOS="3944" VPOS="826" WIDTH="332" HEIGHT="77" STYLEREFS="TXT_0 PAR_LEFT">
+					<TextLine ID="P30_TL00001" HPOS="1479" VPOS="321" WIDTH="46" HEIGHT="17">
+						<String ID="P30_ST00001" HPOS="1479" VPOS="321" WIDTH="46" HEIGHT="17" CONTENT=".*r^" WC="0.22" CC="7788"/>
+					</TextLine>
+				</TextBlock>
+			</TopMargin>
+			<LeftMargin ID="P30_LM00001" HPOS="0" VPOS="965" WIDTH="613" HEIGHT="2674"/>
+			<RightMargin ID="P30_RM00001" HPOS="3625" VPOS="965" WIDTH="693" HEIGHT="2674"/>
+			<BottomMargin ID="P30_BM00001" HPOS="0" VPOS="3639" WIDTH="4318" HEIGHT="901"/>
+			<PrintSpace ID="P30_PS00001" HPOS="613" VPOS="965" WIDTH="3012" HEIGHT="2674">
+				<TextBlock ID="P30_TB00002" HPOS="613" VPOS="965" WIDTH="2376" HEIGHT="188" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P30_TL00002" HPOS="230" VPOS="362" WIDTH="891" HEIGHT="70">
+						<String ID="P30_ST00002" HPOS="230" VPOS="366" WIDTH="270" HEIGHT="50" CONTENT="Sammen" WC="0.99" CC="060006"/>
+						<SP ID="P30_SP00001" HPOS="500" VPOS="416" WIDTH="20"/>
+						<String ID="P30_ST00003" HPOS="520" VPOS="363" WIDTH="134" HEIGHT="69" CONTENT="gikk" WC="0.98" CC="9020"/>
+						<SP ID="P30_SP00002" HPOS="654" VPOS="432" WIDTH="22"/>
+						<String ID="P30_ST00004" HPOS="676" VPOS="362" WIDTH="74" HEIGHT="52" CONTENT="de" WC="0.70" CC="05"/>
+						<SP ID="P30_SP00003" HPOS="750" VPOS="432" WIDTH="21"/>
+						<String ID="P30_ST00005" HPOS="771" VPOS="362" WIDTH="112" HEIGHT="51" CONTENT="ned" WC="0.98" CC="600"/>
+						<SP ID="P30_SP00004" HPOS="883" VPOS="432" WIDTH="23"/>
+						<String ID="P30_ST00006" HPOS="906" VPOS="369" WIDTH="215" HEIGHT="62" CONTENT="trappa." WC="0.98" CC="0644214"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P30_TB00003" HPOS="613" VPOS="1175" WIDTH="2891" HEIGHT="655" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P30_TL00003" HPOS="230" VPOS="441" WIDTH="1084" HEIGHT="78">
+						<String ID="P30_ST00007" HPOS="230" VPOS="451" WIDTH="258" HEIGHT="68" CONTENT="Kongen," WC="0.99" CC="0009203"/>
+						<SP ID="P30_SP00005" HPOS="488" VPOS="519" WIDTH="24"/>
+						<String ID="P30_ST00008" HPOS="512" VPOS="448" WIDTH="361" HEIGHT="69" CONTENT="dronningen" WC="0.86" CC="0600700000"/>
+						<SP ID="P30_SP00006" HPOS="873" VPOS="519" WIDTH="21"/>
+						<String ID="P30_ST00009" HPOS="894" VPOS="463" WIDTH="78" HEIGHT="53" CONTENT="og" WC="0.36" CC="38"/>
+						<SP ID="P30_SP00007" HPOS="972" VPOS="519" WIDTH="20"/>
+						<String ID="P30_ST00010" HPOS="992" VPOS="442" WIDTH="122" HEIGHT="55" CONTENT="hele" WC="0.99" CC="6000"/>
+						<SP ID="P30_SP00008" HPOS="1114" VPOS="519" WIDTH="21"/>
+						<String ID="P30_ST00011" HPOS="1135" VPOS="441" WIDTH="179" HEIGHT="56" CONTENT="hoffet" WC="0.99" CC="602200"/>
+					</TextLine>
+					<TextLine ID="P30_TL00004" HPOS="230" VPOS="528" WIDTH="983" HEIGHT="75">
+						<String ID="P30_ST00012" HPOS="230" VPOS="533" WIDTH="210" HEIGHT="52" CONTENT="våknet" WC="0.96" CC="020000"/>
+						<SP ID="P30_SP00009" HPOS="440" VPOS="585" WIDTH="21"/>
+						<String ID="P30_ST00013" HPOS="461" VPOS="550" WIDTH="74" HEIGHT="53" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00010" HPOS="535" VPOS="603" WIDTH="20"/>
+						<String ID="P30_ST00014" HPOS="555" VPOS="533" WIDTH="60" HEIGHT="51" CONTENT="så" WC="0.95" CC="00"/>
+						<SP ID="P30_SP00011" HPOS="615" VPOS="603" WIDTH="21"/>
+						<String ID="P30_ST00015" HPOS="636" VPOS="532" WIDTH="79" HEIGHT="71" CONTENT="på" WC="0.97" CC="00"/>
+						<SP ID="P30_SP00012" HPOS="715" VPOS="603" WIDTH="19"/>
+						<String ID="P30_ST00016" HPOS="734" VPOS="528" WIDTH="319" HEIGHT="55" CONTENT="hverandre" WC="0.69" CC="010667040"/>
+						<SP ID="P30_SP00013" HPOS="1053" VPOS="603" WIDTH="21"/>
+						<String ID="P30_ST00017" HPOS="1074" VPOS="530" WIDTH="139" HEIGHT="52" CONTENT="med" WC="1.00" CC="000"/>
+					</TextLine>
+					<TextLine ID="P30_TL00005" HPOS="232" VPOS="625" WIDTH="332" HEIGHT="61">
+						<String ID="P30_ST00018" HPOS="232" VPOS="625" WIDTH="144" HEIGHT="45" CONTENT="store" WC="0.99" CC="20060"/>
+						<SP ID="P30_SP00014" HPOS="376" VPOS="670" WIDTH="22"/>
+						<String ID="P30_ST00019" HPOS="398" VPOS="634" WIDTH="166" HEIGHT="52" CONTENT="øyne." WC="1.00" CC="02000"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P30_TB00004" HPOS="616" VPOS="1869" WIDTH="2432" HEIGHT="415" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P30_TL00006" HPOS="231" VPOS="701" WIDTH="912" HEIGHT="69">
+						<String ID="P30_ST00020" HPOS="231" VPOS="705" WIDTH="251" HEIGHT="49" CONTENT="Hestene" WC="0.80" CC="3040060"/>
+						<SP ID="P30_SP00015" HPOS="482" VPOS="754" WIDTH="21"/>
+						<String ID="P30_ST00021" HPOS="503" VPOS="705" WIDTH="17" HEIGHT="48" CONTENT="i" WC="1.00" CC="0"/>
+						<SP ID="P30_SP00016" HPOS="520" VPOS="754" WIDTH="21"/>
+						<String ID="P30_ST00022" HPOS="541" VPOS="701" WIDTH="205" HEIGHT="53" CONTENT="stallen" WC="1.00" CC="0000000"/>
+						<SP ID="P30_SP00017" HPOS="746" VPOS="754" WIDTH="19"/>
+						<String ID="P30_ST00023" HPOS="765" VPOS="703" WIDTH="164" HEIGHT="49" CONTENT="reiste" WC="0.99" CC="400300"/>
+						<SP ID="P30_SP00018" HPOS="929" VPOS="754" WIDTH="23"/>
+						<String ID="P30_ST00024" HPOS="952" VPOS="717" WIDTH="98" HEIGHT="53" CONTENT="seg" WC="1.00" CC="000"/>
+						<SP ID="P30_SP00019" HPOS="1050" VPOS="770" WIDTH="20"/>
+						<String ID="P30_ST00025" HPOS="1070" VPOS="717" WIDTH="73" HEIGHT="53" CONTENT="og" WC="1.00" CC="00"/>
+					</TextLine>
+					<TextLine ID="P30_TL00007" HPOS="233" VPOS="786" WIDTH="603" HEIGHT="71">
+						<String ID="P30_ST00026" HPOS="233" VPOS="794" WIDTH="247" HEIGHT="63" CONTENT="stampet" WC="1.00" CC="0000000"/>
+						<SP ID="P30_SP00020" HPOS="480" VPOS="857" WIDTH="19"/>
+						<String ID="P30_ST00027" HPOS="499" VPOS="786" WIDTH="134" HEIGHT="51" CONTENT="med" WC="1.00" CC="000"/>
+						<SP ID="P30_SP00021" HPOS="633" VPOS="857" WIDTH="19"/>
+						<String ID="P30_ST00028" HPOS="652" VPOS="786" WIDTH="184" HEIGHT="51" CONTENT="beina." WC="1.00" CC="000004"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="P30_TB00005" HPOS="613" VPOS="2313" WIDTH="3012" HEIGHT="1326" STYLEREFS="TXT_1 PAR_LEFT">
+					<TextLine ID="P30_TL00008" HPOS="230" VPOS="867" WIDTH="1045" HEIGHT="74">
+						<String ID="P30_ST00029" HPOS="230" VPOS="867" WIDTH="394" HEIGHT="70" CONTENT="Jakthundene" WC="0.92" CC="10000600000"/>
+						<SP ID="P30_SP00022" HPOS="624" VPOS="937" WIDTH="21"/>
+						<String ID="P30_ST00030" HPOS="645" VPOS="872" WIDTH="19" HEIGHT="49" CONTENT="i" WC="1.00" CC="0"/>
+						<SP ID="P30_SP00023" HPOS="664" VPOS="937" WIDTH="23"/>
+						<String ID="P30_ST00031" HPOS="687" VPOS="870" WIDTH="216" HEIGHT="71" CONTENT="gården" WC="0.99" CC="904000"/>
+						<SP ID="P30_SP00024" HPOS="903" VPOS="941" WIDTH="22"/>
+						<String ID="P30_ST00032" HPOS="925" VPOS="886" WIDTH="211" HEIGHT="54" CONTENT="sprang" WC="1.00" CC="005000"/>
+						<SP ID="P30_SP00025" HPOS="1136" VPOS="941" WIDTH="22"/>
+						<String ID="P30_ST00033" HPOS="1158" VPOS="886" WIDTH="117" HEIGHT="52" CONTENT="opp" WC="1.00" CC="000"/>
+					</TextLine>
+					<TextLine ID="P30_TL00009" HPOS="233" VPOS="951" WIDTH="1127" HEIGHT="76">
+						<String ID="P30_ST00034" HPOS="233" VPOS="975" WIDTH="73" HEIGHT="52" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00026" HPOS="306" VPOS="1027" WIDTH="19"/>
+						<String ID="P30_ST00035" HPOS="325" VPOS="956" WIDTH="183" HEIGHT="70" CONTENT="logret" WC="0.90" CC="000600"/>
+						<SP ID="P30_SP00027" HPOS="508" VPOS="1027" WIDTH="19"/>
+						<String ID="P30_ST00036" HPOS="527" VPOS="955" WIDTH="135" HEIGHT="52" CONTENT="med" WC="1.00" CC="000"/>
+						<SP ID="P30_SP00028" HPOS="662" VPOS="1027" WIDTH="21"/>
+						<String ID="P30_ST00037" HPOS="683" VPOS="951" WIDTH="183" HEIGHT="55" CONTENT="halen." WC="0.99" CC="002004"/>
+						<SP ID="P30_SP00029" HPOS="866" VPOS="1027" WIDTH="24"/>
+						<String ID="P30_ST00038" HPOS="890" VPOS="956" WIDTH="202" HEIGHT="50" CONTENT="Duene" WC="0.98" CC="45050"/>
+						<SP ID="P30_SP00030" HPOS="1092" VPOS="1027" WIDTH="22"/>
+						<String ID="P30_ST00039" HPOS="1114" VPOS="954" WIDTH="78" HEIGHT="70" CONTENT="på" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00031" HPOS="1192" VPOS="1027" WIDTH="21"/>
+						<String ID="P30_ST00040" HPOS="1213" VPOS="952" WIDTH="147" HEIGHT="52" CONTENT="taket" WC="1.00" CC="00000"/>
+					</TextLine>
+					<TextLine ID="P30_TL00010" HPOS="233" VPOS="1037" WIDTH="1037" HEIGHT="72">
+						<String ID="P30_ST00041" HPOS="233" VPOS="1041" WIDTH="117" HEIGHT="51" CONTENT="fikk" WC="1.00" CC="0000"/>
+						<SP ID="P30_SP00032" HPOS="350" VPOS="1092" WIDTH="18"/>
+						<String ID="P30_ST00042" HPOS="368" VPOS="1037" WIDTH="180" HEIGHT="56" CONTENT="hodet" WC="1.00" CC="00000"/>
+						<SP ID="P30_SP00033" HPOS="548" VPOS="1093" WIDTH="19"/>
+						<String ID="P30_ST00043" HPOS="567" VPOS="1039" WIDTH="150" HEIGHT="52" CONTENT="fram" WC="0.99" CC="0400"/>
+						<SP ID="P30_SP00034" HPOS="717" VPOS="1093" WIDTH="21"/>
+						<String ID="P30_ST00044" HPOS="738" VPOS="1039" WIDTH="80" HEIGHT="52" CONTENT="fra" WC="0.84" CC="040"/>
+						<SP ID="P30_SP00035" HPOS="818" VPOS="1093" WIDTH="20"/>
+						<String ID="P30_ST00045" HPOS="838" VPOS="1041" WIDTH="229" HEIGHT="68" CONTENT="vingen," WC="0.99" CC="0070004"/>
+						<SP ID="P30_SP00036" HPOS="1067" VPOS="1109" WIDTH="24"/>
+						<String ID="P30_ST00046" HPOS="1091" VPOS="1038" WIDTH="179" HEIGHT="52" CONTENT="steika" WC="1.00" CC="000000"/>
+					</TextLine>
+					<TextLine ID="P30_TL00011" HPOS="234" VPOS="1123" WIDTH="1093" HEIGHT="73">
+						<String ID="P30_ST00047" HPOS="234" VPOS="1126" WIDTH="96" HEIGHT="52" CONTENT="tok" WC="1.00" CC="000"/>
+						<SP ID="P30_SP00037" HPOS="330" VPOS="1178" WIDTH="19"/>
+						<String ID="P30_ST00048" HPOS="349" VPOS="1125" WIDTH="62" HEIGHT="52" CONTENT="til" WC="1.00" CC="000"/>
+						<SP ID="P30_SP00038" HPOS="411" VPOS="1178" WIDTH="23"/>
+						<String ID="P30_ST00049" HPOS="434" VPOS="1126" WIDTH="32" HEIGHT="51" CONTENT="å" WC="1.00" CC="0"/>
+						<SP ID="P30_SP00039" HPOS="466" VPOS="1178" WIDTH="21"/>
+						<String ID="P30_ST00050" HPOS="487" VPOS="1132" WIDTH="162" HEIGHT="64" CONTENT="putre" WC="0.99" CC="05060"/>
+						<SP ID="P30_SP00040" HPOS="649" VPOS="1196" WIDTH="24"/>
+						<String ID="P30_ST00051" HPOS="673" VPOS="1142" WIDTH="77" HEIGHT="52" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00041" HPOS="750" VPOS="1196" WIDTH="17"/>
+						<String ID="P30_ST00052" HPOS="767" VPOS="1124" WIDTH="182" HEIGHT="61" CONTENT="brase," WC="1.00" CC="000300"/>
+						<SP ID="P30_SP00042" HPOS="949" VPOS="1196" WIDTH="23"/>
+						<String ID="P30_ST00053" HPOS="972" VPOS="1123" WIDTH="229" HEIGHT="52" CONTENT="kokken" WC="1.00" CC="000000"/>
+						<SP ID="P30_SP00043" HPOS="1201" VPOS="1196" WIDTH="21"/>
+						<String ID="P30_ST00054" HPOS="1222" VPOS="1140" WIDTH="105" HEIGHT="52" CONTENT="gav" WC="1.00" CC="001"/>
+					</TextLine>
+					<TextLine ID="P30_TL00012" HPOS="233" VPOS="1203" WIDTH="1089" HEIGHT="77">
+						<String ID="P30_ST00055" HPOS="233" VPOS="1210" WIDTH="389" HEIGHT="70" CONTENT="kokkegutten" WC="0.90" CC="00000060005"/>
+						<SP ID="P30_SP00044" HPOS="622" VPOS="1280" WIDTH="20"/>
+						<String ID="P30_ST00056" HPOS="642" VPOS="1227" WIDTH="77" HEIGHT="33" CONTENT="en" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00045" HPOS="719" VPOS="1280" WIDTH="20"/>
+						<String ID="P30_ST00057" HPOS="739" VPOS="1208" WIDTH="180" HEIGHT="52" CONTENT="ørefik" WC="0.99" CC="040040"/>
+						<SP ID="P30_SP00046" HPOS="919" VPOS="1280" WIDTH="20"/>
+						<String ID="P30_ST00058" HPOS="939" VPOS="1209" WIDTH="62" HEIGHT="50" CONTENT="så" WC="0.91" CC="10"/>
+						<SP ID="P30_SP00047" HPOS="1001" VPOS="1280" WIDTH="18"/>
+						<String ID="P30_ST00059" HPOS="1019" VPOS="1205" WIDTH="115" HEIGHT="53" CONTENT="han" WC="0.96" CC="605"/>
+						<SP ID="P30_SP00048" HPOS="1134" VPOS="1280" WIDTH="19"/>
+						<String ID="P30_ST00060" HPOS="1153" VPOS="1203" WIDTH="169" HEIGHT="74" CONTENT="hylte," WC="0.98" CC="604074"/>
+					</TextLine>
+					<TextLine ID="P30_TL00013" HPOS="235" VPOS="1290" WIDTH="835" HEIGHT="75">
+						<String ID="P30_ST00061" HPOS="235" VPOS="1313" WIDTH="72" HEIGHT="52" CONTENT="og" WC="1.00" CC="00"/>
+						<SP ID="P30_SP00049" HPOS="307" VPOS="1365" WIDTH="17"/>
+						<String ID="P30_ST00062" HPOS="324" VPOS="1298" WIDTH="153" HEIGHT="67" CONTENT="jenta" WC="0.99" CC="60000"/>
+						<SP ID="P30_SP00050" HPOS="477" VPOS="1365" WIDTH="20"/>
+						<String ID="P30_ST00063" HPOS="497" VPOS="1294" WIDTH="181" HEIGHT="51" CONTENT="ribbet" WC="0.90" CC="500000"/>
+						<SP ID="P30_SP00051" HPOS="678" VPOS="1365" WIDTH="19"/>
+						<String ID="P30_ST00064" HPOS="697" VPOS="1290" WIDTH="153" HEIGHT="55" CONTENT="høna" WC="0.97" CC="6050"/>
+						<SP ID="P30_SP00052" HPOS="850" VPOS="1365" WIDTH="22"/>
+						<String ID="P30_ST00065" HPOS="872" VPOS="1292" WIDTH="198" HEIGHT="70" CONTENT="ferdig." WC="0.99" CC="0060003"/>
+					</TextLine>
+				</TextBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>
