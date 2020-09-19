@@ -1,0 +1,4 @@
+You don't need a GitLab account to use Git locally, but for the purpose of this guide we recommend registering and signing into your account before starting. Some commands need a connection between the files in your computer and their version on a remote serveru.
+Nettsted: http://www.domain.com
+Nettsted: http://www.domain.com er også et nettsted
+Vel bruker@domain.com don't need a GitLab account to use Git locally, but for the purpose of this guide we recommend registering and signing into your account before starting. Some commands need a connection between the files in your computer and their version on a remote server.

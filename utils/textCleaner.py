@@ -6,13 +6,17 @@ from html.parser import HTMLParser
 import emoji
 import unidecode
 from spacy.lang.en import English
+import ftfy
 
 logger = logging.getLogger(__name__)
 
 # compile regexes
 username_regex = re.compile(r'(^|[^@\w])@(\w{1,15})\b')
 url_regex = re.compile(r'((www\.[^\s]+)|(https?://[^\s]+)|(http?://[^\s]+))')
+email_regex = re.compile(r'[\w\.-]+@[\w\.-]+')
+
 control_char_regex = re.compile(r'[\r\n\t]+')
+
 # translate table for punctuation
 transl_table = dict([(ord(x), ord(y)) for x, y in zip(u"‘’´“”–-",  u"'''\"\"--")])
 # HTML parser
@@ -20,24 +24,32 @@ html_parser = HTMLParser()
 
 
 def cleanTextBlock(text, args):
-    url_filler = "http://www.domain.com"
-    username_filler = "@user"
-    email_filler = "bruker@domain.com"
+    #Remove any new lines
+    text = text.replace("\n","")
 
-    """Preprocesses text """
-    # standardize
-    text = standardize_text(text)
-    
+    # Check if this is a digibook reference
+    if len(text.split()) == 1 and text.startswith("digibook_"):
+        if args.digibook == "keep":
+            return text
+        if args.digibook == "remove":
+            return ""
+
+    if args.standardize:
+        text = standardize_text(text)
     if args.replace_usernames:
-        text = replace_usernames(text, filler=username_filler)
+        text = replace_usernames(text, filler=args.username_filler)
     if args.replace_urls:
-        text = replace_urls(text, url_filler)
+        text = replace_urls(text, args.url_filler)
+    if args.replace_email:
+        text = replace_email(text, args.email_filler)
     if args.asciify_emojis:
         text = asciify_emojis(text)
     if args.standardize_punctuation:
         text = standardize_punctuation(text)
     if args.do_lower_case:
         text = text.lower()
+    if args.fix_unicode:
+        text = ftfy.fix_text(text)
     if args.replace_multiple_usernames:
         text = replace_multi_occurrences(text, args.username_filler)
     if args.replace_multiple_urls:
@@ -46,7 +58,47 @@ def cleanTextBlock(text, args):
         text = remove_unicode_symbols(text)
     if args.remove_accented_characters:
         text = remove_accented_characters(text)
+    if count_words(text) < args.minimum_words:
+        text = ""
+    if count_alpha(text) < args.minimum_alpha:
+        text = ""
     return text
+
+
+def cleanTextBlock_notram(text, username_filler="@user",url_filler="http://domain.com", email_filler="anonymous@domain.com",
+        digibook="keep", minimum_words=2, minimum_alpha=2, replace_usernames=False, replace_urls=True, fix_unicode=True, asciify_emoji=True,
+        replace_multiple_usernames = False, standardize=True, replace_multiple_urls=False,remove_unicode_symbols=True, remove_accented_characters=False, 
+        standardize_punctation=True, do_lower_case=False):
+    
+    #Default settings used in the nortram-modell. Can be called both for creating datasets and for interference
+    #Input should be a single paragraph with text
+    
+    class ArgsClass:
+        pass
+
+    args = ArgsClass()
+    args.username_filler = username_filler # Username filler (ignored when replace_username option is False)
+    args.url_filler = url_filler # URL filler (ignored when replace_urls option is False)
+    args.email_filler = email_filler # Email filler (ignored when replace_email option is False)
+    args.digibook = digibook # Handling of digibook_ids. "keep", "remove" or "auto". Last option relies on other settings in script
+    args.minimum_words = minimum_words # The minimum number of words in the block to keep it
+    args.minimum_alpha = minimum_alpha # The minimum number of alphanum characters in the block to keep it. Removes OCR errors from cover pages.
+    args.replace_usernames = replace_usernames # Replace usernames with filler. Mainly for tweets
+    args.replace_urls = replace_urls # Replace URLs with filler
+    args.replace_email = replace_email # Replace emails with filler
+    args.fix_unicode = fix_unicode # Use ftfy to fix and standardise unicode. Converts it all to valid utf-8
+    args.asciify_emojis = asciify_emojis # Asciifyi emojis. On by default but mainly useful for social media
+    args.replace_multiple_usernames = replace_multiple_usernames #Replace "@user @user" with "2 <username_filler>. Mainly for use on tweets
+    args.standardize = standardize # Replace "Standardize text. Remove all control characters.
+    args.replace_multiple_urls = replace_multiple_urls # Replace "@user @user" with "2 <username_filler>. Mainly for use on tweets"
+    args.remove_unicode_symbols = remove_unicode_symbols # After preprocessing remove characters which belong to unicode category "So"
+    args.remove_accented_characters = remove_accented_characters #Remove accents/asciify everything. Not recommended since it interferes with ÅåäÄöÄäÄ
+    args.standardize_punctuation = standardize_punctation # Standardize (asciifyi) special punctuation
+    args.do_lower_case = do_lower_case #Convert text to lower case
+
+    cleaned = cleanTextBlock(text, args)
+    return cleaned
+
 
 def remove_accented_characters(text):
     text = unidecode.unidecode(text)
@@ -164,3 +216,21 @@ def replace_urls(text, filler='url'):
     text = text.replace(filler, f' {filler} ')
     text = ' '.join(text.split())
     return text
+
+def replace_email(text, filler='email'):
+    text = re.sub(email_regex, filler, text)
+    # add spaces between, and remove double spaces again
+    text = text.replace(filler, f' {filler} ')
+    text = ' '.join(text.split())
+    return text
+
+def count_alpha(text):
+    num = 0
+    for i in range(0, len(text)):
+        if (text[i].isalpha()):
+            num += 1
+    return num
+
+def count_words(text):
+    return len(text.split())
+
