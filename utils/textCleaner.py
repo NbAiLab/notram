@@ -26,11 +26,11 @@ def cleanTextBlock(text, args):
     #Remove any new lines
     text = text.replace("\n","")
 
-    # Check if this is a digibook reference
-    if len(text.split()) == 1 and text.startswith("digibook_"):
-        if args.digibook == "keep":
+    # Check if this is a digibok reference
+    if len(text.split()) == 1 and text.startswith("digibok_"):
+        if args.digibok == "keep":
             return text
-        if args.digibook == "remove":
+        if args.digibok == "remove":
             return ""
 
     if args.standardize:
@@ -65,7 +65,7 @@ def cleanTextBlock(text, args):
 
 
 def cleanTextBlock_notram(text, username_filler="@user",url_filler="http://domain.com", email_filler="anonymous@domain.com",
-        digibook="keep", minimum_words=2, minimum_alpha=2, replace_usernames=False, replace_urls=True, fix_unicode=True, asciify_emoji=True,
+        digibok="keep", minimum_words=2, minimum_alpha=2, replace_usernames=False, replace_urls=True, fix_unicode=True, asciify_emoji=True,
         replace_multiple_usernames = False, standardize=True, replace_multiple_urls=False,remove_unicode_symbols=True, remove_accented_characters=False, 
         standardize_punctation=True, do_lower_case=False):
     
@@ -82,7 +82,7 @@ def cleanTextBlock_notram(text, username_filler="@user",url_filler="http://domai
     args.username_filler = username_filler # Username filler (ignored when replace_username option is False)
     args.url_filler = url_filler # URL filler (ignored when replace_urls option is False)
     args.email_filler = email_filler # Email filler (ignored when replace_email option is False)
-    args.digibook = digibook # Handling of digibook_ids. "keep", "remove" or "auto". Last option relies on other settings in script
+    args.digibok = digibok # Handling of digibok_ids. "keep", "remove" or "auto". Last option relies on other settings in script
     args.minimum_words = minimum_words # The minimum number of words in the block to keep it
     args.minimum_alpha = minimum_alpha # The minimum number of alphanum characters in the block to keep it. Removes OCR errors from cover pages.
     args.replace_usernames = replace_usernames # Replace usernames with filler. Mainly for tweets
