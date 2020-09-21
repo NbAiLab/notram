@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 username_regex = re.compile(r'(^|[^@\w])@(\w{1,15})\b')
 url_regex = re.compile(r'((www\.[^\s]+)|(https?://[^\s]+)|(http?://[^\s]+))')
 email_regex = re.compile(r'[\w\.-]+@[\w\.-]+')
-
 control_char_regex = re.compile(r'[\r\n\t]+')
 
 # translate table for punctuation
@@ -70,9 +69,12 @@ def cleanTextBlock_notram(text, username_filler="@user",url_filler="http://domai
         replace_multiple_usernames = False, standardize=True, replace_multiple_urls=False,remove_unicode_symbols=True, remove_accented_characters=False, 
         standardize_punctation=True, do_lower_case=False):
     
-    #Default settings used in the nortram-modell. Can be called both for creating datasets and for interference
-    #Input should be a single paragraph with text
-    
+    """
+    Default settings used in the nortram-modell. Can be called both for creating datasets and for interference
+    Input should be a single paragraph with text. Any newlines are stripped.
+    Passing an object similar to the one created by ArgParse 
+    """
+
     class ArgsClass:
         pass
 
@@ -146,24 +148,6 @@ def replace_multi_occurrences(text, filler):
         new_text += text[pos:]
         text = new_text
     return text
-
-def segment_sentences(text, args):
-    """Uses spacy to segment text into sentences. Sentences which only consist of a filler will be merged with previous or following sentences"""
-    doc = nlp(text)
-    regex_fillers = r'(^\d {username}$)|^{username}$|(^\d {url}$)|^{url}$'.format(username=args.username_filler, url=args.url_filler)
-    num_tokens = len(doc)
-    sentences = [s.string.strip() for s in doc.sents]
-    for i, sentence in enumerate(sentences):
-        if re.match(regex_fillers, sentence):
-            if i == 0 and len(sentences) > 1:
-                # prepend to next sentence
-                sentences[i+1] = f'{sentence} {sentences[i+1]}'
-            elif i > 0:
-                # add sentence to previous
-                sentences[i-1] += f' {sentence}'
-            # remove current
-            del sentences[i]
-    return sentences, num_tokens
 
 def asciify_emojis(text):
     """
