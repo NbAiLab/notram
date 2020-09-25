@@ -45,25 +45,23 @@ def main(args):
     
     print("Finished loading everything into Pandas")
 
-    #cabinet = data['role'] == "Cabinet"
-    #support = data['role'] == "Support"
-    #opposition = data['role'] == "Opposition"
+    sv = data['partyname'] == "Sosialistisk Venstreparti"
+    frp = data['partyname'] == "Fremskrittspartiet"
     
     print("Some stats:")
     r = Counter(partylist) 
     print(r.items())
   
-    #support_sample = data[support].sample(n=num_samples, random_state=1)
-    #cabinet_sample = data[cabinet].sample(n=num_samples, random_state=1)
-    #opposition_sample = data[opposition].sample(n=num_samples, random_state=1)
+    sv_sample = data[sv].sample(n=num_samples, random_state=1)
+    frp_sample = data[frp].sample(n=num_samples, random_state=1)
    
-    #final_data = pd.concat([support_sample, cabinet_sample, opposition_sample], ignore_index=True).sample(frac=1).reset_index(drop=True)
+    final_data = pd.concat([frp_sample, sv_sample], ignore_index=True).sample(frac=1).reset_index(drop=True)
 
    
-    #final_data.to_csv(args.output_file, index=False)
+    final_data.to_csv(args.output_file, index=False)
 
 
-    #print(f'A total number of {num_samples} for both bokmål and nynorsk is written to file {args.output_file}')
+    print(f'A total number of {num_samples} for both bokmål and nynorsk is written to file {args.output_file}')
 
 
 
