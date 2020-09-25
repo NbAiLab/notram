@@ -1,5 +1,0 @@
-You don’t need a GitLab account to use Git locally, but for the purpose of this guide we recommend registering and signing into your account before starting. Some commands need a connection between the files in your computer and their version on a remote serveru.
-Nettsted: http://chordie.com
-digibook_29798798739873948734_3434_34343_34
-Nettsted: https://vg.no er også et nettsted 
-Vel per@capia.no don’t need a GitLab account to use Git locally, but for the purpose of this guide we recommend registering and signing into your account before starting. Some commands need a connection between the files in your computer and their version on a remote server.
