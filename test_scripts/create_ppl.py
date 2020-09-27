@@ -17,7 +17,7 @@ sys.path.append(r'../utils')
 sys.path.append(r'../')
 from utils.misc import ArgParseDefault, add_bool_arg
 from datetime import datetime, timedelta
-
+from utils.textCleaner import cleanTextBlock, cleanTextBlock_notram
 
 
 def main(args):
@@ -78,17 +78,25 @@ def main(args):
         if not keep:
             article.drop(article.index, inplace=True)
         
-        #Else evaluate every paragraph for confidence
+        #Else evaluate every paragraph
         else:
             preProcessArticleLength = len(article)
             
+            #Paragraph Confidence
             for aid,text in enumerate(article):
                 pconf = float(meta.paragraphs[aid]['confidence'])
-                
                 if pconf < float(args.min_confidence_paragraph):
                     if args.debug: print(f'P{aid} - Conf={pconf} - this is less then {args.min_confidence_paragraph}. Dropping line.\n{text}\n')
                     article.drop([aid], inplace=True)
-                
+            article.reset_index(drop=True, inplace=True)
+            
+            #Do cleaning
+            if args.clean:
+                for aid,text in enumerate(article):
+                    article[aid] = cleanTextBlock_notram(text,do_lower_case=False)
+                    if article[aid] == "":
+                        article.drop([aid], inplace=True)
+            article.reset_index(drop=True, inplace=True)
             
             print(f'{input_file_name} is valid. Keeping {len(article)} of {preProcessArticleLength} paragraphs.')
 
@@ -117,6 +125,7 @@ def parse_args():
     parser.add_argument('-C', '--min_confidence_article', required=False, default='1.0', help='Will drop all articles with lower average word confidence')
     parser.add_argument('-c', '--min_confidence_paragraph', required=False, default='1.0', help='Will drop all paragraphs with lower average word confidence')
     add_bool_arg(parser, 'debug', default=False, help='Print debug info about paragraphs.')
+    add_bool_arg(parser, 'clean', default=False, help='Run precedure for cleaning text. Specified in sub-routine.')
     
     args = parser.parse_args()
     return args
