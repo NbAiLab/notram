@@ -39,7 +39,7 @@ def parse_args():
     parser.add_argument('--username_filler', default='@user', type=str, help='Username filler (ignored when replace_username option is false)')
     parser.add_argument('--url_filler', default='http://domain.com', type=str, help='URL filler (ignored when replace_urls option is false)')
     parser.add_argument('--email_filler', default='anonymous@domain.com', type=str, help='Email filler (ignored when replace_email option is false)')
-    parser.add_argument('--digibook', default='keep', type=str, help='Handling of digibook_ids. "keep", "remove" or "auto". Last option relies on other settings in script')
+    parser.add_argument('--digibok', default='keep', type=str, help='Handling of digibok_ids. "keep", "remove" or "auto". Last option relies on other settings in script')
     parser.add_argument('--minimum_words', default=2, type=int, help='The minimum number of words in the block to keep it')
     parser.add_argument('--minimum_alpha', default=2, type=int, help='The minimum number of alphanum characters in the block to keep it. Removes OCR errors from cover pages.')
     #parser.add_argument('--num_logged_samples', default=10, type=int, help='Log first n samples to output')
