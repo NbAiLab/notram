@@ -109,8 +109,8 @@ class altoProcessor:
     def findTextInBlock(self,block):
 
         id=block.attrib['ID']
-
-        textnodes = self.handler.findInSub(block, "String")
+        
+        textnodes = self.handler.findInSub(block, "TextLine/String")
         localstr = ""
         sumwc = 0
         antallOver98 = 0
@@ -152,15 +152,15 @@ class altoProcessor:
                     self.globalAntallOver98 += 1
 
 
-        if (len(localstr) >= self.minimalNumberOfWordsInParagraph):
-            self.globalSumWC += localwc
-            self.globalAntallOrd += 1
+            if (len(localstr) >= self.minimalNumberOfWordsInParagraph):
+                self.globalSumWC += localwc
+                self.globalAntallOrd += 1
 
 
         #print(id,localstr,nowords)
         if (nowords >0):
             localstr = ftfy.fix_text(localstr)
-            localstr.replace("\n", "")
+            localstr=localstr.replace('\r', '').replace('\n', '').replace('\t', '')
             #print(id, localstr, nowords)
             localstr += "\n"
             self.content += localstr
@@ -171,6 +171,7 @@ class altoProcessor:
 
     def findBookTextInTextBlocks(self,urn, bList):
         print(len(bList))
+
         for block in bList:
             print(block)
             searchString = "TextBlock[@ID='" + block + "']"
@@ -186,7 +187,7 @@ class altoProcessor:
 
                 for k in res3:
                     if 'SUBS_TYPE' not in k.attrib:
-                        localstr += k.attrib['CONTENT'].strip()
+                        localstr += k.attrib['CONTENT'].strip().replace('\r', '').replace('\n', '')
                         localwc = float(k.attrib['WC'].strip())
                         sumwc += localwc
                         self.totalNumberOfWords += 1
@@ -200,7 +201,7 @@ class altoProcessor:
 
 
                     elif 'SUBS_TYPE' in k.attrib and k.attrib['SUBS_TYPE'].strip() == 'HypPart2':
-                        localstr += k.attrib['SUBS_CONTENT'].strip()
+                        localstr += k.attrib['SUBS_CONTENT'].strip().replace('\r', '').replace('\n', '')
                         localwc = float(k.attrib['WC'].strip())
                         sumwc += localwc
                         self.totalNumberOfWords += 1
@@ -222,21 +223,16 @@ class altoProcessor:
                                 antallOver98 += 1
                                 self.globalAntallOver98 += 1
 
-            if (len(res3) > 0):
-                #self.content += urn + "_" + block + "_" + str(round(sumwc / len(res3), 2)) + "\n"
-                localstr=ftfy.fix_text(localstr)
-                localstr.replace("\n","")
-                self.content += localstr + "\n"
-                self.cleanContent += localstr + "\n"
-                self.paragraphs.append({"id":str(block),"confidence":str(round(sumwc / len(res3), 2))})
-                print("id:" +str(block))
-                print(localstr)
+        if (len(blist) > 0):
+            #self.content += urn + "_" + block + "_" + str(round(sumwc / len(res3), 2)) + "\n"
+            localstr=ftfy.fix_text(localstr)
+            localstr.replace('\r', '').replace('\n', '')
+            self.content += localstr
+            self.cleanContent += localstr
+            self.paragraphs.append({"id":str(block),"confidence":str(round(sumwc / len(res3), 2))})
+            print("id:" +str(block))
+            print(localstr)
                 #print("\n\n\n")
-
-                # globalAntallOrd += 1
-                # print(urn + "_" + block + "_" + str(round(antallOver98/len(res3),2)) )
-                # print(localstr)
-                # print("\n")
 
     def FindAllTextBlocksInBook(self,filen):
         blockList = []
@@ -255,7 +251,7 @@ class altoProcessor:
         #findInSub(self, node, match):
         MasterNodes=self.handler.findAllNodes("Layout/Page/PrintSpace")
         for masterNode in MasterNodes:
-            blockResult = self.handler.findInSub(masterNode,"TextBlock/TextLine")
+            blockResult = self.handler.findInSub(masterNode,"TextBlock")
             for block in blockResult:
                 self.findTextInBlock(block)
 
@@ -340,8 +336,15 @@ class altoProcessor:
             self.detected_language = 'nob'
         if self.detected_language == 'nn':
             self.detected_language = 'nno'
-
-        averageNumberOfWordsPerParagraph=self.totalNumberOfWords/len(self.paragraphs)
+        bookOcrWordconfidence=0
+        if self.globalAntallOrd != 0:
+            bookOcrWordconfidence=self.globalSumWC / self.globalAntallOrd
+        averageNumberOfWordsPerParagraph = 0
+        if (len(self.paragraphs) != 0):
+            averageNumberOfWordsPerParagraph=self.totalNumberOfWords/len(self.paragraphs)
+        percentageWords98confidence=0
+        if self.totalNumberOfWords != 0:
+            percentageWords98confidence=self.globalAntallOver98 / self.totalNumberOfWords
 
         jsonrecord={
             "urn": self.currentUrn,
@@ -350,9 +353,9 @@ class altoProcessor:
             "languageDetected": self.detected_language,
             "docworksVersion":str(self.docworksVersion),
             "abbyyVersion":str( self.abbyyVersion ),
-            "bookOcrWordconfidence":str(round(self.globalSumWC / self.globalAntallOrd, 2)),
-            "percentageWords98confidence":str(round(self.globalAntallOver98 / self.totalNumberOfWords, 2)),
-            "averageNumberOfWordsPerParagraph":str(round(self.totalNumberOfWords/len(self.paragraphs),2)),
+            "bookOcrWordconfidence":str(round(bookOcrWordconfidence, 2)),
+            "percentageWords98confidence":str(round(percentageWords98confidence, 2)),
+            "averageNumberOfWordsPerParagraph":str(round(averageNumberOfWordsPerParagraph,2)),
             "paragraphs":[]
         }
         jsonrecord['paragraphs']=self.paragraphs
@@ -385,7 +388,10 @@ class altoProcessor:
             self.outputfilePointers[decade_lang]=fptr
 
         currfptr = self.outputfilePointers.get(decade_lang,None)
-        currfptr.write(self.currentUrn + "_" + str(round(self.globalSumWC / self.globalAntallOrd, 2)) + "_" + lang + "\n")
+        if self.globalAntallOrd != 0:
+            currfptr.write(self.currentUrn + "_" + str(round(self.globalSumWC / self.globalAntallOrd, 2)) + "_" + lang + "\n")
+        else:
+            currfptr.write(self.currentUrn + "_" + str(0) + "_" + lang + "\n")
         currfptr.write(self.content)
         currfptr.flush()
 
