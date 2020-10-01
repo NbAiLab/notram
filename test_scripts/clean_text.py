@@ -1,5 +1,6 @@
 import sys, os, glob
 from tqdm import tqdm
+from pathlib import Path
 
 sys.path.append(r'../utils')
 sys.path.append(r'../')
@@ -10,14 +11,15 @@ from utils.misc import ArgParseDefault, add_bool_arg
 def main(args):
     input_files = get_input_files(args.input_folder)
     print(f'Found {len(input_files):,} input text files')
-    
+   
     output_folder = args.output_folder
 
     if not os.path.isdir(output_folder):
         os.makedirs(output_folder)
-
+    print(input_files)
 
     for input_file in tqdm(input_files):
+        print(input_file)
         num_lines = sum(1 for _ in open(input_file, 'r'))
         input_filename = os.path.basename(input_file).split('.txt')[0]
         output_filepath = os.path.join(output_folder, f'{input_filename}_clean.txt')
@@ -30,7 +32,7 @@ def main(args):
                     f_out.write(output_text)
 
 def get_input_files(input_folder):
-    return glob.glob(os.path.join(input_folder, '*.txt'))
+    return list(Path(input_folder).rglob('*.txt'))
 
 def parse_args():
     parser = ArgParseDefault()
