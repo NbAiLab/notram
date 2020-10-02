@@ -31,13 +31,13 @@ def main(args):
     stat_wrong_language = 0
     stat_conf_article = 0
     stat_too_few_words = 0
-
+    langstats = {}
 
     complete = pd.Series()
 
     #Read everything into one large pandas frame 
-    #for input_file in tqdm(input_files):
-    for input_file in input_files:
+    for input_file in tqdm(input_files):
+    #for input_file in input_files:
         article = pd.Series()
         meta_file = str(input_file).replace(".txt",".meta")
         keep = True
@@ -61,6 +61,16 @@ def main(args):
         if publishYear == "<unknown>":
             publishYear = args.unknown_year
     
+        #Some stats
+        mods_language = meta.language[0]
+        mods_language_detected = meta.languageDetected[0]
+        modsl = f'{mods_language}-{mods_language_detected}'
+        if modsl in langstats.keys():
+            langstats[modsl] += 1
+        else:
+            langstats[modsl] = 1
+
+        
         language = meta.language[0]
         if language == "<unknown>":
             language = args.unknown_language
@@ -135,13 +145,23 @@ def main(args):
                         article.drop([aid], inplace=True)
             article.reset_index(drop=True, inplace=True)
             
+            #Add an extra lineshift at the end
+            article = article.append(pd.Series(['']), ignore_index=True)
+            
             print(f'{input_file_name} is valid. Keeping {len(article)} of {preProcessArticleLength} paragraphs.')
 
         #Append whatever is left into a dataframe
         complete = complete.append(article, ignore_index=True)
 
     #Save
-    complete.to_csv(args.output_file, header=None, index=None)
+    #complete.to_csv(args.output_file, header=None, index=None, sep=' ')
+    #pd.set_option("display.max_colwidth", 10000)
+    #with open(args.output_file, 'w+') as f:
+    #    f.write(complete.to_string(header = False, index = False, justify = "left"))
+    numpy_array = complete.to_numpy()
+    np.savetxt(args.output_file, numpy_array, fmt = '%s')
+
+
     print(f'Final file with {len(complete)} lines was saved to {args.output_file}')
     print(f'Number of valid words in corpus= {complete.str.split().apply(len).sum():,}')
     print(f'Total number of articles processed =  {len(input_files):,}')
@@ -155,6 +175,8 @@ def main(args):
     print(f'Stat too few words = {stat_too_few_words:,}')
     print(f'\nThe following settings were used:')
     print(f'{args}')
+    print(f'\nThe following languages were detected:')
+    print(f'{langstats}')
 
 
 def get_input_files(input_folder):
@@ -168,13 +190,13 @@ def parse_args():
     parser.add_argument('-i', '--input_folder', required=True, help='Path to input folder. All files ending with *.txt will be parsed.')
     parser.add_argument('-o', '--output_file', required=True, help='Output file. Will overwrite it exists')
     parser.add_argument('-s', '--min_ocr_date', required=False, default='01-01-2009', help='Will drop all articles that was ocr-ed prior to this date')
-    parser.add_argument('-p', '--min_publish_year', required=False, default='1900', help='Will drop all articles published prior to this year')
+    parser.add_argument('-p', '--min_publish_year', required=False, default='1814', help='Will drop all articles published prior to this year')
     parser.add_argument('-l', '--language', required=False, default='', help='If set, only articles in this language will be included')
     parser.add_argument('-L', '--unknown_language', required=False, default='nob', help='Any unknown language is set to this value')
     parser.add_argument('-y', '--unknown_year', required=False, default='1900', help='Any unknown year is set to this value')
     parser.add_argument('-C', '--min_confidence_article', required=False, default='0.9', help='Will drop all articles with lower average word confidence')
-    parser.add_argument('-c', '--min_confidence_paragraph', required=False, default='0.9', help='Will drop all paragraphs with lower average word confidence')
-    parser.add_argument('-a', '--min_words_paragraph', required=False, default='5.0', help='Minimum average number of words per paragraph')
+    parser.add_argument('-c', '--min_confidence_paragraph', required=False, default='0.8', help='Will drop all paragraphs with lower average word confidence')
+    parser.add_argument('-a', '--min_words_paragraph', required=False, default='5.0', help='Minimum average number of words per paragraph in the entire article/book')
     add_bool_arg(parser, 'debug', default=False, help='Print debug info about paragraphs.')
     add_bool_arg(parser, 'clean', default=False, help='Run precedure for cleaning text. Specified in sub-routine.')
     args = parser.parse_args()

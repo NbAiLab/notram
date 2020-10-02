@@ -16,8 +16,8 @@ def main(args):
 
     if not os.path.isdir(output_folder):
         os.makedirs(output_folder)
-    print(input_files)
-
+    
+    valid = 0
     for input_file in tqdm(input_files):
         print(input_file)
         num_lines = sum(1 for _ in open(input_file, 'r'))
@@ -28,8 +28,10 @@ def main(args):
             for i, line in enumerate(tqdm(f_in, total=num_lines)):
                 output_text = cleanTextBlock(line, args)
                 if output_text:
+                    valid += 1
                     output_text += f'\n'
                     f_out.write(output_text)
+        print(f'Original file had {num_lines} lines. A total of {valid} lines written to file.')
 
 def get_input_files(input_folder):
     return list(Path(input_folder).rglob('*.txt'))
@@ -42,12 +44,11 @@ def parse_args():
     parser.add_argument('--url_filler', default='http://domain.com', type=str, help='URL filler (ignored when replace_urls option is false)')
     parser.add_argument('--email_filler', default='anonymous@domain.com', type=str, help='Email filler (ignored when replace_email option is false)')
     parser.add_argument('--digibok', default='keep', type=str, help='Handling of digibok_ids. "keep", "remove" or "auto". Last option relies on other settings in script')
-    parser.add_argument('--minimum_words', default=2, type=int, help='The minimum number of words in the block to keep it')
-    parser.add_argument('--minimum_alpha', default=2, type=int, help='The minimum number of alphanum characters in the block to keep it. Removes OCR errors from cover pages.')
+    parser.add_argument('--min_alphawords', default=2, type=int, help='The minimum number of letter-only- words with a length of at least 2. Keeps empty lines.')
     #parser.add_argument('--num_logged_samples', default=10, type=int, help='Log first n samples to output')
     #add_bool_arg(parser, 'run_in_parallel', default=True, help='Run script in parallel')
     add_bool_arg(parser, 'replace_usernames', default=False, help='Replace usernames with filler. Mainly for tweets')
-    add_bool_arg(parser, 'replace_urls', default=True, help='Replace URLs with filler')
+    add_bool_arg(parser, 'replace_urls', default=False, help='Replace URLs with filler')
     add_bool_arg(parser, 'replace_email', default=True, help='Replace emails with filler')
     add_bool_arg(parser, 'fix_unicode', default=True, help='Use ftfy to fix and standardise unicode. Converts it all to valid utf-8')
     add_bool_arg(parser, 'asciify_emojis', default=True, help='Asciifyi emojis. On by default but mainly useful for social media')
