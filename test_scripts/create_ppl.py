@@ -163,6 +163,9 @@ def main(args):
 
 
     print(f'Final file with {len(complete)} lines was saved to {args.output_file}')
+    
+    #Some of this just takes too long time on the large corpuses. Disabled
+    '''
     print(f'Number of valid words in corpus= {complete.str.split().apply(len).sum():,}')
     print(f'Total number of articles processed =  {len(input_files):,}')
     print(f'\nThe following files were deleted:')
@@ -173,6 +176,7 @@ def main(args):
     print(f'Stat wrong language = {stat_wrong_language:,}')
     print(f'Stat conf article = {stat_conf_article:,}')
     print(f'Stat too few words = {stat_too_few_words:,}')
+    '''
     print(f'\nThe following settings were used:')
     print(f'{args}')
     print(f'\nThe following languages were detected:')

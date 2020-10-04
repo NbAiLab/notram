@@ -23,6 +23,10 @@ html_parser = HTMLParser()
 
 
 def cleanTextBlock(text, args):
+    #If the line is only a \n it is a doc divider. Just return this
+    if text == "\n":
+        return text
+
     #Remove any new lines
     text = text.replace("\n","")
 
@@ -57,15 +61,13 @@ def cleanTextBlock(text, args):
         text = remove_unicode_symbols(text)
     if args.remove_accented_characters:
         text = remove_accented_characters(text)
-    if count_words(text) < args.minimum_words:
-        text = ""
-    if count_alpha(text) < args.minimum_alpha:
+    if count_alphawords(text) < args.min_alphawords:
         text = ""
     return text
 
 
 def cleanTextBlock_notram(text, username_filler="@user",url_filler="http://domain.com", email_filler="anonymous@domain.com",
-        digibok="keep", minimum_words=2, minimum_alpha=2, replace_usernames=False, replace_urls=True, fix_unicode=True, asciify_emoji=True,
+        digibok="keep", minimum_alphawords=2, replace_usernames=False, replace_urls=False, fix_unicode=True, asciify_emoji=True,
         replace_multiple_usernames = False, standardize=True, replace_multiple_urls=False,remove_unicode_symbols=True, remove_accented_characters=False, 
         standardize_punctation=True, do_lower_case=False):
     
@@ -208,11 +210,12 @@ def replace_email(text, filler='email'):
     text = ' '.join(text.split())
     return text
 
-def count_alpha(text):
-    num = 0
-    for i in range(0, len(text)):
-        if (text[i].isalpha()):
-            num += 1
+def count_alphawords(text):
+    #Counts the number of pure alphawords (at least two characters long) in a text string
+    #Adds spaces before some characters, if not . and , would lead to non-alpha words
+    pat = re.compile(r"([.,;()!])")
+    text = pat.sub(" \\1 ", text)
+    num = sum((w.isalpha() and len(w) >= 2) for w in text.split())
     return num
 
 def count_words(text):
