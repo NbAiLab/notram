@@ -1,5 +1,3 @@
-# There is an additional script that does the same on entire folders
-
 import sys, os, glob
 from tqdm import tqdm
 from pathlib import Path
@@ -11,27 +9,37 @@ from utils.textCleaner import cleanTextBlock
 from utils.misc import ArgParseDefault, add_bool_arg
 
 def main(args):
-    input_file = args.input_file
-    output_file = args.output_file
+    input_files = get_input_files(args.input_folder)
+    print(f'Found {len(input_files):,} input text files')
+   
+    output_folder = args.output_folder
 
+    if not os.path.isdir(output_folder):
+        os.makedirs(output_folder)
+    
     valid = 0
-    num_lines = sum(1 for _ in open(input_file, 'r'))
-    input_filename = os.path.basename(input_file).split('.txt')[0]
+    for input_file in tqdm(input_files):
+        print(input_file)
+        num_lines = sum(1 for _ in open(input_file, 'r'))
+        input_filename = os.path.basename(input_file).split('.txt')[0]
+        output_filepath = os.path.join(output_folder, f'{input_filename}_clean.txt')
 
-    with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
-        for i, line in enumerate(f_in):
-            output_text = cleanTextBlock(line, args)
-            if output_text:
-                valid += 1
-                output_text += f'\n'
-                f_out.write(output_text)
-    print(f'Original file had {num_lines} lines. A total of {valid} lines written to file.')
+        with open(input_file, 'r') as f_in, open(output_filepath, 'w') as f_out:
+            for i, line in enumerate(tqdm(f_in, total=num_lines)):
+                output_text = cleanTextBlock(line, args)
+                if output_text:
+                    valid += 1
+                    output_text += f'\n'
+                    f_out.write(output_text)
+        print(f'Original file had {num_lines} lines. A total of {valid} lines written to file.')
 
+def get_input_files(input_folder):
+    return list(Path(input_folder).rglob('*.txt'))
 
 def parse_args():
     parser = ArgParseDefault()
-    parser.add_argument('--input_file', required=True, help='Path to input file.')
-    parser.add_argument('--output_file', required=True, help='Path to output file.')
+    parser.add_argument('--input_folder', required=True, help='Path to folder with txt files.')
+    parser.add_argument('--output_folder', required=True, help='Path to output folder.')
     parser.add_argument('--username_filler', default='@user', type=str, help='Username filler (ignored when replace_username option is false)')
     parser.add_argument('--url_filler', default='http://domain.com', type=str, help='URL filler (ignored when replace_urls option is false)')
     parser.add_argument('--email_filler', default='anonymous@domain.com', type=str, help='Email filler (ignored when replace_email option is false)')
