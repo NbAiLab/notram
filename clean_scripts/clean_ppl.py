@@ -19,7 +19,7 @@ def main(args):
     input_filename = os.path.basename(input_file).split('.txt')[0]
 
     with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
-        for i, line in enumerate(f_in):
+        for i, line in enumerate(tqdm(f_in, total=num_lines)):
             output_text = cleanTextBlock(line, args)
             if output_text:
                 valid += 1
