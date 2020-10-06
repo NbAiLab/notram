@@ -35,6 +35,10 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 * Remove all control characters
 * Use ftfy to clean unicode
 
+#### Deduplicate
+* Deduplicate dataset on paragraph level
+
+
 ### External Bokmål
 | Scan year  |   Words | 
 | -------- |  -----:| 
