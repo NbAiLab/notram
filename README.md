@@ -5,7 +5,7 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 ### Scanned books
 | Sources  |   Words Raw | Words First Clean |Words Second Clean | Deduplicated |
 | -------- |  -----:|  -----:| -----:| -----:| 
-| 2009  | 1 816 686 744 | 1 205 066 719 | N/A | - | 
+| 2009  | 1 816 686 744 | 1 205 066 719 | 744 097 347 | - | 
 | 2010 | 1 570 727 985 | 1 255 763 510 | 1 244 407 623 | - | 
 | 2011  | 2 252 826 509 |  2 093 456 928 | 2 076 296 114 | - | 
 | 2012  | 1 982 794 535 |  1 574 827 699 | 1 566 777 809 | - | 
