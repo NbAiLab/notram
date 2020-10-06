@@ -43,7 +43,7 @@ def parse_args():
     add_bool_arg(parser, 'replace_urls', default=False, help='Replace URLs with filler')
     add_bool_arg(parser, 'replace_email', default=True, help='Replace emails with filler')
     add_bool_arg(parser, 'fix_unicode', default=True, help='Use ftfy to fix and standardise unicode. Converts it all to valid utf-8')
-    add_bool_arg(parser, 'asciify_emojis', default=True, help='Asciifyi emojis. On by default but mainly useful for social media')
+    add_bool_arg(parser, 'asciify_emojis', default=False, help='Asciifyi emojis. On by default but mainly useful for social media')
     add_bool_arg(parser, 'replace_multiple_usernames', default=False, help='Replace "@user @user" with "2 <username_filler>. Mainly for use on tweets"')
     add_bool_arg(parser, 'standardize', default=True, help='Replace "Standardize text. Remove all control characters.')
     add_bool_arg(parser, 'replace_multiple_urls', default=False, help='Replace "http://... http://.." with "2 <url_filler>". Mainly for use on tweets')

@@ -89,7 +89,7 @@ def main(args):
 
         #Scan Date
         if (datetime.strptime(args.min_ocr_date, '%d-%m-%Y') > datetime.strptime(ocrDate, '%d-%m-%Y')) and keep:
-            print(f'{input_file_name} deleted because minimum acr date is {args.min_ocr_date}. This book is ocr-ed {ocrDate}.')
+            print(f'{input_file_name} deleted because minimum ocr date is {args.min_ocr_date}. This book is ocr-ed {ocrDate}.')
             stat_too_old_scan += 1
             keep = False
 

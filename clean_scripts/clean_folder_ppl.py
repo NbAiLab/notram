@@ -1,6 +1,13 @@
+
+
 import sys, os, glob
 from tqdm import tqdm
 from pathlib import Path
+
+
+print("This script is not updated. Writes too often to disk. If needed merge with clean_ppl.py")
+sys.exit()
+
 
 sys.path.append(r'../utils')
 sys.path.append(r'../')

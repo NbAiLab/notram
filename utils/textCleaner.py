@@ -213,7 +213,7 @@ def replace_email(text, filler='email'):
 def count_alphawords(text):
     #Counts the number of pure alphawords (at least two characters long) in a text string
     #Adds spaces before some characters, if not . and , would lead to non-alpha words
-    pat = re.compile(r"([.,;()!])")
+    pat = re.compile(r"([.,;()!:/])")
     text = pat.sub(" \\1 ", text)
     num = sum((w.isalpha() and len(w) >= 2) for w in text.split())
     return num
