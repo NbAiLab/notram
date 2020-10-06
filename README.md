@@ -21,7 +21,7 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 
 
 #### First Clean
-* Minimum publish date: 1814
+* Minimum publication date: 1814
 * Minimum confidence book: 0.9
 * Minimum confidence paragraph: 0.8 (2009 ->)
 * Minimum confidence paragraph: 0.9 (-> 2008) (in production)
