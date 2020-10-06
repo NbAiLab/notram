@@ -17,8 +17,23 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 | 2018 |1 465 511 173 |  1 269 376 306 | 1 262 184 246 | - | 
 | 2019  |357 849 861 |  291 495 087 | 290 366 131 | - | 
 | 2020  | 897 712 347 | 834 129 514 |831 068 263 | - | 
-| **Total**  |**19 277 673 123** |  **15 264 575 910** | **14 354 941 960++** | **12 824 793 952** | 
+| **Total**  |**19 277 673 123** |  **15 264 575 910** | **14 354 941 960** | **12 824 793 952** | 
 
+
+#### First Clean
+* Minimum publish date: 1814
+* Minimum confidence book: 0.9
+* Minimum confidence paragraph: 0.8 (2009 ->)
+* Minimum confidence paragraph: 0.9 (-> 2008)
+* Minimum average words per paragraph in book: 5
+
+#### Second Clean
+* Minimum number of alpha-only words in paragraph: 2
+* Standardise punctation
+* Remove unicode symbols in category "So"
+* Replace email addresses with anonymous@domain.com
+* Remove all control characters
+* Use ftfy to clean unicode
 
 ### External Bokmål
 | Scan year  |   Words | 
