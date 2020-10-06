@@ -2,9 +2,26 @@
 This is the repository for the project "NoTraM - Norwegian Transformer Model" owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models.
 
 # Available datasources
+### Scanned books
+| Sources  |   Words Raw | Words Cleaned | 
+| -------- |  -----:|  -----:| 
+| 2009  |  1 205 066 719 | N/A | 
+| 2010 |  1 255 763 510 | 1 244 407 623 | 
+| 2011  |  2 093 456 928 | 2 076 296 114 | 
+| 2012  |  1 574 827 699 | 1 566 777 809 | 
+| 2013  |  1 977 450 194 | 1 967 235 126 | 
+| 2014 |  1 901 034 898 | 1 522 943 744 | 
+| 2015  |  818 726 467 | 813 646 038 | 
+| 2016  |  1 052 036 635 |1 045 702 485 | 
+| 2017  |  991 211 953 | 990 217 034 | 
+| 2018 |  1 269 376 306 | 1 262 184 246 | 
+| 2019  |  291 495 087 | 290 366 131 | 
+| 2020  |  834 129 514 |831 068 263 | 
+| **Total**  |  **15 264 575 910** | **13 610 844 613++** | 
 
-### Bokmål
-| Sources  |   Words | 
+
+### External Bokmål
+| Scan year  |   Words | 
 | -------- |  -----:| 
 | Parliament Talks  |  58 841 660 | 
 | Wikipedia |  153 183 516 | 
@@ -13,7 +30,7 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 | **Total**  |  **1 022 877 418** | 
 
 
-### Nynorsk
+### External Nynorsk
 | Sources  |   Words | 
 | -------- |  -----:| 
 | Wikipedia |  35 051 361 | | 
