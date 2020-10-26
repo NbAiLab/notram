@@ -5,8 +5,17 @@ This goes through the process of training on a TPU v3-8. Before attempting this,
 * Get the bert_config.json file describing the network (for instance the file bundled with BERT)
 * Get the pre-trained model if you do not want to randomly initiating the weights
 
+## Create a VM
+The VM needs to be in the same zone as your TPU and bucket. There are a lot of ways of creating the VM, and in many cases you will create from a stored image. However, if you want to create one from scratch, you can go through https//console.cloud.google.com -> Compute Engine -> VM Instances. Click "Create Instance". 
+
+A n2-standard-8 (8 vCPUs, 32 GB memory) and a 200Gb SSD is sufficient for training even with a v3-128. For the v3-8 you can get away with a smaller machine. Out of memory issues are the most annoying errors here, so if you are on a tight budget, try not saving money on memory. 
+
+
+
+
+
 ## Create a bucket
-The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.google.com -> Storage. Click "Create Bucket". Here a bucket called "notram-myzone" is created. Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
+The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.cloud.google.com -> Storage. Click "Create Bucket". Here a bucket called "notram-myzone" is created. Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
 
 ### Copy necessary files to the bucket
 Upload the correct cased-wwm-BERT-model (for TF2.0) to the bucket named "notram-myzone". Then upload the tfrecord-files.
