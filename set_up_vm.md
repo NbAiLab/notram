@@ -26,7 +26,7 @@ After this you will have to close and reopen connection.
 
 ## Create a conda environment and auto restart it
 ```bash
-conda create -n python36 python=3.8 (Creates a Python 3.8 environment called python38)
+conda create -n python38 python=3.8 (Creates a Python 3.8 environment called python38)
 echo "conda activate python38" >> ~/.bashrc (Sets the default environment)
 ```
 Close and reopen connection. When logging in the command line should state “python38”
