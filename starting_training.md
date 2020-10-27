@@ -10,15 +10,13 @@ The VM needs to be in the same zone as your TPU and bucket. There are a lot of w
 
 A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for training a v3-128. For the v3-8 you can get away with a n2-standard-2 (2 vCPU, 8GB memory) for $60/month. Often it is convenient to have some storage, so set it up with a 200GB disk.
 
-Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keays for ./ssh/authorized_keys for easy access.
+Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keys for ./ssh/authorized_keys for easy access.
 
-Set up the VM.
+It is a lot easier to build upon a pre-installed image. All you would do then would be to pull from github and authenticate. However, follow [this instruction](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) for setting up a VM from scratch. 
+
 
 ### Authenticate
 Run both these command to make sure the VM is correctly authenticated. You might also have to run this on the local machine to be able to copy to the bucket. In most cases only one of these is needed. However, it is frustrating to figure out which is needed, so simply just run both.
-
-
-
 
 ```bash
 gcloud auth login
