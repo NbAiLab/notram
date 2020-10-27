@@ -20,9 +20,9 @@ ssh-keygen -t rsa -C "per@capia.no"
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
-#Answer “yes” to the last question
+
 ```
-After this you will have to close and reopen connection.
+After you have answered "yes" to the last question you still have to close and reopen connection.
 
 ## Create a conda environment and auto restart it
 ```bash
@@ -44,19 +44,20 @@ git config --global credential.helper store
 ```bash
 git clone https://github.com/NBAiLab/notram.git
 pip install -r notram/requirements.txt
-python -m spacy download nb_core_news_sm (if you get errors try: spacy download nb_core_news_sm)
+python -m spacy download nb_core_news_sm
 ```
 
 ## Clone CT-bert and checkout Notram branch 
-Please note that the CT-BERT has a lot of requirements, including Tensorflow. If you are not installing this library, you should in any case install the requirements.
+Please note that both the Notram and CT-BERT has a lot NLP-tools as requirements, including Tensorflow. It might be useful running the requirements-file even if you do not clone the libraries. 
 
 ```bash
 git clone https://github.com/digitalepidemiologylab/covid-twitter-bert.git
+pip install -r covid-twitter-bert/requirements.txt
 cd covid-twitter-bert
 git checkout notram
 git submodule update --init
 cd ..
-pip install -r covid-twitter-bert/requirements.txt
+
 ```
 
 ## Install GCloud and authenticate
