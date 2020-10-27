@@ -22,8 +22,8 @@ Run both these command to make sure the VM is correctly authenticated. You might
 gcloud auth login
 gcloud auth application-default login
 
-#You might also have to run this if the project id is wrong
-gcloud config set project PROJECT_ID
+#You might also have to run this as well (change PROJECT-ID if needed)
+gcloud config set project nancy-194708
 
 ```
 
