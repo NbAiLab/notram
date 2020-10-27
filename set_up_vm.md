@@ -11,10 +11,11 @@ sudo dpkg-reconfigure locales
 #Then you might switch locale by doing this. Note that you might have to log in and out from the ssh
 sudo update-locale LC_ALL="nb_NO.utf8"
 
-#Generate a public key that can be added to git repositories ("Setting" - "Deploy keys")
+
 #Replace email address and press ENTER on all questions
 ssh-keygen -t rsa -C "per@capia.no"
 ```
+After the public key is generated it will tell you the placement. This might be a good time to add this to the git repositories under "Setting" - "Deploy keys" if you plan on pushing changes to the git.
 
 ## Install Conda
 ```bash
