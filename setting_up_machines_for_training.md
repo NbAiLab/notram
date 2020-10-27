@@ -16,11 +16,11 @@ The bucket needs to be in the same zone as your TPU and VM. The easiest way to c
 ### Copy necessary files to the bucket
 You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://github.com/tensorflow/models/tree/93490036e00f37ecbe6693b9ff4ae488bb8e9270/official/nlp/bert#access-to-pretrained-checkpoints). You should have used the vocabulary-file from here to generate your tfrecord-files. Alternatively you can copy all the files from Googles public bucket to your bucket. 
 
-Here is the code for uploading tfrecord-files and a locally copied cased-wwm-BERT-model to the bucket named "notram-myzone". A small detail is the "-m" parameter. It allows for uploading multiple files at the same time, and also automatically restores if your upload is interrupted.  
+Here is the code for uploading tfrecord-files to a directory we call "corpus1" and a locally copied cased-wwm-BERT-model to the bucket named "notram-myzone". A small detail is the "-m" parameter. It allows for uploading multiple files at the same time, and also automatically restores if your upload is interrupted.  
 
 ```bash
 #Copy tfrecord
-gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/
+gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/corpus1/
 
 #Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
 gsutil -m cp -r *.* gs://notram-myzone/notram_v1/pretrained_models/bert/tf_20/wwm_cased_L-24_H-1024_A-16/
