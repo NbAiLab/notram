@@ -8,9 +8,8 @@ sudo apt-get install ssh git tmux wget
 #Having Nordic Characters might be handy. Run this script and install the languages you need
 sudo dpkg-reconfigure locales
 
-#Then you might switch locale by doing this. Note that you might have to log in and out from the ssh
+#Then you might switch locale by this command. You might have to log in and out of the ssh for this to take effect.
 sudo update-locale LC_ALL="nb_NO.utf8"
-
 
 #Replace email address with your git email address and press ENTER on all questions
 ssh-keygen -t rsa -C "per@capia.no"
