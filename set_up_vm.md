@@ -37,7 +37,7 @@ Close and reopen connection. When logging in the command line should state “py
 git config --global user.name "Per E Kummervold" 
 git config --global user.email "per@capia.no"
 #Make sure username and password will then be stored globally after first login
-git config --global credential.helper store```
+git config --global credential.helper store
 ```
 
 ## Clone Notram
