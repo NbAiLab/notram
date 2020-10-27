@@ -6,7 +6,7 @@ The VM needs to be in the same zone as your TPU and bucket. There are a lot of w
 
 A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for training a v3-128. For the v3-8 you can get away with a n2-standard-2 (2 vCPU, 8GB memory) for $60/month. Often it is convenient to have some storage, so set it up with a 200GB disk. In most cases it is not necessary to choose a SSD-disk since the disk of the VM is not actively used in training.
 
-Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keys for ./ssh/authorized_keys for easy access.
+The first time you will have to connect to the new VM either through the browser or by looking at the "gcloud command". Click on the "dots" to get these options. After connecting just add your public key to ./ssh/authorized_keys for easy access with your favourite ssh terminal.
 
 [This guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) explains in details how to set up a Notram VM from scratch. You might want to load a pre-built VM image instead since this is easier. You will however still need to check out the latest code from the git and authenticate with gcloud. You will find details about this in the guide as well.
 
