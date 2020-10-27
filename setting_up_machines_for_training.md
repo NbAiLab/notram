@@ -14,9 +14,9 @@ Connect to the new VM (either through the browser or by looking at the "gcloud c
 The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.cloud.google.com -> Storage. Click "Create Bucket". Create a bucket called "notram-myzone" (replace myzone with the zone you are using). Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
 
 ### Copy necessary files to the bucket
-You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://github.com/tensorflow/models/tree/93490036e00f37ecbe6693b9ff4ae488bb8e9270/official/nlp/bert#access-to-pretrained-checkpoints). You will need the vocab to be able to generate the tfrecord-files, and might as well download the other files as well. You can of course copy all the files from bucket to bucket. 
+You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://github.com/tensorflow/models/tree/93490036e00f37ecbe6693b9ff4ae488bb8e9270/official/nlp/bert#access-to-pretrained-checkpoints). You should have used the vocabulary-file from here to generate your tfrecord-files. Alternatively you can copy all the files from Googles public bucket to your bucket. 
 
-When you have generated the tfrecord-files, upload them to the bucket. Then upload the correct cased-wwm-BERT-model to the bucket named "notram-myzone". 
+Here is the code for uploading tfrecord-files and a locally copied cased-wwm-BERT-model to the bucket named "notram-myzone". A small detail is the "-m" parameter. It allows for uploading multiple files at the same time, and also automatically restores if your upload is interrupted.  
 
 ```bash
 #Copy tfrecord
