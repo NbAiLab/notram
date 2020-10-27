@@ -4,12 +4,14 @@ This guide explains a standard setup of a VM for BERT training. It installs the 
 ## Get some general tools and generate the public key
 ```bash
 sudo apt-get install ssh git tmux wget
+
 #Having Nordic Characters might be handy. Run this script and install the languages you need
 sudo dpkg-reconfigure locales
+
 #Then you might switch locale by doing this. Note that you might have to log in and out from the ssh
 sudo update-locale LC_ALL="nb_NO.utf8"
 
-#Useful since the public key can be added to git repositories ("Setting" - "Deploy keys")
+#Generate a public key that can be added to git repositories ("Setting" - "Deploy keys")
 #Replace email address and press ENTER on all questions
 ssh-keygen -t rsa -C "per@capia.no"
 ```
