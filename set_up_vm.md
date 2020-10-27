@@ -40,14 +40,16 @@ pip install -r notram/requirements.txt
 python -m spacy download nb_core_news_sm (if you get errors try: spacy download nb_core_news_sm)
 ```
 
-## Clone covid-bert and checkout Notram branch 
+## Clone CT-bert and checkout Notram branch 
+Please note that the CT-BERT has a lot of requirements, including Tensorflow. If you are not installing this library, you should in any case install the requirements.
+
 ```bash
 git clone https://github.com/digitalepidemiologylab/covid-twitter-bert.git
 cd covid-twitter-bert
 git checkout notram
-git submodule update --init (This library builds on the tensorflow library. Installed as a submodule here)
+git submodule update --init
 cd ..
-pip install -r covid-twitter-bert/requirements.txt (Most likely everything is already installed here)
+pip install -r covid-twitter-bert/requirements.txt
 ```
 
 ## Install GCloud and authenticate
