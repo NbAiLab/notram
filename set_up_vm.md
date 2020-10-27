@@ -3,8 +3,10 @@ This guide explains a standard setup of a VM for BERT training. It installs the 
 
 ## Get some general tools and generate the public key
 ```bash
-sudo apt-get install ssh git tmux wget (requires sudo-access. Not really required for the other steps)
-ssh-keygen -t rsa -C "per@capia.no". (Optional. The public key can be added to git repositories for push - Settings-Deploy keys)
+sudo apt-get install ssh git tmux wget
+#Useful since the public key can be added to git repositories ("Setting" - "Deploy keys")
+#Replace email address
+ssh-keygen -t rsa -C "per@capia.no"
 ```
 
 ## Install Conda
@@ -12,16 +14,15 @@ ssh-keygen -t rsa -C "per@capia.no". (Optional. The public key can be added to g
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 #Answer “yes” to the last question
-#Close and reopen connection.
 ```
-
+After this you will have to close and reopen connection.
 
 ## Create a conda environment and auto restart it
 ```bash
 conda create -n python36 python=3.8 (Creates a Python 3.8 environment called python38)
 echo "conda activate python38" >> ~/.bashrc (Sets the default environment)
-#close and reopen connection. When logging in the command line should state “python38”
 ```
+Close and reopen connection. When logging in the command line should state “python38”
 
 ## Set up git credentials
 ```bash
