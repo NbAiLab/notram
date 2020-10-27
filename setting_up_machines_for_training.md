@@ -23,7 +23,7 @@ Here is the code for uploading tfrecord-files to a directory we call "corpus1" a
 gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/corpus1/
 
 #Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
-gsutil -m cp -r *.* gs://notram-myzone/notram_v1/pretrained_models/bert/tf_20/wwm_cased_L-24_H-1024_A-16/
+gsutil -m cp -r *.* gs://notram-myzone/pretrained_models/bert/tf_20/wwm_cased_L-24_H-1024_A-16/
 
 ```
 
