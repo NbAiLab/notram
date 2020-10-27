@@ -74,4 +74,4 @@ gcloud auth application-default login
 gcloud config set project nancy-194708
 
 ```
-
+Congratulations! You now have a clean VM image set up with all necessary authentications. If you plan on setting up multiple VMs this might be a good time to save this image in the [Google Cloud Console](https://console.cloud.google.com/).
