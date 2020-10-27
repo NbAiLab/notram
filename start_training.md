@@ -6,18 +6,21 @@ The training script located in the covid-twitter-bert can be run directly. It do
 If you have followed the guide earlier, the paths to the bucket should now be correct.
 
 ```bash
-RUN_PREFIX=exp1_1e4_nodecay
-PROJECT_NAME=notram_v1
-BUCKET_NAME=cb-tpu-us-central1
-TPU_IP=1.1.1.1 #Replace with the internal IP of your TPU 
-PRETRAIN_DATA=run_2020-06-16_22-20-47_002555_wwm_v2
-
-
-MODEL_CLASS=bert_large_uncased_wwm
-TRAIN_BATCH_SIZE=1024
-EVAL_BATCH_SIZE=1024
-
-
+RUN_PREFIX=first_experiment #Prefix that is used on all training. Up to you what to put here. Makes it easier to identify runs.
+PROJECT_NAME=notram_v1 #First level in the bucket. Where all the files are kept
+BUCKET_NAME=notram-us-central1 #Set bucket name
+TPU_IP=10.173.5.26 #Replace with the internal IP of your TPU. When training on pods, use tpu_name instead
+PRETRAIN_DATA=corpus1 #Subdirectory where the training data is held
+MODEL_CLASS=bert_large_cased_wwm #This name needs to exist in the file called config.py. File should be self explanatory
+TRAIN_BATCH_SIZE=768 #Maximum size depends on seq_length. On a v3-8 we should go for max size. Should be dividable by 8
+NUM_EPOCHS = 100 #Not to be confused with real epochs. This is the time between each round, and will finish when writing a checkpoint
+MAX_SEQ_LENGTH = 128 #Sequence length is set when creating tfrecord-files and can not be changed here
+LEARNING_RATE = 1e-4 #1e-4 is a recommended learning rate when training from scratch with this batch size. Reduce for domain specific pre-training and scale with batch size
+END_LEARNING_RATE = 1e-4 #Set to the same as the start learning_rate here. Typically we would however decrease it to 0
+STEPS_PER_LOOP = 1000 #Not critical. Leave like this
+NUM_STEPS_PER_EPOCH = 125000 #Mainly for calculating when the checkpoints should be written, and what should internally be considered an epoch
+WARMUP_STEPS 1000 #Lineary increases learning rate during warmup. Important especially when training from scratch
+OPTMIZER_TYPE adamw #This is the correct choice here. However, when training on pods and huge batch sizes, change this to lamb
 
 python run_pretrain.py \
   --run_prefix $RUN_PREFIX \
@@ -28,45 +31,14 @@ python run_pretrain.py \
   --model_class $MODEL_CLASS \
   --train_batch_size $TRAIN_BATCH_SIZE \
   --eval_batch_size $EVAL_BATCH_SIZE \
-  --num_epochs 10 \
-  --max_seq_length 96 \
-  --learning_rate 1e-4 \
-  --steps_per_loop 1000 \
-  --num_steps_per_epoch 125000 \
-  --end_lr 1e-4 \
-  --do_eval
-  
-  
-PRETRAIN_DATA=run_2020-06-16_22-20-47_002555_wwm_v2
-RUN_PREFIX=expB16_160e5_decay
-BUCKET_NAME=cb-tpu-west4
-#TPU_NAME=tpu-west4-v3-256-preempt
-TPU_NAME=tpu-west4-v3-128	
-MODEL_CLASS=bert_large_uncased_wwm
-TRAIN_BATCH_SIZE=16384
-EVAL_BATCH_SIZE=1024
-PROJECT_NAME=covid-bert-v2
-
-
-python run_pretrain.py \
-  --run_prefix $RUN_PREFIX \
-  --project_name $PROJECT_NAME \
-  --bucket_name $BUCKET_NAME \
-  --tpu_name $TPU_NAME \
-  --pretrain_data $PRETRAIN_DATA \
-  --model_class $MODEL_CLASS \
-  --train_batch_size $TRAIN_BATCH_SIZE \
-  --eval_batch_size $EVAL_BATCH_SIZE \
-  --num_epochs 100 \
-  --max_seq_length 96 \
-  --learning_rate 160e-5 \
-  --steps_per_loop 100 \
-  --num_steps_per_epoch 7797 \
-  --warmup_steps 10000 \
-  --optimizer_type lamb \
-  --end_lr 0 \
-  --do_not_do_eval
-  
+  --num_epochs $NUM_EPOCHS \
+  --max_seq_length $MAX_SEQ_LENGTH \
+  --learning_rate $LEARNING_RATE \
+  --end_lr $END_LEARNING_RATE \
+  --steps_per_loop $STEPS_PER_LOOP \
+  --num_steps_per_epoch $NUM_STEPS_PER_EPOCH \
+  --warmup_steps $WARMUP_STEPS \
+  --optimizer_type $OPTIMIZER_TYPE
   
   
   ```
