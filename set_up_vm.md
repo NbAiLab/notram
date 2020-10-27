@@ -12,7 +12,7 @@ sudo dpkg-reconfigure locales
 sudo update-locale LC_ALL="nb_NO.utf8"
 
 
-#Replace email address and press ENTER on all questions
+#Replace email address with your git email address and press ENTER on all questions
 ssh-keygen -t rsa -C "per@capia.no"
 ```
 After the public key is generated it will tell you the placement. This might be a good time to add this to the git repositories under "Setting" - "Deploy keys" if you plan on pushing changes to the git.
