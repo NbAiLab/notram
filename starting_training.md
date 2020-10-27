@@ -12,7 +12,7 @@ A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for trainin
 
 Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keys for ./ssh/authorized_keys for easy access.
 
-It is a lot easier to build upon a pre-installed image. All you would do then would be to pull from github and authenticate. However, follow [this instruction](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) for setting up a Notram VM from scratch. 
+It is a lot easier to build upon a pre-installed image. All you would do then would be to pull from github and authenticate. However, follow [this guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) for setting up a Notram VM from scratch. 
 
 
 ### Authenticate
