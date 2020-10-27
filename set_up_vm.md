@@ -33,7 +33,7 @@ git config --global user.email "per@capia.no"
 git config --global credential.helper store```
 ```
 
-## Clone notram
+## Clone Notram
 ```bash
 git clone https://github.com/NBAiLab/notram.git
 pip install -r notram/requirements.txt
