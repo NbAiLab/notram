@@ -8,7 +8,7 @@ A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for trainin
 
 Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keys for ./ssh/authorized_keys for easy access.
 
-[This guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) explains in details how to set up a Notram VM from scratch. You might have to load a pre-built VM image instead. This is easier. You will however will need to check out the latest code from the git and authenticate with gcloud. You will find details about this in the guide as well.
+[This guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) explains in details how to set up a Notram VM from scratch. You might want to load a pre-built VM image instead since this is easier. You will however still need to check out the latest code from the git and authenticate with gcloud. You will find details about this in the guide as well.
 
 ## Create a bucket
 The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.cloud.google.com -> Storage. Click "Create Bucket". Create a bucket called "notram-myzone" (replace myzone with the zone you are using). Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
@@ -28,8 +28,10 @@ gsutil -m cp -r *.* gs://notram-myzone/notram_v1/pretrained_models/bert/tf_20/ww
 ```
 
 ## Create a TPU
-The TPU needs to be in the same zone as your bucket and VM. The easiest way to create a TPU is through https//console.cloud.google.com -> Compute Engine -> TPUs. Click "CREATE TPU NODE".Create a TPU called "notram-myzone-tpu1". Select for instance a "v3-8". It is important that the TPU runs exactly the same version as the VM. To make sure there has been no updates here, go to the VM and type:
+The TPU needs to be in the same zone as your bucket and VM. The easiest way to create a TPU is through https//console.cloud.google.com -> Compute Engine -> TPUs. Click "CREATE TPU NODE".Create a TPU called "notram-myzone-tpu1". Select for instance a "v3-8". It is important that the TPU runs exactly the same version as the VM. To make sure there has been no updates, go to the VM and type:
 ```bash
 python -c 'import tensorflow as tf; print(tf.__version__)' 
 ```
-Select the same same version for the "TPU sonftware version" and create the TPU. It will take a minute or two and then your newly created TPU should appear in the console. It will have an internal ip-address that should be used later.
+Select the same version for the "TPU software" and create the TPU. It will take a minute or two and then your newly created TPU should appear in the console with a green symbol to the left. It will have an internal ip-address that should be used later.
+
+
