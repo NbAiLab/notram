@@ -4,7 +4,7 @@ This goes through the process of setting up the machines necessary for training 
 ## Create a VM
 The VM needs to be in the same zone as your TPU and bucket. There are a lot of ways of creating the VM, and in many cases you will create from a stored image. However, if you want to create one from scratch, you can go through https//console.cloud.google.com -> Compute Engine -> VM Instances. Click "Create Instance". 
 
-A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for training a v3-128. For the v3-8 you can get away with a n2-standard-2 (2 vCPU, 8GB memory) for $60/month. Often it is convenient to have some storage, so set it up with a 200GB disk.
+A n2-standard-8 (8 vCPUs, 32 GB memory) for $200/month is sufficient for training a v3-128. For the v3-8 you can get away with a n2-standard-2 (2 vCPU, 8GB memory) for $60/month. Often it is convenient to have some storage, so set it up with a 200GB disk. In most cases it is not necessary to choose a SSD-disk since the disk of the VM is not actively used in training.
 
 Connect to the new VM (either through the browser or by looking at the "gcloud command"). Add public keys for ./ssh/authorized_keys for easy access.
 
