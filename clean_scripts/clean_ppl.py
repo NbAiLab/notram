@@ -19,12 +19,36 @@ def main(args):
     input_filename = os.path.basename(input_file).split('.txt')[0]
 
     with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
+        section = ""
+        last_processed_paragraph = ""
         for i, line in enumerate(tqdm(f_in, total=num_lines)):
             output_text = cleanTextBlock(line, args)
+            
             if output_text:
-                valid += 1
-                output_text += f'\n'
-                f_out.write(output_text)
+                filler = f' '
+                #With headings we should use . as filler unless there already is a . at the end of the heading
+                if len(last_processed_paragraph) <= 100 and len(last_processed_paragraph) >= 1: 
+                    if last_processed_paragraph[-1] != ".":
+                        filler = f'. '
+                
+                section += filler + output_text
+                last_processed_paragraph = output_text
+
+                if len(section.split()) >= int(args.max_words_in_section) or output_text == "\n":
+                    valid += 1
+                    #Remove excess spaces
+                    section = ' '.join(section.split())
+                    
+                    #Add a single line break
+                    section  += f'\n'
+
+                    #Write to file
+                    f_out.write(section)
+
+                    #Clear temp variables
+                    section = ""
+                    last_processed_paragraph = ""
+
     print(f'Original file had {num_lines} lines. A total of {valid} lines written to file.')
 
 
@@ -37,6 +61,8 @@ def parse_args():
     parser.add_argument('--email_filler', default='anonymous@domain.com', type=str, help='Email filler (ignored when replace_email option is false)')
     parser.add_argument('--digibok', default='keep', type=str, help='Handling of digibok_ids. "keep", "remove" or "auto". Last option relies on other settings in script')
     parser.add_argument('--min_alphawords', default=2, type=int, help='The minimum number of letter-only- words with a length of at least 2. Keeps empty lines.')
+    parser.add_argument('--max_words_in_section', required=False, default=1000, help='After reaching this maximum number of words, the next paragraph will be split into a new section.')
+
     #parser.add_argument('--num_logged_samples', default=10, type=int, help='Log first n samples to output')
     #add_bool_arg(parser, 'run_in_parallel', default=True, help='Run script in parallel')
     add_bool_arg(parser, 'replace_usernames', default=False, help='Replace usernames with filler. Mainly for tweets')
