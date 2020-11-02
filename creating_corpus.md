@@ -46,6 +46,8 @@ This is an addidtional step analysing the text quality for inclusion. It also do
     parser.add_argument('--email_filler', default='anonymous@domain.com', type=str, help='Email filler (ignored when replace_email option is false)')
     parser.add_argument('--digibok', default='keep', type=str, help='Handling of digibok_ids. "keep", "remove" or "auto". Last option relies on other settings in script')
     parser.add_argument('--min_alphawords', default=2, type=int, help='The minimum number of letter-only- words with a length of at least 2. Keeps empty lines.')
+    parser.add_argument('--max_words_in_section', required=False, default=1000, help='After reaching this maximum number of words, the next paragraph will be split into a new section.')
+
     add_bool_arg(parser, 'replace_usernames', default=False, help='Replace usernames with filler. Mainly for tweets')
     add_bool_arg(parser, 'replace_urls', default=False, help='Replace URLs with filler')
     add_bool_arg(parser, 'replace_email', default=True, help='Replace emails with filler')
@@ -69,7 +71,6 @@ This script removes the paragraph so that max N words are in each section. It th
 ```bash
     parser.add_argument('-i', '--input_folder', required=True, help='Path to input folder. All files ending with *.txt will be parsed.')
     parser.add_argument('-o', '--output_folder', required=True, help='Output folder. Will be created if it does not exist')
-    parser.add_argument('-w', '--words', required=False, default=1000, help='Maximum number of words in the paragraphs before forcing a new section.')
     parser.add_argument('-s', '--shards', required=False, default=1, help='Number of shards')
     add_bool_arg(parser, 'randomize', default=False, help='Randomizes all articles before segmentation.')
     add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
