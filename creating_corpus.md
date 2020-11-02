@@ -69,7 +69,7 @@ This script removes the paragraph so that max N words are in each section. It th
 ```bash
     parser.add_argument('-i', '--input_folder', required=True, help='Path to input folder. All files ending with *.txt will be parsed.')
     parser.add_argument('-o', '--output_folder', required=True, help='Output folder. Will be created if it does not exist')
-    parser.add_argument('-w', '--words', required=False, default=1, help='Maximum number of words in each section.')
+    parser.add_argument('-w', '--words', required=False, default=1, help='Maximum number of words in the paragraphs to force a new section.')
     parser.add_argument('-s', '--shards', required=False, default=1, help='Number of shards')
     add_bool_arg(parser, 'randomize', default=False, help='Randomizes all articles before segmentation.')
     add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
