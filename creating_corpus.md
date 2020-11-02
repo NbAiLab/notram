@@ -61,7 +61,7 @@ This is an addidtional step analysing the text quality for inclusion. It also do
 ```
 For books this script can be run with the default settings to create the cleaned-ppl-file.
 ```bash
-create_ppl --input_file /ppl/myfile_ppl.txt --output_file /cleaned_ppl/myfile_cleaned_ppl.txt
+clean_ppl --input_file /ppl/myfile_ppl.txt --output_file /cleaned_ppl/myfile_cleaned_ppl.txt
 ```
 
 ## Deduplicate and randomize
