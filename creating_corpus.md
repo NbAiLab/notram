@@ -32,7 +32,7 @@ Selection of what to include in the corpus is done at this level. The decisions 
 ```
 For books this script can be run with the default settings to create the ppl-file.
 ```bash
-create_ppl --input_file /source/myfile.txt --output_file /ppl/myfile_ppl.txt
+python create_ppl --input_file /source/myfile.txt --output_file /ppl/myfile_ppl.txt
 ```
 
 ## Create Cleaned PPL-files
@@ -61,7 +61,7 @@ This is an addidtional step analysing the text quality for inclusion. It also do
 ```
 For books this script can be run with the default settings to create the cleaned-ppl-file.
 ```bash
-clean_ppl --input_file /ppl/myfile_ppl.txt --output_file /cleaned_ppl/myfile_cleaned_ppl.txt
+python clean_ppl --input_file /ppl/myfile_ppl.txt --output_file /cleaned_ppl/myfile_cleaned_ppl.txt
 ```
 
 ## Deduplicate and randomize
@@ -74,3 +74,6 @@ This script removes the paragraph so that max N words are in each section. It th
     add_bool_arg(parser, 'randomize', default=False, help='Randomizes all articles before segmentation.')
     add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
  ```
+ ```bash
+python dedup_rand_shard.py --randomize --deduplicate -w 1000 --input_folder /ppl/cleaned_folder/ --output_folder /cleaned_ppl/dedup/ 
+```
