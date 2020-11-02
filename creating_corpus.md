@@ -9,13 +9,13 @@ This guide describes the steps used for creating the Norwegian Corpus. The final
 ### Periodicals
 
 
-##Extract Text from Other Sources
+## Extract Text from Other Sources
 Run the script below for extracting text to /source. As much text as possible should be extracted at this stage.
 ```bash
 script here
 ```
 
-##Create ParagraphPerLine-files
+## Create ParagraphPerLine-files
 Selection of what to include in the corpus is done at this level. The decisions on this level is mainly done on basis of what is written in the meta-file. 
 ```bash
     parser.add_argument('-i', '--input_folder', required=True, help='Path to input folder. All files ending with *.txt will be parsed.')
@@ -35,7 +35,7 @@ For books this script can be run with the default settings to create the ppl-fil
 create_ppl --input_file /source/myfile.txt --output_file /ppl/myfile_ppl.txt
 ```
 
-## Clean text
+## Create Cleaned PPL-files
 This is an addidtional step analysing the text quality for inclusion. It also does some general standardisation, like converting to utf-8. The script has the following options.
  
 ```bash
