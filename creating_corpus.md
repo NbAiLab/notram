@@ -32,7 +32,7 @@ Selection of what to include in the corpus is done at this level. The decisions 
 ```
 For books this script can be run with the default settings to create the ppl-file.
 ```bash
-python create_ppl --input_file /source/myfile.txt --output_file /ppl/myfile_ppl.txt
+python create_ppl.py --input_file /source/myfile.txt --output_file /ppl/myfile_ppl.txt
 ```
 
 ## Create Cleaned PPL-files
