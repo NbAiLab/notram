@@ -3,7 +3,7 @@ This guide explains a standard setup of a VM for BERT training. It installs the 
 
 ## Get some general tools and generate the public key
 ```bash
-sudo apt-get install ssh git tmux wget
+sudo apt-get install ssh git tmux wget locales byobo jq
 
 #Having Nordic Characters might be handy. Run this script and install the languages you need
 sudo dpkg-reconfigure locales
