@@ -13,7 +13,7 @@ GCP_PROJECT=nancy-194708
 GCS_BUCKET=gs://nb-mc4
 echo "tensorflow_datasets[$DATASET_NAME]" > /tmp/beam_requirements.txt
 echo "tfds-nightly[$DATASET_NAME]" > /tmp/beam_requirements.txt
-python -m pip install /tmp/beam_requirements.txt
+python -m pip install -r /tmp/beam_requirements.txt
 python -m tensorflow_datasets.scripts.download_and_prepare \
   --datasets=$DATASET_NAME/$DATASET_CONFIG \
   --data_dir=$GCS_BUCKET/tensorflow_datasets \
