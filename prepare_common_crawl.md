@@ -16,7 +16,7 @@ GCS_BUCKET=gs://nb-us-central1-mc4
 
 wget https://commoncrawl.s3.amazonaws.com/crawl-data/CC-MAIN-2020-40/wet.paths.gz
 gunzip wet.paths.gz
-gsutil cp wet.paths GCS_BUCKET+'/manual/'
+gsutil cp wet.paths "$GCS_BUCKET/manual/"
 
 echo "tensorflow_datasets[$DATASET_NAME]" >> /tmp/beam_requirements.txt
 echo "tfds-nightly[$DATASET_NAME]" >> /tmp/beam_requirements.txt
