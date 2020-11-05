@@ -5,10 +5,10 @@ This guide explains a standard setup of a VM for BERT training. It installs the 
 ```bash
 sudo apt-get install ssh git tmux wget locales byobo jq
 
-#Having Nordic Characters might be handy. Run this script and install the languages you need
+#Having Nordic Characters might be handy. Run this script and install the languages you need. Make sure you have nb_NO.utf8 and nn_NO.utf8 installed.
 sudo dpkg-reconfigure locales
 
-#Then you might switch locale by this command. You might have to log in and out of the ssh for this to take effect.
+#Then you might switch locale by this command. You might have to log in and out of the ssh for this to take effect. 
 sudo update-locale LC_ALL="nb_NO.utf8"
 
 #Replace email address with your git email address and press ENTER on all questions
