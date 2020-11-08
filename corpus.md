@@ -10,11 +10,11 @@ The copyright issues of this part of the corpus needs to be cleared with Kopinor
 
 ## External Sources
 This part of the corpus can be downloaded directly. The rights to redistribute the cleaned versions needs to be cleared.
-* **Wikipedia NOB** - [Norwegian Wikipedia Bokmål](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål is published in the same file.
-* **Wikipedia NON** - [Norwegian Wikipedia Nynorsk](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål is published in the same file.
+* **Wikipedia NOB** - [Norwegian Wikipedia Bokmål](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
+* **Wikipedia NON** - [Norwegian Wikipedia Nynorsk](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Newspapers Språkbanken** - A [Norwegian Newspaper Corpus](https://www.nb.no/sprakbanken/en/resource-catalogue/oai-nb-no-sbr-4/) with texts between 1998 and 2019 collected by Språkbanken. 
 * **M4C** - The Norwegian part of the Multilingual Common Crawl Corpus Collection published by TFHub. The same corpus as the one used to train T5 in 2020
-* **Norwegian Government Reports** - Collected by the Norwegian National Library
+* **Norwegian Government Reports** - Collected by the Norwegian National Library from ?
 
 
 ## Processing Steps
