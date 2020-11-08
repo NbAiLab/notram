@@ -16,22 +16,25 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 * **Norwegian Government Reports** - Collected by the Norwegian National Library
 
 ## Processing Steps
-1. test
-2. test
+1. Source files. For library files this is txt/meta-files, and the meta-information (OCR-quality) is used for next step processing. 
+2. **P**aragraph**P***er**L**ine-files. Articles are separated by double line breaks, paragraphs with single linebreaks.
+3. Cleaned text. Text is cleaned and evaluated before this step.
+4. Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed.
+5. Sentence segmentation. Spacy is used to segment sentences.
+6. Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.
 
 ## Words in Corpus
-| Sources  |   Words Raw | Words First Clean |Words Second Clean | Deduplicated |
-| -------- |  -----:|  -----:| -----:| -----:| 
-| Books  | 1 816 686 744 | 1 205 066 719 | 744 097 347 | - | 
-| Newspapers | 1 570 727 985 | 1 255 763 510 | 1 244 407 623 | - | 
-| Periodicals  | 2 252 826 509 |  2 093 456 928 | 2 076 296 114 | - | 
-| Wikipedia NOB  | 1 982 794 535 |  1 574 827 699 | 1 566 777 809 | - | 
-| Wikipedia NON  | 2 410 337 140 |  1 977 450 194 | 1 967 235 126 | - | 
-| Newspapers Språkbanken | 2 442 049 695 |  1 901 034 898 | 1 522 943 744 | - | 
-| M4C  | 1 166 564 208 |  818 726 467 | 813 646 038 | - | 
-| Norwegian Government Reports  |1 525 055 432 |  1 052 036 635 |1 045 702 485 | - | 
-
-| **Total**  |**-** |  **-** | **-** | **-** | 
+| Sources  |  PPL (2) | Cleaned (3) |
+| -------- |  -----:|  -----:| 
+| Books  | 1 816 686 744 | - | 
+| Newspapers | - | - | 
+| Periodicals  | - |  - |
+| Wikipedia NOB  | - |  - | 
+| Wikipedia NON  | - |  - | 
+| Newspapers Språkbanken | - |  - |
+| M4C  | - |  - | 
+| Norwegian Government Reports  | - |  - | 
+| **Total**  |**-** |  **-** |
 
 
 
