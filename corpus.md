@@ -13,7 +13,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 * **Wikipedia NON** - Norwegian Wikipedia Nynorsk downloaded ???? and published by ?????
 * **Open Newspapers** - from ???
 * **M4C** - The Norwegian part of the Multilingual Common Crawl Corpus Collection published by TFHub. The same corpus as the one used by T5
-* **Norwegian Goverment Reports** - Collected by the Norwegian National Library
+* **Norwegian Gouverment Reports** - Collected by the Norwegian National Library
 
 
 
