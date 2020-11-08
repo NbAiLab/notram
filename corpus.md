@@ -29,6 +29,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Books  | 15.12 | - | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
+| Legal  | - |  - |
 | Wikipedia NOB  | - |  - | 
 | Wikipedia NON  | - |  - | 
 | Newspapers Språkbanken | - |  - |
@@ -36,12 +37,33 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Norwegian Government Reports  | - |  - | 
 | **Total**  |**-** |  **-** |
 
+## Size of Corpus in Gb
+| Sources  |  PPL (2) | Cleaned (3) |
+| -------- |  -----:|  -----:| 
+| Books  | 87 | 86 | 
+| Newspapers | - | - | 
+| Periodicals  | - |  - |
+| Legal  | - |  - |
+| Wikipedia NOB  | - |  - | 
+| Wikipedia NON  | - |  - | 
+| Newspapers Språkbanken | - |  - |
+| M4C  | - |  - | 
+| Norwegian Government Reports  | - |  - | 
+| **Total**  |**-** |  **-** |
+
+## Total Corpus Size
+| Sources  |  Cleaned (3) | Deduplicated (4/5) | Tfrecord dupe=1 (6) |
+| -------- |  -----:|  -----:| -----:| 
+| Words  | - | - | - | 
+| Size (Gb) | - | - | - |
+
 ## Status
 | Sources  |  Level (in progress) | Responsible for next step |
 | -------- |  -----:|  -----:| 
 | Books  | 2 | PE | 
 | Newspapers | (1) | F | 
 | Periodicals  | (1) |  F |
+| Legal  | - |  SA |
 | Wikipedia NOB  | (1) |  PE | 
 | Wikipedia NON  | (1) |  PE | 
 | Newspapers Språkbanken | (1) |  PE |
