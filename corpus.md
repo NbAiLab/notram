@@ -29,7 +29,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 ## Billion Words in Corpus
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
-| Books  | 15.12 | - | 
+| Books  | 15.12 | 14.99 | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Legal  | - |  - |
