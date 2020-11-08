@@ -23,10 +23,10 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 5. Sentence segmentation. Spacy is used to segment sentences.
 6. Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.
 
-## Words in Corpus
+## Billion Words in Corpus
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
-| Books  | 1 816 686 744 | - | 
+| Books  | 15.12 | - | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Wikipedia NOB  | - |  - | 
@@ -35,6 +35,18 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | M4C  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
 | **Total**  |**-** |  **-** |
+
+## Status
+| Sources  |  Level (in progress) | Responsible for next step |
+| -------- |  -----:|  -----:| 
+| Books  | 2 | PE | 
+| Newspapers | (1) | F | 
+| Periodicals  | (1) |  F |
+| Wikipedia NOB  | (1) |  PE | 
+| Wikipedia NON  | (1) |  PE | 
+| Newspapers Språkbanken | (1) |  PE |
+| M4C  | (1) |  J | 
+| Norwegian Government Reports  | - |  SA | 
 
 
 
