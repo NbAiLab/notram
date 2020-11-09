@@ -38,8 +38,8 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Legal  | - |  - |
-| Wikipedia NOB  | - |  - | 
-| Wikipedia NNO  | - |  - | 
+| Wikipedia NOB  | 0.99 |  - | 
+| Wikipedia NNO  | 0.03 |  0.03 | 
 | Newspapers Språkbanken | - |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
@@ -50,12 +50,12 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 ### Size in Gb
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
-| Books  | 69 | 68 | 
+| Books  | 69.0 | 68.0 | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Legal  | - |  - |
-| Wikipedia NOB  | - |  - | 
-| Wikipedia NNO  | - |  - | 
+| Wikipedia NOB  | 1.0 |  - | 
+| Wikipedia NNO  | 0.2 |  - | 
 | Newspapers Språkbanken | - |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
@@ -77,8 +77,8 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Newspapers | (1) | F | 
 | Periodicals  | (1) |  F |
 | Legal  | - |  SA |
-| Wikipedia NOB  | (1) |  PE | 
-| Wikipedia NNO  | (1) |  PE | 
+| Wikipedia NOB  | 1 |  PE | 
+| Wikipedia NNO  | 1 |  PE | 
 | Newspapers Språkbanken | (1) |  PE |
 | M4C  | (1) |  J | 
 | Norwegian Government Reports  | - |  SA | 
