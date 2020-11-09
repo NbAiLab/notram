@@ -104,5 +104,6 @@ python -m tensorflow_datasets.scripts.download_and_prepare \
   --beam_pipeline_options=\
 "region=$GCS_BUCKET_REGION,runner=DataflowRunner,project=$GCP_PROJECT,job_name=$DATASET_NAME-gen,"\
 "staging_location=$GCS_BUCKET/binaries,temp_location=$GCS_BUCKET/temp,"\
-"requirements_file=/tmp/beam_requirements.txt,max_num_workers=450,experiments=shuffle_mode=service"
+"dataflow_job_file=gs://$GCS_BUCKET/job_file.json,"\
+"requirements_file=/tmp/beam_requirements.txt,max_num_workers=450,experiments=shuffle_mode=service" 2>&1 | tee nb-mc4.log
 ```
