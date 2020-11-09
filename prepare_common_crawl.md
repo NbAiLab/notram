@@ -86,10 +86,10 @@ echo "CC-MAIN-2020-29" >> wet.paths.urls
 echo "CC-MAIN-2020-34" >> wet.paths.urls
 echo "CC-MAIN-2020-40" >> wet.paths.urls
 
-for wetpath in `cat wet.paths.urls` ; do curl -s https://commoncrawl.s3.amazonaws.com/crawl-data/$wetpath/wet.paths.gz | gunzip | tqdm --desc=$wetpath --bytes | gsutil -q cp - "$GCS_BUCKET/tensorflow_datasets/downloads/manual/crawl-data/$wetpath/web.paths" ; done
+for wetpath in `cat wet.paths.urls` ; do curl -s https://commoncrawl.s3.amazonaws.com/crawl-data/$wetpath/wet.paths.gz | gunzip | pv --name $wetpath --bytes | gsutil -q cp - "$GCS_BUCKET/tensorflow_datasets/downloads/manual/crawl-data/$wetpath/web.paths" ; done
 
 rm /tmp/beam_requirements.txt
-echo "tensorflow_datasets[$DATASET_NAME]" >> /tmp/beam_requirements.txt
+echo "tensorflow_datasets[gcp,$DATASET_NAME]" >> /tmp/beam_requirements.txt
 echo "tfds-nightly[$DATASET_NAME]" >> /tmp/beam_requirements.txt
 echo "google-apitools" >> /tmp/beam_requirements.txt
 # there's an error with avro-python3 and dill, dill version needs to be fixed
