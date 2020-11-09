@@ -25,7 +25,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 2. **P**aragraph**P**er**L**ine-files. Articles are separated by double line breaks, paragraphs with single linebreaks.
 3. Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks.
 4. Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed.
-5. Sentence segmentation. Spacy is used to segment sentences.
+5. Sentence segmentation. A pre-trained [Spacy Model for Norwegian Bokmål] (https://spacy.io/models/nb)is used to segment sentences.
 6. Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.
 
 
