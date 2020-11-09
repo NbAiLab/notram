@@ -13,8 +13,8 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 * **Wikipedia NOB** - [Norwegian Wikipedia Bokmål](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Wikipedia NON** - [Norwegian Wikipedia Nynorsk](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Newspapers Språkbanken** - A [Norwegian Newspaper Corpus](https://www.nb.no/sprakbanken/en/resource-catalogue/oai-nb-no-sbr-4/) with texts between 1998 and 2019 collected by Språkbanken. 
-* **M4C** - The Norwegian part of the Multilingual Common Crawl Corpus Collection published by TFHub. The same corpus as the one used to train T5 in 2020
-* **Norwegian Government Reports** - Collected by the Norwegian National Library from ?
+* **MC4** - The Norwegian part of the [Colossal Clean Crawled Corpus](https://www.tensorflow.org/datasets/catalog/c4?hl=en) published by Google in cooperation with Common Crawl. This is the Norwegian part of the corpus used to train T5 in 2020. See cleaning instructions at the end of this article.
+* **Norwegian Government Reports** - Collected by the Norwegian National Library from?
 
 
 ## Processing Steps
@@ -36,7 +36,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Wikipedia NOB  | - |  - | 
 | Wikipedia NON  | - |  - | 
 | Newspapers Språkbanken | - |  - |
-| M4C  | - |  - | 
+| MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
 | **Total**  |**-** |  **-** |
 
@@ -51,7 +51,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Wikipedia NOB  | - |  - | 
 | Wikipedia NON  | - |  - | 
 | Newspapers Språkbanken | - |  - |
-| M4C  | - |  - | 
+| MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
 | **Total**  |**-** |  **-** |
 
@@ -76,5 +76,17 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | M4C  | (1) |  J | 
 | Norwegian Government Reports  | - |  SA | 
 
-
+## Notes
+### MC4 Cleaning
+The MC4 is a cleaned version of Common Crawl. The following precedure have been applied:
+´´´bash
+Unfortunately, the majority of [the text in Common Crawl] is not natural language. Instead, it largely comprises gibberish or boiler-plate text like menus, error messages, or duplicate text. Furthermore, a good deal of the scraped text contains content that is unlikely to be helpful for any of the tasks we consider (offensive language, placeholder text, source code, etc.). To address these issues, we used the following heuristics for cleaning up Common Crawl's web extracted text:
+- We only retained lines that ended in a terminal punctuation mark (i.e. a period, exclamation mark, question mark, or end quotation mark).
+- We removed any page that contained any word on the "List of Dirty, Naughty, Obscene or Otherwise Bad Words". [https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and...]
+•Many of the scraped pages contained warnings stating that Javascript should be enabled so we removed any line with the word Javascript.
+- Some pages had placeholder "lorem ipsum" text; we removed any page where the phrase "lorem ipsum" appeared.
+- Some pages inadvertently contained code. Since the curly bracket "{" appears in many programming languages (such as Javascript, widely used on the web) but not in natural text,we removed any pages that contained a curly bracket.
+- To deduplicate the dataset, we discarded all but one of any three-sentence span occurring more than once in the dataset.
+Additionally, since most of our downstream tasks are focused on English-language text, we used langdetect [https://pypi.org/project/langdetect/] to filter out any pages that were not classified as English with a probability of at least 0.99. 
+´´´
 
