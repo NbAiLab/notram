@@ -18,6 +18,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 * **Newspapers Språkbanken** - A [Norwegian Newspaper Corpus](https://www.nb.no/sprakbanken/en/resource-catalogue/oai-nb-no-sbr-4/) with texts between 1998 and 2019 collected by Språkbanken. 
 * **MC4** - The Norwegian part of the [Colossal Clean Crawled Corpus](https://www.tensorflow.org/datasets/catalog/c4?hl=en) published by Google in cooperation with Common Crawl. This is the Norwegian part of the corpus used to train T5 in 2020. See cleaning instructions at the end of this article.
 * **Norwegian Government Reports** - Collected by the Norwegian National Library from?
+* **Parliament Archives** - Collected by the Norwegian National Library from?
 
 
 ## Processing Steps
