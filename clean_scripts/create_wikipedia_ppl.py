@@ -9,7 +9,7 @@ import pandas as pd
 def main(args):
     minimum_number_of_words_in_an_article = 1
     all_articles = ""
-    valid_article_count = 0
+    valid_paragraph_count = 0
 
     #Read the file
     print('Starting to read json-file...')
@@ -31,7 +31,7 @@ def main(args):
 
         for article in articles:
             if len(str(article).split()) >= minimum_number_of_words_in_an_article:
-                valid_article_count += 1
+                valid_paragraph_count += 1
                 all_articles += str(article) + '\n'
 
         #Uncomment to run a test on part of the dataset
@@ -48,7 +48,7 @@ def main(args):
 
     print(f'Saved file: {args.output_file}')
     print(f'Total number of articles: {index}')
-    print(f'Number of valid articles: {valid_article_count}')
+    print(f'Number of valid paragraphs: {valid_paragraph_count}')
     print(f'Number of words: {word_count}')
 
 def parse_args():
