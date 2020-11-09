@@ -36,11 +36,17 @@ For books this script can be run with the default settings to create the ppl-fil
 python create_ppl.py --input_folder /source/ --output_file /ppl/myfile_ppl.txt
 ```
 
-###Wikipedia NOB and NNO
+### Wikipedia NOB and NNO
 After downloading the archive from [https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/], unpack the files. You need nob.wikipedia.json and nno.wikipedia.json. In the current archive there are 492863 articles in bokmål and 139926 in nynorsk.
 ```bash
 python create_wikipedia_ppl.py --input_file /disk2/peregil/text_meta_source_1/wikipedia_nob/nob.wikipedia.json --output_file /disk2/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt
 python create_wikipedia_ppl.py --input_file /disk2/peregil/text_meta_source_1/wikipedia_nno/nno.wikipedia.json --output_file /disk2/peregil/ppl_2/wikipedia_nno/wikipedia_nno.txt
+```
+
+After this the default cleaning procedure can be run on this.
+```bash
+python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
+python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nno/wikipedia_nno.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nno.txt
 ```
 
 
