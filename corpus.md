@@ -39,7 +39,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Periodicals  | - |  - |
 | Legal  | - |  - |
 | Wikipedia NOB  | - |  - | 
-| Wikipedia NON  | - |  - | 
+| Wikipedia NNO  | - |  - | 
 | Newspapers Språkbanken | - |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
@@ -55,7 +55,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Periodicals  | - |  - |
 | Legal  | - |  - |
 | Wikipedia NOB  | - |  - | 
-| Wikipedia NON  | - |  - | 
+| Wikipedia NNO  | - |  - | 
 | Newspapers Språkbanken | - |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
@@ -78,7 +78,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Periodicals  | (1) |  F |
 | Legal  | - |  SA |
 | Wikipedia NOB  | (1) |  PE | 
-| Wikipedia NON  | (1) |  PE | 
+| Wikipedia NNO  | (1) |  PE | 
 | Newspapers Språkbanken | (1) |  PE |
 | M4C  | (1) |  J | 
 | Norwegian Government Reports  | - |  SA | 
