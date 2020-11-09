@@ -95,6 +95,7 @@ echo "google-apitools" >> /tmp/beam_requirements.txt
 # there's an error with avro-python3 and dill, dill version needs to be fixed
 # https://github.com/tensorflow/datasets/issues/2636#issuecomment-722551597
 echo "dill==0.3.1.1" >> /tmp/beam_requirements.txt
+python -m pip install tensorflow
 python -m pip install -r /tmp/beam_requirements.txt
 
 python -m tensorflow_datasets.scripts.download_and_prepare \
@@ -103,5 +104,5 @@ python -m tensorflow_datasets.scripts.download_and_prepare \
   --beam_pipeline_options=\
 "region=$GCS_BUCKET_REGION,runner=DataflowRunner,project=$GCP_PROJECT,job_name=$DATASET_NAME-gen,"\
 "staging_location=$GCS_BUCKET/binaries,temp_location=$GCS_BUCKET/temp,"\
-"requirements_file=/tmp/beam_requirements.txt"
+"requirements_file=/tmp/beam_requirements.txt,max_num_workers=450,experiments=shuffle_mode=service"
 ```
