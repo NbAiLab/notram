@@ -63,7 +63,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 ### Total Corpus Size
 | Sources  |  Cleaned (3) | Deduplicated (4/5) | Tfrecord dupe=1 (6) |
 | -------- |  -----:|  -----:| -----:| 
-| Words  | - | - | - | 
+| Words (Billion)  | - | - | - | 
 | Size (Gb) | - | - | - |
 
 
