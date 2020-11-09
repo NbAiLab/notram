@@ -33,7 +33,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 ### Billion Words
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
-| Books  | 15.12 | 14.99 | 
+| Books  | 11.89 | 11.82 | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Legal  | - |  - |
@@ -48,7 +48,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 ### Size in Gb
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
-| Books  | 87 | 86 | 
+| Books  | 69 | 68 | 
 | Newspapers | - | - | 
 | Periodicals  | - |  - |
 | Legal  | - |  - |
