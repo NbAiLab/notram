@@ -1,6 +1,9 @@
-# Norwegian Corpus
+# Colossal Norwegian Corpus
+The Colossal Norwegian Corpus consists of both publicly available sources and of sources that is handed over to the National Library of Norway in compliance with ["pliktavleveringslova"](https://lovdata.no/dokument/NL/lov/1989-06-09-32) - a Norwegian law that requires all published materials to be sent to the library so it can be made available for research and documentation. 
 
-## Norwegian National Library
+
+## Main Sources
+### Norwegian National Library
 The copyright issues of this part of the corpus needs to be cleared with Kopinor before publishing
 * **Books** - Published between 1814 and 2020. OCR quality of books scanned between 2006 and 2008 have fairly low quality. Only books scanned from 2009 are included included. A rough estimate is that more than 50% of all published books in Norway is included.
 * **Newspapers** - Published between 2015 and 2020. A collection of pdf-files and scans from microfilm.
@@ -8,7 +11,7 @@ The copyright issues of this part of the corpus needs to be cleared with Kopinor
 * **Legal** - LovData CD (200?) and LovData DVD (200?). This is a complete collection of all verdicts prior to these dates. The collection is originally OCR scanned but after that manually corrected.
 
 
-## External Sources
+### Public Sources
 This part of the corpus can be downloaded directly. The rights to redistribute the cleaned versions needs to be cleared.
 * **Wikipedia NOB** - [Norwegian Wikipedia Bokmål](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Wikipedia NON** - [Norwegian Wikipedia Nynorsk](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
@@ -26,7 +29,8 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 6. Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.
 
 
-## Billion Words in Corpus
+## Corpus Size
+### Billion Words
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
 | Books  | 15.12 | 14.99 | 
@@ -41,7 +45,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | **Total**  |**-** |  **-** |
 
 
-## Size of Corpus in Gb
+### Size in Gb
 | Sources  |  PPL (2) | Cleaned (3) |
 | -------- |  -----:|  -----:| 
 | Books  | 87 | 86 | 
@@ -56,7 +60,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | **Total**  |**-** |  **-** |
 
 
-## Total Corpus Size
+### Total Corpus Size
 | Sources  |  Cleaned (3) | Deduplicated (4/5) | Tfrecord dupe=1 (6) |
 | -------- |  -----:|  -----:| -----:| 
 | Words  | - | - | - | 
