@@ -6,7 +6,9 @@ The Colossal Norwegian Corpus consists of both publicly available sources and of
 ### Norwegian National Library
 The copyright issues of this part of the corpus needs to be cleared with Kopinor before publishing
 * **Books** - Published between 1814 and 2020. OCR quality of books scanned between 2006 and 2008 have fairly low quality. Only books scanned from 2009 are included included. A rough estimate is that more than 50% of all published books in Norway is included.
-* **Newspapers** - Published between 2015 and 2020. A collection of pdf-files and scans from microfilm.
+* **Newspapers Paper** - Published between 2015 and 2020. 
+* **Newspapers Pdf** - Published between 2015 and 2020. 
+* **Newspapers Microfilm** - Published between 2015 and 2020. 
 * **Periodicals** - Published between ??. A wide range of periodicas and yearbooks. Mostly OCR scans.
 * **Legal** - LovData CD (200?) and LovData DVD (200?). This is a complete collection of all verdicts prior to these dates. The collection is originally OCR scanned but after that manually corrected.
 
