@@ -60,7 +60,7 @@ wget https://www.nb.no/sbfil/tekst/nak_2016.tar
 wget https://www.nb.no/sbfil/tekst/nak_2017.tar
 wget https://www.nb.no/sbfil/tekst/nak_2018.tar
 wget https://www.nb.no/sbfil/tekst/nak_2019.tar
-wget https://www.nb.no/sbfil/tekst/nak_2020.tar
+
 ```
 
 When the files are downloaded, they need to be unpacked.
@@ -74,10 +74,11 @@ rm -rf 1/
 rm -rf 2/
 
 #Unpack the subdirectories
-cd 3/
-for f in *.tar.gz; do tar -zxvf "$f"; done
+for f in 3/*.tar.gz; do tar -zxvf "$f"; done
+for f in ????/*.tar.gz; do tar -zxvf "$f"; done
+
 ```
-Note that the structure is slightly different becore 2012. However, everything will be included in one large newspaper file.
+Note that the structure is slightly different before 2012. However, everything will be included in one large newspaper file.
 
 ```bash
 ```
