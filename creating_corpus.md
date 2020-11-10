@@ -48,7 +48,39 @@ After this the default cleaning procedure can be run on this.
 python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
 python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nno/wikipedia_nno.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nno.txt
 ```
+### Online Newspapers from Språkbanken
+These are in multiple files, so we first need to get them all
+```bash
+wget https://www.nb.no/sbfil/tekst/norsk_aviskorpus.zip
+wget https://www.nb.no/sbfil/tekst/nak_2012.tar
+wget https://www.nb.no/sbfil/tekst/nak_2013.tar
+wget https://www.nb.no/sbfil/tekst/nak_2014.tar
+wget https://www.nb.no/sbfil/tekst/nak_2015.tar
+wget https://www.nb.no/sbfil/tekst/nak_2016.tar
+wget https://www.nb.no/sbfil/tekst/nak_2017.tar
+wget https://www.nb.no/sbfil/tekst/nak_2018.tar
+wget https://www.nb.no/sbfil/tekst/nak_2019.tar
+wget https://www.nb.no/sbfil/tekst/nak_2020.tar
+```
 
+When the files are downloaded, they need to be unpacked.
+```bash
+#Unpack the archive
+unzip norsk_aviscorpus.zip
+for f in *.tar; do tar -xvf "$f"; done
+
+#Delete directories 1/ and 2/
+rm -rf 1/
+rm -rf 2/
+
+#Unpack the subdirectories
+cd 3/
+for f in *.tar.gz; do tar -zxvf "$f"; done
+```
+Note that the structure is slightly different becore 2012. However, everything will be included in one large newspaper file.
+
+```bash
+```
 
 ## Create Cleaned PPL-files
 This is an addidtional step analysing the text quality for inclusion. It also does some general standardisation, like converting to utf-8. The script has the following options.
