@@ -1,11 +1,16 @@
 # There is an additional script that does the same on entire folders
+# For relative imports to work in Python 3.6
+import os, sys
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
-import sys, os, glob
+print(os.path.dirname(os.path.realpath(__file__)))
+
+import glob
 from tqdm import tqdm
 from pathlib import Path
 
-sys.path.append(r'../utils')
-sys.path.append(r'../')
+#sys.path.append(r'utils')
+#sys.path.append(r'.')
 
 from utils.textCleaner import cleanTextBlock
 from utils.misc import ArgParseDefault, add_bool_arg
