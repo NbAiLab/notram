@@ -77,10 +77,13 @@ rm -rf 2/
 for f in 3/*.tar.gz; do tar -zxvf "$f"; done
 for f in ????/*.tar.gz; do tar -zxvf "$f"; done
 
+#You might delete the tar, gz and zip files at this stage but it is not necessary.
 ```
 Note that the structure is slightly different before 2012. However, everything will be included in one large newspaper file.
 
 ```bash
+python create_newspapers_online_ppl.py --input_path /disk4/folder1/nancy/content/text/v3/text_meta_source_1/newspapers_online/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_ppl.txt
+
 ```
 
 ## Create Cleaned PPL-files
