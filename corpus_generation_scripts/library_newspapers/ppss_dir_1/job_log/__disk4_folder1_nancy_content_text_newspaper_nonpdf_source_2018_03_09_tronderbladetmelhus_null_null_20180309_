@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2018/03/09/tronderbladetmelhus_null_null_20180309'
+Start date:	nov. 11 17:24:23
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2018/03/09/tronderbladetmelhus/tronderbladetmelhus_20180309-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:39
+

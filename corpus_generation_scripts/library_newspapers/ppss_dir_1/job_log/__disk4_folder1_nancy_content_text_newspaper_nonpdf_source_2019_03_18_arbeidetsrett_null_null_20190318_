@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2019/03/18/arbeidetsrett_null_null_20190318'
+Start date:	nov. 12 08:02:25
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2019/03/18/arbeidetsrett/arbeidetsrett_20190318-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:23
+

@@ -139,3 +139,5 @@ cython_debug/
 
 #Notram specific
 **/ppss_dir/**
+**/ppss_dir_1/**
+**/ppss_dir??/**

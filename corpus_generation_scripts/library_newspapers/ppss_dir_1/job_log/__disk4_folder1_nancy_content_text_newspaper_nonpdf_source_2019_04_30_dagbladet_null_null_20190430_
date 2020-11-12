@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2019/04/30/dagbladet_null_null_20190430'
+Start date:	nov. 12 09:23:07
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2019/04/30/dagbladet/dagbladet_20190430-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:37
+
