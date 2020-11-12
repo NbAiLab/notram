@@ -42,7 +42,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Legal  | - |  - |
 | Wikipedia NOB  | 0.15 |  0.14 | 
 | Wikipedia NNO  | 0.03 |  0.03 | 
-| Newspapers Online | - |  - |
+| Newspapers Online | 0.778 |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
 | Parliament Archives  | - |  - | 
@@ -58,7 +58,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Legal  | - |  - |
 | Wikipedia NOB  | 1.0 |  0.9 | 
 | Wikipedia NNO  | 0.2 |  0.2 | 
-| Newspapers Online | - |  - |
+| Newspapers Online | 4.6 |  - |
 | MC4  | - |  - | 
 | Norwegian Government Reports  | - |  - | 
 | Parliament Archives  | - |  - | 
