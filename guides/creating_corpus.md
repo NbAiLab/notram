@@ -45,8 +45,8 @@ python create_wikipedia_ppl.py --input_file /disk2/peregil/text_meta_source_1/wi
 
 After this the default cleaning procedure can be run on this.
 ```bash
-python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
-python clean_ppl.py --input_file /disk2/peregil/ppl_2/wikipedia_nno/wikipedia_nno.txt --output_file /disk2/peregil/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nno.txt
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk4/folder1/nancy/content/text/v3/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/wikipedia_nno/wikipedia_nno.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nno.txt
 ```
 ### Online Newspapers from Språkbanken
 These are in multiple files, so we first need to get them all
@@ -90,10 +90,10 @@ python create_newspapers_online_ppl.py --input_path /disk4/folder1/nancy/content
 ```
 In the end you can run the default cleaning script on this:
 ```bash
-python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_ppl.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online.txt
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspaper_online/newspapers_online_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online.txt
 # Or for the separate languages
-# python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_nob_ppl.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nob.txt
-# python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_ppl_nno.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nno.txt
+# python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_nob_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nob.txt
+# python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_ppl_nno.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nno.txt
 
 ``
 
