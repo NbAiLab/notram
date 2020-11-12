@@ -72,19 +72,3 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Size (Gb) | - | - | - |
 
 
-## Status
-| Sources  |  Level (in progress) | Responsible for next step |
-| -------- |  -----:|  -----:| 
-| Books  | 3 | PE | 
-| Newspapers | (1) | F | 
-| Periodicals  | (1) |  F |
-| Legal  | - |  SA |
-| Wikipedia NOB  | 3 |  PE | 
-| Wikipedia NNO  | 3 |  PE | 
-| Newspapers Online | (1) |  PE |
-| M4C  | (1) |  J | 
-| Norwegian Government Reports  | - |  SA | 
-| Parliament Archives  | - |  SA | 
-
-
-
