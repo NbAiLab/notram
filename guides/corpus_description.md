@@ -18,7 +18,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 * **Wikipedia NOB** - [Norwegian Wikipedia Bokmål](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Wikipedia NNO** - [Norwegian Wikipedia Nynorsk](https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/) downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file.
 * **Newspapers Online** - A [Norwegian Newspaper Corpus](https://www.nb.no/sprakbanken/en/resource-catalogue/oai-nb-no-sbr-4/) with texts from online newspapers between 1998 and 2019 collected by Språkbanken. 
-* **MC4** - The Norwegian part of the [Multilingual Colossal Clean Crawled Corpus](https://www.tensorflow.org/datasets/catalog/c4?hl=en) published by Google in cooperation with Common Crawl. This is the Norwegian part of the corpus used to train T5 in 2020. See cleaning instructions at the end of this article.
+* **MC4** - The Norwegian part of the [Multilingual Colossal Clean Crawled Corpus](https://www.tensorflow.org/datasets/catalog/c4?hl=en) published by Google in cooperation with Common Crawl. This is the Norwegian part of the corpus used to train T5 in 2020. More details about how this archive is processed is available in [this article](https://github.com/NBAiLab/notram/blob/master/guides/prepare_common_crawl.md).
 * **Norwegian Government Reports** - Collected by the Norwegian National Library from?
 * **Parliament Archives** - Collected by the Norwegian National Library from?
 
