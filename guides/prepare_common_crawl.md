@@ -1,17 +1,56 @@
 # Preparing the mC4
-Procedure for downloading and preparing the Common Crawl Corpus. Start with setting up a new VM following [this guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) or loading a prebuilt image. Make sure you have a bucket and change the bucket name in the script below. 
+Procedure for downloading and preparing the Common Crawl Corpus. Start with setting up a new VM following [this guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) or loading a prebuilt image. Make sure you have a bucket and change the bucket name in the script below.
 
-
-## Download the corpus
+First, you need to clone `https://github.com/tensorflow/datasets/` and add your own config in `datasets/tensorflow_datasets/text/c4.py` (as of this writing, we used the latest version of the repo on November 10th, 2020):
+```python
+  C4Config(
+      "norwegian",
+      languages=["no"],
+      cc_versions=ALL_CC_VERSIONS,
+      clean=True,
+      paragraph_filter=True,
+      dedupe=True,
+      badwords_filter=False,
+      description=
+      "Norwegian split Common Crawl dumps."),
+```
 ```bash
-
+# Settings
 DATASET_NAME=c4
-DATASET_CONFIG=multilingual
+DATASET_CONFIG=norwegian
 GCP_PROJECT=nancy-194708
 GCS_BUCKET=gs://nb-us-central1-mc4
-GCS_BUCKET_REGION=us-central1-a
+GCS_BUCKET_REGION=us-central1  # Do not include here a letter as in VMs, like "us-central1-a"
+```
 
-# TODO: create and download the wet.paths.urls file
+Or to get all Nordic languages
+```python
+  C4Config(
+      "nordic",
+      languages=["no", "sv", "da", "is"],
+      cc_versions=ALL_CC_VERSIONS,
+      clean=True,
+      paragraph_filter=True,
+      dedupe=True,
+      badwords_filter=False,
+      description=
+      "Nordic split Common Crawl dumps. "
+      "It includes Norwegian, Swedish, Danish, and Islandic"),
+```
+```bash
+# Settings
+DATASET_NAME=c4
+DATASET_CONFIG=nordic
+GCP_PROJECT=nancy-194708
+GCS_BUCKET=gs://nordic-mc4-us-central1
+GCS_BUCKET_REGION=us-central1  # Do not include here a letter as in VMs, like "us-central1-a"
+```
+
+In most cases, you'll want to exclude pages classified as "unknown language" if you are extracting a language portion of mC4. In order to do that, try commenting out `c4_utils.UNKNOWN_LANGUAGE` in [line 391 (the `foor...loop`)](https://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/text/c4.py#L391).
+
+## Download and process the corpus
+```bash
+# All 72 Common Crawl dumps from https://commoncrawl.org/the-data/get-started/
 rm wet.paths.urls
 echo "CC-MAIN-2013-20" >> wet.paths.urls
 echo "CC-MAIN-2013-48" >> wet.paths.urls
@@ -86,27 +125,38 @@ echo "CC-MAIN-2020-29" >> wet.paths.urls
 echo "CC-MAIN-2020-34" >> wet.paths.urls
 echo "CC-MAIN-2020-40" >> wet.paths.urls
 
+# Putting WET files into the bucket
 for wetpath in `cat wet.paths.urls` ; do curl -s https://commoncrawl.s3.amazonaws.com/crawl-data/$wetpath/wet.paths.gz | gunzip | pv --name $wetpath --bytes | gsutil -q cp - "$GCS_BUCKET/tensorflow_datasets/downloads/manual/crawl-data/$wetpath/web.paths" ; done
 
+# Adding requirements for local and Apache Beam (workers)
 rm /tmp/beam_requirements.txt
 echo "tensorflow_datasets[$DATASET_NAME]" >> /tmp/beam_requirements.txt
-echo "tfds-nightly[gcp,$DATASET_NAME]" >> /tmp/beam_requirements.txt
+echo "tfds-nightly[$DATASET_NAME]" >> /tmp/beam_requirements.txt
 echo "google-apitools" >> /tmp/beam_requirements.txt
+echo "-e datasets" >> /tmp/beam_requirements.txt
 # there's an error with avro-python3 and dill, dill version needs to be fixed
 # https://github.com/tensorflow/datasets/issues/2636#issuecomment-722551597
 echo "dill==0.3.1.1" >> /tmp/beam_requirements.txt
 python -m pip install tensorflow
 python -m pip install -r /tmp/beam_requirements.txt
+```
 
+Since the job file JSON is larger than 10MB, you will beed to append the flag `experiments=upload_graph`, which might make the Dataflow UI unstable:
+```bash
+# Starting the main script
 python -m tensorflow_datasets.scripts.download_and_prepare \
   --datasets=$DATASET_NAME/$DATASET_CONFIG \
   --data_dir=$GCS_BUCKET/tensorflow_datasets \
   --beam_pipeline_options=\
-"region=$GCS_BUCKET_REGION,runner=DataflowRunner,project=$GCP_PROJECT,job_name=$DATASET_NAME-gen,"\
+"region=$GCS_BUCKET_REGION,runner=DataflowRunner,project=$GCP_PROJECT,job_name=$DATASET_NAME-$DATASET_CONFIG-gen,"\
 "staging_location=$GCS_BUCKET/binaries,temp_location=$GCS_BUCKET/temp,"\
-"dataflow_job_file=gs://$GCS_BUCKET/job_file.json,"\
-"requirements_file=/tmp/beam_requirements.txt,max_num_workers=450,experiments=shuffle_mode=service" 2>&1 | tee nb-mc4.log
+"dataflow_job_file=$GCS_BUCKET/job_file.json,"\
+"requirements_file=/tmp/beam_requirements.txt,"\
+"autoscaling_algorithm=NONE,num_workers=450,"\
+"experiments=shuffle_mode=service,experiments=upload_graph" 2>&1 | tee nb-mc4.log
 ```
+
+In either case, the Dataflow pipeline should run for about 24 hours.
 
 # Notes
 The MC4 is a cleaned version of Common Crawl. The following precedure have been applied:
