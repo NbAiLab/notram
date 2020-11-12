@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2018/07/04/haldenarbeiderblad_null_null_20180704'
+Start date:	nov. 11 21:55:18
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2018/07/04/haldenarbeiderblad/haldenarbeiderblad_20180704-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:32
+

@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2019/01/02/aftenpostenjunior_null_null_20190102'
+Start date:	nov. 12 05:21:02
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2019/01/02/aftenpostenjunior/aftenpostenjunior_20190102-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:19
+

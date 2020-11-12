@@ -30,7 +30,7 @@ def main(args):
     print (f'Processing {len(xml_files)} files')
     
     parser = ET.XMLParser(recover=True, encoding="iso-8859-1")
-    utfparser = ET.XMLParser(recover=True, encoding="utf-8")
+    #utfparser = ET.XMLParser(recover=True, encoding="utf-8")
 
     for f in tqdm(xml_files):
         #print(f'Processing {f}')
@@ -38,14 +38,8 @@ def main(args):
         with codecs.open(str(f), 'rb') as xmlfile:
             try:
                 #Default parsing is iso-8859-1  works always but might not be correct
+                #After evaluating - this is the safeste way to parse these files
                 document = ET.parse(xmlfile, parser=parser)
-                #If in utf-8 parse with utf-8 instead
-                if document.docinfo.encoding == "utf-8":
-                    document = ET.parse(xmlfile, parser=utfparser)
-                    print("utf-8")
-                else:
-                    print("iso-8869")
-
             except ET.ParseError as e:
                 print(f'Unable to parse file {f}')
                 print(f'Error: {str(e)}')
@@ -105,6 +99,7 @@ def main(args):
     
     print("Finished fixing the unicode errors")
 
+    
     with open(args.output_file, 'w+', encoding="utf-8") as f:
         f.write(all_articles)
     
@@ -112,7 +107,7 @@ def main(args):
     print(f'Saved file: {args.output_file}')
     print(f'Total number of articles: {total_article_count}')
     print(f'Number of valid segments: {valid_segment_count}')
-    print(f'Total number of files: {len(xmlfiles)}')
+    print(f'Total number of files: {len(xml_files)}')
     print(f'Files with errors: {files_with_errors}')
     
     #To count the number of word, we Split the file into lines to avoid memory issues

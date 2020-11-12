@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2019/02/22/itromso_null_null_20190222'
+Start date:	nov. 12 06:55:53
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2019/02/22/itromso/itromso_20190222-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:27
+

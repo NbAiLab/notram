@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2019/03/06/totensblad_null_null_20190306'
+Start date:	nov. 12 07:50:11
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2019/03/06/totensblad/totensblad_20190306-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:23
+

@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2018/12/12/helgelandsblad_null_null_20181212'
+Start date:	nov. 12 04:20:46
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2018/12/12/helgelandsblad/helgelandsblad_20181212-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:27
+

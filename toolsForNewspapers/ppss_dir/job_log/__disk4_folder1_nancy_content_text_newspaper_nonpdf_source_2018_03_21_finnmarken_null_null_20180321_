@@ -1,0 +1,12 @@
+===== PPSS Item Log File =====
+Host:		meta2.lx.nb.no
+Process:	18257
+Item:		'/disk4/folder1/nancy/content/text/newspaper/nonpdf/source/2018/03/21/finnmarken_null_null_20180321'
+Start date:	nov. 11 17:36:06
+
+writearticles
+Writing master meta file:/disk4/folder1/nancy/content/text/newspaper/nonpdf/text/2018/03/21/finnmarken/finnmarken_20180321-master.meta
+
+Status:		SUCCESS
+Total processing time (hh:mm:ss): 00:00:28
+
