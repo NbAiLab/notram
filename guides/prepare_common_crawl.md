@@ -107,3 +107,15 @@ python -m tensorflow_datasets.scripts.download_and_prepare \
 "dataflow_job_file=gs://$GCS_BUCKET/job_file.json,"\
 "requirements_file=/tmp/beam_requirements.txt,max_num_workers=450,experiments=shuffle_mode=service" 2>&1 | tee nb-mc4.log
 ```
+
+# Notes
+The MC4 is a cleaned version of Common Crawl. The following precedure have been applied:
+
+> Unfortunately, the majority of [the text in Common Crawl] is not natural language. Instead, it largely comprises gibberish or boiler-plate text like menus, error messages, or duplicate text. Furthermore, a good deal of the scraped text contains content that is unlikely to be helpful for any of the tasks we consider (offensive language, placeholder text, source code, etc.). To address these issues, we used the following heuristics for cleaning up Common Crawl's web extracted text:
+> - We only retained lines that ended in a terminal punctuation mark (i.e. a period, exclamation mark, question mark, or end quotation mark).
+> - We removed any page that contained any word on the "List of Dirty, Naughty, Obscene or Otherwise Bad Words". [https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and...]
+> * Many of the scraped pages contained warnings stating that Javascript should be enabled so we removed any line with the word Javascript.
+> - Some pages had placeholder "lorem ipsum" text; we removed any page where the phrase "lorem ipsum" appeared.
+>- Some pages inadvertently contained code. Since the curly bracket "{" appears in many programming languages (such as Javascript, widely used on the web) but not in natural text,we removed any pages that contained a curly bracket.
+> - To deduplicate the dataset, we discarded all but one of any three-sentence span occurring more than once in the dataset.
+Additionally, since most of our downstream tasks are focused on English-language text, we used langdetect [https://pypi.org/project/langdetect/] to filter out any pages that were not classified as English with a probability of at least 0.99. 
