@@ -84,7 +84,18 @@ Note that the structure is slightly different before 2012. However, everything w
 ```bash
 python create_newspapers_online_ppl.py --input_path /disk4/folder1/nancy/content/text/v3/text_meta_source_1/newspapers_online/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_ppl.txt
 
+# You also have the option of creating separate bokmål and nynorsk files here, using these commands:
+# python create_newspapers_online_ppl.py --input_path /disk4/folder1/nancy/content/text/v3/text_meta_source_1/newspapers_online/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_nob_ppl.txt --language nob
+# python create_newspapers_online_ppl.py --input_path /disk4/folder1/nancy/content/text/v3/text_meta_source_1/newspapers_online/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_online/newspapers_online_nno_ppl.txt --language nno
 ```
+In the end you can run the default cleaning script on this:
+```bash
+python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_ppl.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online.txt
+# Or for the separate languages
+# python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_nob_ppl.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nob.txt
+# python clean_ppl.py --input_file /disk2/peregil/ppl_2/newspapers_online/newspapers_online_ppl_nno.txt --output_file /disk2/peregil/cleaned_ppl_3/newspapers_online/cleaned_newspapers_online_nno.txt
+
+``
 
 ## Create Cleaned PPL-files
 This is an addidtional step analysing the text quality for inclusion. It also does some general standardisation, like converting to utf-8. The script has the following options.
