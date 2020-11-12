@@ -32,9 +32,5 @@ Technical guides made available that explains the process of both creating the c
 ### Vocabulary tools
 * [bert-vocab-builder](https://github.com/kwonmha/bert-vocab-builder)
 
-### Corpora resources
-* [Parallel Corpora for European Languages](https://paracrawl.eu/)
-* [OSCAR - Filtered Common Crawl](https://oscar-corpus.com/)
-
 ### Other Nordic Models
 * [Swedish BERT Models](https://github.com/Kungbib/swedish-bert-models)
