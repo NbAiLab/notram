@@ -24,10 +24,7 @@ Selection of what to include in the corpus is done at this level. The decisions 
     parser.add_argument('-s', '--min_ocr_date', required=False, default='01-01-2009', help='Will drop all articles that was ocr-ed prior to this date')
     parser.add_argument('-p', '--min_publish_year', required=False, default='1814', help='Will drop all articles published prior to this year')
     parser.add_argument('-l', '--language', required=False, default='', help='If set, only articles in this language will be included')
-    parser.add_argument('-L', '--unknown_language', required=False, default='
-    
-    
-    ', help='Any unknown language is set to this value')
+    parser.add_argument('-L', '--unknown_language', required=False, default='', help='Any unknown language is set to this value')
     parser.add_argument('-y', '--unknown_year', required=False, default='1900', help='Any unknown year is set to this value')
     parser.add_argument('-C', '--min_confidence_article', required=False, default='0.9', help='Will drop all articles with lower average word confidence')
     parser.add_argument('-c', '--min_confidence_paragraph', required=False, default='0.8', help='Will drop all paragraphs with lower average word confidence')
