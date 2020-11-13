@@ -14,8 +14,8 @@ The table below describes the current status of the corpus. Size is available as
 | Legal  | - |  SA | - | 
 | Wikipedia NOB  | 3 |  PE | 150 | 
 | Wikipedia NNO  | 3 |  PE | 30 | 
-| Newspapers Online NOB | (1) |  PE | - | 
-| Newspapers Online NNO | (1) |  PE | - | 
+| Newspapers Online NOB | (2) |  PE | - | 
+| Newspapers Online NNO | (2) |  PE | - | 
 | M4C  | (1) |  J | - | 
 | Norwegian Government Reports  | - |  SA | - | 
 | Parliament Archives  | - |  SA | - | 
