@@ -6,19 +6,19 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 
 The table below describes the current status of the corpus. Size is available as soon at the status reaches level 3.
 
-| Sources  |  Level (in progress) | Responsible for next step | Million words |
-| -------- |  -----:|  -----:| -----:| 
-| Books  | 3 | PE | 11 820| 
-| Newspapers | (1) | F | - | 
-| Periodicals  | (1) |  F | - | 
-| Legal  | - |  SA | - | 
-| Wikipedia NOB  | 3 |  PE | 150 | 
-| Wikipedia NNO  | 3 |  PE | 30 | 
-| Newspapers Online NOB | (2) |  PE | - | 
-| Newspapers Online NNO | (2) |  PE | - | 
-| M4C  | (1) |  J | - | 
-| Norwegian Government Reports  | - |  SA | - | 
-| Parliament Archives  | - |  SA | - | 
+| Sources  |  Level (in progress) | Responsible for next step | Billion words | Gb text |
+| -------- |  -----:|  -----:| -----:| -----:|
+| Books  | 3 | PE | 11 820| 68.0 |
+| Newspapers | (1) | F | - | - |
+| Periodicals  | (1) |  F | - | - |
+| Legal  | - |  SA | - | - |
+| Wikipedia NOB  | 3 |  PE | 150 | 0.9 |
+| Wikipedia NNO  | 3 |  PE | 30 | 0.2 |
+| Newspapers Online NOB | 3 |  PE | - | - |
+| Newspapers Online NNO | 3 |  PE | 47 | 0.3 |
+| M4C  | (1) |  J | - | - |
+| Norwegian Government Reports  | - |  F | - | - |
+| Parliament Archives  | - |  SA | - | - |
 
 
 
