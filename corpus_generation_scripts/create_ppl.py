@@ -26,29 +26,40 @@ def main(args):
     print(f'Found {len(input_files):,} input text files')
     stat_error_meta = 0
     stat_error_empty = 0
+    stat_error_text = 0
     stat_too_old_scan = 0
     stat_too_old_publish = 0
     stat_wrong_language = 0
     stat_conf_article = 0
     stat_too_few_words = 0
+    stat_too_few_words_article = 0
     langstats = {}
 
-    complete = pd.Series()
+    complete = pd.Series([],dtype=pd.StringDtype())
 
     #Read everything into one large pandas frame 
     for input_file in tqdm(input_files):
     #for input_file in input_files:
-        article = pd.Series()
+        article = pd.Series([],dtype=pd.StringDtype())
         meta_file = str(input_file).replace(".txt",".meta")
         keep = True
         
         #print(f'reading {input_file}')
         
         try:
-            article = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None,quotechar=None, quoting=3)
-            meta = pd.read_json(meta_file)
-        except:
-            print(f'Unable to read {input_file}. Probably because it is empty.')
+            article = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None,quotechar=None, quoting=3, dtype='str')
+        except Exception as e:
+            if e=="No columns to parse from file" and not meta.debug:
+                print(f'Unable to read {input_file}')
+                print(e)
+            stat_error_text += 1
+            continue
+
+        try:
+            meta = pd.read_json(meta_file, typ='index')
+        except Exception as e:
+            print(f'Unable to read {meta_file}.')
+            print(e)
             stat_error_meta += 1
             continue
 
@@ -57,68 +68,107 @@ def main(args):
         input_file_name = input_file        
         
         #Set basic variables
-        publishYear = meta.publishYear[0]
-        if publishYear == "<unknown>":
+        if hasattr(meta, 'publishYear'):
+            if meta.publishYear == "<unknown>":
+                publishYear = args.unknown_year
+            else:
+                publishYear = meta.publishYear
+        else:
             publishYear = args.unknown_year
-    
-        #Some stats
-        mods_language = meta.language[0]
-        mods_language_detected = meta.languageDetected[0]
+
+
+        if hasattr(meta, 'language_detected'):
+            if meta.language_detected == "<unknown>":
+                mods_language_detected = args.unknown_language
+            else:
+                mods_language_detected = meta.language
+        else:
+            mods_language_detected = args.unknown_language
+
+        if hasattr(meta, 'language'):
+            if meta.language == "<unknown>":
+                mods_language = args.unknown_language
+            else:
+                mods_language = meta.language
+        else:
+            mods_language = args.unknown_language
+
         modsl = f'{mods_language}-{mods_language_detected}'
         if modsl in langstats.keys():
             langstats[modsl] += 1
         else:
             langstats[modsl] = 1
 
+        if hasattr(meta,'scandate'):
+            scanDate = meta.scandate
+            ocrDate = scanDate[0:2]+"-"+scanDate[2:4]+"-"+scanDate[4:8]
+        else:
+            ocrDate = f'{meta.urn[14:16]}-{meta.urn[12:14]}-{meta.urn[8:12]}'
         
-        language = meta.language[0]
-        if language == "<unknown>":
-            language = args.unknown_language
+        if hasattr(meta,'bookOcrWordconfidence'):
+            confidenceArticle = meta.bookOcrWordconficence
+        if hasattr(meta,'ocrWordconfidence'):
+             confidenceArticle = meta.ocrWordconfidence
 
-        ocrDate = f'{meta.urn[0][14:16]}-{meta.urn[0][12:14]}-{meta.urn[0][8:12]}'
-        confidenceArticle = meta.bookOcrWordconfidence[0]
-        confidenceParagraphs = meta.paragraphs
-        averageNumberOfWordsPerParagraph = meta.averageNumberOfWordsPerParagraph[0] 
-   
+        if hasattr(meta, 'paragraphs'):
+            confidenceParagraphs = meta.paragraphs
+        else:
+            confidenceParagraphs = ""
+
+        if hasattr(meta, 'averageNumberOfWordsPerParagraph'):
+            averageNumberOfWordsPerParagraph = meta.averageNumberOfWordsPerParagraph 
+        else:
+            averageNumberOfWordsPerParagraph = 99
+
+        if hasattr(meta, 'numberOfWordsInArticle'):
+            numberOfWordsInArticle = meta.numberOfWordsInArticle 
+        else:
+            numberOfWordsInArticle = 9999
+
         #Make a sanity check regarding the length of the article and the length of the meta file. 
-        if len(meta) != len(article):
-            print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta)}. Skipping file!')
+        if (len(meta) != len(article)) and hasattr(meta,'paragraphs'):
+            if args.debug: print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta)}. Skipping file!')
             stat_error_meta += 1
             keep = False
 
-
         #Scan Date
         if (datetime.strptime(args.min_ocr_date, '%d-%m-%Y') > datetime.strptime(ocrDate, '%d-%m-%Y')) and keep:
-            print(f'{input_file_name} deleted because minimum ocr date is {args.min_ocr_date}. This book is ocr-ed {ocrDate}.')
+            if args.debug: print(f'{input_file_name} deleted because minimum ocr date is {args.min_ocr_date}. This book is ocr-ed {ocrDate}.')
             stat_too_old_scan += 1
             keep = False
 
         #Language
         if (args.language != '') and keep:
             if (args.language != language) and keep:
-                print(f'{input_file_name} deleted because article language is {language} and only {args.language} should be included.')
+                if args.debug: print(f'{input_file_name} deleted because article language is {language} and only {args.language} should be included.')
                 stat_wrong_language += 1
                 keep = False
         
         #Publish Year
         if (int(args.min_publish_year) > int(publishYear)) and keep:
-            print(f'{input_file_name} deleted because minimum publication year is {args.min_publish_year}. This book was published in {publishYear}.')
+            if args.debug: print(f'{input_file_name} deleted because minimum publication year is {args.min_publish_year}. This book was published in {publishYear}.')
             stat_too_old_publish += 1
             keep = False
         
         #Confidence Article
         if (float(args.min_confidence_article) > float(confidenceArticle)) and keep:
-            print(f'{input_file_name} deleted because minimum article confidence is {args.min_confidence_article}. This book has a confidence of {confidenceArticle}.')
+            if args.debug: print(f'{input_file_name} deleted because minimum article confidence is {args.min_confidence_article}. This book has a confidence of {confidenceArticle}.')
             stat_conf_article += 1
             keep = False
         
         if not keep:
             article.drop(article.index, inplace=True)
         
-        #Words per paragraph
+        ##Words per paragraph
         if (float(args.min_words_paragraph) > float(averageNumberOfWordsPerParagraph)) and keep:
-            print(f'{input_file_name} deleted because minimum words per paragraph article {args.min_words_paragraph}. This book has an average word-paragraph count of {averageNumberOfWordsPerParagraph}.')
+            if args.debug: print(f'{input_file_name} deleted because minimum words per paragraph article {args.min_words_paragraph}. This book has an average word-paragraph count of {averageNumberOfWordsPerParagraph}.')
             stat_too_few_words += 1
+            keep = False
+        
+        #Words per article
+        if (float(args.min_words_article) > int(numberOfWordsInArticle)) and keep:
+            if args.debug: print(f'{input_file_name} deleted because minimum words per article {args.min_words_article}. This book/article has an word count of {numberOfWordsInArticle}.')
+            stat_too_few_words_article += 1
             keep = False
         
         if not keep:
@@ -129,13 +179,14 @@ def main(args):
         else:
             preProcessArticleLength = len(article)
             
-            #Paragraph Confidence
-            for aid,text in enumerate(article):
-                pconf = float(meta.paragraphs[aid]['confidence'])
-                if pconf < float(args.min_confidence_paragraph):
-                    if args.debug: print(f'P{aid} - Conf={pconf} - this is less then {args.min_confidence_paragraph}. Dropping line.\n{text}\n')
-                    article.drop([aid], inplace=True)
-            article.reset_index(drop=True, inplace=True)
+            if confidenceParagraphs:
+                #Paragraph Confidence
+                for aid,text in enumerate(article):
+                    pconf = float(meta.paragraphs[aid]['confidence'])
+                    if pconf < float(args.min_confidence_paragraph):
+                        if args.debug: print(f'P{aid} - Conf={pconf} - this is less then {args.min_confidence_paragraph}. Dropping line.\n{text}\n')
+                        article.drop([aid], inplace=True)
+                article.reset_index(drop=True, inplace=True)
             
             #Do cleaning
             if args.clean:
@@ -148,7 +199,8 @@ def main(args):
             #Add an extra lineshift at the end
             article = article.append(pd.Series(['']), ignore_index=True)
             
-            print(f'{input_file_name} is valid. Keeping {len(article)} of {preProcessArticleLength} paragraphs.')
+            if args.debug:
+                print(f'{input_file_name} is valid. Keeping {len(article)} of {preProcessArticleLength -1} paragraphs.')
 
         #Append whatever is left into a dataframe
         complete = complete.append(article, ignore_index=True)
@@ -175,7 +227,8 @@ def main(args):
     print(f'Stat too old publish = {stat_too_old_publish:,}')
     print(f'Stat wrong language = {stat_wrong_language:,}')
     print(f'Stat conf article = {stat_conf_article:,}')
-    print(f'Stat too few words = {stat_too_few_words:,}')
+    print(f'Stat too few words average = {stat_too_few_words:,}')
+    print(f'Stat too few words article = {stat_too_few_words_article:,}')
     
     print(f'\nThe following settings were used:')
     print(f'{args}')
@@ -201,6 +254,7 @@ def parse_args():
     parser.add_argument('-C', '--min_confidence_article', required=False, default='0.9', help='Will drop all articles with lower average word confidence')
     parser.add_argument('-c', '--min_confidence_paragraph', required=False, default='0.8', help='Will drop all paragraphs with lower average word confidence')
     parser.add_argument('-a', '--min_words_paragraph', required=False, default='5.0', help='Minimum average number of words per paragraph in the entire article/book')
+    parser.add_argument('-w', '--min_words_article', required=False, default='20', help='Minimum words in the entire article/book')
     add_bool_arg(parser, 'debug', default=False, help='Print debug info about paragraphs.')
     add_bool_arg(parser, 'clean', default=False, help='Run precedure for cleaning text. Specified in sub-routine.')
     args = parser.parse_args()
