@@ -1,0 +1,8 @@
+Things that should be fixed before running again
+
+* There is an issue with subheadings being merged into the text. The easiest way to fix this is to:
+** Add \n after every paragraph/header
+** In create_ppl or clean_ppl we can then look at a single paragraph, and if it is less than 10 words and to not end with ".", we can add "."
+
+* Go through tag names in .meta. These should be the same as for books. There are many minor differences today in spelling and the use of capital letters. There should be a list of allowed meta tags.
+
