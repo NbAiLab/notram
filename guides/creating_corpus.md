@@ -38,7 +38,7 @@ python create_ppl.py --input_folder /source/ --output_file /ppl/myfile_ppl.txt
 
 For newspapers 2015-2020, the numbers of files are very large, and it might be more effective splitting in either year or months. Here is an example splitting the create script into monthly batches. Each command is run in a separate tmux:
 ```bash
-for i in 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s $i "python create_ppl.py --input_folder /home/peregil/data/text/2015/'$i'/ --output_file /home/peregil/data/newspapers_nonpdf_2015_'$i'_conf08_ppl.txt"; done;
+for i in 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s $i "python create_ppl.py --input_folder /home/peregil/data/text/2015/'$i'/ --output_file /home/peregil/data/newspapers_nonpdf_2015_'$i'_ppl.txt"; done;
 ```
 
 ### Wikipedia NOB and NNO
