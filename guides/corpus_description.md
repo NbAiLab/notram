@@ -46,7 +46,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Newspapers Online NOB | 0.730 |  0.732 |
 | Newspapers Online NNO | 0.047 |  0.047 |
 | MC4  | - |  - | 
-| Norwegian Government Reports  | - |  - | 
+| Norwegian Government Reports  | 0.806 |  - | 
 | Parliament Archives  | - |  - | 
 | **Total**  |**-** |  **-** |
 
@@ -63,7 +63,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 | Newspapers Online NOB | 4.3 |  4.4 |
 | Newspapers Online NNO | 0.3 |  0.3 |
 | MC4  | - |  - | 
-| Norwegian Government Reports  | - |  - | 
+| Norwegian Government Reports  | 5.1 |  - | 
 | Parliament Archives  | - |  - | 
 | **Total**  |**-** |  **-** |
 
