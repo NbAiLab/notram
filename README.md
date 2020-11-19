@@ -28,6 +28,8 @@ Technical guides made available that explains the process of both creating the c
 ### [Setting up a Notram VM from scratch](https://github.com/NBAiLab/notram/blob/master/guides/set_up_vm.md)
 ### [Training a Notram BERT model](https://github.com/NBAiLab/notram/blob/master/guides/start_training.md)
 ### [Prepare and download the Nordic part of MC4](https://github.com/NBAiLab/notram/blob/master/guides/prepare_common_crawl.md)
+### [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md)
+### [Technical procedures for creating the Colossal Norwegian Corpus](https://github.com/NBAiLab/notram/blob/master/guides/creating_corpus.md)
 
 # Other Resources
 ### Vocabulary tools
