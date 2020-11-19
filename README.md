@@ -8,17 +8,18 @@ The table below describes the current status of the corpus. Size is available as
 
 | Sources  |  Level (in progress) | Responsible for next step | Million words | Gb text |
 | -------- |  -----:|  -----:| -----:| -----:|
-| Books  | 3 | - | 11 820| 68.0 |
-| Newspapers | (2) | - | - | - |
-| Periodicals  | (1) |  F | - | - |
-| Legal  | - |  SA | - | - |
-| Wikipedia NOB  | 3 |  - | 150 | 0.9 |
-| Wikipedia NNO  | 3 |  - | 30 | 0.2 |
-| Newspapers Online NOB | 3 |  - | 732 | 4.4 |
-| Newspapers Online NNO | 3 |  - | 47 | 0.3 |
-| M4C  | (1) |  J | - | - |
-| Parliament Negotions  | (3) |  PE | - | - |
-| Parliament Archives  | - |  SA | - | - |
+| Books OCR 1814-2020| 3 | - | 11 820| 68.0 |
+| Newspapers OCR 2015-2020| (2) | - | - | - |
+| Periodicals OCR 1814-2020 | (1) |  F | - | - |
+| Public Reports Colletions OCR 1814-20?? (Evalueringsrapporter) | - |  F | - | - |
+| Legal Collection 1814-2004 (Lovdata CD/DVD) | - |  SA | - | - |
+| Wikipedia NOB -2019  | 3 |  - | 150 | 0.9 |
+| Wikipedia NNO -2019 | 3 |  - | 30 | 0.2 |
+| Newspapers Online NOB -2019 | 3 |  - | 732 | 4.4 |
+| Newspapers Online NNO -2019 | 3 |  - | 47 | 0.3 |
+| M4C -2020 | (1) |  J | - | - |
+| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | (3) |  PE | - | - |
+| Government Archives  | - |  SA | - | - |
 
 
 
