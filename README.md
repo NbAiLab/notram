@@ -18,7 +18,7 @@ The table below describes the current status of the corpus. Size is available as
 | Newspapers Online NOB -2019 | 3 |  - | 732 | 4.4 |
 | Newspapers Online NNO -2019 | 3 |  - | 47 | 0.3 |
 | M4C -2020 | (1) |  J | - | - |
-| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | (3) |  PE | - | - |
+| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 3 |  PE | 809 | 5.1 |
 | Government Archives  | - |  SA | - | - |
 
 
