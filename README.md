@@ -6,7 +6,7 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 
 The table below describes the current status of the corpus. Size is available as soon as the status reaches level 3.
 
-| Sources  |  Level (in progress) | Responsible for next step | Million words | GG text |
+| Sources  |  Level | Responsible | Million words | GG text |
 | -------- |  -----:|  -----:| -----:| -----:|
 | Books OCR 1814-2020| 3 | - | 11 820| 68.0 |
 | Newspapers OCR 2015-2020| 3 | - | 3 629 | 22.6 |
