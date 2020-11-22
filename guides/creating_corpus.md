@@ -35,6 +35,10 @@ For books this script can be run with the default settings to create the ppl-fil
 ```bash
 python create_ppl.py --input_folder /source/ --output_file /ppl/myfile_ppl.txt
 ```
+Then they can be cleaned like this:
+```bash
+for i in 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020; do tmux new -d -s $i "python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/book/book_$i.ppl --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/book/book_$i_cleaned.txt"; done;
+```
 
 For newspapers 2015-2020, the numbers of files are very large, and it might be more effective splitting in either year or months. Here is an example splitting the create script into monthly batches. Each command is run in a separate tmux:
 ```bash
