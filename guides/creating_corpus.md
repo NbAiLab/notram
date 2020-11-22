@@ -62,13 +62,15 @@ The format is very close to the format we need. We only need to replace single n
 ```bash
 sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/no_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nob_ppl.txt
 sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/nn_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nno_ppl.txt
+
+#Combine these files since nno is very small
+echo "\n\n" > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/artbreak.txt
+cat /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_nob_ppl.txt /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/artbreak.txt /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_nno_ppl.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_ppl.txt
 ```
 Then do a simple clean:
 ```bash
-python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nno_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_nno_cleaned.txt
-/home/tensor/notram/corpus_generation_scripts
-python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nbo_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_nbo_cleaned.txt
-/home/tensor/notram/corpus_generation_scripts
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_cleaned.txt
+
 ```
 
 ### Online Newspapers from Språkbanken
