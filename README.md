@@ -9,7 +9,7 @@ The table below describes the current status of the corpus. Size is available as
 | Sources  |  Level (in progress) | Responsible for next step | Million words | Gb text |
 | -------- |  -----:|  -----:| -----:| -----:|
 | Books OCR 1814-2020| 3 | - | 11 820| 68.0 |
-| Newspapers OCR 2015-2020| 3 | - | 3 528 | 22.0 |
+| Newspapers OCR 2015-2020| 3 | - | 3 629 | 22.6 |
 | Periodicals OCR 2010-2020 | (1) |  F | - | - |
 | Public Reports OCR 1814-20?? (Evalueringsrapporter) | 3 |  - | 95 | 0.7 |
 | Legal Collection 1814-2004 (Lovdata CD/DVD) | - |  SA | - | - |
@@ -18,6 +18,7 @@ The table below describes the current status of the corpus. Size is available as
 | Newspapers Online NOB -2019 | 3 |  - | 732 | 4.4 |
 | Newspapers Online NNO -2019 | 3 |  - | 47 | 0.3 |
 | MC4 -2020 | (1) |  J | - | - |
+| Common Crawl OSCAR -2020 | 3 |  - | - | - |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 3 |  PE | 809 | 5.1 |
 | Government Archives  | - |  SA | - | - |
 
