@@ -57,6 +57,20 @@ After this the default cleaning procedure can be run on this.
 python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk4/folder1/nancy/content/text/v3/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
 python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/wikipedia_nob/wikipedia_nno.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nob.txt
 ```
+### Common Crawl OSCAR
+The format is very close to the format we need. We only need to replace single newlines with double newlines in the deduplicated file:
+```bash
+sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/no_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nob_ppl.txt
+sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/nn_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nno_ppl.txt
+```
+Then do a simple clean:
+```bash
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nno_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_nno_cleaned.txt
+/home/tensor/notram/corpus_generation_scripts
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nbo_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_nbo_cleaned.txt
+/home/tensor/notram/corpus_generation_scripts
+```
+
 ### Online Newspapers from Språkbanken
 These are in multiple files, so we first need to get them all
 ```bash
