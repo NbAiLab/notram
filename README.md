@@ -6,7 +6,7 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 
 The table below describes the current status of the corpus. Size is available as soon as the status reaches level 3.
 
-| Sources  |  Level (in progress) | Responsible for next step | Million words | Gb text |
+| Sources  |  Level (in progress) | Responsible for next step | Million words | GG text |
 | -------- |  -----:|  -----:| -----:| -----:|
 | Books OCR 1814-2020| 3 | - | 11 820| 68.0 |
 | Newspapers OCR 2015-2020| 3 | - | 3 629 | 22.6 |
@@ -21,10 +21,17 @@ The table below describes the current status of the corpus. Size is available as
 | Common Crawl OSCAR -2020 | 3 |  - | 798 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 3 |  PE | 809 | 5.1 |
 | Government Archives  | - |  SA | - | - |
-| **Total Before Dedublication**  |  |   | **?** | **?** |
+| **Total Before Dedublication**  |  |   | **18 110** | **109.3 GB** |
 | **Total After Dedublication**  |  |   | **?** | **?** |
 
-
+# Comparable Large Corpuses
+| Sources  |  Size (GB) |
+| -------- |  -----:| 
+| BERT | 16GB |
+| Swedish BERT | 20GB |
+| RoBERTa | 160GB |
+| XLNet Base | 16GB |
+| XLNet Large | 113GB |
 
 # Guides
 Technical guides made available that explains the process of both creating the corpus, and doing the actual training. 
