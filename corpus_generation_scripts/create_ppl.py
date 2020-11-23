@@ -104,9 +104,16 @@ def main(args):
             ocrDate = scanDate[0:2]+"-"+scanDate[2:4]+"-"+scanDate[4:8]
         else:
             ocrDate = f'{meta.urn[14:16]}-{meta.urn[12:14]}-{meta.urn[8:12]}'
-        
+       
+        try:
+            ocrDateTime = datetime.strptime(ocrDate, '%d-%m-%Y')
+        except:
+            print("Error - No valid date!!!")
+            print(meta)
+            ocrDate = "01-01-1900"
+            continue
         if hasattr(meta,'bookOcrWordconfidence'):
-            confidenceArticle = meta.bookOcrWordconficence
+            confidenceArticle = meta.bookOcrWordconfidence
         if hasattr(meta,'ocrWordconfidence'):
              confidenceArticle = meta.ocrWordconfidence
 
@@ -126,10 +133,11 @@ def main(args):
             numberOfWordsInArticle = 9999
 
         #Make a sanity check regarding the length of the article and the length of the meta file. 
-        if (len(meta) != len(article)) and hasattr(meta,'paragraphs'):
-            if args.debug: print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta)}. Skipping file!')
-            stat_error_meta += 1
-            keep = False
+        if hasattr(meta,'paragraphs'):
+            if len(meta.paragraphs) != len(article):
+                print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta)}. Skipping file!')
+                stat_error_meta += 1
+                keep = False
 
         #Scan Date
         if (datetime.strptime(args.min_ocr_date, '%d-%m-%Y') > datetime.strptime(ocrDate, '%d-%m-%Y')) and keep:

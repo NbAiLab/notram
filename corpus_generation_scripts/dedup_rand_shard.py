@@ -8,7 +8,7 @@
 
 import sys, glob, os, re, argparse
 import pandas as pd
-from pandarallel import pandarallel
+#from pandarallel import pandarallel
 from tqdm import tqdm
 import numpy as np
 sys.path.append(r'../utils')
@@ -16,7 +16,7 @@ sys.path.append(r'../')
 from utils.misc import ArgParseDefault, add_bool_arg
 
 # Initialization
-pandarallel.initialize()
+# pandarallel.initialize()
 
 def main(args):
     input_files = get_input_files(args.input_folder)
@@ -32,6 +32,7 @@ def main(args):
 
     #Read everything into one large pandas frame 
     for input_file in tqdm(input_files):
+        print(input_file)
         content = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None)
         complete = pd.concat([complete, content], ignore_index=True)
     
@@ -64,7 +65,7 @@ def main(args):
 
     #Save
     for id, df_i in  enumerate(np.array_split(complete, int(args.shards))):
-        output_file = os.path.join(args.output_folder,f'output_{id+1}.txt')       
+        output_file = os.path.join(args.output_folder,f'{args.output_name}_{id+1}.txt')       
         print(f'Saving file #{id+1}: {output_file}')
         df_i.to_csv(output_file, header=False, index=False)
 
@@ -82,8 +83,9 @@ def parse_args():
     parser.add_argument('-i', '--input_folder', required=True, help='Path to input folder. All files ending with *.txt will be parsed.')
     parser.add_argument('-o', '--output_folder', required=True, help='Output folder. Will be created if it does not exist')
     parser.add_argument('-s', '--shards', required=False, default=1, help='Number of shards')
-    add_bool_arg(parser, 'randomize', default=False, help='Randomizes all articles before segmentation.')
-    add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
+    parser.add_argument('-n', '--output_name', required=False, default="output", help='Specify the name of the output file')
+    add_bool_arg(parser, 'randomize', default=True, help='Randomizes all articles before segmentation.')
+    add_bool_arg(parser, 'deduplicate', default=True, help='Deduplicates all articles before sentence segmenation.')
  
     args = parser.parse_args()
     return args
