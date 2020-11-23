@@ -167,5 +167,18 @@ This script removes the paragraph so that max N words are in each section. It th
     add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
  ```
  ```bash
-python dedup_rand_shard.py --randomize --deduplicate -w 1000 --input_folder /ppl/cleaned_folder/ --output_folder /cleaned_ppl/dedup/ 
+ 
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/bookes/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name books
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspapers
+
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/public_reports/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name public_reports
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nno/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name wikipedia_nno
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nob/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name wikipedia_nob
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online_nno/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspapers_online_nno
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online_nob/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspapers_online_nob
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name oscar
+ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/digistorting/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name digistorting
+
+
+
 ```
