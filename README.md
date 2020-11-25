@@ -21,8 +21,7 @@ The table below describes the current status of the corpus. Size is available as
 | Common Crawl OSCAR -2020 | 3 |  - | 798 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 4 |  PE | 809 | 5.1 |
 | Government Archives  | - |  SA | - | - |
-| **Total Before Dedublication**  |  |   | **18 110** | **105.0 GB** |
-| **Total After Dedublication**  |  |   | **?** | **?** |
+| **Total After Dedublication**  |  |   | **18 110** | **105.0 GB** |
 
 # Comparable Large Corpuses
 | Sources  |  Size (GB) |
