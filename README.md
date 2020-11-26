@@ -8,19 +8,19 @@ The table below describes the current status of the corpus. Size is available as
 
 | Sources  |  Level | Responsible | Million words | GB text |
 | -------- |  -----:|  -----:| -----:| -----:|
-| Books OCR 1814-2020| 3 | - | 11 820| 69.0 |
-| Newspapers OCR 2015-2020| 3 | - | 3 629 | 20.0 |
-| Periodicals OCR 2010-2020 | (1) |  F | - | - |
+| Books OCR 1814-2020| 4 | - | 11 820| 69.0 |
+| Newspapers Scan OCR 2015-2020| 4 | - | 3 629 | 20.0 |
+| Newspapers Microfilm OCR 2006| (1) | - | - | - |
+| Periodicals OCR 2010-2020 | 2 |  F | - | - |
 | Public Reports OCR 1814-20?? (Evalueringsrapporter) | 4 |  - | 95 | 0.6 |
-| Legal Collection 1814-2004 (Lovdata CD/DVD) | - |  SA | - | - |
-| Wikipedia NOB -2019  | 3 |  - | 150 | 0.9 |
-| Wikipedia NNO -2019 | 3 |  - | 30 | 0.2 |
-| Newspapers Online NOB -2019 | 3 |  - | 732 | 4.0 |
-| Newspapers Online NNO -2019 | 3 |  - | 47 | 0.3 |
+| Legal Collection 1814-2004 (Lovdata CD/DVD) | 3 |  - | - | - |
+| Wikipedia NOB -2019  | 4 |  - | 150 | 0.9 |
+| Wikipedia NNO -2019 | 4 |  - | 30 | 0.2 |
+| Newspapers Online NOB -2019 | 4 |  - | 732 | 4.0 |
+| Newspapers Online NNO -2019 | 4 |  - | 47 | 0.3 |
 | MC4 -2020 | (1) |  J | - | - |
-| Common Crawl OSCAR -2020 | 3 |  - | 798 | 4.9 |
+| Common Crawl OSCAR -2020 | 4 |  - | 798 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 4 |  PE | 809 | 5.1 |
-| Government Archives  | - |  SA | - | - |
 | **Total After Dedublication**  |  |   | **18 110** | **105.0 GB** |
 
 # Comparable Large Corpuses
