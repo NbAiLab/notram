@@ -62,6 +62,27 @@ You are better off concatenating the individual files before running clean
 for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/periodicas/periodicas_ppl.txt; done
 ```
 
+### Legal
+The files are originally in ISO-8859, so we need to convert to utf8
+```bash
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT lokaleforskrifter_2005.TXT -o legal_utf8/lokaleforskrifter_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT norgeslover_2005.TXT -o legal_utf8/norgeslover_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT odelsting_2005.txt -o legal_utf8/odelsting_2005.txt 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT rtv_rundskriv_2005.TXT -o legal_utf8/rtv_rundskriv_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT rundskriv_lovavdeling_2005.TXT -o legal_utf8/rundskriv_lovavdeling_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT sentrale_forskrifter_2005.TXT -o legal_utf8/sentrale_forskrifter_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT skatt_rundskriv_2005.txt -o legal_utf8/skatt_rundskriv_2005.txt 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT somb_rundskriv_2005.TXT -o legal_utf8/somb_rundskriv_2005.TXT 
+```
+You are better off concatenating the individual files before running clean
+```bash
+for f in *.*; do (cat "${f}"; echo "\n\n") >> ../../../ppl_2/legal/legal_ppl.txt; done
+```
+Then just run standard clean
+```bash
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/legal/legal_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/legal/legal_cleaned.txt
+```
+
 
 ### Wikipedia NOB and NNO
 After downloading the archive from [https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/], unpack the files. You need nob.wikipedia.json and nno.wikipedia.json. In the current archive there are 492863 articles in bokmål and 139926 in nynorsk.
