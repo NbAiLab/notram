@@ -13,7 +13,7 @@ The table below describes the current status of the corpus. Size is available as
 | Newspapers Microfilm OCR 2006| (1) | F | - | - |
 | Periodicals OCR 2010-2020 | (2) |  - | - | - |
 | Public Reports OCR 1814-20?? (Evalueringsrapporter) | 4 |  - | 91 | 0.6 |
-| Legal Collection 1814-2004 (Lovdata CD/DVD) | (2) |  - | - | - |
+| Legal Collection 1814-2004 (Lovdata CD/DVD) | 4 |  - | 63 | 0.4 |
 | Wikipedia NOB -2019  | 4 |  - | 140 | 0.9 |
 | Wikipedia NNO -2019 | 4 |  - | 32 | 0.2 |
 | Newspapers Online NOB -2019 | 4 |  - | 678 | 4.0 |
@@ -21,7 +21,7 @@ The table below describes the current status of the corpus. Size is available as
 | MC4 -2020 | (1) |  J | - | - |
 | Common Crawl OSCAR -2020 | 4 |  - | 799 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 4 |  PE | 809 | 5.1 |
-| **Total After Dedublication**  |  |   | **18 110** | **105.0 GB** |
+| **Total After Dedublication**  |  |   | **18 110** | **105.4 GB** |
 
 # Comparable Large Corpuses
 | Sources  |  Size (GB) |
