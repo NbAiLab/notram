@@ -45,7 +45,7 @@ For newspapers 2015-2020, the numbers of files are very large, and it might be m
 for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s $i "python create_ppl.py --input_folder /home/peregil/data/text/2015/'$i'/ --output_file /home/peregil/data/output/newspapers_nonpdf_2015_'$i'_ppl.txt"; done;
 ```
 ### Public Reports
-For public reports the individual files needs to be concatenated
+For public reports the individual files needs to be concatenated before running clean
 ```bash
 for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/public_reports/public_reports_ppl.txt; done
 ```
@@ -54,6 +54,12 @@ for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/public_reports/pu
 Here is an example splitting the create script into yearly batches. Each command is run in a separate tmux:
 ```bash
 for i in 2018 2019 2020; do tmux new -d -s books$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/tidsskrift/text/'$i'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/periodicas/periodicas_'$i'_v2_ppl.txt"; done;
+```
+Currently periodicas also might have to be split in months.
+
+You are better off concatenating the individual files before running clean
+```bash
+for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/periodicas/periodicas_ppl.txt; done
 ```
 
 
