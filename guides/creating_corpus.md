@@ -58,7 +58,8 @@ for i in 2018 2019 2020; do tmux new -d -s books$i "python create_ppl.py --input
 Currently periodicas also might have to be split in months.
 
 The following script will paralellprocess all files with clean
-```bashfor f in /disk4/folder1/nancy/content/text/v3/ppl_2/periodicals/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/'$m'_cleaned.txt"; done
+```bash
+for f in /disk4/folder1/nancy/content/text/v3/ppl_2/periodicals/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/'$m'_cleaned.txt"; done
 ```
 
 ### Newspapers Microfilm
