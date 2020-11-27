@@ -11,6 +11,7 @@ import pandas as pd
 #from pandarallel import pandarallel
 from tqdm import tqdm
 import numpy as np
+import csv
 sys.path.append(r'../utils')
 sys.path.append(r'../')
 from utils.misc import ArgParseDefault, add_bool_arg
@@ -33,7 +34,7 @@ def main(args):
     #Read everything into one large pandas frame 
     for input_file in tqdm(input_files):
         print(input_file)
-        content = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None)
+        content = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None, quoting=3)
         complete = pd.concat([complete, content], ignore_index=True)
     
     print(f'Loaded all files. There is a total of {len(complete)} paragraphs to process.')

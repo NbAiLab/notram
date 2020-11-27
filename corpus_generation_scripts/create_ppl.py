@@ -47,7 +47,7 @@ def main(args):
         #print(f'reading {input_file}')
         
         try:
-            article = pd.read_csv(input_file, sep='\r', encoding='utf-8',squeeze=True, header=None,quotechar=None, quoting=3, dtype='str')
+            article = pd.read_csv(input_file, sep='\r', skip_blank_lines=False, encoding='utf-8',squeeze=True, header=None,quotechar=None, quoting=3, dtype='str')
         except Exception as e:
             if e=="No columns to parse from file" and not meta.debug:
                 print(f'Unable to read {input_file}')
@@ -134,8 +134,10 @@ def main(args):
 
         #Make a sanity check regarding the length of the article and the length of the meta file. 
         if hasattr(meta,'paragraphs'):
-            if len(meta.paragraphs) != len(article):
-                print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta)}. Skipping file!')
+            if len(meta.paragraphs) != len(article) and len(meta.paragraphs) != len(article)+1:
+                print(f'ERROR: {input_file_name}: The length of input file is {len(article)} while the corresponding meta-file has a length of {len(meta.paragraphs)}. Skipping file!')
+                if len(meta.paragraphs) < 10:
+                    print(meta.paragraphs)        
                 stat_error_meta += 1
                 keep = False
 
