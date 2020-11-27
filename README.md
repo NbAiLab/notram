@@ -33,6 +33,16 @@ The table below describes the current status of the corpus. Size is available as
 | English XLNet Large | 113 GB |
 | English RoBERTa | 160 GB |
 
+# Planned future versions
+| Sources  |  Approx Size (GB) |
+| -------- |  -----:|
+| MC4 -2020| ~20 GB |
+| Not included newspapers scan and microfilm | ~50 GB |
+| Re-OCR | ~50 GB |
+| current unscanned part of NL archive | ~50 GB |
+| Governments documents | ~5 GB |
+
+
 # Guides
 Technical guides made available that explains the process of both creating the corpus, and doing the actual training. 
 ### [Preparing bucket, VM and TPU for training Notram BERT](https://github.com/NBAiLab/notram/blob/master/guides/setting_up_machines_for_training.md)
