@@ -50,17 +50,22 @@ For public reports the individual files needs to be concatenated before running 
 for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/public_reports/public_reports_ppl.txt; done
 ```
 
-### Periodicas
+### Periodicals
 Here is an example splitting the create script into yearly batches. Each command is run in a separate tmux:
 ```bash
 for i in 2018 2019 2020; do tmux new -d -s books$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/tidsskrift/text/'$i'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/periodicas/periodicas_'$i'_v2_ppl.txt"; done;
 ```
 Currently periodicas also might have to be split in months.
 
-You are better off concatenating the individual files before running clean
-```bash
-for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/periodicas/periodicas_ppl.txt; done
+The following script will paralellprocess all files with clean
+```bashfor f in /disk4/folder1/nancy/content/text/v3/ppl_2/periodicals/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/'$m'_cleaned.txt"; done
 ```
+
+### Newspapers Microfilm
+The following command can be used to create microfilm newspapers for some years
+´´´bash
+for y in 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 1981 1971 1961; do for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s micro-$y-$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/newspaper/mikrofilmAviser/text/'$y'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/newspapers_microfilm_'$y'_'$i'_ppl.txt";done; done;
+´´´
 
 ### Legal
 The files are originally in ISO-8859, so we need to convert to utf8
@@ -211,6 +216,7 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name oscar
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/digistorting/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name digistorting
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/legal/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name legal
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/periodicals/ --shards 1 --output_name periodicals
 
 
 ```
