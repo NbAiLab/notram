@@ -10,7 +10,7 @@ The table below describes the current status of the corpus. Size is available as
 | -------- |  -----:|  -----:| -----:| -----:|
 | Books OCR 1814-2020| 4 | - | 11 820| 69.0 |
 | Newspapers Scan OCR 2015-2020| 4 | - | 3 350 | 20.0 |
-| Newspapers Microfilm OCR 1961,1971,1981,1998, 1999, 2000,2001,2002,2003,2004,2005,2006.2007| (1) | F | - | - |
+| Newspapers Microfilm OCR 1961,1971,1981,1998-2007| (1) | F | - | - |
 | Periodicals OCR 2010-2020 | (2) |  - | - | - |
 | Public Reports OCR 1814-20?? (Evalueringsrapporter) | 4 |  - | 91 | 0.6 |
 | Legal Collection 1814-2004 (Lovdata CD/DVD) | 4 |  - | 63 | 0.4 |
