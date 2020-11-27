@@ -30,7 +30,7 @@ The table below describes the current status of the corpus. Size is available as
 | English BERT | 16 GB |
 | Swedish BERT | 20 GB |
 | English XLNet Base | 16 GB |
-| Eglish XLNet Large | 113 GB |
+| English XLNet Large | 113 GB |
 | English RoBERTa | 160 GB |
 
 # Guides
