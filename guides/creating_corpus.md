@@ -226,5 +226,11 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 
 # Final
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 100 --output_name colossal_norwegian_corpus_271120
-
 ```
+
+## Sentence segmentation
+Sentence segmentation is run on each of the N shards. The following should be run adjusted to the number of processes being no larger than the number of cores:
+ ```bash
+for i in {1..100}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/colossal_norwegian_corpus_271120_'$i'.txt -o /disk4/folder1/nancy/content/text/v3/sentence_segm_5/";done
+ ```
+
