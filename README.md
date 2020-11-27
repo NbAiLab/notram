@@ -20,7 +20,7 @@ The table below describes the current status of the corpus. Size is available as
 | Newspapers Online NNO -2019 | 4 |  - | 47 | 0.3 |
 | MC4 -2020 | (1) |  J | - | - |
 | Common Crawl OSCAR -2020 | 4 |  - | 799 | 4.9 |
-| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 4 |  PE | 809 | 5.1 |
+| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  | 4 |  - | 809 | 5.1 |
 | **Total After Dedublication**  |  |   | **17 829** | **105.4 GB** |
 
 # Comparable Large Corpuses
