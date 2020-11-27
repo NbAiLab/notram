@@ -64,9 +64,13 @@ for f in /disk4/folder1/nancy/content/text/v3/ppl_2/periodicals/*.*; do n=${f##*
 
 ### Newspapers Microfilm
 The following command can be used to create microfilm newspapers for some years
-´´´bash
-for y in 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 1981 1971 1961; do for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s micro-$y-$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/newspaper/mikrofilmAviser/text/'$y'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/newspapers_microfilm_'$y'_'$i'_ppl.txt";done; done;
-´´´
+```bash
+for y in 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 1981 1971 1961; do for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s micro-$y-$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/newspaper/mikrofilmAviser/text/'$y'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/newspapers_microfilm_'$y'_'$i'_ppl.txt";done; done
+```
+The following script will paralellprocess all files with clean
+```bash
+for f in /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/'$m'_cleaned.txt"; done
+```
 
 ### Legal
 The files are originally in ISO-8859, so we need to convert to utf8
