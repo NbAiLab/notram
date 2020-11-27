@@ -218,6 +218,7 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/digistorting/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name digistorting
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/legal/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name legal
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/periodicals/ --shards 1 --output_name periodicals
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/newspaper_microfilm/ --shards 1 --output_name newspaper_microfilm
 
 
 ```
