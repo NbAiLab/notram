@@ -234,17 +234,8 @@ Sentence segmentation is run on each of the N shards. The following should be ru
 for i in {1..100}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/colossal_norwegian_corpus_271120_'$i'.txt -o /disk4/folder1/nancy/content/text/v3/sentence_segm_5/";done
  ```
  ## Create tfrecords
-    "run_name": "alfa_1",
-    "max_seq_length": 128,
-    "model_class": "bert_large_cased_wwm",
-    "dupe_factor": 1,
-    "gzipped": false,
-    "short_seq_prob": 0.1,
-    "max_predictions_per_seq": 19,
-    "random_seed": 42,
-    "masked_lm_prob": 0.15,
-    "num_logged_samples": 10,
-    "max_num_cpus": 10,
-    "run_in_parallel": true
+For creating the tfrecords, we depend on covid-twitter-bert. The notram-branch allows you to run this on multiple cpu's as well as specify input and output directories.
 
-
+```bash
+python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 1 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+ ```
