@@ -244,5 +244,5 @@ For creating the tfrecords, we depend on covid-twitter-bert. The notram-branch a
 If the shards are 250MB each, this means we are able to run on 40 cores if we have 500MB memory.
 
 ```bash
-python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 1 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split250MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 2 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
  ```
