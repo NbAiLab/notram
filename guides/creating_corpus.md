@@ -225,16 +225,23 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspaper_microfilm
 
 # Final
-python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 100 --output_name colossal_norwegian_corpus_271120
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 400 --output_name colossal_norwegian_corpus_271120
+```
+Make sure to split in shards no larger than 250MB. If they are larger, you can always split later with this (splits in 4) to directory split250MB.
+
+ ```bash
+split -n 4 --additional-suffix=.txt sentences_colossal_norwegian_corpus_271120_1.txt split250MB/sentences
 ```
 
 ## Sentence segmentation
 Sentence segmentation is run on each of the N shards. The following should be run adjusted to the number of processes being no larger than the number of cores:
  ```bash
-for i in {1..100}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/colossal_norwegian_corpus_271120_'$i'.txt -o /disk4/folder1/nancy/content/text/v3/sentence_segm_5/";done
+for i in {1..400}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/colossal_norwegian_corpus_271120_'$i'.txt -o /disk4/folder1/nancy/content/text/v3/sentence_segm_5/";done
  ```
  ## Create tfrecords
 For creating the tfrecords, we depend on covid-twitter-bert. The notram-branch allows you to run this on multiple cpu's as well as specify input and output directories.
+
+If the shards are 250MB each, this means we are able to run on 40 cores if we have 500MB memory.
 
 ```bash
 python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 1 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
