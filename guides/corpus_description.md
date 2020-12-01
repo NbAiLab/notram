@@ -27,7 +27,7 @@ This part of the corpus can be downloaded directly. The rights to redistribute t
 
 
 ## Processing Steps
-1. Source files. For library files this is txt/meta-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file.
+1. Source files. For library files this is ocr/txt/meta-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file.
 2. **P**aragraph**P**er**L**ine-files. Articles are separated by double line breaks, paragraphs with single linebreaks.
 3. Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks.
 4. Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed.
