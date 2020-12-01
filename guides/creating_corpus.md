@@ -35,11 +35,61 @@ For books this script can be run with the default settings to create the ppl-fil
 ```bash
 python create_ppl.py --input_folder /source/ --output_file /ppl/myfile_ppl.txt
 ```
+Then they can be cleaned like this:
+```bash
+for i in 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020; do tmux new -d -s $i "python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/book/book_$i.ppl --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/book/book_$i_cleaned.txt"; done;
+```
 
 For newspapers 2015-2020, the numbers of files are very large, and it might be more effective splitting in either year or months. Here is an example splitting the create script into monthly batches. Each command is run in a separate tmux:
 ```bash
-for i in 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s $i "python create_ppl.py --input_folder /home/peregil/data/text/2015/'$i'/ --output_file /home/peregil/data/newspapers_nonpdf_2015_'$i'_conf08_ppl.txt"; done;
+for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s $i "python create_ppl.py --input_folder /home/peregil/data/text/2015/'$i'/ --output_file /home/peregil/data/output/newspapers_nonpdf_2015_'$i'_ppl.txt"; done;
 ```
+### Public Reports
+For public reports the individual files needs to be concatenated before running clean
+```bash
+for f in *.txt; do (cat "${f}"; echo "\n\n") >> ../../v3/ppl_2/public_reports/public_reports_ppl.txt; done
+```
+
+### Periodicals
+Here is an example splitting the create script into yearly batches. Each command is run in a separate tmux:
+```bash
+for i in 2018 2019 2020; do tmux new -d -s books$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/tidsskrift/text/'$i'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/periodicas/periodicas_'$i'_v2_ppl.txt"; done;
+```
+Currently periodicas also might have to be split in months.
+
+The following script will paralellprocess all files with clean
+```bash
+for f in /disk4/folder1/nancy/content/text/v3/ppl_2/periodicals/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/'$m'_cleaned.txt"; done
+```
+
+### Newspapers Microfilm
+The following command can be used to create microfilm newspapers for some years
+```bash
+for y in 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 1981 1971 1961; do for i in 01 02 03 04 05 06 07 08 09 10 11 12; do tmux new -d -s micro-$y-$i "python create_ppl.py --input_folder /disk4/folder1/nancy/content/text/newspaper/mikrofilmAviser/text/'$y'/ --output_file /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/newspapers_microfilm_'$y'_'$i'_ppl.txt";done; done
+```
+The following script will paralellprocess all files with clean
+```bash
+for f in /disk4/folder1/nancy/content/text/v3/ppl_2/newspapers_microfilm/*.*; do n=${f##*/}; m=${n%_ppl.*}; tmux new -d -s $m "python clean_ppl.py --input_file '$f'  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/'$m'_cleaned.txt"; done
+```
+
+### Legal
+The files are originally in ISO-8859, so we need to convert to utf8
+```bash
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT lokaleforskrifter_2005.TXT -o legal_utf8/lokaleforskrifter_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT norgeslover_2005.TXT -o legal_utf8/norgeslover_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT odelsting_2005.txt -o legal_utf8/odelsting_2005.txt 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT rtv_rundskriv_2005.TXT -o legal_utf8/rtv_rundskriv_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT rundskriv_lovavdeling_2005.TXT -o legal_utf8/rundskriv_lovavdeling_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT sentrale_forskrifter_2005.TXT -o legal_utf8/sentrale_forskrifter_2005.TXT 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT skatt_rundskriv_2005.txt -o legal_utf8/skatt_rundskriv_2005.txt 
+iconv -f ISO-8859-1 -t UTF-8//TRANSLIT somb_rundskriv_2005.TXT -o legal_utf8/somb_rundskriv_2005.TXT 
+```
+
+Then just run standard clean on all files
+```bash
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/test_and_source_1/legal_utf8/lokaleforskrifter_2005.TXT  --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/legal/lokale.txt
+```
+
 
 ### Wikipedia NOB and NNO
 After downloading the archive from [https://www.nb.no/sprakbanken/ressurskatalog/oai-nb-no-sbr-50/], unpack the files. You need nob.wikipedia.json and nno.wikipedia.json. In the current archive there are 492863 articles in bokmål and 139926 in nynorsk.
@@ -53,6 +103,22 @@ After this the default cleaning procedure can be run on this.
 python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/peregil/ppl_2/wikipedia_nob/wikipedia_nob.txt --output_file /disk4/folder1/nancy/content/text/v3/peregil/cleaned_ppl_3/wikipedia_nob/cleaned_wikipedia_nob.txt
 python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/wikipedia_nob/wikipedia_nno.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nno/cleaned_wikipedia_nob.txt
 ```
+### Common Crawl OSCAR
+The format is very close to the format we need. We only need to replace single newlines with double newlines in the deduplicated file:
+```bash
+sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/no_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nob_ppl.txt
+sed ':a;N;$!ba;s/\n/\n\n/g' /disk4/folder1/nancy/content/text/v3/text_meta_source_1/oscar/nn_dedup.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_nno_ppl.txt
+
+#Combine these files since nno is very small
+echo "\n\n" > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/artbreak.txt
+cat /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_nob_ppl.txt /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/artbreak.txt /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_nno_ppl.txt > /disk4/folder1/nancy/content/text/v3/ppl_2/oscar/oscar_ppl.txt
+```
+Then do a simple clean:
+```bash
+python clean_ppl.py --input_file /disk4/folder1/nancy/content/text/v3/ppl_2/oscar_ppl.txt --output_file /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/oscar_cleaned.txt
+
+```
+
 ### Online Newspapers from Språkbanken
 These are in multiple files, so we first need to get them all
 ```bash
@@ -143,5 +209,40 @@ This script removes the paragraph so that max N words are in each section. It th
     add_bool_arg(parser, 'deduplicate', default=False, help='Deduplicates all articles before sentence segmenation.')
  ```
  ```bash
-python dedup_rand_shard.py --randomize --deduplicate -w 1000 --input_folder /ppl/cleaned_folder/ --output_folder /cleaned_ppl/dedup/ 
+ 
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/books/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 10 --output_name books
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 5 --output_name newspapers
+
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/public_reports/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name public_reports
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nno/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name wikipedia_nno
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/wikipedia_nob/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name wikipedia_nob
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online_nno/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspapers_online_nno
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_online_nob/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspapers_online_nob
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/oscar/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name oscar
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/digistorting/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name digistorting
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/legal/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name legal
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/periodicals/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name periodicals
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspaper_microfilm
+
+# Final
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 400 --output_name colossal_norwegian_corpus_271120
 ```
+Make sure to split in shards no larger than 250MB. If they are larger, you can always split later with this (splits in 4) to directory split250MB.
+
+ ```bash
+split -n 4 --additional-suffix=.txt sentences_colossal_norwegian_corpus_271120_1.txt split250MB/sentences
+```
+
+## Sentence segmentation
+Sentence segmentation is run on each of the N shards. The following should be run adjusted to the number of processes being no larger than the number of cores:
+ ```bash
+for i in {1..400}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/colossal_norwegian_corpus_271120_'$i'.txt -o /disk4/folder1/nancy/content/text/v3/sentence_segm_5/";done
+ ```
+ ## Create tfrecords
+For creating the tfrecords, we depend on covid-twitter-bert. The notram-branch allows you to run this on multiple cpu's as well as specify input and output directories.
+
+If the shards are 250MB each, this means we are able to run on 40 cores if we have 500MB memory.
+
+```bash
+python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split250MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 2 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+ ```

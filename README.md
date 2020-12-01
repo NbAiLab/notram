@@ -4,22 +4,42 @@ This is the repository for the project "NoTraM - Norwegian Transformer Model" ow
 # Corpus
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the bases for this training corpus. In addition we add several other known public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md).
 
-The table below describes the current status of the corpus. Size is available as soon at the status reaches level 3.
+The table below describes the size of the current version of the corpus.
 
-| Sources  |  Level (in progress) | Responsible for next step | Million words | Gb text |
-| -------- |  -----:|  -----:| -----:| -----:|
-| Books  | 3 | - | 11 820| 68.0 |
-| Newspapers | (1) | F | - | - |
-| Periodicals  | (1) |  F | - | - |
-| Legal  | - |  SA | - | - |
-| Wikipedia NOB  | 3 |  - | 150 | 0.9 |
-| Wikipedia NNO  | 3 |  - | 30 | 0.2 |
-| Newspapers Online NOB | 3 |  - | 732 | 4.4 |
-| Newspapers Online NNO | 3 |  - | 47 | 0.3 |
-| M4C  | (1) |  J | - | - |
-| Norwegian Government Reports  | - |  F | - | - |
-| Parliament Archives  | - |  SA | - | - |
+| Sources  |   Million words | GB text |
+| -------- |   -----:| -----:|
+| Books OCR 1814-2020| 11 820| 69.0 |
+| Newspapers Scan OCR 2015-2020|  3 350 | 20.0 |
+| Newspapers Microfilm OCR 1961,1971,1981,1998-2007|  292 | 1.8 |
+| Periodicals OCR 2010-2020 |  317 | 1.9 |
+| Public Reports OCR 1814-20?? (Evalueringsrapporter) |  91 | 0.6 |
+| Legal Collection 1814-2004 (Lovdata CD/DVD) |  63 | 0.4 |
+| Wikipedia NOB -2019  | 140 | 0.9 |
+| Wikipedia NNO -2019 | 32 | 0.2 |
+| Newspapers Online NOB -2019 | 678 | 4.0 |
+| Newspapers Online NNO -2019 |  47 | 0.3 |
+| Common Crawl OSCAR -2020 |  799 | 4.9 |
+| Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  809 | 5.1 |
+| **Total After Dedublication**  | **18 438** | **109.1 GB** |
 
+# Comparable Large Corpuses
+| Sources  |  Size (GB) |
+| -------- |  -----:|
+| Norwegian part of mBERT | 0.5 GB |
+| English BERT | 16 GB |
+| Swedish BERT | 20 GB |
+| English XLNet Base | 16 GB |
+| English XLNet Large | 113 GB |
+| English RoBERTa | 160 GB |
+
+# Planned future versions
+| Sources  |  Approx Size (GB) |
+| -------- |  -----:|
+| MC4 -2020| ~20 GB |
+| Not included newspapers scan and microfilm | ~50 GB |
+| Re-OCR | ~50 GB |
+| Current unscanned part of NL archive | ~50 GB |
+| Governments documents | ~5 GB |
 
 
 # Guides
@@ -28,6 +48,8 @@ Technical guides made available that explains the process of both creating the c
 ### [Setting up a Notram VM from scratch](https://github.com/NBAiLab/notram/blob/master/guides/set_up_vm.md)
 ### [Training a Notram BERT model](https://github.com/NBAiLab/notram/blob/master/guides/start_training.md)
 ### [Prepare and download the Nordic part of MC4](https://github.com/NBAiLab/notram/blob/master/guides/prepare_common_crawl.md)
+### [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md)
+### [Technical procedures for creating the Colossal Norwegian Corpus](https://github.com/NBAiLab/notram/blob/master/guides/creating_corpus.md)
 
 # Other Resources
 ### Vocabulary tools
