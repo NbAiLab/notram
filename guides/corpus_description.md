@@ -3,7 +3,7 @@ The Colossal Norwegian Corpus consists of both publicly available sources and of
 
 
 ## Main Sources
-These sources are available from the National Library. The National Library has the right to create text corpora from this, and we are planning on releasing as much as possible of this corpus.
+These sources are available from the National Library. The National Library has the right to create text corpora from this, and we are planning on releasing as much as possible of this corpus. The time frames shown below is for the first version of the corpus. In later versions we will extend the tie frames.
 ### Norwegian National Library
 The copyright issues of this part of the corpus needs to be cleared with Kopinor before publishing
 * **Books** - Published between 1814 and 2020. OCR quality of books scanned between 2006 and 2008 have fairly low quality. Only books scanned from 2009 are included included. A rough estimate is that more than 50% of all published books in Norway is included.
@@ -12,6 +12,7 @@ The copyright issues of this part of the corpus needs to be cleared with Kopinor
 * **Newspapers Microfilm** - Published between 2015 and 2020. 
 * **Periodicals** - Published between ??. A wide range of periodicas and yearbooks. Mostly OCR scans.
 * **Legal** - LovData DVD (2005). This is a complete collection of all laws/regulations prior to this dates. The collection is originally OCR scanned but after that manually corrected. The DVD also contains verdicts but we have left this out in the current corpus.
+* **Evaluation reports** -collected from the evaluation report portal written by various Norwegian public authorities. OCR scans and pdf.
 
 
 ### Public Sources
