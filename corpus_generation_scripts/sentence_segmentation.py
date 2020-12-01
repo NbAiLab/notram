@@ -13,11 +13,11 @@ import pandas as pd
 import spacy
 from spacy.lang.nb.examples import sentences 
 nlp = spacy.load('nb_core_news_sm')
-from pandarallel import pandarallel
+#from pandarallel import pandarallel
 import ftfy
 
 # Initialization
-pandarallel.initialize()
+#pandarallel.initialize()
 
 def main(args):
 
