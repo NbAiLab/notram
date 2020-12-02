@@ -225,9 +225,9 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/cleaned_ppl_3/newspapers_microfilm/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --shards 1 --output_name newspaper_microfilm
 
 # Final
-python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 400 --output_name colossal_norwegian_corpus_271120
+python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 500 --output_name colossal_norwegian_corpus_271120
 ```
-Make sure to split in shards no larger than 250MB. If they are larger, you can always split later with this (splits in 4) to directory split250MB.
+Make sure to split in shards no larger than 200MB. If they are larger, you can always split later with this (splits in 4) to directory split250MB.
 
  ```bash
 split -n 4 --additional-suffix=.txt sentences_colossal_norwegian_corpus_271120_1.txt split250MB/sentences
