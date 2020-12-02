@@ -1,7 +1,7 @@
 # Development Models
 
 ## NoTram mBERT
-Trained from Tensorflow mBERT. Original model is a BERT Base with 12 hidden layers and 12 attention heads. The vocab has 119.547 tokens. The original model is trained on 104 languages. After a hyperparameter search, the following settings were chosen for trainng on a TPU v3-8:
+Trained from Tensorflow mBERT. Original model is a BERT Base with 12 hidden layers and 12 attention heads. The vocab has 119.547 tokens. The original model is trained on 104 languages. After a hyperparameter search, the following settings were chosen for training on a TPU v3-8:
 
 ```bash
 RUN_PREFIX=notram_mBERT_2760_4e4 
