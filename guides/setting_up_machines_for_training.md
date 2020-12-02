@@ -14,16 +14,22 @@ The first time you will have to connect to the new VM either through the browser
 The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.cloud.google.com -> Storage. Click "Create Bucket". Create a bucket called "notram-myzone" (replace myzone with the zone you are using). Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
 
 ### Copy necessary files to the bucket
-You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://github.com/tensorflow/models/tree/93490036e00f37ecbe6693b9ff4ae488bb8e9270/official/nlp/bert#access-to-pretrained-checkpoints). You should have used the vocabulary-file from here to generate your tfrecord-files. Alternatively you can copy all the files from Googles public bucket to your bucket. 
+You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://console.cloud.google.com/storage/browser/cloud-tpu-checkpoints). If you continue from a checkpoint, you will need these files. You should have used the vocabulary-file from here to generate your tfrecord-files. Alternatively you can copy all the files from Googles public bucket to your bucket. 
 
 Here is the code for uploading tfrecord-files to a directory we call "corpus1" and a locally copied cased-wwm-BERT-model to the bucket named "notram-myzone". A small detail is the "-m" parameter. It allows for uploading multiple files at the same time, and also automatically restores if your upload is interrupted.  
 
 ```bash
 #Copy tfrecord
-gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/corpus1/
+gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/corpus1/tfrecords/train/
 
-#Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
-gsutil -m cp -r *.* gs://notram-myzone/pretrained_models/bert/tf_20/wwm_cased_L-24_H-1024_A-16/
+# After having downloaded the Bert-files
+# Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
+# Here we are using the wwm multicased model
+gsutil cp gs://cloud-tpu-checkpoints/bert/keras_bert/wwm_cased_L-24_H-1024_A-16.tar.gz .
+tar -zxvf wwm_cased_L-24_H-1024_A-16.tar.gz
+cd wwm_cased_L-24_H-1024_A-16
+gsutil -m cp -r *.* gs://notram-myzone/pretrained_models/bert/keras_bert/wwm_cased_L-24_H-1024_A-16/
+
 
 ```
 
