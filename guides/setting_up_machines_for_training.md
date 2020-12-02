@@ -25,10 +25,10 @@ gsutil -m cp -r *.tfrecords gs://notram-myzone/notram_v1/pretrain/pretrain_data/
 # After having downloaded the Bert-files
 # Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
 # Here we are using the wwm multicased model
-gsutil cp gs://cloud-tpu-checkpoints/bert/keras_bert/wwm_cased_L-24_H-1024_A-16.tar.gz .
-tar -zxvf wwm_cased_L-24_H-1024_A-16.tar.gz
-cd wwm_cased_L-24_H-1024_A-16
-gsutil -m cp -r *.* gs://notram-myzone/pretrained_models/bert/keras_bert/wwm_cased_L-24_H-1024_A-16/
+gsutil cp gs://cloud-tpu-checkpoints/bert/keras_bert/multi_cased_L-12_H-768_A-12.tar.gz .
+tar -zxvf multi_cased_L-12_H-768_A-12.tar.gz
+cd multi_cased_L-12_H-768_A-12
+gsutil -m cp -r *.* gs://notram-myzone/pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12/
 
 
 ```
