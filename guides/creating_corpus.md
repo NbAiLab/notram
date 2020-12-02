@@ -227,10 +227,10 @@ python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/c
 # Final
 python dedup_rand_shard.py --input_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/indiv_dedup/ --output_folder /disk4/folder1/nancy/content/text/v3/dedup_rand_4/complete_dedup/ --shards 500 --output_name colossal_norwegian_corpus_271120
 ```
-Make sure to split in shards no larger than 200MB. If they are larger, you can always split later with this (splits in 4) to directory split250MB.
+Make sure to split in shards no larger than 210MB. If they are larger, you can always split later with this (splits in 10) to directory split100MB.
 
  ```bash
-split -n 4 --additional-suffix=.txt sentences_colossal_norwegian_corpus_271120_1.txt split250MB/sentences
+for f in *.txt; do split -d -n 10 --additional-suffix=.txt $f split100MB/${f%.*}_; done
 ```
 
 ## Sentence segmentation
@@ -241,8 +241,8 @@ for i in {1..400}; do tmux new -d -s seg-$i "python sentence_segmentation.py -i 
  ## Create tfrecords
 For creating the tfrecords, we depend on covid-twitter-bert. The notram-branch allows you to run this on multiple cpu's as well as specify input and output directories.
 
-If the shards are 250MB each, this means we are able to run on 40 cores if we have 500MB memory.
+If the shards are 100MB each, this means we are able to run on 40 cores if we have 500MB memory.
 
 ```bash
-python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split250MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/ --run_name notram_v1 --model_class bert_large_cased_wwm --dupe_factor 2 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split100MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/bert_multi_seq128_dup5/ --run_name notram_v1 --model_class bert_multi_cased --dupe_factor 4 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
  ```
