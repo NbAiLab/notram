@@ -73,6 +73,7 @@ OPTIMIZER_TYPE=lamb
 INIT_WEIGHTS=False
 
 then
+
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
 TPU_IP=?
