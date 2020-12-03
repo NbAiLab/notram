@@ -246,8 +246,8 @@ INIT_CHECKPOINT=?
 ## Summary Training Set
 | <!-- -->   | <!-- -->  | 
 | -------- |  -----:| 
-|Training Size |1,890 TB|
+|Training Size |1,890 TB + ? TB|
 |Training time | - |
-|Dupe factor | 6 |
-|Training examples| 2,432,129,972 |
+|Dupe factor | 6 + 3 |
+|Training examples| 2,432,129,972 + ?|
 |Vocabulary| 119.547|
