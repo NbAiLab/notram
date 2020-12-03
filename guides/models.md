@@ -27,7 +27,9 @@ A control to see if this is done correctly, is to calculate the size of our corp
 
 
 ## NoTram mBERT
-We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This is basically a BERT Base model where the vocabulary is extended to 119,547 tokens. The original model is trained on 104 languages. This is the exact configuration:
+We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This is basically a BERT Base model where the vocabulary is extended to 119,547 tokens. The original model is trained on 104 languages. 
+
+This is the exact configuration:
 ```bash
 {
   "attention_probs_dropout_prob": 0.1, 
@@ -53,6 +55,9 @@ We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This i
 After a hyperparameter search, the following settings were chosen for training on a TPU v3-8:
 
 ```bash
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=2760
 PRETRAIN_DATA=corpus1_128
@@ -68,7 +73,9 @@ OPTIMIZER_TYPE=lamb
 INIT_WEIGHTS=False
 
 then
-
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=688
 PRETRAIN_DATA=corpus1_512
@@ -86,6 +93,9 @@ INIT_CHECKPOINT=?
 
 then
 
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=2760
 PRETRAIN_DATA=corpus1_128
@@ -115,6 +125,9 @@ NSP Loss:
 Same corpus and training time as above. Based on recommended settings in Devlin. Randomly initiated weights.
 
 ```bash
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_devlin_256_1e4_adam 
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_128
@@ -131,6 +144,9 @@ INIT_WEIGHTS=True
 
 then
 
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_devlin_256_1e4_adam 
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_512
@@ -151,6 +167,9 @@ INIT_CHECKPOINT=?
 Same corpus and training time as above. Based on recommended settings in Devlin. Weights initiated from mBERT
 
 ```bash
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_devlin_mbert_256_2e5_decay
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_128
@@ -167,6 +186,9 @@ INIT_WEIGHTS=False
 
 then
 
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=?
 RUN_PREFIX=notram_devlin_mbert_256_2e5_decay
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_512
