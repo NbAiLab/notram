@@ -18,10 +18,10 @@ To train 900.000 steps with a batch size of 2,760 means we need 2,484,000,000 tr
 After that we train 100.000 steps with a sequence length of 512. We will then need 276,000,000 training examples, but we are only able to make 101,338,748 from one epoch (since the sequence length is 4X as long). We should therefore generate a dataset equivalent to 2.7 epochs. A dupe_factor of 3 is sufficient. 
 
 We use a slight alteration of this, since we want to train at max learning rate for longer. We also extend the warmup since we are continuing from pretrained weights. We train at maximum batch size for all sequence lengths and do linear scaling of the learning rate.
-50k warmup 0 -> 4e-4 @ 128 - BS 2760
-650k - fixed 4e-4 @ 128 - BS 2760
-100k - fixed 1e-4 @ 512 - BS 688
-200k - decaying 4e-4 -> 0 @128 - BS 2760
+* 50k warmup 0 -> 4e-4 @ 128 - BS 2760
+* 650k - fixed 4e-4 @ 128 - BS 2760
+* 100k - fixed 1e-4 @ 512 - BS 688
+* 200k - decaying 4e-4 -> 0 @128 - BS 2760
 
 A control to see if this is done correctly, is to calculate the size of our corpus compared to Devlin's corpus. In total we are training for 6.1+2.7=8.8 epochs. At the same time our corpus is 5.6 times larger. If we trained for an equivalent number of training examples on Devlin's corpus it would have meant that we trained for 49 epochs (8.8 * 5.6). Word  counting can be done in multiple ways, and this probably explains the difference. 
 
