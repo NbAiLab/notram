@@ -1,4 +1,4 @@
-# Models
+# Models and Training Set
 
 ## NoTram mBERT
 We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This is basically a BERT Base model where the vocabulary is extended to 119,547 tokens. The original model is trained on 104 languages. This is the exact configuration:
@@ -116,7 +116,7 @@ OPTIMIZER_TYPE=adam
 INIT_WEIGHTS=False
 ```
 
-# Corpus v1
+# Training Set - Corpus v1
 ```bash
 {
     "counts": {
@@ -153,10 +153,10 @@ INIT_WEIGHTS=False
             }
 
 ```
-## Summary
+## Summary Training Set
 | <!-- -->   | <!-- -->  | 
 | -------- |  -----:| 
-|Size |1,890 TB|
+|Training Size |1,890 TB|
 |Training time | - |
 |Dupe factor | 6 |
 |Training examples| 2,432,129,972 |
