@@ -55,6 +55,7 @@ After a hyperparameter search, the following settings were chosen for training o
 ```bash
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=2760
+PRETRAIN_DATA=corpus1_128
 NUM_EPOCHS=7
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
@@ -70,6 +71,7 @@ then
 
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=688
+PRETRAIN_DATA=corpus1_512
 NUM_EPOCHS=1
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=19
@@ -86,6 +88,7 @@ then
 
 RUN_PREFIX=notram_mBERT_2760_4e4 
 TRAIN_BATCH_SIZE=2760
+PRETRAIN_DATA=corpus1_128
 NUM_EPOCHS=2
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
@@ -114,6 +117,7 @@ Same corpus and training time as above. Based on recommended settings in Devlin.
 ```bash
 RUN_PREFIX=notram_devlin_256_1e4_adam 
 TRAIN_BATCH_SIZE=256
+PRETRAIN_DATA=corpus1_128
 NUM_EPOCHS=9
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
@@ -129,6 +133,7 @@ then
 
 RUN_PREFIX=notram_devlin_256_1e4_adam 
 TRAIN_BATCH_SIZE=256
+PRETRAIN_DATA=corpus1_512
 NUM_EPOCHS=1
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=19
@@ -148,6 +153,7 @@ Same corpus and training time as above. Based on recommended settings in Devlin.
 ```bash
 RUN_PREFIX=notram_devlin_mbert_256_2e5_decay
 TRAIN_BATCH_SIZE=256
+PRETRAIN_DATA=corpus1_128
 NUM_EPOCHS=9
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
@@ -163,6 +169,7 @@ then
 
 RUN_PREFIX=notram_devlin_mbert_256_2e5_decay
 TRAIN_BATCH_SIZE=256
+PRETRAIN_DATA=corpus1_512
 NUM_EPOCHS=1
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=19
