@@ -15,7 +15,7 @@ When we are using sequence length 128 we are able to generate a corpus of 405,35
 
 To train 900.000 steps with a batch size of 2,760 means we need 2,484,000,000 training examples. This is equivalent to 6,1 epochs on our corpus, so a dup_factor of 6 is fine. 
 
-After that we train 100.000 steps with a sequence length of 512. We will then need 276,000,000 training examples, but we are only able to make 101,338,748 from one epoch (since the sequence length is 4X as long). We should therefore generate a dataset equivalent to 2,7 epochs. A dupe_factor of 3 is sufficient. 
+After that we train 100.000 steps with a sequence length of 512. We will then need 276,000,000 training examples, but we are only able to make 101,338,748 from one epoch (since the sequence length is 4X as long). We should therefore generate a dataset equivalent to 2.7 epochs. A dupe_factor of 3 is sufficient. 
 
 We use a slight alteration of this, since we want to train at max learning rate for longer. We also extend the warmup since we are continuing from pretrained weights. We train at maximum batch size for all sequence lengths and do linear scaling of the learning rate.
 50k warmup 0 -> 4e-4 @ 128 - BS 2760
