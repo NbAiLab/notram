@@ -1,7 +1,30 @@
 # Models
 
 ## NoTram mBERT
-Trained from Tensorflow mBERT. Original model is a BERT Base with 12 hidden layers and 12 attention heads. The vocab has 119.547 tokens. The original model is trained on 104 languages. After a hyperparameter search, the following settings were chosen for training on a TPU v3-8:
+We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This is basically a BERT Base model where the vocabulary is extended to 119,547 tokens. The original model is trained on 104 languages. This is the exact configuration:
+```bash
+{
+  "attention_probs_dropout_prob": 0.1, 
+  "directionality": "bidi", 
+  "hidden_act": "gelu", 
+  "hidden_dropout_prob": 0.1, 
+  "hidden_size": 768, 
+  "initializer_range": 0.02, 
+  "intermediate_size": 3072, 
+  "max_position_embeddings": 512, 
+  "num_attention_heads": 12, 
+  "num_hidden_layers": 12, 
+  "pooler_fc_size": 768, 
+  "pooler_num_attention_heads": 12, 
+  "pooler_num_fc_layers": 3, 
+  "pooler_size_per_head": 128, 
+  "pooler_type": "first_token_transform", 
+  "type_vocab_size": 2, 
+  "vocab_size": 119547
+}
+```
+
+After a hyperparameter search, the following settings were chosen for training on a TPU v3-8:
 
 ```bash
 RUN_PREFIX=notram_mBERT_2760_4e4 
