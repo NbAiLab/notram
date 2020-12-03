@@ -72,8 +72,8 @@ INIT_WEIGHTS=False
 ```
 
 ```bash
-Finished data:
-Training hours:
+Model url:
+Training time:
 MLM Accuracy:
 MLM Loss:
 NSP Accuracy:
