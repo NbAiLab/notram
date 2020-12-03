@@ -95,12 +95,44 @@ INIT_WEIGHTS=False
 
 # Corpus v1
 ```bash
-Number of words:
-Size:
-Number of tokens:
-Dupe factor:
-Number of training examples total:
-Number of training examples per epoch:
-Vocabulary: 119.547 tokens
+{
+    "counts": {
+        "default": {
+            "num_documents": 40810085,
+            "num_instances": 1216064986
+        }
+    },
+    "time_taken_min": 836.8924871484438,
+    "run_name": "notram_v1",
+    "max_seq_length": 128,
+    "model_class": "bert_multi_cased",
+    "dupe_factor": 3,
+    "gzipped": false,
+    "short_seq_prob": 0.1,
+    "max_predictions_per_seq": 19,
+    "random_seed": 42,
+    "masked_lm_prob": 0.15,
+    "num_logged_samples": 10,
+    "max_num_cpus": 40,
+    "data_dir": "/disk4/folder1/nancy/content/text/v3/sentence_segm_5/split100MB/",
+    "output_dir": "/disk4/folder1/nancy/content/text/v3/tfrecords_6/bert_multi_seq128_dup3/",
+    "vocab_dir": "/disk4/folder1/nancy/content/text/v3/",
+    "run_in_parallel": true
+}
+'bert_multi_cased': {
+            'bucket_location': 'pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12',
+            'hub_url': 'tensorflow/bert_multi_cased_L-12_H-768_A-12/2',
+            'config': 'bert_config_multi_cased.json',
+            'is_tfhub_model': True,
+            'vocab_file': 'vocab.txt',
+            'lower_case': False,
+            'do_whole_word_masking': True
+            }
 
 ```
+## Summary
+Size: 1,890 TB
+Training time: 
+Dupe factor: 6
+Total number of training examples: 2,432,129,972
+Vocabulary: 119.547 tokens
