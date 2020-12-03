@@ -131,10 +131,9 @@ INIT_WEIGHTS=False
 
 ```
 ## Summary
-| Sources  |  PPL (2) | 
 | -------- |  -----:| 
-|Size|1,890 TB|
-|Training time||
-|Dupe factor| 6|
-|Training examples| 2,432,129,972|
-|Vocabulary| 119.547 tokens|
+|Size |1,890 TB|
+|Training time | - |
+|Dupe factor | 6 |
+|Training examples| 2,432,129,972 |
+|Vocabulary| 119.547|
