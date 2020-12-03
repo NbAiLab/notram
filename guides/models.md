@@ -131,6 +131,7 @@ INIT_WEIGHTS=False
 
 ```
 ## Summary
+|   |  | 
 | -------- |  -----:| 
 |Size |1,890 TB|
 |Training time | - |
