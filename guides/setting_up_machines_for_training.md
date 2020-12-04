@@ -25,7 +25,7 @@ Here is the code for uploading tfrecord-files to a directory we call "corpus1" a
 gsutil cp gs://cloud-tpu-checkpoints/bert/keras_bert/multi_cased_L-12_H-768_A-12.tar.gz .
 tar -zxvf multi_cased_L-12_H-768_A-12.tar.gz
 cd multi_cased_L-12_H-768_A-12
-gsutil -m cp -r *.* gs://notram-wets4-a/pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12/
+gsutil -m cp -r *.* gs://notram-west4-a/pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12/
 
 #Copy tfrecord. Go to folder where .tfrecord-files is located
 gsutil -m cp -r *.tfrecords gs://notram-west4-a/notram_v1/pretrain/pretrain_data/corpus1/tfrecords/train/
