@@ -176,7 +176,7 @@ Same corpus and training time as above. Based on recommended settings in Devlin.
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
 TPU_IP=10.107.135.34
-RUN_PREFIX=T2_NoTram_Devlin_mBERT_step1
+RUN_PREFIX=T3_NoTram_Devlin_mBERT_step1
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_128
 MODEL_CLASS=bert_multi_cased
