@@ -26,7 +26,7 @@ We use a slight alteration of this, since we want to train at max learning rate 
 A control to see if this is done correctly, is to calculate the size of our corpus compared to Devlin's corpus. In total we are training for 6.1+2.7=8.8 epochs. At the same time our corpus is 5.6 times larger. If we trained for an equivalent number of training examples on Devlin's corpus it would have meant that we trained for 49 epochs (8.8 * 5.6). Word  counting can be done in multiple ways, and this probably explains the difference. 
 
 
-## NoTram mBERT
+## T1 NoTram mBERT
 We are using the **multi_cased_L-12_H-768_A-12** model as the base model. This is basically a BERT Base model where the vocabulary is extended to 119,547 tokens. The original model is trained on 104 languages. 
 
 This is the exact configuration:
@@ -122,7 +122,7 @@ NSP Accuracy:
 NSP Loss:
 
 ```
-## NoTram Devlin 
+## T2 NoTram Devlin 
 Same corpus and training time as above. Based on recommended settings in Devlin. Randomly initiated weights.
 
 ```bash
@@ -164,7 +164,7 @@ INIT_WEIGHTS=False
 INIT_CHECKPOINT=?
 ```
 
-## NoTram Devlin mBERT
+## T3 NoTram Devlin mBERT
 Same corpus and training time as above. Based on recommended settings in Devlin. Weights initiated from mBERT
 
 ```bash
@@ -206,7 +206,7 @@ INIT_WEIGHTS=False
 INIT_CHECKPOINT=?
 ```
 
-# Training Set - Corpus v1
+# Training Set - Corpus1_128
 ```bash
 {
     "counts": {
