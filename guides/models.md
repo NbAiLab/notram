@@ -144,6 +144,10 @@ WARMUP_STEPS=10000
 OPTIMIZER_TYPE=adamw
 INIT_WEIGHTS=True
 
+# Train Step: 900000/900000  / loss = 2.409637212753296  masked_lm_accuracy = 0.557035  lm_example_loss = 2.333266  next_sentence_accuracy = 0.970781  next_sentence_loss = 0.076371  lr = 0.000010
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-04_14-19-36_926551_T2_NoTram_Devlin_step1/ctl_step_900000.ckpt-9
+# Finished training after 1864.7 min
+
 then
 
 PROJECT_NAME=notram_v1
