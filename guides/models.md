@@ -144,29 +144,33 @@ WARMUP_STEPS=10000
 OPTIMIZER_TYPE=adamw
 INIT_WEIGHTS=True
 
+# Run training for 10 epochs, 100,000 steps each, processing 256,000,000 training examples in total...
 # Train Step: 900000/900000  / loss = 2.409637212753296  masked_lm_accuracy = 0.557035  lm_example_loss = 2.333266  next_sentence_accuracy = 0.970781  next_sentence_loss = 0.076371  lr = 0.000010
 # Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-04_14-19-36_926551_T2_NoTram_Devlin_step1/ctl_step_900000.ckpt-9
 # Finished training after 1864.7 min
+
 
 then
 
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
-TPU_IP=?
+TPU_IP=10.66.153.58
 RUN_PREFIX=T2_NoTram_Devlin_step2 
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_512
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=1
+NUM_EPOCHS=10
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=77
-LEARNING_RATE=1e-5
+LEARNING_RATE=1e-4
 END_LEARNING_RATE=0
 STEPS_PER_LOOP=100
 NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=0
 OPTIMIZER_TYPE=adamw
-INIT_CHECKPOINT=?
+INIT_CHECKPOINT=run_2020-12-04_14-19-36_926551_T2_NoTram_Devlin_step1/ctl_step_900000.ckpt-9
+LOAD_MLM_NSP_WEIGHTS=True
+
 ```
 
 ## T3 NoTram Devlin mBERT
@@ -190,25 +194,33 @@ NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=10000
 OPTIMIZER_TYPE=adamw
 
+# Run training for 10 epochs, 100,000 steps each, processing 256,000,000 training examples in total...
+# Train Step: 900000/900000  / loss = 2.4459850788116455  masked_lm_accuracy = 0.553771  lm_example_loss = 2.365007  next_sentence_accuracy = 0.969648  next_sentence_loss = 0.080979  lr = 0.000002
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-04_15-03-22_229120_T3_NoTram_Devlin_mBERT_step1/ctl_step_900000.ckpt-9
+# Finished training after 1889.1 min
+# Writing final training log to gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-04_15-03-22_229120_T3_NoTram_Devlin_mBERT_step1/run_logs.json
+
+
 then
 
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
-TPU_IP=?
+TPU_IP=10.109.182.242
 RUN_PREFIX=T2_NoTram_Devlin_mBERT_step2
 MODEL_CLASS=bert_multi_cased
 TRAIN_BATCH_SIZE=256
 PRETRAIN_DATA=corpus1_512
-NUM_EPOCHS=1
+NUM_EPOCHS=10
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=77
-LEARNING_RATE=2e-6
+LEARNING_RATE=2e-5
 END_LEARNING_RATE=0
 STEPS_PER_LOOP=100
 NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=0
 OPTIMIZER_TYPE=adamw
-INIT_CHECKPOINT=?
+INIT_CHECKPOINT=run_2020-12-04_15-03-22_229120_T3_NoTram_Devlin_mBERT_step1/ctl_step_900000.ckpt-9
+LOAD_MLM_NSP_WEIGHTS=True
 ```
 
 # Training Set - Corpus1_128
