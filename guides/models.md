@@ -171,6 +171,11 @@ OPTIMIZER_TYPE=adamw
 INIT_CHECKPOINT=run_2020-12-04_14-19-36_926551_T2_NoTram_Devlin_step1/ctl_step_900000.ckpt-9
 LOAD_MLM_NSP_WEIGHTS=True
 
+
+# Train Step: 1000000/1000000  / loss = 2.2283148765563965  masked_lm_accuracy = 0.581281  lm_example_loss = 2.176687  next_sentence_accuracy = 0.980977  next_sentence_loss = 0.051627  lr = 0.000000
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-07_14-37-43_750726_T2_NoTram_Devlin_step2/ctl_step_1000000.ckpt-1
+# Finished training after 854.7 min
+
 ```
 
 ## T3 NoTram Devlin mBERT
@@ -221,6 +226,11 @@ WARMUP_STEPS=0
 OPTIMIZER_TYPE=adamw
 INIT_CHECKPOINT=run_2020-12-04_15-03-22_229120_T3_NoTram_Devlin_mBERT_step1/ctl_step_900000.ckpt-9
 LOAD_MLM_NSP_WEIGHTS=True
+# Train Step: 1000000/1000000  / loss = 2.288719415664673  masked_lm_accuracy = 0.573113  lm_example_loss = 2.236540  next_sentence_accuracy = 0.980820  next_sentence_loss = 0.052180  lr = 0.000000
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-07_21-00-07_215892_T2_NoTram_Devlin_mBERT_step2/ctl_step_1000000.ckpt-1
+# Finished training after 854.5 min
+
+
 ```
 
 # Training Set - Corpus1_128
