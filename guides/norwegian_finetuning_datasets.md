@@ -5,16 +5,15 @@ This is a description of some openly available finetuning datasets that might be
 Every speech is richly annotated with metadata harvested from different sources, and augmented with language type, sentence, token, lemma, part-of-speech, and morphological feature annotations. The work is thoroughly described in this [article](https://www.duo.uio.no/bitstream/handle/10852/71356/ton.pdf?sequence=2&isAllowed=y). From this set a large number of finetuning datasets can be generated. The entire annotated dataset is available from the [talk-of-norway GitHub](https://github.com/ltgoslo/talk-of-norway)
 
 ### Nynorsk/Bokmål
-A balanced dataset with 6000 bokmål/nynorsk sentences. Collected by the Norwegian National Library.
-[insert hugginface Dataset link here]
+A balanced dataset with 6000 bokmål/nynorsk sentences. Collected by the Norwegian National Library. Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_nob_nyn.csv).
 
 ### Cabinet/Support/Opposition
 A balanced dataset with 6000 samples telling is the speaker is cabinet, support or opposition. Collected by the Norwegian National Library.
-[insert hugginface Dataset link here]
+Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_role.csv).
 
 ### FrP/SV
 A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Please note that is is not given that it is actually possible, even for a human, to determine the party of the speaker. Collected by the Norwegian National Library.
-[insert hugginface Dataset link here]
+Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_frp_or_sv.csv).
 
 ### Other sets
 Lorem epsum... Master theses?
