@@ -12,6 +12,8 @@ A balanced dataset with 6000 bokmål/nynorsk sentences. Collected by the Norwegi
 A balanced dataset with 6000 samples telling is the speaker is cabinet, support or opposition. Collected by the Norwegian National Library.
 [insert hugginface link]
 
+### Other sets
+Lorem epsum...
 
 ### FrP/SV
 A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Collected by the Norwegian National Library.
@@ -22,10 +24,10 @@ A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Collec
 Lorem epsum...
 
 # Named Entity Recognition
-Lorem Epsum
+Lorem Epsum...
 
 # Modalities
-Lorem Epsum
+Lorem Epsum...
 
 # Analogies dataset
-Lorem epsum.
+Lorem epsum...
