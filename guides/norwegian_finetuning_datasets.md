@@ -6,10 +6,26 @@ Every speech is richly annotated with metadata harvested from different sources,
 
 ### Nynorsk/Bokmål
 A balanced dataset with 6000 bokmål/nynorsk sentences. Collected by the Norwegian National Library.
+[insert hugginface link]
 
 ### Cabinet/Support/Opposition
 A balanced dataset with 6000 samples telling is the speaker is cabinet, support or opposition. Collected by the Norwegian National Library.
+[insert hugginface link]
+
 
 ### FrP/SV
 A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Collected by the Norwegian National Library.
+[insert hugginface link]
 
+
+# Universial Dependencies
+Lorem epsum...
+
+# Named Entity Recognition
+Lorem Epsum
+
+# Modalities
+Lorem Epsum
+
+# Analogies dataset
+Lorem epsum.
