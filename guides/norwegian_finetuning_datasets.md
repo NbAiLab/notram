@@ -41,17 +41,17 @@ Lorem epsum... ?
 # NoReC: The Norwegian Review Corpus
 The Norwegian Review Corpus (NoReC) is created for the purpose of training and evaluating models for document-level sentiment analysis. The entire corpus can be downloaded from the [Norwegian Review Corpus GitHub](https://github.com/ltgoslo/norec).
 
-## NoReC Eval
+### NoReC Eval
 NoReC_eval is a dataset of Norwegian full-text reviews where sentences are labeled to indicate whether they are evaluative or sentiment-bearing, i.e. where they are intended by the author (or some other opinion holder) to serve as an evaluation or judgment. The data comprises roughly 8000 sentences across almost 300 reviews and 10 different thematic categories. 
 
 The data is distributed in a tab-separated format, with one tsv-file per review. Download from the [NoReC Eval GitHub](https://github.com/ltgoslo/norec_eval).
 
-## NoReC Fine
+### NoReC Fine
 An extension of the NoRec Eval. While the previously released dataset NoReC_eval labeled sentences as to whether they are evaluative or sentiment-bearing, NoReC_fine expands on these annotations by labeling polar expressions, opinion holders and opinion targets. It is also expanded by roughly 3500 sentences.
 
 Download from the [NoReC Fine GitHub](https://github.com/ltgoslo/norec_fine).
 
-## NoRec Gender
+### NoRec Gender
 NoReC_gender comprises the book reviews of the Norwegian Review Corpus (NoReC), here expanded with annotations of gender of both book authors and critics (review authors).
 
 Download from the [NoReC Gender GitHub](https://github.com/ltgoslo/norec_gender).
