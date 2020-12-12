@@ -25,7 +25,7 @@ The table below describes the size of the current version of the corpus.
 # Comparable Large Corpuses
 | Sources  |  Size (GB) |
 | -------- |  -----:|
-| Norwegian part of mBERT | 0.5 GB |
+| Norwegian part of mBERT | 1 GB |
 | English BERT | 16 GB |
 | Swedish BERT | 20 GB |
 | English XLNet Base | 16 GB |
