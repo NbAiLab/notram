@@ -80,14 +80,16 @@ OPTIMIZER_TYPE=lamb
 then
 # Run training for 7 epochs, 100,000 steps each, processing 481,600,000 training examples in total...
 # Run training for 8 epochs, 100,000 steps each, processing 550,400,000 training examples in total... - This value seem to be based on 512 seq...
+# Run training for 14 epochs, 100,000 steps each, processing 537,600,000 training examples in total...
+
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
 TPU_IP=10.163.87.82
 RUN_PREFIX=T1_NoTram_mBERT_step2
-TRAIN_BATCH_SIZE=688
+TRAIN_BATCH_SIZE=384
 PRETRAIN_DATA=corpus1_512
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=8
+NUM_EPOCHS=14 ##Note: Batch size needs to be reduced with a factor of roughly 7. To be able to train 10% at 512, we increase from 7->14 instead of 7->8
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=77
 LEARNING_RATE=4e-4
@@ -109,7 +111,7 @@ RUN_PREFIX=T1_NoTram_mBERT_step3
 TRAIN_BATCH_SIZE=2760
 PRETRAIN_DATA=corpus1_128
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=2
+NUM_EPOCHS=16
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
 LEARNING_RATE=4e-4
