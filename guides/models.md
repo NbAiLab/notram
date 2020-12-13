@@ -72,16 +72,21 @@ NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=50000
 OPTIMIZER_TYPE=lamb
 
-then
+# TimeHistory: 1016.72 seconds, 2714.60 examples/second between steps 699000 and 700000
+# Train Step: 700000/700000  / loss = 2.18837833404541  masked_lm_accuracy = 0.588048  lm_example_loss = 2.122653  next_sentence_accuracy = 0.975460  next_sentence_loss = 0.065726  lr = 0.000400
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-04_14-43-17_109795_T1_NoTram_mBERT_step1/ctl_step_700000.ckpt-7
+# Finished training after 11870.7 min
 
+then
+# Run training for 7 epochs, 100,000 steps each, processing 481,600,000 training examples in total...
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
-TPU_IP=?
+TPU_IP=10.163.87.82
 RUN_PREFIX=T1_NoTram_mBERT_step2
 TRAIN_BATCH_SIZE=688
 PRETRAIN_DATA=corpus1_512
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=1
+NUM_EPOCHS=8
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=77
 LEARNING_RATE=4e-4
@@ -90,7 +95,9 @@ STEPS_PER_LOOP=100
 NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=0
 OPTIMIZER_TYPE=lamb
-INIT_CHECKPOINT=?
+INIT_CHECKPOINT=run_2020-12-04_14-43-17_109795_T1_NoTram_mBERT_step1/ctl_step_700000.ckpt-7
+LOAD_MLM_NSP_WEIGHTS=True
+EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 
 then
 
@@ -143,6 +150,7 @@ NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=10000
 OPTIMIZER_TYPE=adamw
 INIT_WEIGHTS=True
+LOAD_MLM_NSP_WEIGHTS=True
 
 # Run training for 10 epochs, 100,000 steps each, processing 256,000,000 training examples in total...
 # Train Step: 900000/900000  / loss = 2.409637212753296  masked_lm_accuracy = 0.557035  lm_example_loss = 2.333266  next_sentence_accuracy = 0.970781  next_sentence_loss = 0.076371  lr = 0.000010
@@ -226,6 +234,7 @@ WARMUP_STEPS=0
 OPTIMIZER_TYPE=adamw
 INIT_CHECKPOINT=run_2020-12-04_15-03-22_229120_T3_NoTram_Devlin_mBERT_step1/ctl_step_900000.ckpt-9
 LOAD_MLM_NSP_WEIGHTS=True
+
 # Train Step: 1000000/1000000  / loss = 2.288719415664673  masked_lm_accuracy = 0.573113  lm_example_loss = 2.236540  next_sentence_accuracy = 0.980820  next_sentence_loss = 0.052180  lr = 0.000000
 # Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-07_21-00-07_215892_T2_NoTram_Devlin_mBERT_step2/ctl_step_1000000.ckpt-1
 # Finished training after 854.5 min
