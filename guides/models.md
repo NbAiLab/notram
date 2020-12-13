@@ -79,6 +79,7 @@ OPTIMIZER_TYPE=lamb
 
 then
 # Run training for 7 epochs, 100,000 steps each, processing 481,600,000 training examples in total...
+# Run training for 8 epochs, 100,000 steps each, processing 550,400,000 training examples in total... - This value seem to be based on 512 seq...
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
 TPU_IP=10.163.87.82
