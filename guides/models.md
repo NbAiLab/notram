@@ -106,6 +106,7 @@ EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 # Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_1000000.ckpt-3         
 
 then
+# Run training for 12 epochs, 100,000 steps each, processing 460,800,000 training examples in total...
 
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
