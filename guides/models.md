@@ -89,7 +89,7 @@ RUN_PREFIX=T1_NoTram_mBERT_step2
 TRAIN_BATCH_SIZE=384
 PRETRAIN_DATA=corpus1_512
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=14 ##Note: Batch size needs to be reduced with a factor of roughly 7. To be able to train 10% at 512, we increase from 7->14 instead of 7->8
+NUM_EPOCHS=10 ##Note: Batch size needs to be reduced with a factor of roughly 7. Not sure if iterations or examples should be the basis. Choosing in between
 MAX_SEQ_LENGTH=512
 MAX_PREDICTIONS_PER_SEQ=77
 LEARNING_RATE=4e-4
@@ -102,11 +102,35 @@ INIT_CHECKPOINT=run_2020-12-04_14-43-17_109795_T1_NoTram_mBERT_step1/ctl_step_70
 LOAD_MLM_NSP_WEIGHTS=True
 EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 
+# Train Step: 1000000/1400000  / loss = 2.0590381622314453  masked_lm_accuracy = 0.607627  lm_example_loss = 2.009415  next_sentence_accuracy = 0.982240  next_sentence_loss = 0.049624 
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_1000000.ckpt-3         
+
 then
 
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
-TPU_IP=?
+TPU_IP=10.163.87.82
+RUN_PREFIX=T1_NoTram_mBERT_step3
+TRAIN_BATCH_SIZE=384
+PRETRAIN_DATA=corpus1_512
+MODEL_CLASS=bert_multi_cased
+NUM_EPOCHS=10 ##Note: Batch size needs to be reduced with a factor of roughly 7. Not sure if iterations or examples should be the basis. Choosing in between
+MAX_SEQ_LENGTH=512
+MAX_PREDICTIONS_PER_SEQ=77
+LEARNING_RATE=4e-4
+END_LEARNING_RATE=0
+STEPS_PER_LOOP=100
+NUM_STEPS_PER_EPOCH=100000
+WARMUP_STEPS=0
+OPTIMIZER_TYPE=lamb
+INIT_CHECKPOINT=run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_1000000.ckpt-3
+LOAD_MLM_NSP_WEIGHTS=True
+EXPECT_PARTIAL=True #Unable to load LAMB optimizer
+
+then
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=10.163.87.82
 RUN_PREFIX=T1_NoTram_mBERT_step3
 TRAIN_BATCH_SIZE=2760
 PRETRAIN_DATA=corpus1_128
@@ -118,7 +142,7 @@ LEARNING_RATE=4e-4
 END_LEARNING_RATE=0
 STEPS_PER_LOOP=100
 NUM_STEPS_PER_EPOCH=20000
-WARMUP_STEPS=0
+WARMUP_STEPS=50000
 OPTIMIZER_TYPE=lamb
 INIT_CHECKPOINT=?
 ```
