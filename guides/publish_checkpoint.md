@@ -7,31 +7,37 @@ This assumes having pretrained a model with [covid-twitter-bert](https://github.
 1. Download TF checkpoint (full model) to local
 
 ```bash
-$ ls -l data/covid_bert_v2/checkpoint
-total 7880808
--rw-r--r--  1 martin  staff   224K Sep 28 16:20 ctl_step_779700.ckpt-3.data-00000-of-00002
--rw-r--r--  1 martin  staff   3.8G Sep 28 16:25 ctl_step_779700.ckpt-3.data-00001-of-00002
--rw-r--r--  1 martin  staff    20K Sep 28 16:20 ctl_step_779700.ckpt-3.index
+$ cd /disk4/folder1/working/checkpoints/huggingface/
+$ mkdir T1_NoTram_mBERT_181220
+$ cd T1_NoTram_mBERT_181220
+$ mkdir native_pytorch
+$ mkdir final_huggingface_model
+
+$ gsutil -m cp gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-16_08-55-26_727642_T1_NoTram_mBERT_step3/ctl_step_1200000.ckpt-2* .
+
+$ ls -l 
+total 2.3G
+-rw-rw-r-- 1 perk perk 116K Dec 18 11:32 ctl_step_1200000.ckpt-2.data-00000-of-00002
+-rw-rw-r-- 1 perk perk 2.0G Dec 18 11:33 ctl_step_1200000.ckpt-2.data-00001-of-00002
+-rw-rw-r-- 1 perk perk  11K Dec 18 11:32 ctl_step_1200000.ckpt-2.index
 ```
 
 2. Convert to native PyTorch model
 
 ```bash
-# make sure to be in this directory
-$ pwd
-/Users/martin/projects/covid-twitter-bert-analysis/covid_twitter_bert/convert_tf2_to_pytorch
+# change directory
+$ cd /home/tensor/covid-twitter-bert/convert_tf2_to_pytorch
 
 # run script
-python convert_tf2_to_pytorch_pretrain.py \
-  --tf_checkpoint_path ../data/covid_bert_v2/checkpoint/ctl_step_779700.ckpt-3 \
-  --bert_config_file ../configs/bert_config_large_uncased_wwm.json \
-  --output_folder ../data/covid_bert_v2/native_pytorch
+python convert_tf2_to_pytorch_pretrain.py --tf_checkpoint_path /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/ctl_step_1200000.ckpt-2 \
+--bert_config_file /disk4/folder1/nancy/content/text/v3/pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12/bert_config.json \
+--output_folder /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/native_pytorch/
 ```
 
 3. Copy over vocab file
 
 ```bash
-$ cp vocabs/bert-large-uncased-whole-word-masking-vocab.txt data/covid_bert_v2/native_pytorch/vocab.txt
+$ cp /disk4/folder1/nancy/content/text/v3/pretrained_models/bert/keras_bert/multi_cased_L-12_H-768_A-12/vocab.txt /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/native_pytorch/
 ```
 
 4. Run `publish_huggingface.py` script
@@ -40,19 +46,18 @@ This adds all necessary files for the final upload to Huggingface. Also compare 
 
 ```bash
 # make sure to be in this directory
-$ pwd
-/Users/martin/projects/covid-twitter-bert-analysis
+$ cd /home/perk/covid-twitter-bert-analysis
 
 # run script
 python publish_huggingface.py \
-  --path_to_pytorch_model covid_twitter_bert/data/covid_bert_v2/native_pytorch \
-  --output_folder covid_twitter_bert/data/covid_bert_v2/huggingface/ \
-  --model_name covid-twitter-bert-v2
+--path_to_pytorch_model /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/native_pytorch/ \
+--output_folder /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/final_huggingface_model/ \
+--model_name NoTram_mBERT_prerelease_181220
 ```
 
 After this the final folder should contain:
 ```bash
-$ ls covid-twitter-bert-v2
+$ ls /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/final_huggingface_model/NoTram_mBERT_prerelease_181220/
 config.json              pytorch_model.bin        special_tokens_map.json  tf_model.h5              tokenizer_config.json    vocab.txt
 ```
 
