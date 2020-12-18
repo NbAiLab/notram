@@ -61,6 +61,12 @@ $ ls /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/final
 config.json              pytorch_model.bin        special_tokens_map.json  tf_model.h5              tokenizer_config.json    vocab.txt
 ```
 
+Do a minor edit in the tokenizer_config.json if this is an uncased model
+̀̀̀̀``
+vim /disk4/folder1/working/checkpoints/huggingface/T1_NoTram_mBERT_181220/final_huggingface_model/NoTram_mBERT_prerelease_181220/tokenizer_config.json
+change "do_lower_case": true" to "do_lower_case": false"
+```
+
 5. Add README.md
 
 Fill out [template](https://github.com/huggingface/model_card) and place it in the same folder with the other files.
