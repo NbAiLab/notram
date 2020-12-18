@@ -128,24 +128,39 @@ INIT_CHECKPOINT=run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_10
 LOAD_MLM_NSP_WEIGHTS=True
 EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 
+
+# Train Step: 1200000/1200000  / loss = 1.9271330833435059  masked_lm_accuracy = 0.626467  lm_example_loss = 1.883928  next_sentence_accuracy = 0.984688  next_sentence_loss = 0.043205  lr = 0.000000
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-16_08-55-26_727642_T1_NoTram_mBERT_step3/ctl_step_1200000.ckpt-2
+
+
+# Training Summary: {'total_training_steps': 1200000, 'train_loss': 1.9271330833435059}
+# Finished training after 2644.6 min
+# Writing final training log to gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-16_08-55-26_727642_T1_NoTram_mBERT_step3/run_logs.json...
+
 then
+
+# Run training for 20 epochs, 100,000 steps each, processing 5,520,000,000 training examples in total...
+
 PROJECT_NAME=notram_v1
 BUCKET_NAME=notram-west4-a
 TPU_IP=10.163.87.82
-RUN_PREFIX=T1_NoTram_mBERT_step3
+RUN_PREFIX=T1_NoTram_mBERT_step4
 TRAIN_BATCH_SIZE=2760
 PRETRAIN_DATA=corpus1_128
 MODEL_CLASS=bert_multi_cased
-NUM_EPOCHS=16
+NUM_EPOCHS=20
 MAX_SEQ_LENGTH=128
 MAX_PREDICTIONS_PER_SEQ=19
-LEARNING_RATE=4e-4
+LEARNING_RATE=24e-4
 END_LEARNING_RATE=0
 STEPS_PER_LOOP=100
-NUM_STEPS_PER_EPOCH=20000
+NUM_STEPS_PER_EPOCH=100000
 WARMUP_STEPS=50000
 OPTIMIZER_TYPE=lamb
-INIT_CHECKPOINT=?
+INIT_CHECKPOINT=run_2020-12-16_08-55-26_727642_T1_NoTram_mBERT_step3/ctl_step_1200000.ckpt-2
+LOAD_MLM_NSP_WEIGHTS=True
+EXPECT_PARTIAL=True #Unable to load LAMB optimizer
+
 ```
 
 ```bash
