@@ -172,6 +172,32 @@ NSP Accuracy:
 NSP Loss:
 
 ```
+
+We did also train an alternative model here where the decay is slower and much longer for 512 sequences. We then restored from step2 
+```bash
+PROJECT_NAME=notram_v1
+BUCKET_NAME=notram-west4-a
+TPU_IP=10.109.182.242
+RUN_PREFIX=T1_NoTram_mBERT_step3b
+TRAIN_BATCH_SIZE=384
+PRETRAIN_DATA=corpus1_512
+MODEL_CLASS=bert_multi_cased
+NUM_EPOCHS=20 
+MAX_SEQ_LENGTH=512
+MAX_PREDICTIONS_PER_SEQ=77
+LEARNING_RATE=8e-4 # For it to reach 4e-4 at 10 epochs
+END_LEARNING_RATE=0
+STEPS_PER_LOOP=100
+NUM_STEPS_PER_EPOCH=100000
+WARMUP_STEPS=0
+OPTIMIZER_TYPE=lamb
+INIT_CHECKPOINT=run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_1000000.ckpt-3
+LOAD_MLM_NSP_WEIGHTS=True
+EXPECT_PARTIAL=True #Unable to load LAMB optimizer
+```
+
+
+
 ## T2 NoTram Devlin 
 Same corpus and training time as above. Based on recommended settings in Devlin. Randomly initiated weights.
 
