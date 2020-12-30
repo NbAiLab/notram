@@ -164,13 +164,12 @@ EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 ```
 
 ```bash
-Model url:
-Training time:
-MLM Accuracy:
-MLM Loss:
-NSP Accuracy:
-NSP Loss:
-
+Model url: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-18_15-38-54_557295_T1_NoTram_mBERT_step4/ctl_step_2000000.ckpt-8
+Training log: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-18_15-38-54_557295_T1_NoTram_mBERT_step4/run_logs.json
+MLM Accuracy: 0.6104
+MLM Loss: 1.983
+NSP Accuracy: 0.9792
+NSP Loss: 0.0573
 ```
 
 We did also train an alternative model here where the decay is slower and much longer for 512 sequences. We then restored from step2 
@@ -195,7 +194,14 @@ INIT_CHECKPOINT=run_2020-12-13_11-33-27_046420_T1_NoTram_mBERT_step2/ctl_step_10
 LOAD_MLM_NSP_WEIGHTS=True
 EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 ```
-
+```bash
+Model url: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-18_16-55-01_574997_T1_NoTram_mBERT_step3b/ctl_step_2000000.ckpt-10
+Training log: gs://notram-west4-a/notram_v1/pretrain/runs/run_2020-12-18_16-55-01_574997_T1_NoTram_mBERT_step3b/run_logs.json
+MLM Accuracy: 0.635123
+MLM Loss: 1.833115
+NSP Accuracy: 0.985521
+NSP Loss: 0.041957
+```
 
 
 ## T2 NoTram Devlin 
