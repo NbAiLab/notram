@@ -15,8 +15,8 @@ Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_d
 A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Please note that is is not given that it is actually possible, even for a human, to determine the party of the speaker. Collected by the Norwegian National Library.
 Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_frp_or_sv.csv).
 
-### Other sets
-Lorem epsum... Master theses?
+### Sentences
+Single unique sentences from the Talk of Norway dataset. Sentences have been extracted and separated into a Bokmål and Nynorsk corpus based on the annotation. Then they have been segmented. The following command has been run to clean the corpus: "cat sentences_talk_of_norway_text_nob.txt | sort | uniq | shuf| grep -E '^(\w+\b.){4}' | grep '^[A-ZÆØÅ].*[.]$' >> sentences_talk_of_norway_cleaned_nob.txt". This corpus is excluded from the NoTraM training set, and is therefore suitable for testing. The Bokmål corpus has 1,361,240 sentences, while the Nynorsk corpus has 182,210 sentences. The dataset is available from the NB Ai-Lab public git.  
 
 
 # Universial Dependencies
