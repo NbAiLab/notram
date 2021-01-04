@@ -354,6 +354,17 @@ LOAD_MLM_NSP_WEIGHTS=True
             }
 
 ```
+
+# Create Evaluation Sets for Release Candidate 150121
+```bash
+eval1 = bert-base-multilingual-cased
+
+gsutil cp -r gs://notram-public/nb_models/NoTram_Devlin_081220/*.* gs://notram-public/nb_models/eval/eval2/
+gsutil cp -r gs://notram-public/nb_models/NoTram_mBERT_prerelease_181220/*.* gs://notram-public/nb_models/eval/eval3/
+gsutil cp -r gs://notram-public/nb_models/NoTram_mBERT_prerelease_311220/T1_NoTram_mBERT_step3b_9/*.* gs://notram-public/nb_models/eval/eval4/
+gsutil cp -r gs://notram-public/nb_models/NoTram_mBERT_prerelease_311220/T1_NoTram_mBERT_step4_8/*.* gs://notram-public/nb_models/eval/eval5/
+```
+
 ## Summary Training Set
 | <!-- -->   | <!-- -->  | 
 | -------- |  -----:| 
