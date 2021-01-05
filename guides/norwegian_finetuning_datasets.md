@@ -8,11 +8,11 @@ Every speech is richly annotated with metadata harvested from different sources,
 A balanced dataset with 6000 bokmål/nynorsk sentences. Collected by the Norwegian National Library. Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_nob_nyn.csv).
 
 ### Cabinet/Support/Opposition
-A balanced dataset with 6000 samples telling is the speaker is cabinet, support or opposition. Collected by the Norwegian National Library.
+A balanced dataset with 6000 samples telling if the speaker is cabinet, support or opposition. Collected by the Norwegian National Library.
 Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_role.csv).
 
 ### FrP/SV
-A balanced dataset with 6000 samples telling is the speaker is FrP or SV. Please note that is is not given that it is actually possible, even for a human, to determine the party of the speaker. Collected by the Norwegian National Library.
+A balanced dataset with 6000 samples telling if the speaker is FrP or SV. Please note that is is not given that it is actually possible, even for a human, to determine the party of the speaker. Collected by the Norwegian National Library.
 Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_frp_or_sv.csv).
 
 ### Sentences
