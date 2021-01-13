@@ -39,7 +39,7 @@ dataset_configs = ['bokmaal', 'nynorsk']
 
 #task_name = os.environ.get("TASK_NAME", "pos")  #@param ["ner", "pos"]
 #task_name = "pos"
-task_names = ['pos','ner']
+task_names = ['ner','pos']
 
 
 #num_epochs = float(os.environ.get("NUM_EPOCHS", "3.0"))
@@ -70,7 +70,7 @@ adam_beta2 = 0.999  #@param {type: "number"}
 adam_epsilon = 1e-08  #@param {type: "number"}
 max_grad_norm = 1.0  #@param {type: "number"}
 num_train_epochs = num_epochs  #@param {type: "number"}
-warmup_steps = 0  #@param {type: "number"}
+warmup_steps = 785  #@param {type: "number"}
 save_total_limit = 1  #@param {type: "integer"}
 load_best_model_at_end = True  #@param {type: "boolean"}
 
@@ -346,7 +346,7 @@ for model_name in model_names:
 
 
             #Log the results
-            logfile = os.path.join(output_dir,"evaluation_1301.txt")
+            logfile = os.path.join(output_dir,"evaluation_1301b.txt")
 
 
             trainer = Trainer(
@@ -367,12 +367,12 @@ for model_name in model_names:
             except FileNotFoundError:
                 with open(logfile, 'a+') as f:
                     print("Creating new log file")
-                    f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
+                    f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "warmup_steps"+ "\t" + validation_f1"+"\t"+"test_f1"+"\n")
                 with open(logfile, 'a') as f:
                     print("Writing log")
                     print(results)
                     #import pdb; pdb.set_trace()
-                    f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+                    f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t" + str(warmup_steps)+ "\t" + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
 
 
 
