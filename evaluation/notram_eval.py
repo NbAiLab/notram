@@ -237,7 +237,7 @@ def compute_metrics(pairs):
         "precision": precision_score(true_labels, true_predictions),
         "recall": recall_score(true_labels, true_predictions),
         "f1": f1_score(true_labels, true_predictions),
-        "report": classification_report(true_labels, true_predictions)
+        "report": classification_report(true_labels, true_predictions, digits=4)
     }
 
 from transformers.training_args import TrainingArguments
@@ -359,12 +359,12 @@ try:
 except FileNotFoundError:
     with open(logfile, 'a+') as f:
         print("Creating new log file")
-        f.write("model_name" + "\t" + "data_language" + "\t" + "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
+        f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
     with open(logfile, 'a') as f:
         print("Writing log")
         print(results)
-        import pdb; pdb.set_trace()
-        f.write(model_name + "\t" + dataset_config + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+        #import pdb; pdb.set_trace()
+        f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
 
 
 
