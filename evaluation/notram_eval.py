@@ -39,7 +39,7 @@ dataset_configs = ['bokmaal', 'nynorsk']
 
 #task_name = os.environ.get("TASK_NAME", "pos")  #@param ["ner", "pos"]
 #task_name = "pos"
-task_names = ['ner','pos']
+task_names = ['pos']
 
 
 #num_epochs = float(os.environ.get("NUM_EPOCHS", "3.0"))
@@ -49,7 +49,7 @@ num_epochs = 4.0
 overwrite_cache = False  #@param {type:"boolean"}
 cache_dir = ".cache" #@param {type:"string"}
 #output_dir = os.environ.get("OUTPUT_DIR", "./output") #@param {type:"string"}
-output_dir = "/var/ml/log"
+stable_output_dir = "/var/ml/log/"
 
 overwrite_output_dir = True #@param {type:"boolean"}
 
@@ -124,7 +124,14 @@ def printm(string):
 for model_name in model_names:
     for task_name in task_names:
         for dataset_config in dataset_configs:
+            output_dir = stable_output_dir + "_"+model_name+"_"+task_name+"_"+dataset_config     
+            output_dir = output_dir.replace("/","-")
+
             """# Loading Dataset"""
+            print("\n\n#####################################")
+            print(model_name)
+            print(task_name)
+            print(dataset_config)
 
             dataset = load_dataset(dataset_name, dataset_config)
             dataset
@@ -307,12 +314,12 @@ for model_name in model_names:
 
             """# Evaluation"""
 
-            printm("**Evaluate**")
+            printm(f"**Evaluate**"+model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs))
             results = trainer.evaluate()
 
-            output_eval_file = os.path.join(output_dir, "eval_results_ner.txt")
+            output_eval_file = os.path.join(output_dir, "eval_results.txt")
             with open(output_eval_file, "w") as writer:
-                printm("**Eval results**")
+                printm("**Eval results**"+model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t" + str(warmup_steps))
                 for key, value in results.items():
                     printm(f"{key} = {value}")
                     writer.write(f"{key} = {value}\n")
@@ -326,7 +333,7 @@ for model_name in model_names:
 
             output_test_results_file = os.path.join(output_dir, "test_results.txt")
             with open(output_test_results_file, "w") as writer:
-                printm("**Predict results**")
+                printm("**Predict results**{}")
                 for key, value in sorted(metrics.items()):
                     printm(f"{key} = {value}")
                     writer.write(f"{key} = {value}\n")
@@ -339,14 +346,14 @@ for model_name in model_names:
 
             # Save predictions
             output_test_predictions_file = os.path.join(output_dir, "test_predictions.txt")
-            with open(output_test_predictions_file, "w") as writer:
+            with open(output_test_predictions_file, "a+") as writer:
                 for prediction in true_predictions:
                     writer.write(" ".join(prediction) + "\n")
 
 
 
             #Log the results
-            logfile = os.path.join(output_dir,"evaluation_1301b.txt")
+            logfile = os.path.join(stable_output_dir,"evaluation_1301.txt")
 
 
             trainer = Trainer(
@@ -368,11 +375,11 @@ for model_name in model_names:
                 with open(logfile, 'a+') as f:
                     print("Creating new log file")
                     f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "warmup_steps"+ "\t" + "validation_f1" +"\t"+"test_f1"+"\n")
-                with open(logfile, 'a') as f:
-                    print("Writing log")
-                    print(results)
-                    #import pdb; pdb.set_trace()
-                    f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t" + str(warmup_steps)+ "\t" + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+            with open(logfile, 'a') as f:
+                print("Writing log")
+                print(results)
+                #import pdb; pdb.set_trace()
+                f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t" + str(warmup_steps)+ "\t" + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
 
 
 
