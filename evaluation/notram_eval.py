@@ -367,7 +367,7 @@ for model_name in model_names:
             except FileNotFoundError:
                 with open(logfile, 'a+') as f:
                     print("Creating new log file")
-                    f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "warmup_steps"+ "\t" + validation_f1"+"\t"+"test_f1"+"\n")
+                    f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "warmup_steps"+ "\t" + "validation_f1" +"\t"+"test_f1"+"\n")
                 with open(logfile, 'a') as f:
                     print("Writing log")
                     print(results)
