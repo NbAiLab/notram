@@ -28,7 +28,7 @@ import os
 
 #model_name = os.environ.get("MODEL_NAME", "bert-base-multilingual-cased")  #@param ["bert-base-multilingual-cased", "./nb_models/eval/eval2", "./nb_models/eval/eval3", "./nb_models/eval/eval4", "./nb_models/eval/eval5", "ltgoslo/norbert"]
 #model_name = "bert-base-multilingual-cased"
-model_names = ["bert-base-multilingual-cased", "/var/ml/models/eval/eval4", "/var/ml/models/eval5", "ltgoslo/norbert"]
+model_names = ["/var/ml/models/eval4", "/var/ml/models/eval5", "ltgoslo/norbert","bert-base-multilingual-cased"]
 
 #dataset_name = os.environ.get("DATASET_NAME", "NbAiLab/norne")  #@param ["NbAiLab/norne", "norwegian_ner"]
 dataset_name = "NbAiLab/norne"
