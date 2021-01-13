@@ -364,7 +364,7 @@ except FileNotFoundError:
         print("Writing log")
         print(results)
         import pdb; pdb.set_trace()
-        f.write(model_name + "\t" + dataset_config + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+        f.write(model_name + "\t" + dataset_config + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
 
 
 
