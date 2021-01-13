@@ -11,7 +11,7 @@ Here are some of our results:
 |POS - NorNE - Nynorsk|98.08|**98.77**|
 | | | |
 |NER - NorNE - Bokmål|88.67|**93.66**|
-|NER - NorNE - Bokmål|88.13|**92.02**|
+|NER - NorNE - Nynorsk|88.13|**92.02**|
 | | | |
 |Classification - ToN - Frp/SV|**73.75**|**77.49**|
 
