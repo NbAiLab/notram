@@ -39,7 +39,7 @@ dataset_config = "bokmaal"
 task_name = "pos"
 
 #num_epochs = float(os.environ.get("NUM_EPOCHS", "3.0"))
-num_epochs = 3.0
+num_epochs = 1.0
 
 #@title ##General
 overwrite_cache = False  #@param {type:"boolean"}
@@ -338,7 +338,7 @@ with open(output_test_predictions_file, "w") as writer:
 
 
 #Log the results
-logfile = os.path.join(output_dir,"log_090121_ner_shuffle.txt")
+logfile = os.path.join(output_dir,"evaluation_1301.txt")
 
 
 trainer = Trainer(
@@ -359,11 +359,12 @@ try:
 except FileNotFoundError:
     with open(logfile, 'a+') as f:
         print("Creating new log file")
-        f.write("model_name" + "\t" + "data_language" + "\t" + "GEO_f1"+ "\t" + "ORG_f1"+ "\t" + "OTH_f1" + "\t" + "PRS_f1"+ "\t" + "validation_f1"+"\t"+"test_f2"+"\n")
+        f.write("model_name" + "\t" + "data_language" + "\t" + "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
     with open(logfile, 'a') as f:
-      print("Writing log")
-      print(results)
-      #f.write(model_name + "\t" + dataset_config + "\t" + str(results['eval_report'].split("   ")[15])+ "\t" + str(results['eval_report'].split("   ")[26])+ "\t" + str(results['eval_report'].split("   ")[37])+ "\t" + str(results['eval_report'].split("   ")[48])+ "\t" + str(results['eval_f1']) + "\t" + str(results['eval_f1']) + "\n")
+        print("Writing log")
+        print(results)
+        import pdb; pdb.set_trace()
+        f.write(model_name + "\t" + dataset_config + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
 
 
 
@@ -372,4 +373,3 @@ except FileNotFoundError:
 
 ##### Copyright 2020 &copy; National Library of Norway
 """
-
