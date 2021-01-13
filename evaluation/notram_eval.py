@@ -27,19 +27,23 @@ import os
 #@title ##Model, Dataset, and Task
 
 #model_name = os.environ.get("MODEL_NAME", "bert-base-multilingual-cased")  #@param ["bert-base-multilingual-cased", "./nb_models/eval/eval2", "./nb_models/eval/eval3", "./nb_models/eval/eval4", "./nb_models/eval/eval5", "ltgoslo/norbert"]
-model_name = "bert-base-multilingual-cased"
+#model_name = "bert-base-multilingual-cased"
+model_names = ["bert-base-multilingual-cased", "/var/ml/models/eval/eval4", "/var/ml/models/eval5", "ltgoslo/norbert"]
 
 #dataset_name = os.environ.get("DATASET_NAME", "NbAiLab/norne")  #@param ["NbAiLab/norne", "norwegian_ner"]
 dataset_name = "NbAiLab/norne"
 
 #dataset_config = os.environ.get("DATASET_CONFIG", "bokmaal")  #@param ["bokmaal", "nynorsk", "samnorsk"]
-dataset_config = "bokmaal"
+#dataset_config = "bokmaal"
+dataset_configs = ['bokmaal', 'nynorsk']
 
 #task_name = os.environ.get("TASK_NAME", "pos")  #@param ["ner", "pos"]
-task_name = "pos"
+#task_name = "pos"
+task_names = ['pos','ner']
+
 
 #num_epochs = float(os.environ.get("NUM_EPOCHS", "3.0"))
-num_epochs = 1.0
+num_epochs = 4.0
 
 #@title ##General
 overwrite_cache = False  #@param {type:"boolean"}
@@ -116,260 +120,264 @@ set_seed(seed)
 def printm(string):
     print(str(string))
 
-"""# Loading Dataset"""
 
-dataset = load_dataset(dataset_name, dataset_config)
-dataset
+for model_name in model_names:
+    for task_name in task_names:
+        for dataset_config in dataset_configs:
+            """# Loading Dataset"""
 
-column_names = dataset["train"].column_names
-features = dataset["train"].features
-text_column_name = "tokens" if "tokens" in column_names else column_names[0]
-label_column_name = (
-    f"{task_name}_tags" if f"{task_name}_tags" in column_names else column_names[1]
-)
-dataset["train"].data.to_pandas()[[text_column_name, label_column_name]]
+            dataset = load_dataset(dataset_name, dataset_config)
+            dataset
 
-label_list = features[label_column_name].feature.names
-label_to_id = {i: i for i in range(len(label_list))}
-num_labels = len(label_list)
-print(f"Number of labels: {num_labels}")
-print({label.split("-")[-1] for label in label_list})
+            column_names = dataset["train"].column_names
+            features = dataset["train"].features
+            text_column_name = "tokens" if "tokens" in column_names else column_names[0]
+            label_column_name = (
+                f"{task_name}_tags" if f"{task_name}_tags" in column_names else column_names[1]
+            )
+            dataset["train"].data.to_pandas()[[text_column_name, label_column_name]]
 
-"""# Download Norwegian Models
+            label_list = features[label_column_name].feature.names
+            label_to_id = {i: i for i in range(len(label_list))}
+            num_labels = len(label_list)
+            print(f"Number of labels: {num_labels}")
+            print({label.split("-")[-1] for label in label_list})
 
-Downloading the model directly from a GCP bucket should not take longer than 3 minutes.
-"""
+            """# Download Norwegian Models
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%time
-# # Download Models
-# if model_name.startswith("./nb_models") and not os.path.exists("./nb_models"):
-#     !mkdir -p nb_models/eval/
-#     !gsutil -m cp -r gs://notram-public/nb_models/eval/* nb_models/eval/
+            Downloading the model directly from a GCP bucket should not take longer than 3 minutes.
+            """
 
-"""# Training"""
+            # Commented out IPython magic to ensure Python compatibility.
+            # %%time
+            # # Download Models
+            # if model_name.startswith("./nb_models") and not os.path.exists("./nb_models"):
+            #     !mkdir -p nb_models/eval/
+            #     !gsutil -m cp -r gs://notram-public/nb_models/eval/* nb_models/eval/
 
-config = AutoConfig.from_pretrained(
-    model_name,
-    num_labels=num_labels,
-    finetuning_task=task_name,
-    cache_dir=cache_dir,
-)
-tokenizer = AutoTokenizer.from_pretrained(
-    model_name,
-    cache_dir=cache_dir,
-    use_fast=True,
-)
-model = AutoModelForTokenClassification.from_pretrained(
-    model_name,
-    from_tf=bool(".ckpt" in model_name),
-    config=config,
-    cache_dir=cache_dir,
-)
+            """# Training"""
 
-# Preprocessing the dataset
+            config = AutoConfig.from_pretrained(
+                model_name,
+                num_labels=num_labels,
+                finetuning_task=task_name,
+                cache_dir=cache_dir,
+            )
+            tokenizer = AutoTokenizer.from_pretrained(
+                model_name,
+                cache_dir=cache_dir,
+                use_fast=True,
+            )
+            model = AutoModelForTokenClassification.from_pretrained(
+                model_name,
+                from_tf=bool(".ckpt" in model_name),
+                config=config,
+                cache_dir=cache_dir,
+            )
 
-# Tokenize all texts and align the labels with them.
-def tokenize_and_align_labels(examples):
-    tokenized_inputs = tokenizer(
-        examples[text_column_name],
-        max_length=max_length,
-        padding=padding,
-        truncation=True,
-        # We use this argument because the texts in our dataset are lists of words (with a label for each word).
-        is_split_into_words=True,
-    )
-    labels = []
-    for i, label in enumerate(examples[label_column_name]):
-        word_ids = tokenized_inputs.word_ids(batch_index=i)
-        previous_word_idx = None
-        label_ids = []
-        for word_idx in word_ids:
-            # Special tokens have a word id that is None. We set the label to -100 so they are automatically
-            # ignored in the loss function.
-            if word_idx is None:
-                label_ids.append(-100)
-            # We set the label for the first token of each word.
-            elif word_idx != previous_word_idx:
-                label_ids.append(label_to_id[label[word_idx]])
-            # For the other tokens in a word, we set the label to either the current label or -100, depending on
-            # the label_all_tokens flag.
-            else:
-                label_ids.append(label_to_id[label[word_idx]] if label_all_tokens else -100)
-            previous_word_idx = word_idx
+            # Preprocessing the dataset
 
-        labels.append(label_ids)
-    tokenized_inputs["labels"] = labels
-    return tokenized_inputs
+            # Tokenize all texts and align the labels with them.
+            def tokenize_and_align_labels(examples):
+                tokenized_inputs = tokenizer(
+                    examples[text_column_name],
+                    max_length=max_length,
+                    padding=padding,
+                    truncation=True,
+                    # We use this argument because the texts in our dataset are lists of words (with a label for each word).
+                    is_split_into_words=True,
+                )
+                labels = []
+                for i, label in enumerate(examples[label_column_name]):
+                    word_ids = tokenized_inputs.word_ids(batch_index=i)
+                    previous_word_idx = None
+                    label_ids = []
+                    for word_idx in word_ids:
+                        # Special tokens have a word id that is None. We set the label to -100 so they are automatically
+                        # ignored in the loss function.
+                        if word_idx is None:
+                            label_ids.append(-100)
+                        # We set the label for the first token of each word.
+                        elif word_idx != previous_word_idx:
+                            label_ids.append(label_to_id[label[word_idx]])
+                        # For the other tokens in a word, we set the label to either the current label or -100, depending on
+                        # the label_all_tokens flag.
+                        else:
+                            label_ids.append(label_to_id[label[word_idx]] if label_all_tokens else -100)
+                        previous_word_idx = word_idx
 
-tokenized_datasets = dataset.map(
-    tokenize_and_align_labels,
-    batched=True,
-    load_from_cache_file=not overwrite_cache,
-    num_proc=os.cpu_count(),
-)
+                    labels.append(label_ids)
+                tokenized_inputs["labels"] = labels
+                return tokenized_inputs
 
-# Data collator
-data_collator = DataCollatorForTokenClassification(tokenizer)
+            tokenized_datasets = dataset.map(
+                tokenize_and_align_labels,
+                batched=True,
+                load_from_cache_file=not overwrite_cache,
+                num_proc=os.cpu_count(),
+            )
 
-# Metrics
-def compute_metrics(pairs):
-    predictions, labels = pairs
-    predictions = np.argmax(predictions, axis=2)
+            # Data collator
+            data_collator = DataCollatorForTokenClassification(tokenizer)
 
-    # Remove ignored index (special tokens)
-    true_predictions = [
-        [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
-        for prediction, label in zip(predictions, labels)
-    ]
-    true_labels = [
-        [label_list[l] for (p, l) in zip(prediction, label) if l != -100]
-        for prediction, label in zip(predictions, labels)
-    ]
+            # Metrics
+            def compute_metrics(pairs):
+                predictions, labels = pairs
+                predictions = np.argmax(predictions, axis=2)
 
-    # mlb = MultiLabelBinarizer()  # sparse_output=True
-    # true_predictions = mlb.fit_transform(true_predictions)
-    # mlb = MultiLabelBinarizer()  # sparse_output=True
-    # true_labels = mlb.fit_transform(true_labels)
+                # Remove ignored index (special tokens)
+                true_predictions = [
+                    [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
+                    for prediction, label in zip(predictions, labels)
+                ]
+                true_labels = [
+                    [label_list[l] for (p, l) in zip(prediction, label) if l != -100]
+                    for prediction, label in zip(predictions, labels)
+                ]
 
-    return {
-        "accuracy_score": accuracy_score(true_labels, true_predictions),
-        "precision": precision_score(true_labels, true_predictions),
-        "recall": recall_score(true_labels, true_predictions),
-        "f1": f1_score(true_labels, true_predictions),
-        "report": classification_report(true_labels, true_predictions, digits=4)
-    }
+                # mlb = MultiLabelBinarizer()  # sparse_output=True
+                # true_predictions = mlb.fit_transform(true_predictions)
+                # mlb = MultiLabelBinarizer()  # sparse_output=True
+                # true_labels = mlb.fit_transform(true_labels)
 
-from transformers.training_args import TrainingArguments
+                return {
+                    "accuracy_score": accuracy_score(true_labels, true_predictions),
+                    "precision": precision_score(true_labels, true_predictions),
+                    "recall": recall_score(true_labels, true_predictions),
+                    "f1": f1_score(true_labels, true_predictions),
+                    "report": classification_report(true_labels, true_predictions, digits=4)
+                }
 
-training_args = TrainingArguments(
-    output_dir=output_dir,
-    overwrite_output_dir=overwrite_output_dir,
-    do_train=True,
-    do_eval=True,
-    do_predict=True,
-    per_device_train_batch_size=per_device_train_batch_size,
-    per_device_eval_batch_size=per_device_eval_batch_size,
-    learning_rate=learning_rate,
-    weight_decay=weight_decay,
-    adam_beta1=adam_beta1,
-    adam_beta2=adam_beta2,
-    adam_epsilon=adam_epsilon,
-    max_grad_norm=max_grad_norm,
-    num_train_epochs=num_train_epochs,
-    warmup_steps=warmup_steps,
-    load_best_model_at_end=load_best_model_at_end,
-    seed=seed,
-    save_total_limit=save_total_limit,
-    # weight_decay=0.0,
-    # adam_beta1=0.9,
-    # adam_beta2=0.999,
-    # adam_epsilon=1e-08,
-    # max_grad_norm=1.0,
-    # num_train_epochs=3.0,
-    # warmup_steps=0,
-    # load_best_model_at_end=True
-    # per_device_train_batch_size=8,
-    # per_device_eval_batch_size=8,
-)
-training_args
+            from transformers.training_args import TrainingArguments
 
-# Initialize our Trainer
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=tokenized_datasets["train"],
-    eval_dataset=tokenized_datasets["validation"],
-    tokenizer=tokenizer,
-    data_collator=data_collator,
-    compute_metrics=compute_metrics,
-)
+            training_args = TrainingArguments(
+                output_dir=output_dir,
+                overwrite_output_dir=overwrite_output_dir,
+                do_train=True,
+                do_eval=True,
+                do_predict=True,
+                per_device_train_batch_size=per_device_train_batch_size,
+                per_device_eval_batch_size=per_device_eval_batch_size,
+                learning_rate=learning_rate,
+                weight_decay=weight_decay,
+                adam_beta1=adam_beta1,
+                adam_beta2=adam_beta2,
+                adam_epsilon=adam_epsilon,
+                max_grad_norm=max_grad_norm,
+                num_train_epochs=num_train_epochs,
+                warmup_steps=warmup_steps,
+                load_best_model_at_end=load_best_model_at_end,
+                seed=seed,
+                save_total_limit=save_total_limit,
+                # weight_decay=0.0,
+                # adam_beta1=0.9,
+                # adam_beta2=0.999,
+                # adam_epsilon=1e-08,
+                # max_grad_norm=1.0,
+                # num_train_epochs=3.0,
+                # warmup_steps=0,
+                # load_best_model_at_end=True
+                # per_device_train_batch_size=8,
+                # per_device_eval_batch_size=8,
+            )
+            training_args
 
-train_result = trainer.train()
-trainer.save_model()  # Saves the tokenizer too for easy upload
+            # Initialize our Trainer
+            trainer = Trainer(
+                model=model,
+                args=training_args,
+                train_dataset=tokenized_datasets["train"],
+                eval_dataset=tokenized_datasets["validation"],
+                tokenizer=tokenizer,
+                data_collator=data_collator,
+                compute_metrics=compute_metrics,
+            )
 
-output_train_file = os.path.join(output_dir, "train_results.txt")
-with open(output_train_file, "w") as writer:
-    printm("**Train results**")
-    for key, value in sorted(train_result.metrics.items()):
-        printm(f"{key} = {value}")
-        writer.write(f"{key} = {value}\n")
-# Need to save the state, since Trainer.save_model saves only the tokenizer with the model
-trainer.state.save_to_json(os.path.join(training_args.output_dir, "trainer_state.json"))
+            train_result = trainer.train()
+            trainer.save_model()  # Saves the tokenizer too for easy upload
 
-"""# Evaluation"""
+            output_train_file = os.path.join(output_dir, "train_results.txt")
+            with open(output_train_file, "w") as writer:
+                printm("**Train results**")
+                for key, value in sorted(train_result.metrics.items()):
+                    printm(f"{key} = {value}")
+                    writer.write(f"{key} = {value}\n")
+            # Need to save the state, since Trainer.save_model saves only the tokenizer with the model
+            trainer.state.save_to_json(os.path.join(training_args.output_dir, "trainer_state.json"))
 
-printm("**Evaluate**")
-results = trainer.evaluate()
+            """# Evaluation"""
 
-output_eval_file = os.path.join(output_dir, "eval_results_ner.txt")
-with open(output_eval_file, "w") as writer:
-    printm("**Eval results**")
-    for key, value in results.items():
-        printm(f"{key} = {value}")
-        writer.write(f"{key} = {value}\n")
+            printm("**Evaluate**")
+            results = trainer.evaluate()
 
-"""# Prediction"""
+            output_eval_file = os.path.join(output_dir, "eval_results_ner.txt")
+            with open(output_eval_file, "w") as writer:
+                printm("**Eval results**")
+                for key, value in results.items():
+                    printm(f"{key} = {value}")
+                    writer.write(f"{key} = {value}\n")
 
-printm("**Predict**")
-test_dataset = tokenized_datasets["test"]
-predictions, labels, metrics = trainer.predict(test_dataset)
-predictions = np.argmax(predictions, axis=2)
+            """# Prediction"""
 
-output_test_results_file = os.path.join(output_dir, "test_results.txt")
-with open(output_test_results_file, "w") as writer:
-    printm("**Predict results**")
-    for key, value in sorted(metrics.items()):
-        printm(f"{key} = {value}")
-        writer.write(f"{key} = {value}\n")
+            printm("**Predict**")
+            test_dataset = tokenized_datasets["test"]
+            predictions, labels, metrics = trainer.predict(test_dataset)
+            predictions = np.argmax(predictions, axis=2)
 
-# Remove ignored index (special tokens)
-true_predictions = [
-    [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
-    for prediction, label in zip(predictions, labels)
-]
+            output_test_results_file = os.path.join(output_dir, "test_results.txt")
+            with open(output_test_results_file, "w") as writer:
+                printm("**Predict results**")
+                for key, value in sorted(metrics.items()):
+                    printm(f"{key} = {value}")
+                    writer.write(f"{key} = {value}\n")
 
-# Save predictions
-output_test_predictions_file = os.path.join(output_dir, "test_predictions.txt")
-with open(output_test_predictions_file, "w") as writer:
-    for prediction in true_predictions:
-        writer.write(" ".join(prediction) + "\n")
+            # Remove ignored index (special tokens)
+            true_predictions = [
+                [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
+                for prediction, label in zip(predictions, labels)
+            ]
 
-
-
-#Log the results
-logfile = os.path.join(output_dir,"evaluation_1301.txt")
-
-
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=tokenized_datasets["train"],
-    eval_dataset=tokenized_datasets["test"],
-    tokenizer=tokenizer,
-    data_collator=data_collator,
-    compute_metrics=compute_metrics,
-)
-test_results = trainer.evaluate()
-
-#Check if logfile exist
-try:
-    f = open(logfile)
-    f.close()
-except FileNotFoundError:
-    with open(logfile, 'a+') as f:
-        print("Creating new log file")
-        f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
-    with open(logfile, 'a') as f:
-        print("Writing log")
-        print(results)
-        #import pdb; pdb.set_trace()
-        f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+            # Save predictions
+            output_test_predictions_file = os.path.join(output_dir, "test_predictions.txt")
+            with open(output_test_predictions_file, "w") as writer:
+                for prediction in true_predictions:
+                    writer.write(" ".join(prediction) + "\n")
 
 
 
+            #Log the results
+            logfile = os.path.join(output_dir,"evaluation_1301.txt")
 
-"""---
 
-##### Copyright 2020 &copy; National Library of Norway
-"""
+            trainer = Trainer(
+                model=model,
+                args=training_args,
+                train_dataset=tokenized_datasets["train"],
+                eval_dataset=tokenized_datasets["test"],
+                tokenizer=tokenizer,
+                data_collator=data_collator,
+                compute_metrics=compute_metrics,
+            )
+            test_results = trainer.evaluate()
+
+            #Check if logfile exist
+            try:
+                f = open(logfile)
+                f.close()
+            except FileNotFoundError:
+                with open(logfile, 'a+') as f:
+                    print("Creating new log file")
+                    f.write("model_name" + "\t" + "data_language" + "\t" + "task_name" + "\t" "learning_rate"+ "\t" + "num_epochs"+ "\t" + "validation_f1"+"\t"+"test_f1"+"\n")
+                with open(logfile, 'a') as f:
+                    print("Writing log")
+                    print(results)
+                    #import pdb; pdb.set_trace()
+                    f.write(model_name + "\t" + dataset_config + "\t" + task_name + "\t" + str(learning_rate) + "\t" + str(num_epochs)+ "\t"  + str(results['eval_f1']) + "\t" + str(test_results['eval_f1']) + "\n")
+
+
+
+
+            """---
+
+            ##### Copyright 2020 &copy; National Library of Norway
+            """
