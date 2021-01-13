@@ -7,13 +7,13 @@ We have released the NB-BERT-Base model. This is based on the same structure as 
 Here are some of our results:
 | Task  |   mBERT-base| NB-BERT-base |
 | -------- |   -----:| -----:|
-|POS - NorNE - Bokmål|98.32|98.86|
-|POS - NorNE - Nynorsk|98.08|98.77|
+|POS - NorNE - Bokmål|98.32|**98.86**|
+|POS - NorNE - Nynorsk|98.08|**98.77**|
 | | | |
-|NER - NorNE - Bokmål|88.67|93.66|
-|NER - NorNE - Bokmål|88.13|92.02|
+|NER - NorNE - Bokmål|88.67|**93.66**|
+|NER - NorNE - Bokmål|88.13|**92.02**|
 | | | |
-|Classification - ToN - Frp/SV|73.75|77.49|
+|Classification - ToN - Frp/SV|**73.75**|**77.49**|
 
 * Results from pretraining for 4 epochs with learning rate 3e-5.
 
