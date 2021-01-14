@@ -1,6 +1,30 @@
 # Norwegian Transformer Model
 This is the repository for the project "NoTraM - Norwegian Transformer Model" owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models.
 
+# Models
+We have released the NB-BERT-Base model. This is based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md), and is trained on a wide variety of Norwegian text (both bokmål and nynorsk) from the last 200 years. The score below is on NER/POS-tasks on a newer corpus but we expect the model also perform good on other tasks.
+
+Here are some of our results:
+| Task  |   mBERT-base| NB-BERT-base |
+| -------- |   -----:| -----:|
+|POS - NorNE - Bokmål|98.32|**98.86**|
+|POS - NorNE - Nynorsk|98.08|**98.77**|
+| | | |
+|NER - NorNE - Bokmål|88.67|**93.66**|
+|NER - NorNE - Nynorsk|88.13|**92.02**|
+| | | |
+|Classification - ToN - Frp/SV|**73.75**|**77.49**|
+
+* F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
+
+
+
+## Download
+The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
+
+## Colab Notebooks
+Several Colab Notebooks will be released in the next few days. We will also release notebooks allowing you to reproduce the results above.
+
 # Corpus
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the bases for this training corpus. In addition we add several other known public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md).
 
