@@ -28,22 +28,24 @@ import os
 
 #model_name = os.environ.get("MODEL_NAME", "bert-base-multilingual-cased")  #@param ["bert-base-multilingual-cased", "./nb_models/eval/eval2", "./nb_models/eval/eval3", "./nb_models/eval/eval4", "./nb_models/eval/eval5", "ltgoslo/norbert"]
 #model_name = "bert-base-multilingual-cased"
-model_names = ["/var/ml/models/eval4", "/var/ml/models/eval5", "ltgoslo/norbert","bert-base-multilingual-cased"]
+model_names = ["/var/ml/models/eval4", "/var/ml/models/eval5", "bert-base-multilingual-cased"]
+
 
 #dataset_name = os.environ.get("DATASET_NAME", "NbAiLab/norne")  #@param ["NbAiLab/norne", "norwegian_ner"]
 dataset_name = "NbAiLab/norne"
 
 #dataset_config = os.environ.get("DATASET_CONFIG", "bokmaal")  #@param ["bokmaal", "nynorsk", "samnorsk"]
-#dataset_config = "bokmaal"
-dataset_configs = ['bokmaal', 'nynorsk']
+dataset_configs= ["bokmaal","nynorsk"]
+
+#dataset_configs = ['bokmaal', 'nynorsk']
 
 #task_name = os.environ.get("TASK_NAME", "pos")  #@param ["ner", "pos"]
 #task_name = "pos"
-task_names = ['pos']
+task_names = ['ner','pos']
 
 
 #num_epochs = float(os.environ.get("NUM_EPOCHS", "3.0"))
-num_epochs = 4.0
+num_epochs = 20.0
 
 #@title ##General
 overwrite_cache = False  #@param {type:"boolean"}
@@ -64,15 +66,15 @@ label_all_tokens = False #@param {type:"boolean"}
 per_device_train_batch_size = 8  #@param {type: "integer"}
 per_device_eval_batch_size = 8  #@param {type: "integer"}
 learning_rate = 3e-05  #@param {type: "number"}
-weight_decay = 0.0  #@param {type: "number"}
+weight_decay = 0  #@param {type: "number"}
 adam_beta1 = 0.9  #@param {type: "number"}
 adam_beta2 = 0.999  #@param {type: "number"}
 adam_epsilon = 1e-08  #@param {type: "number"}
 max_grad_norm = 1.0  #@param {type: "number"}
 num_train_epochs = num_epochs  #@param {type: "number"}
-warmup_steps = 785  #@param {type: "number"}
+warmup_steps = 3923  #@param {type: "number"}
 save_total_limit = 1  #@param {type: "integer"}
-load_best_model_at_end = True  #@param {type: "boolean"}
+load_best_model_at_end = False  #@param {type: "boolean"}
 
 """# Dependencies and helper functions"""
 
@@ -124,8 +126,7 @@ def printm(string):
 for model_name in model_names:
     for task_name in task_names:
         for dataset_config in dataset_configs:
-            output_dir = stable_output_dir + "_"+model_name+"_"+task_name+"_"+dataset_config     
-            output_dir = output_dir.replace("/","-")
+            output_dir = stable_output_dir + ("_"+model_name+"_"+task_name+"_"+dataset_config).replace("/","-")     
 
             """# Loading Dataset"""
             print("\n\n#####################################")
