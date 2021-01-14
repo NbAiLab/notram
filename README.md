@@ -15,7 +15,7 @@ Here are some of our results:
 | | | |
 |Classification - ToN - Frp/SV|**73.75**|**77.49**|
 
-* Both models were finetuned for 4 epochs with learning rate 3e-5.
+* F1-score on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
 
 
 
