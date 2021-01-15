@@ -14,6 +14,7 @@ Here are some of our results:
 |NER - NorNE - Nynorsk|88.13|**92.02**|
 | | | |
 |Classification - ToN - Frp/SV|73.75|**77.49**|
+|Sentence-level binary sentiment classification|73.27|**84.04**|
 
 * F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
 
