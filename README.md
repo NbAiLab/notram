@@ -24,6 +24,8 @@ Here are some of our results:
 The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
 
 ## Colab Notebooks
+The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
+
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
 | How to use the model for masked layer predictions (easy)|<a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> |
