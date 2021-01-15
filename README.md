@@ -24,6 +24,7 @@ Here are some of our results:
 The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
 
 ## Colab Notebooks
+Testing ... not working
 <p align="left"><a href="https://github.com/NBAiLab/notram/blob/master/colab/NBAILab_Masked_Layer_Pipeline_Example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 
 
