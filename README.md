@@ -26,24 +26,11 @@ The model can be [downloaded from Huggingface](https://huggingface.co/nbailab).
 ## Colab Notebooks
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
-| How to use the model for masked layer predictions (easy)|<p align="left"><a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
-| How to finetune a classification model (advanced)|<p align="left"><a href="
+| How to use the model for masked layer predictions (easy)|<p align="left"><a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p> |
+| How to finetune a classification model (advanced)| <p align="left"><a href="
 https://colab.research.google.com/gist/peregilk/3c5e838f365ab76523ba82ac595e2fcc/nbailab-finetuning-and-evaluating-a-bert-model-for-classification.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
-| 
-How to finetune a NER/POS-model (advanced)|<p align="left"><a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
+| How to finetune a NER/POS-model (advanced) | <p align="left"><a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
 
-
-
-
-How to finetune a NER/POS-model (advanced)
-
-
-
-Testing ... not working
-
-
-
-Several Colab Notebooks will be released in the next few days. We will also release notebooks allowing you to reproduce the results above.
 
 # Corpus
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the bases for this training corpus. In addition we add several other known public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md).
