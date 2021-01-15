@@ -24,8 +24,23 @@ Here are some of our results:
 The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
 
 ## Colab Notebooks
+| Task  |   Colaboratory Notebook |
+| -------- | -----:|
+| How to use the model for masked layer predictions (easy)|<p align="left"><a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
+| How to finetune a classification model (advanced)|<p align="left"><a href="
+https://colab.research.google.com/gist/peregilk/3c5e838f365ab76523ba82ac595e2fcc/nbailab-finetuning-and-evaluating-a-bert-model-for-classification.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
+| 
+How to finetune a NER/POS-model (advanced)|<p align="left"><a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>|
+
+
+
+
+How to finetune a NER/POS-model (advanced)
+
+
+
 Testing ... not working
-<p align="left"><a href="https://github.com/NBAiLab/notram/blob/master/colab/NBAILab_Masked_Layer_Pipeline_Example.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+
 
 
 Several Colab Notebooks will be released in the next few days. We will also release notebooks allowing you to reproduce the results above.
