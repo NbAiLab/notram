@@ -10,8 +10,8 @@ Here are some of our results:
 |POS - NorNE - Bokmål|98.32|**98.86**|
 |POS - NorNE - Nynorsk|98.08|**98.77**|
 | | | |
-|NER - NorNE - Bokmål|88.67|**93.66**|
-|NER - NorNE - Nynorsk|88.13|**92.02**|
+|NER - NorNE - Bokmål|81.75|**90.03**|
+|NER - NorNE - Nynorsk|84.69|**87.67**|
 | | | |
 |Classification - ToN - Frp/SV|73.75|**77.49**|
 |Sentence-level binary sentiment classification|73.27|**84.04**|
