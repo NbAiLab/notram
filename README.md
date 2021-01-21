@@ -10,10 +10,11 @@ Here are some of our results:
 |POS - NorNE - Bokmål|98.32|**98.86**|
 |POS - NorNE - Nynorsk|98.08|**98.77**|
 | | | |
-|NER - NorNE - Bokmål|88.67|**93.66**|
-|NER - NorNE - Nynorsk|88.13|**92.02**|
+|NER - NorNE - Bokmål|81.75|**90.03**|
+|NER - NorNE - Nynorsk|84.69|**87.67**|
 | | | |
-|Classification - ToN - Frp/SV|**73.75**|**77.49**|
+|Classification - ToN - Frp/SV|73.75|**77.49**|
+|Sentence-level binary sentiment classification|73.27|**84.04**|
 
 * F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
 
@@ -22,8 +23,18 @@ Here are some of our results:
 ## Download
 The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
 
+## Demo
+You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). 
+
 ## Colab Notebooks
-Several Colab Notebooks will be released in the next few days. We will also release notebooks allowing you to reproduce the results above.
+The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
+
+| Task  |   Colaboratory Notebook |
+| -------- | -----:|
+| How to use the model for masked layer predictions (easy)|<a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> |
+| How to finetune a classification model (advanced)| <a href="https://colab.research.google.com/gist/peregilk/3c5e838f365ab76523ba82ac595e2fcc/nbailab-finetuning-and-evaluating-a-bert-model-for-classification.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
+| How to finetune a NER/POS-model (advanced) | <a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
+
 
 # Corpus
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the bases for this training corpus. In addition we add several other known public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_description.md).
