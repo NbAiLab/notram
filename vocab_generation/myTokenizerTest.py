@@ -15,8 +15,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    for tok in glob.glob('../generated_tokenizers/*.json'):
-        for tfile in glob.glob('../testfiles_1000w/*.txt'):
+    for tok in glob.glob('generated_tokenizers/*.json'):
+        for tfile in glob.glob('testfiles_1000w/*.txt'):
             values = [0] * 1000
             with open(tfile, 'r') as fp:
                 contenttmp = fp.read()
@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 tokname=tok.split(".")[1]
                 print("============================================================================")
                 astr="Freddy ved Nasjonalbiblioteket har laget denne . Tester Æ Ø Å æ ø å ."
-                tokenizer._save_pretrained("model/"+tokname)
+                #tokenizer._save_pretrained("model/"+tokname)
                 tokenized = tokenizer.encode(str(astr))
                 #print(tokenized)
                 #print(type(tokenized))
