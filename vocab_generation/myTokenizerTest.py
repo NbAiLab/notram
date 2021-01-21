@@ -24,10 +24,11 @@ if __name__ == '__main__':
                 ftfy.fix_text(content)
                 #print("Loading tokenizer: " + str(tok))
                 tokenizer = tokenizers.Tokenizer.from_file(tok)
+
                 tokname=tok.split(".")[1]
                 print("============================================================================")
                 astr="Freddy ved Nasjonalbiblioteket har laget denne . Tester Æ Ø Å æ ø å ."
-                #tokenizer.save_pretrained("model/"+tokname)
+                tokenizer._save_pretrained("model/"+tokname)
                 tokenized = tokenizer.encode(str(astr))
                 #print(tokenized)
                 #print(type(tokenized))
@@ -61,7 +62,7 @@ if __name__ == '__main__':
                 fp.close()
             # content = contenttmp.decode('utf-8', 'ignore').encode("utf-8")
             print("                                        ")
-            
+
             print ("Tokenizer" + str(tok))
             print("The file " + tfile + " contains " + str(wordcount) + " words")
             print(str(values[1]) + " of " + str(wordcount) + " words in file are single tokens, percentage: " + str(values[1]/wordcount))
