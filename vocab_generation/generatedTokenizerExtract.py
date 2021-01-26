@@ -23,7 +23,7 @@ if __name__ == '__main__':
             os.mkdir(dname)
         ofp = open(dname + "/vocab.txt", "w+")
         for i in vocab:
-            print(i)
+            #print(i)
             ofp.write(i + "\n")
         ofp.close()
         specialDataSet = {}
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         specialDataSet["do_basic_tokenize"] = "true"
         specialDataSet["never_split"] = "null"
         tokenizerConfigFileName = str(dname) + "/" + str(dname.split(".")[0]) + "_config.json"
-        print(tokenizerConfigFileName)
+        #print(tokenizerConfigFileName)
         with open(tokenizerConfigFileName, 'w+') as f:
             json.dump(specialDataSet, f)
         configSet = {}
@@ -79,6 +79,13 @@ if __name__ == '__main__':
         configSet["vocab_size"] = len(vocab)
 
         configFileName = str(dname) + "/" + "config.json"
-        print(configFileName)
+        #print(configFileName)
         with open(configFileName, 'w+') as f:
             json.dump(configSet, f)
+        print("==============================================================================")
+        print("Tokenizer extractor buildt files for " + tok +":")
+        print("\t"+ str(dname) + "/vocab.txt")
+        print("\t"+ str(outputfile))
+        print("\t"+ str(tokenizerConfigFileName))
+        print("\t"+ str(configFileName))
+        print("==============================================================================")     
