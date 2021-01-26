@@ -27,13 +27,14 @@ if __name__ == '__main__':
 
                 tokname=tok.split(".")[1]
                 print("============================================================================")
-                astr="Freddy ved Nasjonalbiblioteket har laget denne . Tester Æ Ø Å æ ø å ."
+                astr="Freddy ved Nasjonalbiblioteket har laget denne, vi tester Æ Ø Å æ ø å ."
+                astr="Denne gjengen håper at de sammen skal bidra til å gi kvinnefotballen i Kristiansand et lenge etterlengtet løft."
                 #tokenizer._save_pretrained("model/"+tokname)
                 tokenized = tokenizer.encode(str(astr))
                 #print(tokenized)
                 #print(type(tokenized))
 
-                print("\"" + astr + "\"\t ----->\t " + str(tokenized.ids) )
+                print("\"" + astr + "\"\t ----->\t " + str(tokenized.tokens) + " ----> " + str(tokenized.ids) )
                 # theTokens=tokenized.tokens.split(",")
                 # for i in theTokens:
                 #  print(i)

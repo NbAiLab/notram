@@ -1,13 +1,16 @@
-from tokenizers import BertWordPieceTokenizer
+from tokenizers import BertWordPieceTokenizer, SentencePieceBPETokenizer
 import glob
 
 # Initialize an empty BERT tokenizer
-tokenizer = BertWordPieceTokenizer(
-  clean_text=True,
-  handle_chinese_chars=True,
-  strip_accents=False,
-  lowercase=False,
-)
+#tokenizer = BertWordPieceTokenizer(
+#  clean_text=True,
+#  handle_chinese_chars=False,
+#  strip_accents=False,
+#  lowercase=False,
+#)
+
+tokenizer = SentencePieceBPETokenizer()
+
 
 
 
@@ -15,6 +18,7 @@ tokenizer = BertWordPieceTokenizer(
 #files = ['/var/ml/vocab_generation/sentences_colossal_norwegian_corpus_271120_42.txt']
 #files = ['/var/ml/vocab_generation/test100000.txt']
 files = glob.glob('/var/ml/tmp/*.txt')
+#files = glob.glob('/nfsmounts/meta2/disk4/folder1/nancy/content/text/v3/sentence_segm_5/*.txt')
 
 #print(files)
 #print(len(files))
@@ -28,8 +32,8 @@ tokenizer.train(
   show_progress=True,
   special_tokens=['[PAD]', '[UNK]', '[CLS]', '[SEP]', '[MASK]'],
   limit_alphabet=1000,
-  wordpieces_prefix="##"
+  #wordpieces_prefix="##"
 )
 
 # save the vocab
-tokenizer.save('tokenizer_clean_true_chinese_true.json')
+tokenizer.save('generated_tokenizers/tokenizer_sentencepiecetokenizer_clean_true.json')
