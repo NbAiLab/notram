@@ -23,31 +23,15 @@ if __name__ == '__main__':
         if not os.path.exists(dname):
             os.mkdir(dname)
         ofp = open(dname + "/vocab.txt", "w+")
-        cnt=0
-        for i in vocab:
-            if "[" in i:
-                ofp.write(i + "\n")
-                printed[cnt]=1
-            cnt+=1
-        cnt=0
-        for i in vocab:
-            if  len(i)==1 and printed[cnt]==0:
-                ofp.write(i + "\n")
-                printed[cnt]=1
-            cnt+=1
-        cnt = 0
-        for i in vocab:
-            if  "##" not in i and printed[cnt]==0:
-                ofp.write(i + "\n")
-                printed[cnt]=1
-            cnt+=1
+        newvocab = [f'[unused{n}]' for n in range(0, 99)]
+        newvocab.extend([t for t in vocab if t.startswith('[') and t.endswith(']')])
+        newvocab.extend([t for t in vocab if len(t) == 1])
+        newvocab.extend([t for t in vocab if not t.startswith('##') and t not in newvocab])
+        newvocab.extend([t for t in vocab if t not in newvocab])
+        newvocab = [f'[unused{n}]' for n in range(0, 99)]
 
-        cnt = 0
-        for i in vocab:
-            if printed[cnt] == 0:
-                ofp.write(i + "\n")
-                printed[cnt] = 1
-            cnt += 1
+        for t in newvocab:
+            ofp.write(t +"\n")
 
 
         ofp.close()
