@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    for tok in glob.glob('generated_tokenizers/*.json'):
+    for tok in glob.glob('tokenizers/*.json'):
         for tfile in glob.glob('testfiles_1000w/*.txt'):
             values = [0] * 1000
             with open(tfile, 'r') as fp:
