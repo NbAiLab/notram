@@ -13,18 +13,43 @@ if __name__ == '__main__':
     #parser.add_argument('GeneratedTokenizer', help='generated tokenizer')
     # args = parser.parse_args()
 
-    for tok in glob.glob('generated_tokenizers/*.json'):
+    for tok in glob.glob('tokenizers/*.json'):
+        printed=[0] * 500000
         jsonFile = open(tok)
         data = json.load(jsonFile)
         model = data['model']
-        vocab = model['vocab']
+        vocab = sorted(model['vocab'])
         dname = tok.split("/")[-1]
         if not os.path.exists(dname):
             os.mkdir(dname)
         ofp = open(dname + "/vocab.txt", "w+")
+        cnt=0
         for i in vocab:
-            #print(i)
-            ofp.write(i + "\n")
+            if "[" in i:
+                ofp.write(i + "\n")
+                printed[cnt]=1
+            cnt+=1
+        cnt=0
+        for i in vocab:
+            if  len(i)==1 and printed[cnt]==0:
+                ofp.write(i + "\n")
+                printed[cnt]=1
+            cnt+=1
+        cnt = 0
+        for i in vocab:
+            if  "##" not in i and printed[cnt]==0:
+                ofp.write(i + "\n")
+                printed[cnt]=1
+            cnt+=1
+
+        cnt = 0
+        for i in vocab:
+            if printed[cnt] == 0:
+                ofp.write(i + "\n")
+                printed[cnt] = 1
+            cnt += 1
+
+
         ofp.close()
         specialDataSet = {}
         for i in vocab:
