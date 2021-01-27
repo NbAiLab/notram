@@ -92,6 +92,11 @@ if __name__ == '__main__':
 
             print("============================================================================")
         #print(str(tok) + "\t\t" + str(boktokens)  + "\t\t"  + str(avistokens) + "\t\t"  + str(jusstokens) + "\t\t"  + str(rapptokens))
+    longesttokname=0
+    for i in toknames:
+        if len(i) > longesttokname:
+            longesttokname=len(i)
+    numberoftabs=int(longesttokname/8)
     cnt_tok=0
     cnt=0
     print( "---------------------------------------------------------------------------------------------------------------------------------")
@@ -99,12 +104,13 @@ if __name__ == '__main__':
     print("---------------------------------------------------------------------------------------------------------------------------------")
     while (cnt_tok < len(toknames)):
         tname=""
-        if (len(toknames[cnt_tok]) >20):
-            tname=toknames[cnt_tok]+ "\t"
-        elif (len(toknames[cnt_tok]) > 10):
-            tname = toknames[cnt_tok] + "\t\t\t"
-        else:
-            tname = toknames[cnt_tok] + "\t\t\t\t"
+        tokspacelen=int(len(toknames[cnt_tok])/8)
+        tname = toknames[cnt_tok]
+        j=0
+        #print(numberoftabs)
+        while tokspacelen<=numberoftabs:
+            tname+="\t"
+            tokspacelen+=1
 
         print(tname +  str(totaltokens[cnt])+ "("+ str(singletokens[cnt])+")" + "\t\t" + str(totaltokens[cnt+1])+ "("+ str(singletokens[cnt+1])+")" + "\t\t" + str(totaltokens[cnt+2])+ "("+ str(singletokens[cnt+2])+")" \
               + "\t\t" + str(totaltokens[cnt+3])+ "("+ str(singletokens[cnt+3])+")" + "\t\t" )
