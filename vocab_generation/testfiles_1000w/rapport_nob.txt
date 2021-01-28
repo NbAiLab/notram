@@ -41,7 +41,7 @@ spesielle
 34
 35
 35
-7.
+7 .
 Har
 kommunen
 vanligvis
@@ -72,21 +72,21 @@ de
 faser
 medvirkningen
 skjer
-i.
+i .
 Hvis
 ikke
 kommunen
 har
 noen
 organisert
-medvirkning,
+medvirkning ,
 kryss
 av
 i
 rutene
 til
-høyre.
-7.
+høyre .
+7 .
 Har
 kommunen
 vanligvis
@@ -117,46 +117,46 @@ de
 faser
 medvirkningen
 skjer
-i.
+i .
 Hvis
 ikke
 kommunen
 har
 noen
 organisert
-medvirkning,
+medvirkning ,
 kryss
 av
 i
 rutene
 til
-høyre.
+høyre .
 Målformulering/
 Planutarbeidelse/
 Høring
-Dispensasjons-
+Dispensasjons -
 Ingen
 Målformulering/
 Planutarbeidelse/
 Høring
-Dispensasjons-
+Dispensasjons -
 Ingen
 program
 prosjektering
 (
-off.
+off .
 ettersyn)
 søknader
-org.
-medv.
+org .
+medv .
 program
 prosjektering
 (
-off.
+off .
 ettersyn)
 søknader
-org.
-medv.
+org .
+medv .
 Kommuneplan
 1
 Kommuneplan
@@ -179,18 +179,18 @@ byggesaker
 1
 1
 1
-NIBR-rapport
-2002:
+NIBR - rapport
+2002 :
 19
-NIBR-rapport
-2002:
+NIBR - rapport
+2002 :
 19
-8.
+8 .
 Hvis
 kommunen
 har
 organisert
-medvirkning,
+medvirkning ,
 hvordan
 er
 den
@@ -203,7 +203,7 @@ i
 en
 eller
 flere
-ruter.
+ruter .
 1
 Arbeidsgrupper
 1
@@ -222,7 +222,7 @@ funksjonshemmede/
 interesseorganisasjoner
 til
 uttalelse
-9.
+9 .
 Har
 kommunen
 noen
@@ -240,7 +240,7 @@ en
 rute
 for
 hvert
-organ.
+organ .
 Månedlig
 Mer
 enn
@@ -275,13 +275,13 @@ form
 for
 medvirkning
 1
-10.
+10 .
 Hvis
 ikke
 medvirkningen
 er
 fast
-organisert,
+organisert ,
 hvem
 tar
 normalt
@@ -294,7 +294,7 @@ i
 en
 eller
 flere
-ruter.
+ruter .
 1
 Interesseorganisasjoner
 1
@@ -305,7 +305,7 @@ for
 funksjonshemmede
 1
 Enkeltpersoner
-11.
+11 .
 Hvilke
 hensyn
 kommer
@@ -323,9 +323,9 @@ av
 de
 to
 viktigste
-konfliktene.
+konfliktene .
 1
-Kultur-og
+Kultur - og
 miljøvern
 1
 Tidspress
@@ -341,13 +341,13 @@ grupper
 av
 funksjonshemmede
 1
-Annet.
+Annet .
 Spesifiser
-hva:____________________________________________
-NIBR-rapport
-2002:
+hva : _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+NIBR - rapport
+2002 :
 19
-12.
+12 .
 I
 hvor
 stor
@@ -365,7 +365,7 @@ Kryss
 av
 i
 én
-rute.
+rute .
 1
 Overhode
 ikke
@@ -383,7 +383,7 @@ stor
 grad
 59
 DEL
-B.
+B .
 SPØRSMÅL
 OM
 RESULTATER
@@ -407,7 +407,7 @@ gjennomført
 tiltak
 om
 økt
-tilrettelegging.
+tilrettelegging .
 Vi
 begrenser
 oss
@@ -415,8 +415,8 @@ her
 til
 tiltak
 i
-uteområder.
-13.
+uteområder .
+13 .
 Har
 kommunen
 resultater
@@ -435,7 +435,7 @@ i
 en
 eller
 flere
-ruter.
+ruter .
 1
 I
 uteareal
@@ -470,11 +470,11 @@ Annet
 Ingen
 tiltak
 er
-gjennomført.
+gjennomført .
 Gå
 til
 spørsmål
-15.
+15 .
 60
 61
 62
@@ -483,7 +483,7 @@ spørsmål
 65
 66
 67
-14.
+14 .
 Foretas
 det
 noen
@@ -502,7 +502,7 @@ Kryss
 av
 i
 én
-rute.
+rute .
 1
 Skjer
 sjelden/
@@ -514,7 +514,7 @@ sporadisk
 Skjer
 rutinemessig
 68
-15.
+15 .
 Kjenner
 du
 til
@@ -530,7 +530,7 @@ Kryss
 av
 i
 én
-rute.
+rute .
 1
 Har
 ingen
@@ -550,28 +550,28 @@ godt
 til
 innholdet
 69
-NIBR-rapport
-2002:
+NIBR - rapport
+2002 :
 19
 Hvis
 du
 har
 kjennskap
 til
-satsingsområdet,
+satsingsområdet ,
 ber
 vi
 deg
 besvare
 spørsmål
-16.
+16 .
 Hvis
-ikke,
+ikke ,
 gå
 til
 spørsmål
-17.
-16.
+17 .
+16 .
 Hvilke
 deler
 av
@@ -587,17 +587,17 @@ styrke
 funksjonshemmedes
 interesser
 i
-planleggingen?.
+planleggingen? .
 Kryss
 av
 i
 en
 eller
 flere
-ruter.
+ruter .
 1
 Rundskriv
-T-5/
+T - 5/
 99”
 Tilgjengelighet
 for
@@ -638,10 +638,10 @@ planleggerutdanningen
 Diverse
 utredninger
 1
-Annet.
+Annet .
 Presiser
 DEL
-C.
+C .
 VURDERING
 AV
 KOMMUNENS
@@ -649,7 +649,7 @@ PRIORITERING
 AV
 FUNKSJONSHEMMEDE
 I
-PLANSPØRSMÅL.
+PLANSPØRSMÅL .
 Nedenfor
 følger
 noen
@@ -658,7 +658,7 @@ om
 kommunenes
 prioritering
 av
-funksjonshemmede.
+funksjonshemmede .
 Vi
 ber
 deg
@@ -675,7 +675,7 @@ i
 hver
 av
 disse
-påstandene.
+påstandene .
 Kryss
 av
 i
@@ -683,13 +683,13 @@ en
 rute
 for
 hvert
-spørsmål.
-17.“
+spørsmål .
+17 . “
 Vår
 kommune
 prioriterer
-tilrette-
-18.“
+tilrette -
+18 . “
 Vår
 kommuneorganisasjon
 tenker
@@ -699,7 +699,7 @@ form
 av
 særgrupper
 eller
-særordninger,
+særordninger ,
 men
 finner
 fram
@@ -711,12 +711,12 @@ alle
 legging
 for
 funksjonshemmede
-høyt”.
+høyt” .
 Kryss
 av
 i
 én
-rute.
+rute .
 79
 1
 Helt
@@ -733,17 +733,17 @@ enig
 5
 Vet
 ikke
-NIBR-rapport
-2002:
+NIBR - rapport
+2002 :
 19
 gruppers
-behov”.
+behov” .
 Kryss
 av
 i
 én
-rute.
-19.“
+rute .
+19 . “
 Det
 har
 vært
@@ -768,12 +768,12 @@ løpet
 av
 de
 siste
-årene.”
+årene . ”
 Kryss
 av
 i
 én
-rute.
+rute .
 Helt
 uenig
 81
@@ -791,7 +791,7 @@ Helt
 enig
 Vet
 ikke
-21.“
+21 . “
 Funksjonshemmedes
 deltakelse
 i
@@ -803,9 +803,9 @@ bedre
 de
 siste
 tre
-årene.”
+årene . ”
 Kryss
-rute.
+rute .
 1
 Helt
 uenig
@@ -821,7 +821,7 @@ enig
 5
 Vet
 ikke
-22.“
+22 . “
 Funksjonshemmedes
 interesser
 blitt
@@ -833,9 +833,9 @@ planer
 de
 siste
 tre
-årene.”
+årene . ”
 Kryss
-rute.
+rute .
 1
 Helt
 uenig
@@ -858,13 +858,13 @@ Kryss
 av
 i
 én
-NIBR-rapport
-2002:
+NIBR - rapport
+2002 :
 19
 5
 Vet
 ikke
-20.“
+20 . “
 Funksjonshemmede
 er
 en
@@ -882,18 +882,18 @@ få
 særbehandling
 i
 kommunale
-planprosesser.”
+planprosesser . ”
 Kryss
 av
 i
 én
-rute.
+rute .
 1
 Helt
 uenig
 82
 2
-23.“
+23 . “
 Kunnskapen
 om
 universell
@@ -906,12 +906,12 @@ kommune
 de
 siste
 tre
-årene.”
+årene . ”
 Kryss
 ay
 i
 én
-rute.
+rute .
 1
 Helt
 uenig
@@ -919,21 +919,21 @@ uenig
 5
 Vet
 ikke
-24.
+24 .
 Manglende
 gjennomslagskraft
 i
 den
 kommunale
 planleggingen
-skyldes:
+skyldes :
 Kryss
 ay
 i
 en
 eller
 flere
-ruter.
+ruter .
 1
 Vi
 blir
@@ -989,12 +989,12 @@ fordyrende
 tiltak
 92
 1
-Annet.
+Annet .
 Spesifiser
-hva:___________________________________
+hva : _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 93
 Takk
 for
 hjelpen!
 Kommentarutgave
-09.09.10
+09 . 09 . 10
