@@ -1,6 +1,6 @@
 SULT
-f . pr create_vocab_config.py do.sh generate_tokenizer.py test_all_tokenizers.py testfiles_1000w test_sentence.py tmp tofile.txt tokenizer_clean_true_chinese_true.json tokenizer_clean_true.json tokenizer.json tokenizers rf
-® - ' -
+f.pr*rf
+®-'-
 'i
 i
 KNUT
@@ -9,147 +9,147 @@ SAMLEDE
 VERKER
 NY
 UTGAVE
-ZOOJ - lOOg
+ZOOJ-lOOg
 |
 ROMANER
-I .
+I.
 Sult
 I
-2 .
+2.
 Mysteriet
-3 .
+3.
 Redaktør
-Lynge ,
+Lynge,
 Ny
 jord
-4 .
-Pan ,
+4.
+Pan,
 Victoria
-5 .
-Svermere ,
+5.
+Svermere,
 Underhøststjernen
-6 .
-Benoni ,
+6.
+Benoni,
 Rosa
-7 .
+7.
 En
 vandrer
 spiller
 med
-sordin ,
+sordin,
 Den
 siste
 glede
-8 .
+8.
 Barn
 av
 tiden
-9 .
+9.
 Segelfoss
 by
-10 .
+10.
 Markens
 grøde
-11 .
+11.
 Konene
 ved
 vannposten
-12 .
+12.
 Siste
 kapittel
-13 .
+13.
 Landstrykere
-14 .
+14.
 August
-15 .
+15.
 Men
 livet
 lever
-16 .
+16.
 Ringen
 sluttet
 |
-NOVELLER ,
-UNGDOMSDIKTNING ,
-SKUESPILL ,
-DIKT ,
+NOVELLER,
+UNGDOMSDIKTNING,
+SKUESPILL,
+DIKT,
 ERINDRINGER
 n
-17 .
-Siesta ,
-Krattskog ,
+17.
+Siesta,
+Krattskog,
 Stridende
 liv
-18 .
+18.
 Den
-gåtefulle ,
-Bjørger ,
+gåtefulle,
+Bjørger,
 Livsfragmenter
-19 .
+19.
 Ved
 rikets
-port ,
+port,
 Livets
-spill ,
+spill,
 Aftenrøde
-20 .
+20.
 Munken
 Vendt
-21 .
+21.
 Dronning
-Tamara ,
+Tamara,
 Livet
 ivold
-22 .
+22.
 Det
 vilde
-Kor ,
+Kor,
 En
 Fløjte
 lød
 i
 mit
 Blod
-23 .
+23.
 I
-eventyrland ,
+eventyrland,
 På
 gjengrodde
 stier
 |
 SAKPROSA
 in
-24 .
+24.
 Fr
 a
 det
 moderne
 Amerikas
-åndsliv ,
+åndsliv,
 Lars
 Oftedal
-25 .
+25.
 På
-turné .
+turné.
 Foredrag
-26 .
+26.
 Taler
 på
 torvet
-1 .
+1.
 Artikler
 og
 essays
-1879 - 1904
-27 .
+1879-1904
+27.
 Taler
 på
 torvet
-11 .
+11.
 Artikler
 og
 essays
-1905 - 1945
+1905-1945
 Knut
 Hamsun
 Sult
@@ -174,10 +174,10 @@ Sult
 ligger
 Samlede
 verker
-1—2 . 7 .
+1—2.7.
 Ny
 utgave
-(2007 - 2009) .
+(2007-2009).
 Teksten
 her
 er
@@ -196,9 +196,9 @@ i
 retning
 av
 moderne
-riksmål .
+riksmål.
 se
-www . gyldendal . no
+www.gyldendal.no
 Denne
 utgave
 ©
@@ -207,19 +207,19 @@ Norsk
 Forlag
 AS
 2007
-Papir :
+Papir:
 50
 g
 Enso
 Bulky
-(2 , 4)
-Omslagsdesign :
+(2,4)
+Omslagsdesign:
 Blæst
 /
 Stian
 Hole
 ISBN
-978 - 82 - 05 - 39481 - 0
+978-82-05-39481-0
 FØRSTE
 STYKKE
 det
@@ -233,7 +233,7 @@ omkring
 og
 sultet
 i
-Kristiania ,
+Kristiania,
 denne
 forunderlige
 by
@@ -247,7 +247,7 @@ fått
 merker
 av
 den
-. . . .
+....
 Jeg
 ligger
 våken
@@ -262,7 +262,7 @@ nedenunder
 meg
 slå
 seks
-slag ;
+slag;
 det
 var
 allerede
@@ -277,7 +277,7 @@ opp
 og
 ned
 i
-trappene .
+trappene.
 Nede
 ved
 døren
@@ -299,13 +299,13 @@ se
 en
 bekjentgjørelse
 fra
-Fyrdirektøren ,
+Fyrdirektøren,
 og
 litt
 tilvenstre
 derfrå
 et
-fett ,
+fett,
 bugnende
 avertissement
 fra
@@ -314,7 +314,7 @@ Fabian
 Olsen
 om
 nybakt
-brød .
+brød.
 Straks
 jeg
 slo
@@ -336,7 +336,7 @@ noe
 glede
 meg
 til
-idag .
+idag.
 Det
 hadde
 vært
@@ -347,7 +347,7 @@ meg
 i
 den
 siste
-tid ;
+tid;
 den
 ene
 efter
@@ -359,13 +359,13 @@ eiendeler
 var
 bragt
 til
-«onkel» ,
+«onkel»,
 jeg
 var
 blitt
 nervøs
 og
-utålsom ,
+utålsom,
 et
 par
 ganger
@@ -378,7 +378,7 @@ en
 dags
 tid
 av
-svimmelhet .
+svimmelhet.
 Nu
 og
 da
@@ -402,7 +402,7 @@ annet
 blad
 for
 en
-føljetong .
+føljetong.
 Det
 lysnet
 mere
@@ -419,29 +419,29 @@ på
 avertissementene
 nede
 ved
-døren ;
+døren;
 jeg
 kunne
 endog
 skjelne
 de
-magre ,
+magre,
 grinende
 bokstaver
 om
 «Liksvøp
 hos
 jomfru
-Andersen ,
+Andersen,
 tilhøyre
 i
-porten» .
+porten».
 Det
 sysselsatte
 meg
 en
 lang
-stund ,
+stund,
 jeg
 hørte
 klokken
@@ -455,13 +455,13 @@ opp
 og
 kledde
 på
-meg .
+meg.
 Jeg
 åpnet
 vinduet
 og
 så
-ut .
+ut.
 Der
 hvor
 jeg
@@ -475,7 +475,7 @@ klessnor
 og
 en
 åpen
-mark ;
+mark;
 langt
 ute
 lå
@@ -494,7 +494,7 @@ ferd
 med
 å
 rydde
-opp .
+opp.
 Jeg
 la
 meg
@@ -507,19 +507,19 @@ og
 stirret
 ut
 i
-luften .
+luften.
 Det
 ble
 ganske
 visst
 en
 lys
-dag .
+dag.
 Hosten
 var
-kommet ,
+kommet,
 den
-fine ,
+fine,
 svale
 årstid
 da
@@ -527,7 +527,7 @@ allting
 skifter
 farve
 og
-forgår .
+forgår.
 Støyen
 var
 allerede
@@ -539,7 +539,7 @@ gatene
 og
 lokket
 meg
-ut ;
+ut;
 dette
 tomme
 værelse
@@ -559,9 +559,9 @@ det
 var
 som
 en
-gissen ,
+gissen,
 uhyggelig
-likkiste ;
+likkiste;
 det
 var
 ikke
@@ -573,7 +573,7 @@ og
 ingen
 ovn
 i
-rommet ;
+rommet;
 jeg
 pleiet
 å
@@ -591,7 +591,7 @@ litt
 tørre
 til
 om
-morgningen .
+morgningen.
 Det
 eneste
 jeg
@@ -617,7 +617,7 @@ og
 tenkte
 på
 mangehånde
-ting .
+ting.
 Når
 det
 blåste
@@ -638,7 +638,7 @@ gulvet
 og
 inn
 fra
-veggene ,
+veggene,
 og
 Morgenbladet
 nede
@@ -650,7 +650,7 @@ så
 lange
 som
 en
-hånd .
+hånd.
 Jeg
 reiste
 meg
@@ -665,7 +665,7 @@ sengen
 efter
 litt
 til
-frokost ,
+frokost,
 men
 fant
 intet
@@ -674,11 +674,11 @@ vendte
 tilbake
 til
 vinduet
-igjen .
+igjen.
 Gud
-vet ,
+vet,
 tenkte
-jeg ,
+jeg,
 om
 det
 aldri
@@ -693,32 +693,32 @@ bestilling
 mere!
 Disse
 mange
-avslag ,
+avslag,
 disse
 halve
-løfter ,
+løfter,
 rene
-nei ,
+nei,
 nærede
 og
 skuffede
-håp ,
+håp,
 nye
-forsøk ,
+forsøk,
 som
 hver
 gang
 løp
 ut
 i
-intet ,
+intet,
 hadde
 gjort
 det
 av
 med
 mitt
-mot .
+mot.
 Jeg
 hadde
 tilsist
@@ -726,11 +726,11 @@ søkt
 en
 plass
 som
-regningsbud ,
+regningsbud,
 men
 var
 kommet
-forsent ;
+forsent;
 dessuten
 kunne
 jeg
@@ -739,7 +739,7 @@ skaffe
 sikkerhet
 for
 femti
-kroner .
+kroner.
 Det
 var
 alltid
@@ -747,13 +747,13 @@ et
 eller
 annet
 til
-hinder .
+hinder.
 Jeg
 meldte
 meg
 også
 til
-brannkorpset .
+brannkorpset.
 Vi
 stod
 halvhundre
@@ -772,7 +772,7 @@ av
 kraft
 og
 stor
-dristighet .
+dristighet.
 En
 fullmektig
 gikk
@@ -780,7 +780,7 @@ omkring
 og
 beså
 disse
-ansøkere ,
+ansøkere,
 følte
 på
 deres
@@ -791,12 +791,12 @@ dem
 et
 og
 annet
-spørsmål ,
+spørsmål,
 og
 meg
 gikk
 han
-forbi ,
+forbi,
 rystet
 bare
 på
@@ -811,13 +811,13 @@ på
 grunn
 av
 mine
-briller .
+briller.
 Jeg
 møtte
 opp
-påny ,
+påny,
 uten
-briller ,
+briller,
 jeg
 stod
 der
@@ -831,7 +831,7 @@ mine
 så
 kvasse
 som
-kniver ,
+kniver,
 og
 mannen
 gikk
@@ -840,14 +840,14 @@ atter
 forbi
 og
 han
-smilte ,
+smilte,
 -
 han
 hadde
 vel
 kjent
 meg
-igjen .
+igjen.
 Det
 verste
 av
@@ -875,7 +875,7 @@ plass
 som
 et
 skikkelig
-menneske .
+menneske.
 Hvor
 det
 hadde
@@ -896,7 +896,7 @@ besynderlig
 blottet
 for
 alt
-mulig ,
+mulig,
 jeg
 hadde
 ikke
@@ -915,7 +915,7 @@ det
 ble
 meg
 for
-trist .
+trist.
 Hele
 sommeren
 utover
@@ -936,22 +936,22 @@ og
 forfattet
 artikler
 for
-bladene ,
+bladene,
 spalte
 efter
 spalte
 om
 de
 forskjelligste
-ting ,
+ting,
 underlige
-påfunn ,
-luner ,
+påfunn,
+luner,
 innfall
 av
 min
 urolige
-hjerne ;
+hjerne;
 i
 fortvilelse
 hadde
@@ -970,7 +970,7 @@ anstrengelse
 og
 aldri
 ble
-opptatt .
+opptatt.
 Når
 et
 stykke
@@ -990,7 +990,7 @@ ofte
 nedslagen
 av
 redaktørenes
-nei ;
+nei;
 jeg
 sa
 stadig

@@ -1,32 +1,32 @@
-JDLOV - 2005 - 3575
-Forvaltningsrett .
+JDLOV-2005-3575
+Forvaltningsrett.
 Forvaltningsloven
 §13
 første
 ledd
-nr .
-1 .
+nr.
+1.
 Spørsmål
 om
 i
 hvilken
 grad
 opplysnin
-Instans :
+Instans:
 Lovavdelingens
 uttalelser
-Dato :
-2005 - 07 - 08
-Publisert :
-JDLOV - 2005 - 3575
-Sammendrag :
-Forvaltningsrett .
+Dato:
+2005-07-08
+Publisert:
+JDLOV-2005-3575
+Sammendrag:
+Forvaltningsrett.
 Forvaltningsloven
 §13
 første
 ledd
-nr .
-1 .
+nr.
+1.
 Spørsmål
 om
 i
@@ -45,27 +45,27 @@ forvaltningsloven
 §13
 første
 ledd
-nr .
-1 .
-Saksgang :
+nr.
+1.
+Saksgang:
 2005/03575
 EO
 MHG/IH/an
-Parter :
-Forfatter :
+Parter:
+Forfatter:
 Justisdepartementets
 lovavdeling
-LOV - 1967 - 02 - 10 - §13
-LOV - 1967 - 02 - 10 - §13a
-LOV - 1970 - 06 - 19 - 69 - §5a
-LOV - 1970 - 06 - 19 - 69 - §6
+LOV-1967-02-10-§13
+LOV-1967-02-10-§13a
+LOV-1970-06-19-69-§5a
+LOV-1970-06-19-69-§6
 Tolkning
 av
 forvaltningsloven
 §13
 første
 ledd
-nr .
+nr.
 1
 -
 tilsynssaker
@@ -76,12 +76,12 @@ viser
 til
 brev
 fra
-Helse -
+Helse-
 og
 omsorgsdepartementet
-13 .
+13.
 mai
-2005 .
+2005.
 I
 brevet
 bes
@@ -106,8 +106,8 @@ forvaltningsloven
 §13
 første
 ledd
-nr .
-1 .
+nr.
+1.
 Det
 er
 presisert
@@ -126,22 +126,22 @@ den
 tilsynssaken
 retter
 seg
-mot ,
+mot,
 kan
 begrunne
-taushetsplikt ,
+taushetsplikt,
 og
 ikke
 spørsmålet
 om
 forholdet
 til
-andre ,
-f . eks .
-pasienter ,
+andre,
+f.eks.
+pasienter,
 kan
 begrunne
-taushetsplikt .
+taushetsplikt.
 Før
 vi
 går
@@ -149,7 +149,7 @@ inn
 på
 spørsmålet
 om
-taushetsplikt ,
+taushetsplikt,
 gjør
 vi
 oppmerksom
@@ -179,9 +179,9 @@ offentlighetsloven
 §6
 første
 ledd
-nr .
-5 ,
-jf .
+nr.
+5,
+jf.
 punkt
 2
 i
@@ -190,16 +190,16 @@ utskrift
 av
 vår
 uttalelse
-20 .
+20.
 november
 2001
-(snr .
+(snr.
 2001/3181
 EO
 TME/MHG)
 (
-JDLOV - 2001 - 3181
-) .
+JDLOV-2001-3181
+).
 Det
 er
 ikke
@@ -220,7 +220,7 @@ i
 klageomgangen
 enn
 i
-førsteinstansbehandlingen .
+førsteinstansbehandlingen.
 Etter
 offentlighetsloven
 §5a
@@ -234,7 +234,7 @@ underlagt
 taushetsplikt
 unntas
 fra
-offentlighet .
+offentlighet.
 I
 utgangspunktet
 vil
@@ -253,7 +253,7 @@ dokument
 som
 er
 underlagt
-taushetsplikt .
+taushetsplikt.
 De
 øvrige
 deler
@@ -261,7 +261,7 @@ av
 dokumentet
 vil
 være
-offentlige ,
+offentlige,
 med
 mindre
 disse
@@ -284,20 +284,20 @@ vesentligste
 del
 av
 dokumentets
-innhold ,
-jf .
+innhold,
+jf.
 offentlighetsloven
 §5a
 annet
 ledd
 første
-punktum .
+punktum.
 Etter
 forvaltningsloven
 §13
 første
 ledd
-nr .
+nr.
 1
 gjelder
 det
@@ -307,7 +307,7 @@ opplysninger
 om
 «noens
 personlige
-forhold» .
+forhold».
 Bestemmelsen
 innebærer
 ikke
@@ -319,7 +319,7 @@ for
 alle
 opplysninger
 om
-enkeltpersoner .
+enkeltpersoner.
 Det
 må
 dreie
@@ -335,7 +335,7 @@ ville
 holde
 for
 seg
-selv .
+selv.
 Det
 er
 videre
@@ -349,7 +349,7 @@ kan
 knyttes
 til
 bestemte
-enkeltpersoner .
+enkeltpersoner.
 Dette
 innebærer
 at
@@ -370,7 +370,7 @@ ikke
 kan
 knyttes
 til
-enkeltpersoner .
+enkeltpersoner.
 I
 den
 grad
@@ -387,18 +387,18 @@ enkeltpersoner
 ved
 å
 utelate
-navn ,
+navn,
 stedsnavn
 og
 andre
 identifiserende
-opplysninger ,
+opplysninger,
 vil
 det
 dermed
 ikke
 foreligge
-taushetsplikt .
+taushetsplikt.
 I
 slike
 tilfeller
@@ -437,7 +437,7 @@ de
 andre
 unntakene
 i
-offentlighetsloven .
+offentlighetsloven.
 Spørsmål
 om
 det
@@ -463,11 +463,11 @@ den
 sammenhengen
 opplysningen
 inngår
-i ,
+i,
 herunder
 hvem
 den
-gjelder .
+gjelder.
 Typiske
 eksempler
 på
@@ -485,7 +485,7 @@ om
 fysisk
 og
 psykisk
-helse ,
+helse,
 karakter
 og
 følelsesliv
@@ -493,9 +493,9 @@ samt
 visse
 opplysninger
 om
-familie -
+familie-
 og
-hjemforhold .
+hjemforhold.
 På
 den
 annen
@@ -514,13 +514,13 @@ punktum
 at
 opplysninger
 om
-fødested ,
+fødested,
 fødselsdato
 og
-personnummer ,
-statsborgerforhold ,
-sivilstand ,
-yrke ,
+personnummer,
+statsborgerforhold,
+sivilstand,
+yrke,
 bopel
 og
 arbeidssted
@@ -529,7 +529,7 @@ utgangspunktet
 ikke
 er
 underlagt
-taushetsplikt .
+taushetsplikt.
 Det
 betyr
 at
@@ -541,12 +541,12 @@ er
 mer
 ømtålige
 enn
-disse ,
+disse,
 ikke
 vil
 være
 underlagt
-taushetsplikt .
+taushetsplikt.
 Når
 det
 gjelder
@@ -556,17 +556,17 @@ straffbare
 handlinger
 eller
 andre
-lovbrudd ,
+lovbrudd,
 begått
 utenfor
 den
 private
-sfære ,
+sfære,
 men
 i
-nærings -
+nærings-
 eller
-forretningsforhold ,
+forretningsforhold,
 er
 det
 uttalt
@@ -575,11 +575,11 @@ Justisdepartementets
 Veileder
 i
 offentlighetsloven
-(G - 0354
-B) ,
+(G-0354
+B),
 på
-s .
-60 ,
+s.
+60,
 at
 det
 trolig
@@ -593,7 +593,7 @@ vil
 være
 omfattet
 av
-taushetsplikten .
+taushetsplikten.
 Lovavdelingen
 mener
 at
@@ -625,7 +625,7 @@ i
 forbindelse
 med
 deres
-tjeneste .
+tjeneste.
 Vi
 antar
 at
@@ -642,7 +642,7 @@ er
 straffbare
 eller
 andre
-lovbrudd .
+lovbrudd.
 I
 tilfelle
 der
@@ -662,14 +662,14 @@ heller
 ikke
 representerer
 et
-lovbrudd ,
+lovbrudd,
 må
 det
 samme
 utgangspunktet
 legges
 til
-grunn .
+grunn.
 Vi
 presiserer
 at
@@ -693,7 +693,7 @@ og
 hva
 dette
 består
-i .
+i.
 Opplysninger
 om
 de
@@ -709,15 +709,15 @@ forholdet
 vil
 være
 underlagt
-taushetsplikt ,
+taushetsplikt,
 dersom
 disse
 er
-sensitive ,
-f . eks .
+sensitive,
+f.eks.
 opplysninger
 om
-sykdom ,
+sykdom,
 sosiale
 eller
 personlige
@@ -729,7 +729,7 @@ som
 gjelder
 vedkommendes
 personlige
-egenskaper .
+egenskaper.
 Hvilken
 type
 forhold
@@ -741,7 +741,7 @@ vil
 ha
 betydning
 for
-taushetsplikten .
+taushetsplikten.
 I
 eksempelet
 som
@@ -750,7 +750,7 @@ i
 HODs
 brev
 om
-[ helsepersonell ]
+[helsepersonell]
 som
 har
 skrevet
@@ -758,9 +758,9 @@ ut
 preparater
 til
 seg
-selv ,
+selv,
 vil
-f . eks .
+f.eks.
 denne
 opplysningen
 isolert
@@ -771,12 +771,12 @@ indikasjoner
 på
 sykdom
 eller
-medikamentmisbruk ,
+medikamentmisbruk,
 som
 vil
 være
 taushetsbelagte
-opplysninger .
+opplysninger.
 Etter
 vår
 vurdering
@@ -798,7 +798,7 @@ egen
 bruk
 vil
 være
-taushetsbelagt .
+taushetsbelagt.
 Dette
 kan
 stille
@@ -818,7 +818,7 @@ at
 det
 opplyses
 til
-hvem .
+hvem.
 Opplysninger
 om
 en
@@ -835,19 +835,19 @@ autorisasjon
 er
 suspendert
 eller
-inndratt ,
+inndratt,
 vil
 ikke
 være
 underlagt
-taushetsplikt .
+taushetsplikt.
 Hva
 slags
 helsepersonell
 det
 er
 tale
-om ,
+om,
 vil
 også
 ha
@@ -857,7 +857,7 @@ spørsmålet
 om
 det
 foreligger
-taushetsplikt .
+taushetsplikt.
 Opplysninger
 om
 misligheter
@@ -869,11 +869,11 @@ allmennhetens
 tillit
 er
 særlig
-viktig ,
-f . eks .
+viktig,
+f.eks.
 leger
 og
-psykologer ,
+psykologer,
 vil
 således
 oftere
@@ -891,12 +891,12 @@ helsepersonell
 på
 et
 lavere
-nivå ,
-f . eks .
-sykepleiere ,
+nivå,
+f.eks.
+sykepleiere,
 hjelpepleiere
 og
-legesekretærer .
+legesekretærer.
 Innenfor
 de
 ulike
@@ -909,7 +909,7 @@ betydning
 hvilket
 stillingsnivå
 vedkommende
-har ,
+har,
 slik
 at
 taushetsplikten
@@ -918,7 +918,7 @@ være
 snevrere
 for
 høyere
-stillinger .
+stillinger.
 På
 samme
 måte
@@ -940,7 +940,7 @@ grupper
 som
 ikke
 er
-det ,
+det,
 fordi
 en
 autorisasjon
@@ -952,7 +952,7 @@ allmennhetens
 generelle
 tillit
 til
-yrkesgruppen .
+yrkesgruppen.
 Etter
 vår
 vurdering
@@ -969,12 +969,12 @@ er
 ansatt
 i
 det
-offentlige ,
+offentlige,
 private
 eller
 er
 selvstendig
-næringsdrivende ,
+næringsdrivende,
 i
 hvert
 fall
@@ -989,7 +989,7 @@ som
 er
 underlagt
 en
-autorisasjonsordning .
+autorisasjonsordning.
 I
 disse
 tilfellene
