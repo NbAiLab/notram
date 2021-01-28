@@ -12,6 +12,8 @@ if __name__ == '__main__':
     #parser = argparse.ArgumentParser()
     #parser.add_argument('GeneratedTokenizer', help='generated tokenizer')
     # args = parser.parse_args()
+    
+    unused = 1000
 
     for tok in glob.glob('tokenizers/*.json'):
         printed=[0] * 500000
@@ -23,18 +25,21 @@ if __name__ == '__main__':
         if not os.path.exists(dname):
             os.mkdir(dname)
         ofp = open(dname + "/vocab.txt", "w+")
-        newvocab = [f'[unused{n}]' for n in range(0, 99)]
+        newvocab = [f'[unused{n}]' for n in range(0, unused)]
         newvocab.extend([t for t in vocab if t.startswith('[') and t.endswith(']')])
         newvocab.extend([t for t in vocab if len(t) == 1])
         newvocab.extend([t for t in vocab if not t.startswith('##') and t not in newvocab])
         newvocab.extend([t for t in vocab if t not in newvocab])
-        newvocab = [f'[unused{n}]' for n in range(0, 99)]
+        #newvocab = [f'[unused{n}]' for n in range(0, 99)]
+
 
         for t in newvocab:
             ofp.write(t +"\n")
-
-
         ofp.close()
+        if len(vocab)+unused != len(newvocab):
+            print("Error: New and old vocab is not equal")
+        
+
         specialDataSet = {}
         for i in vocab:
             if i == "[UNK]":
@@ -52,7 +57,10 @@ if __name__ == '__main__':
             json.dump(specialDataSet, f)
 
     # print(data["normalizer"]["lowercase"])
-        specialDataSet["do_lower_case"] = data["normalizer"]["lowercase"]
+        try:
+            specialDataSet["do_lower_case"] = data["normalizer"]["lowercase"]
+        except:
+            specialDataSet["do_lower_case"] = "false"
         specialDataSet["tokenize_chinese_chars"] = "true"
         specialDataSet["strip_accents"] = "null"
         specialDataSet["special_tokens_map_file"] = "null"
@@ -85,7 +93,7 @@ if __name__ == '__main__':
         configSet["pooler_size_per_head"] = 128
         configSet["pooler_type"] = "first_token_transform"
         configSet["type_vocab_size"] = 2
-        configSet["vocab_size"] = len(vocab)
+        configSet["vocab_size"] = len(newvocab)
 
         configFileName = str(dname) + "/" + "config.json"
         #print(configFileName)
