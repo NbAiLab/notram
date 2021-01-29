@@ -13,7 +13,7 @@ if __name__ == '__main__':
     #parser.add_argument('GeneratedTokenizer', help='generated tokenizer')
     # args = parser.parse_args()
     
-    unused = 1000
+    unused = 500
 
     for tok in glob.glob('tokenizers/*.json'):
         printed=[0] * 500000
@@ -21,7 +21,8 @@ if __name__ == '__main__':
         data = json.load(jsonFile)
         model = data['model']
         vocab = sorted(model['vocab'])
-        dname = tok.split("/")[-1]
+        filename = tok.split("/")[-1]
+        dname = "generated_tokenizers/"+filename.replace(".json","")
         if not os.path.exists(dname):
             os.mkdir(dname)
         ofp = open(dname + "/vocab.txt", "w+")
@@ -67,7 +68,7 @@ if __name__ == '__main__':
         specialDataSet["name_or_path"] = "/some/path/or/name"
         specialDataSet["do_basic_tokenize"] = "true"
         specialDataSet["never_split"] = "null"
-        tokenizerConfigFileName = str(dname) + "/" + str(dname.split(".")[0]) + "_config.json"
+        tokenizerConfigFileName = str(dname) + "/" + str(filename.split(".")[0]) + "_config.json"
         #print(tokenizerConfigFileName)
         with open(tokenizerConfigFileName, 'w+') as f:
             json.dump(specialDataSet, f)
