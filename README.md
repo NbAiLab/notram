@@ -55,7 +55,7 @@ The table below describes the size of the current version of the corpus.
 | Newspapers Online NNO -2019 |  47 | 0.3 |
 | Common Crawl OSCAR -2020 |  799 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  809 | 5.1 |
-| **Total After Dedublication**  | **18 438** | **109.1 GB** |
+| **Total After Deduplication**  | **18 438** | **109.1 GB** |
 
 # Comparable Large Corpuses
 | Sources  |  Size (GB) |
