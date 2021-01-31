@@ -47,7 +47,7 @@ The table below describes the size of the current version of the corpus.
 | Newspapers Scan OCR 2015-2020|  3 350 | 20.0 |
 | Newspapers Microfilm OCR 1961,1971,1981,1998-2007|  292 | 1.8 |
 | Periodicals OCR 2010-2020 |  317 | 1.9 |
-| Public Reports OCR 1814-20?? (Evalueringsrapporter) |  91 | 0.6 |
+| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  91 | 0.6 |
 | Legal Collection 1814-2004 (Lovdata CD/DVD) |  63 | 0.4 |
 | Wikipedia NOB -2019  | 140 | 0.9 |
 | Wikipedia NNO -2019 | 32 | 0.2 |
