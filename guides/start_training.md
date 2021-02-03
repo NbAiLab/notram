@@ -1,3 +1,11 @@
+
+# Preparations
+Currently this requires Tensorflow 2.2 and Python 3.8. With the newest conda there is a few errors. Run the following:
+```bash
+pip install numpy==1.19.5
+pip install tensorflow-addons==0.10.0
+  ```
+  
 # Start training
 If you have read [Setting up Machines for Training](https://github.com/NBAiLab/notram/blob/master/setting_up_machines_for_training.md) and [Set up Notram VM](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md), you should be ready to start the training.
 
