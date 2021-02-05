@@ -322,10 +322,10 @@ Created with a 50k vocab-file. Base training strategy is to train twice the amou
 ```bash
 PROJECT_NAME=notram_v2
 BUCKET_NAME=notram-west4-a
-TPU_IP=10.115.227.218
+TPU_IP=10.126.138.58
 RUN_PREFIX=T4_noTram2_BERT_norwegian_cased
 TRAIN_BATCH_SIZE=2760
-PRETRAIN_DATA=corpus2_128
+PRETRAIN_DATA=corpus2_cased_128
 MODEL_CLASS=bert_base_norwegian_cased
 NUM_EPOCHS=14
 MAX_SEQ_LENGTH=128
