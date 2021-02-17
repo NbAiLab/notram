@@ -245,4 +245,6 @@ If the shards are 100MB each, this means we are able to run on 40 cores if we ha
 
 ```bash
 python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split100MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/bert_multi_seq128_dup3/ --run_name notram_v1 --model_class bert_multi_cased --dupe_factor 3 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+
+python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split100MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/bert_multi_seq512_dup3/ --run_name notram_v1 --model_class bert_multi_cased --dupe_factor 3 --max_seq_length 512 --max_predictions_per_seq 77 --max_num_cpus 40
  ```

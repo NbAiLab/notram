@@ -1,0 +1,1 @@
+{"cls_token": "[CLS]", "mask_token": "[MASK]", "pad_token": "[PAD]", "sep_token": "[SEP]", "unk_token": "[UNK]", "do_lower_case": "false", "tokenize_chinese_chars": "true", "strip_accents": "null", "special_tokens_map_file": "null", "name_or_path": "/some/path/or/name", "do_basic_tokenize": "true", "never_split": "null"}

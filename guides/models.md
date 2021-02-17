@@ -316,6 +316,53 @@ LOAD_MLM_NSP_WEIGHTS=True
 
 
 ```
+## T4 BERT Norwegian
+Created with a 50k vocab-file. Base training strategy is to train twice the amount of time from avove on 4e-4 (Since we are initiating from random weights). First one is trained on a v3-8 since the pods are unavailable. Mainly for testing.
+
+Step 1
+```bash
+PROJECT_NAME=notram_v2
+BUCKET_NAME=notram-west4-a
+TPU_IP=10.126.138.58
+RUN_PREFIX=T4_noTram2_BERT_norwegian_cased
+TRAIN_BATCH_SIZE=2760
+PRETRAIN_DATA=corpus2_cased_128
+MODEL_CLASS=bert_base_norwegian_cased
+NUM_EPOCHS=14
+MAX_SEQ_LENGTH=128
+MAX_PREDICTIONS_PER_SEQ=19
+LEARNING_RATE=4e-4
+END_LEARNING_RATE=4e-4
+STEPS_PER_LOOP=100
+NUM_STEPS_PER_EPOCH=100000
+WARMUP_STEPS=50000
+OPTIMIZER_TYPE=lamb
+INIT_WEIGHTS=True
+
+```
+
+Step 2
+```bash
+PROJECT_NAME=notram_v2
+BUCKET_NAME=notram-west4-a
+TPU_IP=10.121.163.42
+RUN_PREFIX=T5_noTram2_BERT_norwegian_uncased
+TRAIN_BATCH_SIZE=2760
+PRETRAIN_DATA=corpus2_uncased_128
+MODEL_CLASS=bert_base_norwegian_uncased
+NUM_EPOCHS=14
+MAX_SEQ_LENGTH=128
+MAX_PREDICTIONS_PER_SEQ=19
+LEARNING_RATE=76e-5
+END_LEARNING_RATE=4e-5
+STEPS_PER_LOOP=100
+NUM_STEPS_PER_EPOCH=100000
+WARMUP_STEPS=0
+OPTIMIZER_TYPE=lamb
+INIT_CHECKPOINT=run_2021-02-04_22-14-57_961229_T5_noTram2_BERT_norwegian_uncased/ctl_step_800000.ckpt-8
+LOAD_MLM_NSP_WEIGHTS=True
+EXPECT_PARTIAL=True #Unable to load LAMB optimizer
+```
 
 # Training Set - Corpus1_128
 ```bash
