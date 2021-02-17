@@ -1,0 +1,39 @@
+name: NoTraM Political Party evaluation on Parliament Speeches
+project: notram-eval-speech
+program: notram_eval.py
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norwegian_parliament
+  dataset_config:
+    value: ""
+  task_name:
+    value: "speech"
+  model_name:
+    values: ["NbAiLab/nb-bert-base", "./models/eval5", "bert-base-multilingual-cased", "ltgoslo/norbert"]
+  num_train_epochs:
+    values: [3, 4, 10]  # 15
+  warmup_steps:
+    values: [0, 0.1]
+  weight_decay:
+    values: [0, 0.001]
+  learning_rate:
+    values: [10e-6, 20e-6, 30e-6, 40e-6]
+  eval_batch_size:
+    value: 8
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  seed:
+    value: 2021

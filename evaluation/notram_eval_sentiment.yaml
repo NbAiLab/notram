@@ -1,0 +1,37 @@
+name: NoTraM Sentiment evaluation on Aggregated NoRec_fine
+project: notram-eval-sentiment
+program: notram_eval.py
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norec_agg
+  task_name:
+    value: "sentiment"
+  model_name:
+    values: ["NbAiLab/nb-bert-base", "./models/eval5", "bert-base-multilingual-cased", "ltgoslo/norbert"]
+  num_train_epochs:
+    values: [3, 4, 10]  # 15
+  warmup_steps:
+    values: [0, 0.1]
+  weight_decay:
+    values: [0, 0.001]
+  learning_rate:
+    values: [10e-6, 20e-6, 30e-6, 40e-6]
+  eval_batch_size:
+    value: 8
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  seed:
+    value: 2021
