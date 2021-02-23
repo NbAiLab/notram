@@ -1,0 +1,5 @@
+joblib==1.0.1
+PyMuPDF==1.18.8
+pdfminer.six==20201018
+sentence-splitter==1.4
+tqdm==4.56.2

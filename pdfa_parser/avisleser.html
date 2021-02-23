@@ -1,0 +1,94 @@
+<html>
+    <head></head>
+    <style>
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  height: 100%;
+}
+.one {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.two {
+  grid-column: 2 / 2;
+  grid-row: 1 / 2;
+}
+.three {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+}
+
+textarea, input {
+    width: 100%;
+    height: 40px;
+}
+
+iframe {
+    width: 100%;
+    height: 90%;
+}
+
+    </style>
+    <body>
+        <div class="wrapper">
+            <div class="one">
+                <textarea id="url" type="text" placeholder="PDF URL" onkeypress="return noenter(event)"></textarea>
+                <iframe id="pdf"></iframe>
+            </div>
+            <div class="two">
+                <span><a href="" id="pdf2txt-url">pdf2txt</a></span>
+                <iframe id="pdf2txt"></iframe>
+            </div>
+            <div class="three">
+                <span><a href="" id="mupdf-url">mupdf</a></span>
+                <iframe id="mupdf"></iframe>
+            </div>
+          </div>
+    </body>
+
+<script>
+function load(url) {
+    const pdf2txtUrl = url.replace("/pdf/2020", "/pdf/pdf2txt/2020"),
+          mupdfUrl = url.replace("/pdf/2020", "/pdf/mupdf/2020");
+    document.getElementById("pdf").src = url;
+    document.getElementById("pdf2txt").src = pdf2txtUrl.replace(".pdf", ".txt");
+    document.getElementById("mupdf").src = mupdfUrl.replace(".pdf", ".txt");
+    document.getElementById("pdf2txt-url").href = pdf2txtUrl.replace(".pdf", ".txt");
+    document.getElementById("mupdf-url").href = mupdfUrl.replace(".pdf", ".txt");
+}
+
+function noenter(e) {
+    e = e || window.event;
+    var key = e.keyCode || e.charCode;
+    return key !== 13;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('url').addEventListener('input', function(){
+        if (window.location.hash != "#" + this.value) {
+            window.location.hash = "#" + this.value;
+        } else {
+            load(this.value);
+        }
+    });
+    window.addEventListener("hashchange", function (event) {
+        const url = window.location.hash.replace("#", "");
+        document.getElementById('url').value = url;
+        load(url);
+    });
+    function main() {
+        const url = window.location.hash.replace("#", "");
+        if (url !== "") {
+            document.getElementById('url').value = url;
+            load(url)
+        }
+    }
+
+    main();
+});
+
+</script>
+</html>
