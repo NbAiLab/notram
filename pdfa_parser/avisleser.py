@@ -249,6 +249,7 @@ def get_text_pdfminer(
     detect_vertical: bool=-0.8,
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
+    force_same_sizes: Optional[bool]=False,
 ) -> str:
     text = ""
     html = None
@@ -277,6 +278,7 @@ def get_text_fitz(
     detect_vertical: bool=-0.8,
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
+    force_same_sizes: Optional[bool]=False,
 ) -> str:
     faulthandler.enable()
     pdf = fitz.open(filename)
@@ -313,7 +315,9 @@ def get_text_fitz(
                     if (span_text
                         and span["font"].startswith(font)
                         and color == span["color"]
-                        and span["flags"] in (4, 6)
+                        and (size == span["size"] or not force_same_sizes)
+                        and span["flags"] in (0, 4, 6)
+                        and line["wmode"] == 0
                         # or (size - 1 < span["size"] < size + 1
                         #     and color == span["color"]
                         #     and span["flags"] in (4, 6))
@@ -341,7 +345,8 @@ def get_text_from_pdf(
     detect_vertical: bool=-0.8,
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
-    skip_empty: bool=True,
+    skip_empty: Optional[bool]=True,
+    force_same_sizes: Optional[bool]=False,
 ) -> NoReturn:
     """Writes PDFs to text files"""
     logger = get_logger()
@@ -364,7 +369,8 @@ def get_text_from_pdf(
     try:
         with time_limit(args.timeout, description=description):
             text, html = get_text(
-                filename, line_margin, detect_vertical, all_texts, boxes_flow
+                filename, line_margin, detect_vertical, all_texts, boxes_flow,
+                force_same_sizes,
             )
         text = reformat(text).strip()
         if not text and skip_empty:
@@ -454,6 +460,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
             detect_vertical=False,
             all_texts=not args.no_all_texts,
             skip_empty=args.skip_empty,
+            force_same_sizes=args.force_same_sizes,
         )
         for step, pdf in enumerate(bar))
     # bar.set_description("Done")
@@ -500,6 +507,11 @@ if __name__ == '__main__':
     parser.add_argument('--boxes_flow',
         default=-0.8, type=float,
         help='Boxes flow for PDFMiner.six LTParams. Defaults to -0.8',
+    )
+    parser.add_argument('--force_same_sizes',
+        action="store_true",
+        help='Force all extracted text to be the same size as taht of of the '
+             'most frequent font'
     )
     parser.add_argument('--skip_empty',
         action="store_true",
