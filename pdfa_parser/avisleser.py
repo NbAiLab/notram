@@ -7,6 +7,7 @@ import os
 import re
 import signal
 import statistics
+import string
 import sys
 import traceback
 from collections import Counter
@@ -28,18 +29,13 @@ from tqdm import tqdm
 
 SPACES_RE = re.compile(r"[ ][ ]+")
 STARTEND_RE = re.compile(r"(\n\s+)")
-HYPHENS_RE = re.compile(r"([a-z])-\s+([a-z])")
+HYPHENS_RE = re.compile(r"([a-zæåø])-\s+([a-zæåø])")
+HYPHENSHASH_RE = re.compile(r"([a-zæåø])-#\s+([a-zæåø])")
 LINEBREAK_RE = re.compile(r"[\n]")
 LINEBREAKS_RE = re.compile(r"[\n]{2,}")
 SPLITTER = SentenceSplitter(language='no')
 LOGGER = None
 NOW = datetime.now()
-# RESUME_FILE = Path("avisleser.progress.log")
-# if RESUME_FILE.exists():
-#     with RESUME_FILE.open() as resumes:
-#         IGNORES = {line.strip() for line in resumes}
-# else:
-#     IGNORES = set()
 
 
 class TimeoutException(Exception): pass
@@ -227,11 +223,26 @@ def get_all_texts(
     return text, html
 
 
-def reformat(text: str) -> str:
+def reformat(text: str, single_hyphens: bool=True) -> str:
     text = SPACES_RE.sub(r" ", text)
-    text = HYPHENS_RE.sub(r"\1\2", text)
+    if single_hyphens:
+        text = HYPHENS_RE.sub(r"\1\2", text)
+    else:
+        pass
+        text = HYPHENSHASH_RE.sub(r"\1\2", text)
     text = "\n".join(line.strip() for line in text.split("\n"))
     text = LINEBREAKS_RE.sub("\n\n", text)
+    blocks = []
+    for block in text.split("\n\n"):
+        lines = []
+        for line in block.split("\n"):
+            if all(char in string.digits for char in line if char != ""):
+                lines.append("\n" + line.strip() + "\n")
+            else:
+                lines.append(line.strip())
+        blocks.append(" ".join(lines).strip())
+    text = "\n\n".join(blocks)
+    text = "\n".join(line.strip() for line in text.split("\n"))
     return text
 
 
@@ -249,7 +260,8 @@ def get_text_pdfminer(
     detect_vertical: bool=-0.8,
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
-    force_same_sizes: Optional[bool]=False,
+    same_sizes: Optional[bool]=False,
+    occurrence_rate: Optional[bool]=None,
 ) -> str:
     text = ""
     html = None
@@ -269,7 +281,7 @@ def get_text_pdfminer(
             boxes_flow=boxes_flow,
             detect_vertical=detect_vertical,
         )
-    return text, html
+    return reformat(text).strip(), html
 
 
 def get_text_fitz(
@@ -278,7 +290,8 @@ def get_text_fitz(
     detect_vertical: bool=-0.8,
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
-    force_same_sizes: Optional[bool]=False,
+    same_sizes: Optional[bool]=False,
+    occurrence_rate: Optional[bool]=None,
 ) -> str:
     faulthandler.enable()
     pdf = fitz.open(filename)
@@ -291,16 +304,30 @@ def get_text_fitz(
             for line in block.get("lines", []):
                 line_text = ""
                 for span in line.get("spans", []):
-                    span_font = span.get("font", "").split("-")[0]
+                    span_font = span.get("font", "").split(",")[0].split("-")[0]
                     span_text = span.get("text", "")
+                    chars = ""
                     for char in span_text:
                         if char.strip() != "":
                             fonts.append((span_font, span["size"], span["color"]))
+                            chars += char
                     line_text += span_text.strip()
-                lengths.append(len(line_text))
+                lengths.append(len(chars))
         if not fonts or not lengths:
             continue
-        font, size, color = Counter(fonts).most_common(1)[0][0]
+        if occurrence_rate is not None:
+            counts = Counter(fonts)
+            freqs = [(i, counts[i] / len(fonts))
+                     for i, count in counts.most_common()]
+            font_tuples = set(
+                font_tuple for font_tuple, freq in freqs
+                if freq >= occurrence_rate
+            )
+            font, size, color = list(zip(*font_tuples))
+        else:
+            font, size, color = Counter(fonts).most_common(1)[0][0]
+            font, size, color = [font], [size], [color]
+        font, size, color = set(font), set(size), set(color)
         if len(lengths) > 1:
             lengths_std = statistics.stdev(lengths)
             lengths_mean = statistics.mean(lengths)
@@ -313,26 +340,24 @@ def get_text_fitz(
                 for span_index, span in enumerate(line.get("spans", [])):
                     span_text = span["text"].strip()
                     if (span_text
-                        and span["font"].startswith(font)
-                        and color == span["color"]
-                        and (size == span["size"] or not force_same_sizes)
+                        and any(span["font"].startswith(f) for f in font)
+                        and any(span["color"] == c for c in color)
+                        and (any(span["size"] == s for s in size)
+                             or not same_sizes)
                         and span["flags"] in (0, 4, 6)
                         and line["wmode"] == 0
-                        # or (size - 1 < span["size"] < size + 1
-                        #     and color == span["color"]
-                        #     and span["flags"] in (4, 6))
                         ):
                         line_text += span["text"]
-                # if (line_text.strip() and not line_text.strip().endswith(".")
-                #     and abs(len(line_text) - lengths_mean) < lengths_std):
-                #     text.append(line_text)
-                # elif line_text.strip().endswith("."):
-                #     text.append(line_text)
+                    if len(line_text) > 2 and line_text.rstrip()[-1] == "-":
+                        line_text += "#"
                 text.append(line_text)
                 text.append(" ")
             text.append("\n")
         text.append("\n")
-    return reformat("".join(text)), None
+    text = reformat("".join(text), single_hyphens=False)
+    if "-#" in text:
+        text = text.replace("-#", "-")
+    return text, None
 
 
 def get_text_from_pdf(
@@ -346,7 +371,8 @@ def get_text_from_pdf(
     all_texts: bool=False,
     boxes_flow: Optional[float]=None,
     skip_empty: Optional[bool]=True,
-    force_same_sizes: Optional[bool]=False,
+    same_sizes: Optional[bool]=False,
+    occurrence_rate: Optional[bool]=None,
 ) -> NoReturn:
     """Writes PDFs to text files"""
     logger = get_logger()
@@ -370,9 +396,8 @@ def get_text_from_pdf(
         with time_limit(args.timeout, description=description):
             text, html = get_text(
                 filename, line_margin, detect_vertical, all_texts, boxes_flow,
-                force_same_sizes,
+                same_sizes, occurrence_rate
             )
-        text = reformat(text).strip()
         if not text and skip_empty:
             dest = dest / "empty"
     except TimeoutException as exception:
@@ -460,7 +485,8 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
             detect_vertical=False,
             all_texts=not args.no_all_texts,
             skip_empty=args.skip_empty,
-            force_same_sizes=args.force_same_sizes,
+            same_sizes=args.same_sizes,
+            occurrence_rate=args.occurrence_rate or None,
         )
         for step, pdf in enumerate(bar))
     # bar.set_description("Done")
@@ -508,10 +534,17 @@ if __name__ == '__main__':
         default=-0.8, type=float,
         help='Boxes flow for PDFMiner.six LTParams. Defaults to -0.8',
     )
-    parser.add_argument('--force_same_sizes',
+    parser.add_argument('--same_sizes',
         action="store_true",
-        help='Force all extracted text to be the same size as taht of of the '
-             'most frequent font'
+        help='Filter out text when its size is not the same size as that of '
+             'the most frequent font'
+    )
+    parser.add_argument('--occurrence_rate',
+        default=0.0, type=float,
+        help='Filter out text when the frequency of its font family and size '
+             'pair is not at least OCCURRENCE_RATE percent [0.0 - 1.0] of the '
+             'characters in a page. If not passed, only the most frequent pair '
+             'of font family and size will be used'
     )
     parser.add_argument('--skip_empty',
         action="store_true",
@@ -522,7 +555,7 @@ if __name__ == '__main__':
         help='Do not extract from texts in or captioning images'
     )
     parser.add_argument('--engine',
-        default="pdf2txt",
+        default="mupdf",
         help='Options are "pdf2txt" for PDFMiner or "mupdf" for MuPDF'
     )
     parser.add_argument('--progress_file',

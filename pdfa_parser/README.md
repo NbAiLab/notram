@@ -37,9 +37,11 @@ Optional arguments:
 - `--timeout TIMEOUT`. Parsing timeout in seconds. Defaults to 30
 - `--line_margin LINE_MARGIN`. Line margin for PDFMiner.six LTParams. Defaults to 0.25
 - `--boxes_flow BOXES_FLOW`. Boxes flow for PDFMiner.six LTParams. Defaults to -0.8
+- `--same_sizes`. Filter out text when its size is not the same size as that of the most frequent font
+- `--occurrence_rate OCCURRENCE_RATE`. Filter out text when the frequency of its font family and size pair is not at least OCCURRENCE_RATE percent [0.0 - 1.0] of the characters in a page. If not passed, only the most frequent pair of font family and size will be used
 - `--skip_empty`. Ignore files if the extraction produced an empty text
 - `--no_all_texts`. Do not extract from texts in or captioning images. If set, it might mess with complicated layouts, specially when using MuPDF as an engine
-- `--engine ENGINE`. Options are "pdf2txt" (default) for PDFMiner or "mupdf" for MuPDF
+- `--engine ENGINE`. Options are "pdf2txt" for PDFMiner or "mupdf" (default) for MuPDF
 - `--progress_file PROGRESS_FILE`. Save the progress to a local file
 - `--total TOTAL`. Total number of files to process. Calculated if not passed
 
@@ -57,7 +59,7 @@ $ avisleser.py ./pdfs "*.pdf" ./outputs --timeout 60 --n_jobs 8
 $ python avisleser.py pdf/2020 "**/**/**/*.pdf" pdf/pdf2txt/2020 --n_jobs 48 --timeout 60 --engine pdf2txt --no_overwrite --progress_file avisleser.pdf2txt.log --total 880235
 ```
 
-- When using MuPDF, sometimes parsing fails with a segmentation fault (`SIGSEGV`), making the script to fail as well. To avoid stopping the processing, you could set a fixed `--progress_file` so avisleser can retry while ignoring the problematic PDF file. One possible option is to make use of both `while` and `!!` in bash:
+- When using MuPDF, sometimes parsing fails with a segmentation fault (`SIGSEGV`), making the script to fail as well. To avoid stopping the processing, you could set a fixed `--progress_file` so avisleser can retry while ignoring the problematic PDF file. One possible option for bash shells is to make use of both `while` and `!!` in bash:
 
 ```bash
 $ python avisleser.py pdf/2020 "**/**/**/*.pdf" pdf/mupdf/2020 --n_jobs 48 --timeout 60 --engine mupdf --no_overwrite --progress_file avisleser.mupdf.log --total 880235
