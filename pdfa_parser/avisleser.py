@@ -303,6 +303,7 @@ def get_text_fitz(
         for block in page_dict.get("blocks", []):
             for line in block.get("lines", []):
                 line_text = ""
+                chars = ""
                 for span in line.get("spans", []):
                     span_font = span.get("font", "").split(",")[0].split("-")[0]
                     span_text = span.get("text", "")
@@ -312,7 +313,8 @@ def get_text_fitz(
                             fonts.append((span_font, span["size"], span["color"]))
                             chars += char
                     line_text += span_text.strip()
-                lengths.append(len(chars))
+                if chars:
+                    lengths.append(len(chars))
         if not fonts or not lengths:
             continue
         if occurrence_rate is not None:
@@ -328,12 +330,12 @@ def get_text_fitz(
             font, size, color = Counter(fonts).most_common(1)[0][0]
             font, size, color = [font], [size], [color]
         font, size, color = set(font), set(size), set(color)
-        if len(lengths) > 1:
-            lengths_std = statistics.stdev(lengths)
-            lengths_mean = statistics.mean(lengths)
-        else:
-            lengths_std = 0  # Not sure about this
-            lengths_mean = len(lengths)
+        # if len(lengths) > 1:
+        #     lengths_std = statistics.stdev(lengths)
+        #     lengths_mean = statistics.mean(lengths)
+        # else:
+        #     lengths_std = 0  # Not sure about this
+        #     lengths_mean = len(lengths)
         for block in page_dict.get("blocks", []):
             for line in block.get("lines", []):
                 line_text = ""
