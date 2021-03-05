@@ -1,5 +1,5 @@
 # Norwegian Finetuning Datasets
-This is a description of some openly available finetuning datasets that might be useful for evaluating Norwegian NLP Models. The list is focused on training sets that are suitable for testing the performance of transformer-based NLP-models. These set are most likely not suited for making a production system.
+This is a description of some openly available finetuning datasets that might be useful for evaluating Norwegian NLP Models. The list is focused on training sets that are suitable for testing the performance of transformer-based NLP-models.
 
 ## The Talk of Norway: A Richly Annotated Corpus of the Norwegian Parliament, 1998–2016
 Every speech is richly annotated with metadata harvested from different sources, and augmented with language type, sentence, token, lemma, part-of-speech, and morphological feature annotations. The work is thoroughly described in this [article](https://www.duo.uio.no/bitstream/handle/10852/71356/ton.pdf?sequence=2&isAllowed=y). From this set a large number of finetuning datasets can be generated. The entire annotated dataset is available from the [talk-of-norway GitHub](https://github.com/ltgoslo/talk-of-norway)
@@ -16,7 +16,7 @@ A balanced dataset with 6000 samples telling if the speaker is FrP or SV. Please
 Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_frp_or_sv.csv).
 
 ### Sentences
-Single unique sentences from the Talk of Norway dataset. Sentences have been extracted and separated into a Bokmål and Nynorsk corpus based on the annotation. Then they have been segmented. The following command has been run to clean the corpus: "cat sentences_talk_of_norway_text_nob.txt | sort | uniq | shuf| grep -E '^(\w+\b.){4}' | grep '^[A-ZÆØÅ].*[.]$' >> sentences_talk_of_norway_cleaned_nob.txt". This corpus is excluded from the NoTraM training set, and is therefore suitable for testing. The Bokmål corpus has 1,361,240 sentences, while the Nynorsk corpus has 182,210 sentences. The dataset is available from the NB Ai-Lab public git.  
+Single unique sentences from the Talk of Norway dataset. Sentences have been extracted and separated into a Bokmål and Nynorsk. The following command has been run to clean the corpus: "cat sentences_talk_of_norway_text_nob.txt | sort | uniq | shuf| grep -E '^(\w+\b.){4}' | grep '^[A-ZÆØÅ].*[.]$' >> sentences_talk_of_norway_cleaned_nob.txt". This corpus is excluded from the NoTraM training set, and is therefore suitable for testing. The Bokmål corpus has 1,361,240 sentences, while the Nynorsk corpus has 182,210 sentences. The dataset is available from the NB Ai-Lab public git. 
 
 
 # Universial Dependencies
