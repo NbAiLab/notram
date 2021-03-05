@@ -32,7 +32,7 @@ if __name__ == '__main__':
                 #print("Loading tokenizer: " + str(tok))
                 tokenizer = tokenizers.Tokenizer.from_file(tok)
 
-                tokname=tok.split(".")[0].split("/")[1]
+                tokname=tok.replace(".json","")#tok.split(".")[0].split("/")[1]
                 print("============================================================================")
                 #astr="Freddy ved Nasjonalbiblioteket har laget denne, vi tester Æ Ø Å æ ø å ."
                 astr="Denne gjengen håper at de sammen skal bidra til å gi kvinnefotballen i Kristiansand et lenge etterlengtet løft."
