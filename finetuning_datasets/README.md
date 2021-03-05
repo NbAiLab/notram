@@ -50,4 +50,4 @@ NoReC_gender comprises the book reviews of the Norwegian Review Corpus (NoReC), 
 Download from the [NoReC Gender GitHub](https://github.com/ltgoslo/norec_gender).
 
 ### NoRec Fine Binary Sentiment Classification
-This is a sentence-level binary sentiment classification dataset made from aggregating the fine-grained annotations in NoReC_fine and removing sentences with conflicting or no sentiment. The dataset is made by the Language Technology Group (LTG) at the University of Oslo, and can be downloaded from the [NorBERT GitHub] (https://github.com/ltgoslo/NorBERT/tree/main/benchmarking/data/sentiment/no)
+This is a sentence-level binary sentiment classification dataset made from aggregating the fine-grained annotations in NoReC_fine and removing sentences with conflicting or no sentiment. The dataset is made by the Language Technology Group (LTG) at the University of Oslo, and can be downloaded from the [NorBERT GitHub](https://github.com/ltgoslo/NorBERT/tree/main/benchmarking/data/sentiment/no)
