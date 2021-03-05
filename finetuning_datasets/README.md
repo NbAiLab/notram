@@ -16,28 +16,17 @@ A balanced dataset with 6000 samples telling if the speaker is FrP or SV. Please
 Available from [here](https://github.com/NBAiLab/notram/blob/master/finetuning_datasets/parliament_speeches_1998_2016_frp_or_sv.csv).
 
 ### Sentences
-Single unique sentences from the Talk of Norway dataset. Sentences have been extracted and separated into a Bokmål and Nynorsk. The following command has been run to clean the corpus: "cat sentences_talk_of_norway_text_nob.txt | sort | uniq | shuf| grep -E '^(\w+\b.){4}' | grep '^[A-ZÆØÅ].*[.]$' >> sentences_talk_of_norway_cleaned_nob.txt". This corpus is excluded from the NoTraM training set, and is therefore suitable for testing. The Bokmål corpus has 1,361,240 sentences, while the Nynorsk corpus has 182,210 sentences. The dataset is available from the NB Ai-Lab public git. 
+Single unique sentences from the Talk of Norway dataset. Sentences have been extracted and separated into a Bokmål and Nynorsk. The sentences are unannotated but might be useful for various NLP tasks, for instance zero-shot MLM tasks. The following command has been run to clean the corpus: "cat sentences_talk_of_norway_text_nob.txt | sort | uniq | shuf| grep -E '^(\w+\b.){4}' | grep '^[A-ZÆØÅ].*[.]$' >> sentences_talk_of_norway_cleaned_nob.txt". This corpus is excluded from the NoTraM training set, and is therefore suitable for testing. The Bokmål corpus has 1,361,240 sentences, while the Nynorsk corpus has 182,210 sentences. The dataset is available in this directory. There are also some smaller subsets here. 
 
 
-# Universial Dependencies
-The Norwegian UD treebank is based on the Bokmål section of the Norwegian Dependency Treebank (NDT), which is a syntactic treebank of Norwegian. NDT was developed 2011-2014 at the National Library of Norway in collaboration with the Text Laboratory and the Department of Informatics at the University of Oslo. It contains both morphological and syntactic annotations.
+## Universial Dependencies (NER and POS)
+The Norwegian UD treebank is based on the Bokmål section of the Norwegian Dependency Treebank (NDT), which is a syntactic treebank of Norwegian. NDT was developed 2011-2014 at the National Library of Norway in collaboration with the Text Laboratory and the Department of Informatics at the University of Oslo. It contains both morphological and syntactic annotations. This dataset is described in the paper NorNE: Annotating Named Entities for Norwegian by Fredrik Jørgensen, Tobias Aasmoe, Anne-Stine Ruud Husevåg, Lilja Øvrelid, and Erik Velldal, accepted for LREC 2020 and available as pre-print [here](https://arxiv.org/abs/1911.12146). NorNE ads named entity annotations (NER) and part-of-speech (POS)on top of the Norwegian Dependency Treebank.
 
-It includes a total of 20.045 sentences, split in training, validation and test. It can be downloaded directly from the [Universal Depenncies - Norwegian Bokmål GitHub](https://github.com/UniversalDependencies/UD_Norwegian-Bokmaal), but is more easily available as part of the [norwegian_ner - Huggingface Dataset](https://huggingface.co/datasets/norwegian_ner).
-
-
-# Named Entity Recognition
-This dataset is described in the paper NorNE: Annotating Named Entities for Norwegian by Fredrik Jørgensen, Tobias Aasmoe, Anne-Stine Ruud Husevåg, Lilja Øvrelid, and Erik Velldal, accepted for LREC 2020 and available as pre-print [here](https://arxiv.org/abs/1911.12146). NorNE ads named entity annotations on top of the Norwegian Dependency Treebank and was created as a collaboration between Schibsted Media Group, Språkbanken at the National Library of Norway and the Language Technology Group at the University of Oslo. The NorNE corpus is published under the same license as the Norwegian Dependency Treebank.
-
-The dataset is available directly as the [norwegian_ner - Huggingface Dataset](https://huggingface.co/datasets/norwegian_ner).
+It includes a total of 20.045 sentences, split in training, validation and test. It can be downloaded directly from the [Universal Depenncies - Norwegian Bokmål GitHub](https://github.com/UniversalDependencies/UD_Norwegian-Bokmaal), but is more easily available from the conversion to the [Huggingface Dataformat](https://huggingface.co/datasets/NbAiLab/norne) made by NB AiLab.
 
 
-# Modalities
-Lorem Epsum... ?
 
-# Analogies dataset
-Lorem epsum... ?
-
-# NoReC: The Norwegian Review Corpus
+## NoReC: The Norwegian Review Corpus
 The Norwegian Review Corpus (NoReC) is created for the purpose of training and evaluating models for document-level sentiment analysis. The entire corpus can be downloaded from the [Norwegian Review Corpus GitHub](https://github.com/ltgoslo/norec).
 
 ### NoReC Eval
@@ -54,6 +43,10 @@ Download from the [NoReC Fine GitHub](https://github.com/ltgoslo/norec_fine).
 NoReC_gender comprises the book reviews of the Norwegian Review Corpus (NoReC), here expanded with annotations of gender of both book authors and critics (review authors).
 
 Download from the [NoReC Gender GitHub](https://github.com/ltgoslo/norec_gender).
+
+### NoRec Fine Binary Sentiment Classification
+This is a sentence-level binary sentiment classification dataset made from aggregating the fine-grained annotations in NoReC_fine and removing sentences with conflicting or no sentiment. The dataset is made by the Language Technology Group (LTG) at the University of Oslo, and can be downloaded from the [NorBERT GitHub] (https://github.com/ltgoslo/NorBERT/tree/main/benchmarking/data/sentiment/no)
+
 
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
