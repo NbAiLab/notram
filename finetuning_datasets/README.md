@@ -24,7 +24,12 @@ The Norwegian UD treebank is based on the Bokmål section of the Norwegian Depen
 
 It includes a total of 20.045 sentences, split in training, validation and test. It can be downloaded directly from the [Universal Depenncies - Norwegian Bokmål GitHub](https://github.com/UniversalDependencies/UD_Norwegian-Bokmaal), but is more easily available from the conversion to the [Huggingface Dataformat](https://huggingface.co/datasets/NbAiLab/norne) made by NB AiLab.
 
+## Norwegian MNLI/XNLI
+The Multi-Genre Natural Language Inference ([MultiNLI](https://cims.nyu.edu/~sbowman/multinli/paper.pdf)) corpus is a crowd-sourced collection of 433k sentence pairs annotated with textual entailment information. Coded by contradiction, entailment and neutral. The dataset comes with two development datasets (matched and unmatched), as well as a closed test-set.
 
+As part of [XTREME](https://sites.research.google/xtreme) this dataset was translated to 40 languages (but unfortunately not to Norwegian). The translation was done semi-automatically, using both machine translation and human translation. As part of making XTREME, Google did also collaborate with the MNLI-authors to create an additional 7.500 sentence pair annotations. This is used as an open dev and test-set. The sentence pairs are selected from the same source by the same authors and is generally in domain with the mnli training set.
+
+The NB AiLab has machine translated all these sets to Norwegian, and is already making them available to the public in this directory. We are considering also doing a human correction/translation of at least the development and training set here.
 
 ## NoReC: The Norwegian Review Corpus
 The Norwegian Review Corpus (NoReC) is created for the purpose of training and evaluating models for document-level sentiment analysis. The entire corpus can be downloaded from the [Norwegian Review Corpus GitHub](https://github.com/ltgoslo/norec).
