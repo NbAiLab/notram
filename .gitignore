@@ -142,3 +142,5 @@ cython_debug/
 **/ppss_dir_1/**
 **/ppss_dir_*/**
 tmp/
+**vocab_generation/tokenizers/**
+**vocab_generation/generated_tokenizers/**
