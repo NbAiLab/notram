@@ -12,7 +12,6 @@ Moreover, the script will run two passes:
 
 The final output will resemble the same structure as the input, but renaming files to end with "*.txt", adding double break lines when appropriate.
 
-
 Usage:
 
 ```bash
