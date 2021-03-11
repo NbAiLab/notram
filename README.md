@@ -18,10 +18,16 @@ Here are some of our results:
 
 * F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
 
+## Fine-tuned version
+The original model need to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The process is described in the notebook below.
 
+However, in many cases this is simply impossible. [Yin et al.](https://arxiv.org/abs/1909.00161) has proposed a very clever way of using pre-trained MNLI model as a zero-shot sequence classifiers. The methods works by reformulating the question to an MNLI hypothesis. If we want to figure out if a text is about "sport", we simply state that "This text is about sport" ("Denne teksten handler om sport").
+
+When the model is finetuned on the large MNLI task, it can be directly used for solving this classification tasks. There are no MNLI-set of this size in Norwegian but we have trained it on a machine translated version of the original MNLI-set. This readily tuned model is also available from Hugging Face below.
 
 ## Download
-The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
+All models can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
+
 
 ## Demo
 You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). 
