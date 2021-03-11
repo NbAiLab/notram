@@ -30,7 +30,7 @@ All models can be [downloaded from Huggingface](https://huggingface.co/nbailab).
 
 
 ## Demo
-You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). 
+You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). You can also play around with the demo for [zero-shot-classification](https://huggingface.co/NbAiLab/nb-bert-base-mnli).
 
 ## Colab Notebooks
 The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
