@@ -37,7 +37,6 @@ SPLITTER = SentenceSplitter(language='no')
 LOGGER = None
 NOW = datetime.now()
 
-
 class TimeoutException(Exception): pass
 
 
@@ -294,12 +293,16 @@ def get_text_fitz(
     occurrence_rate: Optional[bool]=None,
 ) -> str:
     faulthandler.enable()
+    # Disable ascender/descender values as per
+    # https://github.com/pymupdf/PyMuPDF/issues/930 and
+    # https://bugs.ghostscript.com/show_bug.cgi?id=703649
+    fitz.TOOLS.unset_quad_corrections(True)
     pdf = fitz.open(filename)
     text = []
     for page in pdf:
         fonts = []
         lengths = []
-        page_dict = page.get_text("dict")
+        page_dict = page.get_text("dict", flags=0)
         for block in page_dict.get("blocks", []):
             for line in block.get("lines", []):
                 line_text = ""

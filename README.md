@@ -18,13 +18,19 @@ Here are some of our results:
 
 * F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
 
+## Fine-tuned version
+The original model need to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The process is described in the notebook below.
 
+However, in many cases this is simply impossible. [Yin et al.](https://arxiv.org/abs/1909.00161) has proposed a very clever way of using pre-trained MNLI model as a zero-shot sequence classifiers. The methods works by reformulating the question to an MNLI hypothesis. If we want to figure out if a text is about "sport", we simply state that "This text is about sport" ("Denne teksten handler om sport").
+
+When the model is finetuned on the large MNLI task, it can be directly used for solving this classification tasks. There are no MNLI-set of this size in Norwegian but we have trained it on a machine translated version of the original MNLI-set. This readily tuned model is also available from Hugging Face below.
 
 ## Download
-The model can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
+All models can be [downloaded from Huggingface](https://huggingface.co/nbailab). 
+
 
 ## Demo
-You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). 
+You can test the model on how good it replaces a [MASK]-token directly through the [Huggingface API](https://huggingface.co/NbAiLab/nb-bert-base?text=For+%C3%A5+v%C3%A6re+sikker+p%C3%A5+at+man+har+laget+en+god+spr%C3%A5kmodell+m%C3%A5+man+%5BMASK%5D+den+f%C3%B8rst.). You can also play around with the demo for [zero-shot-classification](https://huggingface.co/NbAiLab/nb-bert-base-mnli).
 
 ## Colab Notebooks
 The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
@@ -32,6 +38,7 @@ The following notebook will allow you to both test the model, and to train your 
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
 | How to use the model for masked layer predictions (easy)|<a href="https://colab.research.google.com/gist/peregilk/f3054305cfcbefb40f72ea405b031438/nbailab-masked-layer-pipeline-example.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> |
+| How to use finetuned MNLI-version for zero-shot-classification (easy)|<a href="https://colab.research.google.com/gist/peregilk/769b5150a2f807219ab8f15dd11ea449/nbailab-mnli-norwegian-demo.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> |
 | How to finetune a classification model (advanced)| <a href="https://colab.research.google.com/gist/peregilk/3c5e838f365ab76523ba82ac595e2fcc/nbailab-finetuning-and-evaluating-a-bert-model-for-classification.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
 | How to finetune a NER/POS-model (advanced) | <a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
 

@@ -363,9 +363,12 @@ INIT_CHECKPOINT=run_2021-02-04_22-14-57_961229_T5_noTram2_BERT_norwegian_uncased
 LOAD_MLM_NSP_WEIGHTS=True
 EXPECT_PARTIAL=True #Unable to load LAMB optimizer
 ```
+```bash
+
 # Train Step: 1400000/1400000  / loss = 2.134629249572754  masked_lm_accuracy = 0.603281  lm_example_loss = 2.082853  next_sentence_accuracy = 0.981094  next_sentence_loss = 0.051776  lr = 0.000040
 # Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-02-22_16-20-34_406304_T4_noTram2_BERT_norwegian_cased/ctl_step_1400000.ckpt-1
 # Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-02-22_16-20- 34_406304_T4_noTram2_BERT_norwegian_cased/pretrained/bert_model.ckpt-1
+```
 
 Step 3
 ```bash
@@ -408,6 +411,25 @@ python run_pretrain.py \
   --init_checkpoint $INIT_CHECKPOINT \
   --load_mlm_nsp_weights $LOAD_MLM_NSP_WEIGHTS
 ```
+
+Norwegian Cased Model (08.03.2021)
+```bash
+# Train Step: 2500000/2500000  / loss = 1.9603041410446167  masked_lm_accuracy = 0.628408  lm_example_loss = 1.920373  next_sentence_accuracy = 0.985651 next_sentence_loss = 0.039930  lr = 0.000000
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-05_06-43-40_204936_T4_noTram2_BERT_norwegian_cased/ctl_step_2500000.ckpt-3 
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-05_06-43 40_204936_T4_noTram2_BERT_norwegian_cased/pretrained/bert_model.ckpt-3                                                                                             
+# Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-05_06-43-40_204936_T4_noTram2_BERT_norwegian_cased/run_logs.json...         
+# Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-05_06-43-40_204936_T4_noTram2_BERT_norwegian_cased/bert_config.json... 
+```
+Norwegian Uncased Model (07.03.2021)
+```bash
+# Train Step: 2500000/2500000  / loss = 1.9390231370925903  masked_lm_accuracy = 0.630239  lm_example_loss = 1.898049  next_sentence_accuracy = 0.985547 next_sentence_loss = 0.040973  lr = 0.000000
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-03_09-06-53_919550_T5_noTram2_BERT_norwegian_uncased/ctl_step_2500000.ckpt-4
+# Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-03_09-06-53_919550_T5_noTram2_BERT_norwegian_uncased/pretrained/bert_model.ckpt-4
+# Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-03_09-06-53_919550_T5_noTram2_BERT_norwegian_uncased/run_logs.json...
+# Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-03_09-06-53_919550_T5_noTram2_BERT_norwegian_uncased/bert_config.json...  
+
+```
+
 
 # Training Set - Corpus1_128
 ```bash
