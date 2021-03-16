@@ -137,9 +137,9 @@ def seq_compute_metrics(pairs, label_list):
         "precision_micro": seq_precision_score(true_labels, true_predictions, average="micro"),
         "recall_micro": seq_recall_score(true_labels, true_predictions, average="micro"),
         "f1_micro": seq_f1_score(true_labels, true_predictions, average="micro"),
-        "precision": seq_precision_score(true_labels, true_predictions, average="macro"),
-        "recall": seq_recall_score(true_labels, true_predictions, average="macro"),
-        "f1": seq_f1_score(true_labels, true_predictions, average="macro"),
+        "precision_macro": seq_precision_score(true_labels, true_predictions, average="macro"),
+        "recall_macro": seq_recall_score(true_labels, true_predictions, average="macro"),
+        "f1_macro": seq_f1_score(true_labels, true_predictions, average="macro"),
         # "report": seq_classification_report(true_labels, true_predictions, digits=4)
     }
     reports = seq_classification_report(
@@ -178,9 +178,9 @@ def sk_compute_metrics(pairs, label_list):
         "precision_micro": sk_precision_score(labels, predictions, average="micro"),
         "recall_micro": sk_recall_score(labels, predictions, average="micro"),
         "f1_micro": sk_f1_score(labels, predictions, average="micro"),
-        "precision": sk_precision_score(labels, predictions, average="macro"),
-        "recall": sk_recall_score(labels, predictions, average="macro"),
-        "f1": sk_f1_score(labels, predictions, average="macro"),
+        "precision_macro": sk_precision_score(labels, predictions, average="macro"),
+        "recall_macro": sk_recall_score(labels, predictions, average="macro"),
+        "f1_macro": sk_f1_score(labels, predictions, average="macro"),
         # "report": sk_classification_report(labels, predictions, digits=4)
     }
     reports = sk_classification_report(
@@ -243,7 +243,7 @@ def main(args):
     model_name = args.model_name
     model_name = model_name[2:] if model_name.startswith("./") else model_name
     model_name = model_name[1:] if model_name.startswith("/") else model_name
-    run_name = f"{model_name}_{args.task_name}_{args.dataset_config or args.dataset_name}_e{str(args.num_train_epochs)}_lr{str(args.learning_rate)}_ws{str(args.warmup_steps)}_wd{str(args.weight_decay)}".replace("/", "-")
+    run_name = f"{model_name}_{args.task_name}_{args.dataset_config or args.dataset_name}_e{str(args.num_train_epochs)}_lr{str(args.learning_rate)}_ws{str(args.warmup_steps)}_wd{str(args.weight_decay)}_s{str(args.seed)}".replace("/", "-")
     output_dir = Path(args.output_dir) / run_name
     # Tokenizer settings
     padding = args.task_name not in ("ner", "pos")  # default: False @param ["False", "'max_length'"] {type: 'raw'}
@@ -370,7 +370,7 @@ def main(args):
     })
     do_eval = "validation" in tokenized_datasets
     training_args = TrainingArguments(
-        output_dir=output_dir,
+        output_dir=output_dir.as_posix(),
         overwrite_output_dir=args.overwrite_output_dir,
         do_train=True,
         do_eval=do_eval,
