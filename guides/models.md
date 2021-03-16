@@ -429,6 +429,14 @@ Norwegian Uncased Model (07.03.2021)
 # Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-03_09-06-53_919550_T5_noTram2_BERT_norwegian_uncased/bert_config.json...  
 
 ```
+## T6 BERT Norwegian Cased
+Following the same principle and training schedule as T4. However, this time we are using the Huggingface tokenizer for creating the dataset.
+
+## T7 BERT Norwegian Unased
+Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
+
+## T8 BERT Norwegian Unased
+Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
 
 
 # Training Set - Corpus1_128
