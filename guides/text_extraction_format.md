@@ -5,7 +5,7 @@ Specification for the internal format used when extracting text from OCR documen
 "urn": "digibok_2006080900001" # The original digibook id
 "scandate": "24122019" #Date for scanning in the format ddmmyyyy
 "publish_year": "1929" # 4 digits year
-"language_reported": "nob" #3-letter language code
+"language_reported": "nob" #3-letter language code. Not reported for newspapers
 "language_detected": "nob" #3-letter language code
 "docworks_version": "6.5-1.28" #Text reported in METS/ALTO
 "abbyy_version": "8.1" #Text reported in METS/ALTO
@@ -18,7 +18,21 @@ Specification for the internal format used when extracting text from OCR documen
                 "text": "text goes here" #utf8-encoded-text
 ```
 
-{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
-{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
-{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
-{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
+
+```json
+"urn": "aftenposten_null_null_20190102_160_1_1-1_002_hovedavis_ARTICLE1" # The original digibook id
+"scandate": "24122019" #Date for scanning in the format ddmmyyyy
+"publish_year": "1929" # 4 digits year
+"language_detected": "nob" #3-letter language code
+"docworks_version": "6.5-1.28" #Text reported in METS/ALTO
+"abbyy_version": "8.1" #Text reported in METS/ALTO
+"document_word_confidence": "0.9" #Float 0-1. Average calculated while processing. 
+"document_word_98_confidence": "0.56" #Float 0-1. Percentage above 0.98 confidence. Calculated while processing 
+"paragraphs":   "id": "1" #Integer. Starting on 0. Counted during processing.
+                "page": "1" #Page number - Mainly for books. Reported in METS/ALTO
+                "block": "1" #Block number on current page - Mainly for books. Reported in METS/ALTO
+                "confidence": "0.36" #Float 0-1. From METS/ALTO
+                "text": "text goes here" #utf8-encoded-text
+```
+
+
