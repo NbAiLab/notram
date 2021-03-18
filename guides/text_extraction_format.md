@@ -3,7 +3,7 @@ Specification for the internal format used when extracting text from OCR documen
 
 ## Book example (one for each book)
 ```bash
-"urn": "digibok_2006080900001" # The original digibook id
+"id": "digibok_2006080900001" # The original digibook id
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. For books this is set to 0101 for the publication year
 "language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Only reported for books in METS/ALTO. 
@@ -22,7 +22,7 @@ Specification for the internal format used when extracting text from OCR documen
 
 ## Newspaper example (one for each article)
 ```bash
-"urn": "aftenposten_null_null_20190102_160_1_1-2_007_bilag_ARTICLE316" # The original digibook id
+"id": "aftenposten_null_null_20190102_160_1_1-2_007_bilag_ARTICLE316" # Reference to the exact article
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. 
 "language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Set to N/A for newspapers since it is not reported in METS/ALTO
