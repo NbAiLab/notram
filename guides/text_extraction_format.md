@@ -3,6 +3,7 @@ Specification for the internal format used when extracting text from OCR documen
 
 ```json
 "urn": "digibok_2006080900001" # The original digibook id
+"scandate": "24122019" #Date for scanning in the format ddmmyyyy
 "publish_year": "1929" # 4 digits year
 "language_reported": "nob" #3-letter language code
 "language_detected": "nob" #3-letter language code
@@ -17,4 +18,7 @@ Specification for the internal format used when extracting text from OCR documen
                 "text": "text goes here" #utf8-encoded-text
 ```
 
+{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
+{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
+{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
 {"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
