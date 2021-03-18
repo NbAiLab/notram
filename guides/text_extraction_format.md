@@ -1,7 +1,7 @@
 # Text Extraction Format
 Specification for the internal format used when extracting text from OCR documents. It allows for storing the relevant information from METS/ALTO for further processing.
 
-## Book example
+## Book example (one for each book)
 ```bash
 "urn": "digibok_2006080900001" # The original digibook id
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
@@ -20,7 +20,7 @@ Specification for the internal format used when extracting text from OCR documen
 ```
 
 
-## Newspaper example
+## Newspaper example (one for each article)
 ```bash
 "urn": "aftenposten_null_null_20190102_160_1_1-2_007_bilag_ARTICLE316" # The original digibook id
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
