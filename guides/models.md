@@ -435,7 +435,7 @@ Following the same principle and training schedule as T4. However, this time we 
 ## T7 BERT Norwegian Unased
 Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
-## T8 BERT Norwegian Unased
+## T8 BERT Scandinavian Unased
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
 
 
