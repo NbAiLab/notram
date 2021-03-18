@@ -16,3 +16,5 @@ Specification for the internal format used when extracting text from OCR documen
                 "confidence": "0.36" #Float 0-1. From METS/ALTO
                 "text": "text goes here" #utf8-encoded-text
 ```
+
+{"urn": "aftenposten_20190102", "publishYear": "2019", "languageDetected": "no", "docworksVersion": "7.0-0.2", "abbyyVersion": "1.3", "scandate": "03012019", "ocrWordconfidence": "1.0", "percentageWords98confidence": "0.8", "numberOfWordsInArticle": "233"}
