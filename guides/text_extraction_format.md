@@ -1,7 +1,7 @@
 # Text Extraction Format
 Specification for the internal format used when extracting text from OCR documents. It allows for storing the relevant information from METS/ALTO for further processing.
 
-```bash
+```json
 "urn": "digibok_2006080900001"
 "publishYear": "1929"
 "language": "nob"
