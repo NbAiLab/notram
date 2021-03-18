@@ -1,4 +1,4 @@
-# Creating the Norwegian Corpus
+# Creating the Norwegian Corpus v1
 This guide describes the steps used for creating the Norwegian Corpus. The final corpus will have one book/article/webpage on one single line. To get to this point, there are several steps wee need to go through.
 
 
