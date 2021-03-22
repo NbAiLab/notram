@@ -1,5 +1,5 @@
 # Status Corpus v2
-This page tracks the status of version 2 of our corpus. The purpose of the table is currently to track the status. When the processing has reached at least level 4, the, number of words and exact size will be calculated. See level description at the bottom of this document.
+This page tracks the status of version 2 of our corpus. The purpose of the table is currently to track the status. When the processing has reached at least level 4, the word count and exact size will be calculated. See level description at the bottom of this document.
 
 
 ## Corpora unchanged from v1
