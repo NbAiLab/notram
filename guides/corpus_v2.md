@@ -38,14 +38,14 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 
 
 ## Processing Levels
-| Level  |   Description |
-| -------- |   :-----|
-| 0 | The file is not yet processed/downloaded. |
-| 1 | Source files. For library files this is json-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. In some cases, this step might be skipped.|
-| 2 | Jsonl-format. Previously this was **P**aragraph**P**er**L**ine-files. Documents are here a single line in the jsonl-format.|
-| 3 | Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks. In v2 is this format also jsonl but without paragraphs.|
-| 4 | Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed. Document per line.|
-| 5 | Sentence segmentation. A pre-trained [Spacy Model for Norwegian Bokmål] (https://spacy.io/models/nb)is used to segment sentences.|
-| 6 | Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.|
+| Level  |   Description | Format |
+| -------- |   :-----|  :-----|
+| 0 | The file is not yet processed/downloaded. | - | 
+| 1 | Source files. For library files this is json-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. In some cases, this step might be skipped.| various |
+| 2 | Jsonl-format. Previously this was **P**aragraph**P**er**L**ine-files. Documents are here a single line in the jsonl-format.| jsonl |
+| 3 | Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks. In v2 is this format also jsonl but without paragraphs.| jsonl |
+| 4 | Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed. Document per line.| txt |
+| 5 | Sentence segmentation. A pre-trained [Spacy Model for Norwegian Bokmål] (https://spacy.io/models/nb)is used to segment sentences.| txt |
+| 6 | Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.| tfrecords |
 
 
