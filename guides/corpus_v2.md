@@ -32,12 +32,13 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. Needs to be reparsed with the latest version of mupdf.| 0| ? |
 
 
-# Processing levels
 
-## Processing Steps
+
+## Processing Levels
 | Level  |   Description |
 | -------- |   :-----|
-| 1 | Source files. For library files this is ocr/txt/meta-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file.|
+| 0 | The file exists but is unaltered by us. |
+| 1 | Source files. For library files this is jsonl-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. We are considering changing this to jsonl-files as well.|
 | 2 | **P**aragraph**P**er**L**ine-files. Articles are separated by double line breaks, paragraphs with single linebreaks.|
 | 3 | Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks.|
 | 4 | Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed.|
