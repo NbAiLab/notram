@@ -1,0 +1,199 @@
+<div class="row">
+    <!-- Success and Error Messages for the user -->
+    <div class="span8 offset2">
+        <div id="success" class="alert alert-success" style="display:none;">
+            <a class="close">×</a>
+            <strong>Bra gjort!</strong> Markøren din være redd.
+        </div>
+        <div id="loading" class="alert alert-info" style="display:none;">
+            <a class="close">×</a>
+            Laster inn neste oppgave ...
+        </div>
+        <div id="taskcompleted" class="alert alert-info" style="display:none;">
+            <strong>Oppgaven er fullført!</strong> Takk så mye!
+        </div>
+        <div id="finish" class="alert alert-success" style="display:none;">
+            <strong>Gratulerer!</strong> Du har deltatt i alle tilgjengelige oppgaver.
+            <br/>
+            <div class="alert-actions">
+                <a class="btn small" href="/">Komme tilbake</a>
+                eller, <a class="btn small" href="/app">Se andre applikasjoner.</a>
+            </div>
+        </div>
+        <div id="error" class="alert alert-danger" style="display:none;">
+            <a class="close">×</a>
+            <strong>Feil!</strong> Noe har gått galt, kontakt administratorene.
+        </div>
+    </div> <!-- End Success and Error Messages for the user -->
+</div> <!-- End of Row -->
+
+<!--
+    Task DOM
+    It uses the class="skeleton" to identify the elements that belong to the
+    task.
+-->
+<style>
+.skeleton input:disabled {
+    background-color: white;
+    border: none;
+}
+.skeleton li {
+    display: block;
+}
+.skeleton li  {
+    display: block;
+}
+</style>
+<div class="row skeleton"> <!-- Start Skeleton Row-->
+    <div class="span8 "><!-- Start of Question and Submission DIV (column) -->
+        <h2 id="question">Oversett eller forbedr oversettelsen av følgende tekst:</h2> <!-- The question will be loaded here -->
+        <p>Sjanger: <code><span id="genre"></span></code></p>
+        <blockquote>
+            <p>
+                <span id="sentence1_en" class="form-text text-muted">Premise in English</span>
+                <textarea class="form-control" id="sentence1" rows="2">Premise</textarea>
+            </p>
+            <ul>
+                <li>
+                    <span id="gold_label_1" class="label" style="display: inline;"></span>
+                    <small id="sentence2_1_en" class="form-text text-muted" style="display: inline;">Hypothesis 1 in English</small>
+                    <textarea class="form-control" id="sentence2_1" rows="1">Hypothesis 1</textarea>
+                </li>
+                <li>
+                    <span id="gold_label_2" class="label" style="display: inline;"></span>
+                    <small id="sentence2_2_en" class="form-text text-muted" style="display: inline;">Hypothesis 2 in English</small>
+                    <textarea class="form-control" id="sentence2_2" rows="1">Hypothesis 2</textarea>
+                </li>
+                <li>
+                    <span id="gold_label_3" class="label" style="display: inline;"></span>
+                    <small id="sentence2_2_en" class="form-text text-muted" style="display: inline;">Hypothesis 3 in English</small>
+                    <textarea class="form-control" id="sentence2_3" rows="1">Hypothesis 3</textarea>
+                </li>
+            </ul>
+            <p>&mdash; Kilde: <i><span id="dataset">Datasett</span></i></p>
+        </blockquote>
+        <div id="answer"> <!-- Start DIV for the submission buttons -->
+            <button class="btn btn-success btn-answer" value='pos'><i class="fa fa-thumbs-up"></i> Sende</button>
+            <!-- <button class="btn btn-primary btn-skip" value='pos'><i class="fa fa-calendar-times-o"></i> Hopp over</button> -->
+        </div><!-- End of DIV for the submission buttons -->
+        <!-- Feedback items for the user -->
+        <br/>
+        <p>
+            Dette er oppgave <span id="task-id" class="label label-warning">#</span></br>
+            Du har allerede fullført <span id="done" class="label label-info"></span> oppgaver av
+        <!-- Progress bar for the user -->
+        <span id="total" class="label label-info"></span></p>
+        <div class="progress progress-striped">
+            <div id="progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div><!-- End of Question and Submission DIV (column) -->
+</div><!-- End of Skeleton Row -->
+
+<script>
+function loadUserProgress() {
+    pybossa.userProgress('nor-mnli').done(function(data){
+        console.log(data);
+        var pct = Math.round((data.done*100)/data.total);
+        $("#progress").css("width", pct.toString() +"%");
+        $("#progress").attr("aria-valuenow", pct.toString());
+        $("#progress").attr("title", pct.toString() + "% fullført!");
+        $("#progress").tooltip({'placement': 'left'});
+        $("#total").text(data.total);
+        $("#done").text(data.done);
+    });
+}
+
+function getLabelClass(label) {
+    if (label === "neutral") {
+        return "label-warning";
+    } else if (label === "contradiction") {
+        return "label-danger";
+    } else if (label === "entailment") {
+        return "label-info";
+    }
+}
+
+pybossa.taskLoaded(function(task, deferred) {
+    if ( $.isEmptyObject(task) ) {
+        console.log(task)
+    }
+    else {
+        deferred.resolve(task);
+    }
+});
+
+pybossa.presentTask(function(task, deferred) {
+    if ( !$.isEmptyObject(task) ) {
+        loadUserProgress();
+        console.log(task.info)
+        $("#genre").html(task.info.genre);
+        $("#sentence1").val(task.info.sentence1);
+        $("#sentence1_en").html(task.info.sentence1_en);
+        if (task.info.sentence2_1) {
+            // $("#sentence2_1").parent().show();
+            $("#sentence2_1").val(task.info.sentence2_1);
+            $("#sentence2_1_en").html(task.info.sentence2_1_en);
+            $("#gold_label_1").html(task.info.gold_label_1);
+            $("#gold_label_1").removeClass();
+            $("#gold_label_1").addClass("label");
+            $("#gold_label_1").addClass(getLabelClass(task.info.gold_label_1));
+        }
+        if (task.info.sentence2_2) {
+            // $("#sentence2_2").parent().show();
+            $("#sentence2_2").val(task.info.sentence2_2);
+            $("#sentence2_2_en").html(task.info.sentence2_2_en);
+            $("#gold_label_2").html(task.info.gold_label_2);
+            $("#gold_label_2").removeClass();
+            $("#gold_label_2").addClass("label");
+            $("#gold_label_2").addClass(getLabelClass(task.info.gold_label_2));
+        }
+        if (task.info.sentence2_3) {
+            // $("#sentence2_3").parent().show();
+            $("#sentence2_3").val(task.info.sentence2_3);
+            $("#sentence2_3_en").html(task.info.sentence2_3_en);
+            $("#gold_label_3").html(task.info.gold_label_3);
+            $("#gold_label_3").removeClass();
+            $("#gold_label_3").addClass("label");
+            $("#gold_label_3").addClass(getLabelClass(task.info.gold_label_3));
+        }
+        // $("#" + task.info.review).prop("disabled", false);
+        // $("#" + task.info.review).focus();
+        $("#dataset").html(task.info.source);
+        $('#task-id').html(task.id);
+        $('.btn-answer').off('click').on('click', function(evt) {
+            let answer = {...Object.assign({}, task.info)};
+            answer.sentence1_no = $("#sentence1").val();
+            answer.sentence2_1_no = $("#sentence2_1").val();
+            answer.sentence2_2_no = $("#sentence2_2").val();
+            answer.sentence2_3_no = $("#sentence2_3").val();
+            // answer.revision = $("#" + task.info.review).val();
+            // var answer = $(evt.target).attr("value");
+            if (typeof answer != 'undefined') {
+                console.log(answer);
+                pybossa.saveTask(task.id, answer).done(function() {
+                    // $("#sentence1").prop("disabled", true);
+                    // $("#sentence2_1").prop("disabled", true);
+                    // $("#sentence2_2").prop("disabled", true);
+                    // $("#sentence2_3").prop("disabled", true);
+                    deferred.resolve();
+                });
+                $("#loading").fadeIn(500);
+            }
+            else {
+                $("#error").show();
+            }
+        });
+        $('.btn-skip').off('click').on('click', function(evt) {
+            console.log("Skipping...")
+        });
+        $("#loading").hide();
+    }
+    else {
+        $(".skeleton").hide();
+        $("#loading").hide();
+        $("#finish").fadeIn(500);
+    }
+});
+
+pybossa.run('nor-mnli');
+</script>

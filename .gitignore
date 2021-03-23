@@ -144,4 +144,8 @@ cython_debug/
 tmp/
 **vocab_generation/tokenizers/**
 **vocab_generation/generated_tokenizers/**
+<<<<<<< HEAD
 **finetuning_datasets/english_nli/**
+=======
+finetuning_datasets/english
+>>>>>>> cf91a9ce957fc023872bfaab85a5089d9fc5dcb8

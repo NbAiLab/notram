@@ -1,0 +1,37 @@
+name: Optimizing NER
+project: notram-optimizing-ner
+program: notram_eval.py
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1
+  goal: maximize
+parameters:
+  dataset_name:
+    value: "NbAiLab/norne"
+  dataset_config:
+    value: "bokmaal"
+  task_name:
+    value: "ner"
+  model_name:
+    values: ["./models/NoTram_BERT_norwegian_cased", "./models/NoTram_BERT_norwegian_uncased", "./models/eval5", "bert-base-multilingual-cased", "ltgoslo/norbert"]
+  num_train_epochs:
+    values: [3, 4]
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    values: [2e-5, 3e-5]
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  seed:
+    values: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
