@@ -31,6 +31,7 @@ Specification for the internal format used when extracting text from OCR documen
 "language_detected": "nob" #3-letter language code
 "docworks_version": "6.5-1.28" #Text reported in METS/ALTO
 "abbyy_version": "8.1" #Text reported in METS/ALTO
+"title": "article title" #Article title. Can be the same for multiple blocks
 "document_word_confidence": "0.9" #Float 0-1. Average calculated while processing. 
 "document_word_98_confidence": "0.56" #Float 0-1. Percentage above 0.98 confidence. Calculated while processing 
 "paragraphs":   "paragraph_id": "1" #Integer. Starting on 0. Counted during processing.
