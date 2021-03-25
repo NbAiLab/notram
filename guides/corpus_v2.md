@@ -9,9 +9,9 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Wikipedia NNO -2019 | Should be copied from v1 to v2. | 2 | 0.2 |
 | Newspapers Online NOB -2019 | Should be copied from v1 to v2.| 0 | 4.0 |
 | Newspapers Online NNO -2019 |  Should be copied from v1 to v2.| 0 | 0.3 |
-| Common Crawl OSCAR -2020 |  Should be copied from v1 to v2. | 0 | 4.9 |
+| Common Crawl OSCAR -2020 |  Should be copied from v1 to v2. | 2 | 4.9 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 0 | 5.1 |
-| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Should be copied from v1 to v2. |0 | 0.6 |
+| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Should be copied from v1 to v2. |2 | 0.6 |
 
 
 
