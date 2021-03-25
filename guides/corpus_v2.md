@@ -5,8 +5,8 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Corpora unchanged from v1
 | Sources  |   Status | Level | GB text |
 | -------- |   :-----|   -----:| -----:|
-| Wikipedia NOB -2019  | Should be copied from v1 to v2.| 0| 0.9 |
-| Wikipedia NNO -2019 | Should be copied from v1 to v2. | 0 | 0.2 |
+| Wikipedia NOB -2019  | Should be copied from v1 to v2.| 2| 0.9 |
+| Wikipedia NNO -2019 | Should be copied from v1 to v2. | 2 | 0.2 |
 | Newspapers Online NOB -2019 | Should be copied from v1 to v2.| 0 | 4.0 |
 | Newspapers Online NNO -2019 |  Should be copied from v1 to v2.| 0 | 0.3 |
 | Common Crawl OSCAR -2020 |  Should be copied from v1 to v2. | 0 | 4.9 |
