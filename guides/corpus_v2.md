@@ -30,6 +30,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Sources  |   Status | Level | GB text |
 | -------- |   :-----|   -----:| -----:|
 | Government Documents -2021  | Large collection parsed directly from xhtml. Should just be copied over.| 0| ? |
+| Parliament Documents -2021  | This needs to be followed up. | 0| ? |
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. Needs to be reparsed with the latest version of mupdf.| 0| ? |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
