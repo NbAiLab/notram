@@ -307,11 +307,13 @@ def main(args):
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir,
+        force_download=args.force_download,
     )
     tokenizer = AutoTokenizer.from_pretrained(
         args.model_name,
         cache_dir=args.cache_dir,
         use_fast=True,
+        force_download=args.force_download,
     )
     if args.task_name in ("pos", "ner"):
         model = AutoModelForTokenClassification.from_pretrained(
@@ -319,6 +321,7 @@ def main(args):
             from_tf=bool(".ckpt" in args.model_name),
             config=config,
             cache_dir=args.cache_dir,
+            force_download=args.force_download,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -338,6 +341,7 @@ def main(args):
             from_tf=bool(".ckpt" in args.model_name),
             config=config,
             cache_dir=args.cache_dir,
+            force_download=args.force_download,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -513,6 +517,9 @@ if __name__ == "__main__":
         metavar='label_all_tokens', type=bool, default=False,
         help='Label all tokens',
     )
-
+    parser.add_argument('--force_download',
+        metavar='force_download', type=bool, default=False,
+        help='Force the download of model, tokenizer, and config',
+    )
     args = parser.parse_args()
     main(args)
