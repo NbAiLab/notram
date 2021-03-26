@@ -34,7 +34,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. Needs to be reparsed with the latest version of mupdf.| 0| ? |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
-| Common Crawl  | Big Bad NLP Datasets has a CC corpus for Norwegian that they claim is downloaded 30.10.2020. Data from 2020. Link is currently unavailable.| 0| 13.0 |
+| CC-100  | CC-100: Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. Downloaded. | 1| 13.0 |
 | MC4  | We are discussing whether to add more MC4 data here| 0| ? |
 
 
