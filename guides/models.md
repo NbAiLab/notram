@@ -438,6 +438,9 @@ Following the same principle and training schedule as T5. However, this time we 
 ## T8 BERT Scandinavian Uncased
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
 
+## T9 BERT Large Norwegian Uncased
+First attempt at training a large Norwegian model on the v3-256 preempt pod. Basically using the settings from the 76 minutes article.
+
 
 # Training Set - Corpus1_128
 ```bash
