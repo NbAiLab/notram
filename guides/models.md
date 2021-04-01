@@ -441,6 +441,18 @@ Following the same principle and training schedule as T4 and T5. However, it use
 ## T9 BERT Large Norwegian Uncased
 First attempt at training a large Norwegian model on the v3-256 preempt pod. Basically using the settings from the 76 minutes article.
 
+The seq128 was run with a bs of 32k and a lr of 50e-4 decaying to 0 over 100.000 steps with a 10.000 step warmup. For the 512seq it was run for 6.000 steps with a bs of 8192 and a lr of 25e-4, also decaying to 0 and a warmup of 10.000 steps. 
+
+Final file is available here: gs://notram-east1-d/notram_v2/pretrain/runs/run_2021-03-31_18-43-35_029328_T9_BERT_large_norwegian_uncased/ctl_step_60000.ckpt-6. 
+Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked_lm_accuracy = 0.628962  lm_example_loss = 1.912292  next_sentence_accuracy = 0.984841  next_sentence_loss = 0.042739  lr = 0.000000
+
+## T10 Bert Large Long Norwegian Uncased
+The idea here is to further train the BERT Large Norwegian uncased model. To increase stability the maximum lr is reduced from 50e-4 to 25e-4. Warmup is increased to 20.000 steps. We are increasing the training time by 5x, training for at total of 500.000 steps at 128seq. 
+
+
+
+
+
 
 # Training Set - Corpus1_128
 ```bash
