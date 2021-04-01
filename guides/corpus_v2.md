@@ -5,13 +5,14 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Corpora unchanged from v1
 | Sources  |   Status | Level | GB text |
 | -------- |   :-----|   -----:| -----:|
-| Wikipedia NOB -2019  | Should be copied from v1 to v2.| 0| 0.9 |
-| Wikipedia NNO -2019 | Should be copied from v1 to v2. | 0 | 0.2 |
+| Wikipedia NOB -2019  | Ready in jsonl-format. | 2| 0.9 |
+| Wikipedia NNO -2019 | Ready in jsonl-format. | 2 | 0.2 |
 | Newspapers Online NOB -2019 | Should be copied from v1 to v2.| 0 | 4.0 |
 | Newspapers Online NNO -2019 |  Should be copied from v1 to v2.| 0 | 0.3 |
-| Common Crawl OSCAR -2020 |  Should be copied from v1 to v2. | 0 | 4.9 |
+| Common Crawl OSCAR NOB -2020 |  Ready in jsonl-format. | 2 | 4.9 |
+| Common Crawl OSCAR NNO -2020 |  Ready in jsonl-format. | 2 | ? |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 0 | 5.1 |
-| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Should be copied from v1 to v2. |0 | 0.6 |
+| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Ready in jsonl-format. |2 | 0.6 |
 
 
 
@@ -29,10 +30,11 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Sources  |   Status | Level | GB text |
 | -------- |   :-----|   -----:| -----:|
 | Government Documents -2021  | Large collection parsed directly from xhtml. Should just be copied over.| 0| ? |
+| Parliament Documents -2021  | This needs to be followed up. | 0| ? |
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. Needs to be reparsed with the latest version of mupdf.| 0| ? |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
-| Common Crawl  | Big Bad NLP Datasets has a CC corpus for Norwegian that they claim is downloaded 30.10.2020. Data from 2020. Link is currently unavailable.| 0| 13.0 |
+| CC-100  | CC-100: Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. Downloaded. | 1| 13.0 |
 | MC4  | We are discussing whether to add more MC4 data here| 0| ? |
 
 

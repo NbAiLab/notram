@@ -16,7 +16,7 @@ parameters:
   task_name:
     value: "ner"  # ["ner", "pos"]
   model_name:
-    values: ["./models/eval5", "bert-base-multilingual-cased", "bert-base-cased"]
+    values: ["./models/eval5", "bert-base-multilingual-cased", "bert-base-cased", "ltgoslo/norbert"]
   num_train_epochs:
     value: 3
   warmup_steps:
