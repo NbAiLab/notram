@@ -454,7 +454,7 @@ Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked
 ## T10 Bert Large Long Norwegian Uncased
 The idea here is to further train the BERT Large Norwegian uncased model. To increase stability the maximum lr is reduced from 50e-4 to 25e-4. Warmup is increased to 20.000 steps. We are increasing the training time by 5x, training for at total of 500.000 steps at 128seq. 
 
-
+Some issues with recovering from pretrained file. The MLM-accuracy keeps dropping after the weights are loaded. Happens both from seq128 and seq512.
 
 
 
