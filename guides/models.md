@@ -435,6 +435,11 @@ Following the same principle and training schedule as T4. However, this time we 
 ## T7 BERT Norwegian Uncased
 Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
+The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
+gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-28_19-36-06_145747_T7POD_BERT_base_norwegian_uncased_decay/ctl_step_380000.ckpt-10
+
+
+
 ## T8 BERT Scandinavian Uncased
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
 
