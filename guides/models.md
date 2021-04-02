@@ -444,6 +444,8 @@ gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-28_19-36-06_145747_T7POD
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
 
 ## T9 BERT Large Norwegian Uncased
+NOTE: Disregard model. Started with the wrong number of layers!
+
 First attempt at training a large Norwegian model on the v3-256 preempt pod. Basically using the settings from the 76 minutes article.
 
 The seq128 was run with a bs of 32k and a lr of 50e-4 decaying to 0 over 100.000 steps with a 10.000 step warmup. For the 512seq it was run for 6.000 steps with a bs of 8192 and a lr of 25e-4, also decaying to 0 and a warmup of 10.000 steps. Some instability during training, and it needed to be reinitiated a few times. 
@@ -452,10 +454,7 @@ Final file is available here: gs://notram-east1-d/notram_v2/pretrain/runs/run_20
 Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked_lm_accuracy = 0.628962  lm_example_loss = 1.912292  next_sentence_accuracy = 0.984841  next_sentence_loss = 0.042739  lr = 0.000000
 
 ## T10 Bert Large Long Norwegian Uncased
-It sems to be some issues with recovering from pretrained file. The MLM-accuracy keeps dropping after the weights are loaded. Happens both from seq128 and seq512.
-
-I am therefore training a BERT Large Norwegian uncased model with longer training time. Training for at total of 500.000 steps at 128seq. Increasing the warmup to 20.000 steps to increase stability.
-
+Duplicating the T9 experiment but this time with the right model name. Soibling number of epochs.
 
 
 
