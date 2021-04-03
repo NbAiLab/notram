@@ -454,7 +454,7 @@ Final file is available here: gs://notram-east1-d/notram_v2/pretrain/runs/run_20
 Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked_lm_accuracy = 0.628962  lm_example_loss = 1.912292  next_sentence_accuracy = 0.984841  next_sentence_loss = 0.042739  lr = 0.000000
 
 ## T10 Bert Large Long Norwegian Uncased
-Duplicating the T9 experiment but this time with the right model name. Soibling number of epochs.
+Duplicating the T9 experiment but this time with the right model name. Doubling number of epochs. Because of instability in the training, the learning rate is reduced to 25e-4.
 
 
 
