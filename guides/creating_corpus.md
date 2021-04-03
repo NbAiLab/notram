@@ -248,3 +248,8 @@ python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/s
 
 python create_pretrain_data.py --data_dir /disk4/folder1/nancy/content/text/v3/sentence_segm_5/split100MB/ --vocab_dir /disk4/folder1/nancy/content/text/v3/ --output_dir /disk4/folder1/nancy/content/text/v3/tfrecords_6/bert_multi_seq512_dup3/ --run_name notram_v1 --model_class bert_multi_cased --dupe_factor 3 --max_seq_length 512 --max_predictions_per_seq 77 --max_num_cpus 40
  ```
+ 
+ New version with the new setup for supercasing
+ ```bash
+ python create_pretrain_data.sh --data_dir /var/ml/supercased_sentence_segm_5/ --vocab_dir /var/ml/models/NoTram_BERT_norwegian_supercased/ --output_dir /var/ml/corpus2b_supercased_128/ --model_class bert_base_norwegian_supercased --run_name notram_v2 --dupe_factor 3 --max_seq_length 128 --max_predictions_per_seq 19 --max_num_cpus 40
+ ```
