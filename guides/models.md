@@ -460,6 +460,9 @@ Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked
 Duplicating the T9 experiment but this time with the right model name. Doubling number of epochs. Because of instability in the training, the learning rate is reduced to 25e-4.
 
 
+## T11 BERT Norwegian Supercased
+Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
+
 
 # Training Set - Corpus1_128
 ```bash
