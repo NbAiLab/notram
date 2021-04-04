@@ -432,7 +432,7 @@ Norwegian Uncased Model (07.03.2021)
 ## T6 BERT Norwegian Cased
 Following the same principle and training schedule as T4. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
-The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
+The POD-version is a bit simplified, where step 1 and 2 is together and a decaying learning rate. The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
 gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-03_06-25-01_581252_T6POD_BERT_base_norwegian_cased_decay/pretrained/bert_model.ckpt-5
 
 ## T7 BERT Norwegian Uncased
