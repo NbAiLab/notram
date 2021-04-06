@@ -43,7 +43,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Level  |   Description | Format |
 | -------- |   :-----|  :-----|
 | 0 | The file is not yet processed/downloaded. | - | 
-| 1 | Source files. For library files this is json-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. In some cases, this step might be skipped.| various |
+| 1 | Source files. For library files this is json-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. In some cases, this step might be skipped. The main purpose of this level is to have an archive in case the original source disappears.| various |
 | 2 | Jsonl-format. Previously this was **P**aragraph**P**er**L**ine-files. Documents are here a single line in the jsonl-format.| jsonl |
 | 3 | Cleaned text. Text is cleaned and evaluated before this step. Paragraphs is removed here, and segments of up to 1000 words are separated by linebreaks. In v2 is this format also jsonl but without paragraphs.| jsonl |
 | 4 | Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed. Document per line.| txt |
