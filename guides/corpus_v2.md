@@ -27,7 +27,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 
 
 ## New corpora
-| Sources  |   Status | Level | GB text |
+| Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
 | Government Documents -2021  | Large collection parsed directly from xhtml. Should just be copied over.| 0| ? |
 | Parliament Documents -2021  | This needs to be followed up. | 0| ? |
