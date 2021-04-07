@@ -22,7 +22,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Books OCR 1814-2021| In the first version we did delete all books OCRed before 01.01.2009. This is now rescanned in Tesseract.  | 0| More than 69.0 |
 | Newspapers pdf-delivered 2008-2021| The last years several newspapers have been delivered as pdf to the library. The quality of these are a lot higher than the OCRed material. We are currently parsing these and using the pdf version if possible. We are using the PLM-list to determine if the newspapers are pdf-delivered. | 0 | Approx 20.0 |
 | Newspapers OCR 1960-2021|  In v1 only 1961,1971,1981,1998-2007 from microfilm was included. We are now downloading a much larger number of newspapers. We are yet to decide exactly the starting date here. | 0| Much more than 1.8 |
-| Periodicals OCR 2010-2021 |  These are tricky since the quality varies a lot. We are considering if we are going to reprocess this to increase quality and size. These are now being reOCRed. |0 | More than 1.9 |
+| Periodicals OCR 2010-2021 |  These are tricky since the quality varies a lot. We are now reprocessing this to increase quality and size.  |0 | More than 1.9 |
 | Legal Collection 1814-2021 (Lovdata CD/DVD) |  We have gotten an extended version from Lovdata. This one is larger but will not be possible to redistribute. Not yet parsed. | 0| More than 0.4|
 
 
