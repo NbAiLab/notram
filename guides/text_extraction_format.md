@@ -27,7 +27,7 @@ Specification for the internal format used when extracting text from OCR documen
 "doc_type": "newspaper" # The type of material. Newspaper or book
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. 
-"language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Set to N/A for newspapers since it is not reported in METS/ALTO
+"language_reported": "nob" #3-letter language code. nob for Bokmål, nno for Nynorsk and no for unspecified Norwegian. Set to N/A for newspapers since it is not reported in METS/ALTO
 "language_detected": "nob" #3-letter language code
 "docworks_version": "6.5-1.28" #Text reported in METS/ALTO
 "abbyy_version": "8.1" #Text reported in METS/ALTO
@@ -45,7 +45,7 @@ Specification for the internal format used when extracting text from OCR documen
 ```bash
 "id": "wikipedia_nob_007" # Typically referring to line number in the original source. Can contain letters.
 "doc_type": "wikipedia" # The type of material. Newspaper or book
-"language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Set to N/A if not specified.
+"language_reported": "nob" #3-letter language code. nob for Bokmål, nno for Nynorsk and no for unspecified Norwegian. Set to N/A if not specified.
 "language_detected": "nob" #3-letter language code. Can be set to N/A or dropped if this is not done.
 "paragraphs":   "paragraph_id": "1" #Integer. Starting on 0. Counted during processing.
                 "text": "text goes here" #utf8-encoded-text
