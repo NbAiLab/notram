@@ -11,7 +11,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Newspapers Online NNO -2019 |  Ready in jsonl-format.  | 2 | 0.3 |
 | Common Crawl OSCAR NOB -2020 |  Ready in jsonl-format. | 2 | 4.9 |
 | Common Crawl OSCAR NNO -2020 |  Ready in jsonl-format. | 2 | 0.1 |
-| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 0 | 5.1 |
+| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 1 | 5.1 |
 | Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Ready in jsonl-format. |2 | 0.6 |
 | Lovdata CD -2005 |  Copied from v1 | 1 | 0.4 |
 
@@ -37,7 +37,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | MC4  | We are discussing whether to add more MC4 data here| 0| ? |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
 |   | - Norwegian | 2| 50.0 |
-|   | - Danish | (2) | 48.0  |
+|   | - Danish | 2 | 48.0  |
 |   | - Swedish | (2) | 78.0  |
 |   | - English | (2) | 301.0 |
 
