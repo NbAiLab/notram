@@ -13,7 +13,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Common Crawl OSCAR NNO -2020 |  Ready in jsonl-format. | 2 | 0.1 |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 0 | 5.1 |
 | Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Ready in jsonl-format. |2 | 0.6 |
-| Lovdata CD |  Copied from v1 | 1 | 0.4 |
+| Lovdata CD -2005 |  Copied from v1 | 1 | 0.4 |
 
 
 ## Corpora updated since v1
