@@ -7,8 +7,8 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | -------- |   :-----|   -----:| -----:|
 | Wikipedia NOB -2019  | Ready in jsonl-format. | 2| 0.9 |
 | Wikipedia NNO -2019 | Ready in jsonl-format. | 2 | 0.2 |
-| Newspapers Online NOB -2019 | Should be copied from v1 to v2.| 0 | 4.0 |
-| Newspapers Online NNO -2019 |  Should be copied from v1 to v2.| 0 | 0.3 |
+| Newspapers Online NOB -2019 | Ready in jsonl-format. | 2 | 5.0 |
+| Newspapers Online NNO -2019 |  Ready in jsonl-format.  | 2 | 0.3 |
 | Common Crawl OSCAR NOB -2020 |  Ready in jsonl-format. | 2 | 4.9 |
 | Common Crawl OSCAR NNO -2020 |  Ready in jsonl-format. | 2 | ? |
 | Parliament Documents OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 0 | 5.1 |
@@ -34,8 +34,12 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. Needs to be reparsed with the latest version of mupdf.| 0| ? |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
-| CC-100  | CC-100: Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. Downloaded. | 1| 13.0 |
 | MC4  | We are discussing whether to add more MC4 data here| 0| ? |
+| CC-100  | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/.  | |  |
+| CC-100  | - Norwegian | (2)| 50.0 |
+| CC-100  | - Danish | (2) | 48.0  |
+| CC-100  | - Swedish | (2) | 78.0  |
+| CC-100  | - English | (2) | 301.0 |
 
 
 
