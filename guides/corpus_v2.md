@@ -36,7 +36,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
 | MC4  | We are discussing whether to add more MC4 data here| 0| ? |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
-|   | - Norwegian | (2)| 50.0 |
+|   | - Norwegian | 2| 50.0 |
 |   | - Danish | (2) | 48.0  |
 |   | - Swedish | (2) | 78.0  |
 |   | - English | (2) | 301.0 |
