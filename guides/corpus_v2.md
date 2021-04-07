@@ -49,7 +49,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | 0 | The file is not yet processed/downloaded. | - | 
 | 1 | Source files. For library files this is json-files, and the meta-information (OCR-quality) is used for next step processing. For the other files this is the raw downloaded file. In some cases, this step might be skipped. The main purpose of this level is to have an archive in case the original source disappears.| various |
 | 2 | Jsonl-format. Previously this was **P**aragraph**P**er**L**ine-files. Documents are here a single line in the jsonl-format.| jsonl |
-| 3 | Cleaned text. Text is cleaned and evaluated before this step. Paragraphs are removed. Articles up to 1000 words. Similar to level 2 jsonl-format, but no paragraphs exists.| jsonl |
+| 3 | Cleaned text. Text is cleaned and evaluated before this step. Each paragraph is deduplicated on file-level. Then newlines/paragraphs are removed. Articles no logner than 1000 words. Similar to level 2 jsonl-format, but no paragraphs exists.| jsonl |
 | 4 | Deduplicated and randomised text. All sources are mixed at this stage and duplicates removed. Document per line.| txt |
 | 5 | Sentence segmentation. A pre-trained [Spacy Model for Norwegian Bokmål] (https://spacy.io/models/nb) is used to segment sentences.| txt |
 | 6 | Tfrecords. Tfrecord-files are generated with various vocabularies and sequence lengths.| tfrecords |
