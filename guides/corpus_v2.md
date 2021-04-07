@@ -3,7 +3,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 
 
 ## Corpora unchanged from v1
-| Sources  |   Status | Level | GB text |
+| Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
 | Wikipedia NOB -2019  | Ready in jsonl-format. | 2| 0.9 |
 | Wikipedia NNO -2019 | Ready in jsonl-format. | 2 | 0.2 |
