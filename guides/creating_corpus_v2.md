@@ -21,4 +21,8 @@ script here
 ```bash
 python create_wikipedia_jsonl.py --doctype wikipedia --language_reported nno --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/wikipedia_nno/nno.wikipedia.json --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/wikipedia_nno.jsonl
 python create_wikipedia_jsonl.py --doctype wikipedia --language_reported nob --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/wikipedia_nob/nob.wikipedia.json --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/wikipedia_nob.jsonl
+python create_oscar_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/oscar/nn_dedup.txt --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/oscar_nno.jsonl --doctype oscar --language_reported nno
+python create_oscar_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/oscar/no_dedup.txt --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/oscar_nob.jsonl --doctype oscar --language_reported nob
+python create_publicreports_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/publicreports/ --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/public_reports.jsonl --doctype publicreport
+
 ````

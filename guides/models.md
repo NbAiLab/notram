@@ -432,11 +432,36 @@ Norwegian Uncased Model (07.03.2021)
 ## T6 BERT Norwegian Cased
 Following the same principle and training schedule as T4. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
+The POD-version is a bit simplified, where step 1 and 2 is together and a decaying learning rate. The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
+gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-03_06-25-01_581252_T6POD_BERT_base_norwegian_cased_decay/ctl_step_380000.ckpt-5
+
 ## T7 BERT Norwegian Uncased
 Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
+The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
+gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-28_19-36-06_145747_T7POD_BERT_base_norwegian_uncased_decay/ctl_step_380000.ckpt-10
+
+
+
 ## T8 BERT Scandinavian Uncased
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
+
+## T9 BERT Large Norwegian Uncased
+NOTE: Disregard model. Started with the wrong number of layers!
+
+First attempt at training a large Norwegian model on the v3-256 preempt pod. Basically using the settings from the 76 minutes article.
+
+The seq128 was run with a bs of 32k and a lr of 50e-4 decaying to 0 over 100.000 steps with a 10.000 step warmup. For the 512seq it was run for 6.000 steps with a bs of 8192 and a lr of 25e-4, also decaying to 0 and a warmup of 10.000 steps. Some instability during training, and it needed to be reinitiated a few times. 
+
+Final file is available here: gs://notram-east1-d/notram_v2/pretrain/runs/run_2021-03-31_18-43-35_029328_T9_BERT_large_norwegian_uncased/ctl_step_60000.ckpt-6. 
+Stats after 512seq: Train Step: 60000/60000  / loss = 1.9550302028656006  masked_lm_accuracy = 0.628962  lm_example_loss = 1.912292  next_sentence_accuracy = 0.984841  next_sentence_loss = 0.042739  lr = 0.000000
+
+## T10 Bert Large Long Norwegian Uncased
+Duplicating the T9 experiment but this time with the right model name. Doubling number of epochs. Because of instability in the training, the learning rate is reduced to 25e-4.
+
+
+## T11 BERT Norwegian Supercased
+Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
 
 # Training Set - Corpus1_128

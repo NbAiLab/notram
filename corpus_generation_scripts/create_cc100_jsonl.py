@@ -1,0 +1,67 @@
+####################################################################################
+# Create CC-100 from downloaded files. Just wraps it in jsonl
+# This corpus is formed as a document per line. No paragraphs.
+# Output is an UTF-8 file with one article per line
+####################################################################################
+
+import sys, glob, os, re, argparse
+import pandas as pd
+import jsonlines
+import ftfy
+from tqdm import tqdm
+
+def main(args):
+
+    #Read the file
+    
+    print('Starting to read text/csv file...')
+    artid = 0
+    myarticle = {}
+    myarticle['doctype'] = str(args.doctype)
+    myarticle['id'] = artid
+    myarticle['language_reported'] = args.language_reported
+    myarticle['paragraphs'] = [] 
+
+
+    with jsonlines.open(args.output_file, 'w') as writer:
+        with open(args.input_file) as f:
+            for n, line in tqdm(enumerate(f)): 
+                pid = 0
+                if line != "\n":
+                    p = {}
+                    p['paragraph_id'] = pid
+                    p['text'] = str(ftfy.fix_text(line.rstrip("\n")))
+                    myarticle['paragraphs'].append(p)
+                    pid += 1
+
+                else:
+                    writer.write(myarticle)
+                    artid += 1
+                    pid = 0
+                    myarticle = {}
+                    myarticle['doctype'] = str(args.doctype)
+                    myarticle['id'] = str(artid)
+                    myarticle['language_reported'] = str(args.language_reported)
+                    myarticle['paragraphs'] = [] 
+            
+            #Just writes the last article as well
+            writer.write(myarticle)
+
+
+    print(f'Saved file: {args.output_file}')
+    print(f'Total number of articles: {n}')
+
+def parse_args():
+    # Parse commandline
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--language_reported', required=True, type=str, help='Language reported. Can be nob, nno, no or N/A')
+    parser.add_argument('--doctype', required=True, type=str, help='For instance cc-100')
+    parser.add_argument('--input_file', required=True, type=str, help='Input file')
+    parser.add_argument('--output_file', required=True, type=str, help='Output file')
+    args = parser.parse_args()
+    return args
+    
+if __name__ == "__main__":
+    args = parse_args()
+    main(args)
+
