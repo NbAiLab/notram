@@ -13,6 +13,7 @@ Evaluating NoTram models from the National Library of Norway: NER and POS
 import argparse
 import logging
 import os
+import random
 import sys
 from dataclasses import dataclass
 from dataclasses import field
@@ -25,6 +26,8 @@ import pandas as pd
 import transformers
 # from datasets import ClassLabel
 from datasets import load_dataset
+from nltk.tokenize import word_tokenize
+from nltk.tokenize.treebank import TreebankWordDetokenizer
 from seqeval.metrics.sequence_labeling import accuracy_score as seq_accuracy_score
 from seqeval.metrics.sequence_labeling import f1_score as seq_f1_score
 from seqeval.metrics.sequence_labeling import precision_score as seq_precision_score
@@ -58,13 +61,49 @@ import wandb
 def printm(string):
     print(str(string))
 
+
+def supercase_token(token):
+    shift = "⇧"
+    caps = "⇪"
+    # Check if entire token is at least two characters and is entirely uppercased
+    if len(token) >= 2 and token == token.upper() and token[0].isalpha():
+        return token.lower() + caps
+    # Check if upper
+    elif token[0].isupper():
+        return token.lower() + shift
+    # If none of this is true, return original
+    else:
+        return token.lower()
+
+
+def supercase_text(text):
+    return TreebankWordDetokenizer().detokenize(
+        map(supercase_token, word_tokenize(text))
+    )
+
+
+def supercase(text, is_split_into_words=False):
+    supercase_func = supercase_token if is_split_into_words else supercase_text
+    if isinstance(text, str):
+        return supercase_func(text)
+    elif isinstance(text, list):
+        if all(isinstance(elem, list) for elem in text):
+            return [list(map(supercase_func, t)) for t in text]
+        else:
+            return list(map(supercase_func, text))
+    else:
+        return text
+
+
 # Tokenize all texts and align the labels with them.
 def tokenize_and_align_labels(
     tokenizer, examples, text_column_name, max_length, padding,
-    label_column_name, label_to_id, label_all_tokens
+    label_column_name, label_to_id, label_all_tokens, do_supercase=False
 ):
     tokenized_inputs = tokenizer(
-        examples[text_column_name],
+        supercase(
+            examples[text_column_name], is_split_into_words=True
+        ) if do_supercase else examples[text_column_name],
         max_length=max_length,
         padding=padding,
         truncation=True,
@@ -205,7 +244,7 @@ def sk_compute_metrics(pairs, label_list):
     return metrics
 
 
-def write_file(kind, metrics, output_dir):
+def write_file(kind, metrics, output_dir, save_artifact=False):
     output_file = output_dir / f"{kind}_results.txt"
     headers = []
     label_headers = []
@@ -231,23 +270,54 @@ def write_file(kind, metrics, output_dir):
                 data=[label_data], columns=label_headers
             )
         })
-    artifact = wandb.Artifact(kind, type='result')
-    artifact.add_file(str(output_file))
-    wandb.log_artifact(artifact)
+    if save_artifact:
+        artifact = wandb.Artifact(kind, type="result")
+        artifact.add_file(str(output_file))
+        wandb.log_artifact(artifact)
+
+
+def dataset_select(dataset, size):
+    dataset_len = len(dataset)
+    if size < 0 or size > dataset_len:
+        return dataset
+    elif size <= 1:  # it's a percentage
+        return dataset.select(range(int(size * dataset_len)))
+    else:  # it's a number
+        return dataset.select(range(int(size)))
 
 
 def main(args):
     # Set seed
-    set_seed(args.seed)
+    if args.run:
+        seed = random.randrange(10**3)
+    else:
+        seed = args.seed
+    set_seed(seed)
     # Run name
     model_name = args.model_name
     model_name = model_name[2:] if model_name.startswith("./") else model_name
     model_name = model_name[1:] if model_name.startswith("/") else model_name
-    run_name = f"{model_name}_{args.task_name}_{args.dataset_config or args.dataset_name}_e{str(args.num_train_epochs)}_lr{str(args.learning_rate)}_ws{str(args.warmup_steps)}_wd{str(args.weight_decay)}_s{str(args.seed)}".replace("/", "-")
+    run_name = f"{model_name}_{args.task_name}"
+    run_name = f"{run_name}_{args.dataset_config or args.dataset_name}"
+    run_name = run_name.replace("/", "-")
+    run_name = f"{run_name}_e{str(args.num_train_epochs)}"
+    run_name = f"{run_name}_lr{str(args.learning_rate)}"
+    run_name = f"{run_name}_ws{str(args.warmup_steps)}"
+    run_name = f"{run_name}_wd{str(args.weight_decay)}"
+    run_name = f"{run_name}_s{str(seed)}"
+    if args.max_length != 512:
+        run_name = f"{run_name}_seq{str(args.max_length)}"
+    if args.label_all_tokens:
+        run_name = f"{run_name}_labelall"
+    do_supercase = args.supercase or "supercased" in run_name
+    if do_supercase and "supercased" not in run_name:
+        run_name = f"{run_name}_supercased"
+    if args.run:
+        run_name = f"{run_name}_r{str(args.run)}"
     output_dir = Path(args.output_dir) / run_name
     # Tokenizer settings
     padding = args.task_name not in ("ner", "pos")  # default: False @param ["False", "'max_length'"] {type: 'raw'}
-    max_length = 512 #@param {type: "number"}
+    max_length = args.max_length #@param {type: "number"}
     # Training settings
     weight_decay = args.weight_decay  #@param {type: "number"}
     adam_beta1 = 0.9  #@param {type: "number"}
@@ -257,12 +327,18 @@ def main(args):
     save_total_limit = 1  #@param {type: "integer"}
     load_best_model_at_end = False  #@param {type: "boolean"}
     # wandb
-    wandb.init(name=run_name)
+    wandb.init(name=run_name, entity="nbailab")
+    wandb.log({
+        "seed": int(seed),
+    })
     # Loading Dataset
     print("\n\n#####################################")
     print(args.model_name)
     print(args.task_name)
     print(args.dataset_config)
+    train_split = args.dataset_split_train
+    test_split = args.dataset_split_test
+    validation_split = args.dataset_split_validation
     if ":" in args.dataset_name:
         dataset_name, dataset_config = args.dataset_name.split(":")
     else:
@@ -272,8 +348,8 @@ def main(args):
         dataset = load_dataset(dataset_name)
     else:
         dataset = load_dataset(dataset_name, dataset_config)
-    column_names = dataset["train"].column_names
-    features = dataset["train"].features
+    column_names = dataset[train_split].column_names
+    features = dataset[train_split].features
     if "tokens" in column_names:
         text_column_name = "tokens"
     elif "text" in column_names:
@@ -315,6 +391,16 @@ def main(args):
         use_fast=True,
         force_download=args.force_download,
     )
+    tokenizer_test_sentence = """
+    Denne gjengen håper at de sammen skal bidra til å gi kvinnefotballen i Kristiansand et lenge etterlengtet løft.
+    """.strip()
+    printm("""Tokenizer test""")
+    printm(f"> {tokenizer_test_sentence}")
+    if do_supercase:
+        tokenizer_test_sentence = supercase(tokenizer_test_sentence, args.task_name in ("pos", "ner"))
+    printm(tokenizer.tokenize(tokenizer_test_sentence))
+    printm(tokenizer(tokenizer_test_sentence).input_ids)
+    # Token tasks
     if args.task_name in ("pos", "ner"):
         model = AutoModelForTokenClassification.from_pretrained(
             args.model_name,
@@ -327,7 +413,8 @@ def main(args):
         tokenized_datasets = dataset.map(
             lambda examples: tokenize_and_align_labels(
                 tokenizer, examples, text_column_name, max_length, padding,
-                label_column_name, label_to_id, args.label_all_tokens),
+                label_column_name, label_to_id, args.label_all_tokens,
+                do_supercase),
             batched=True,
             load_from_cache_file=not args.overwrite_cache,
             num_proc=os.cpu_count(),
@@ -335,6 +422,7 @@ def main(args):
         # Data collator
         data_collator = DataCollatorForTokenClassification(tokenizer)
         compute_metrics = seq_compute_metrics
+    # Sequence tasks
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
             args.model_name,
@@ -346,7 +434,9 @@ def main(args):
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
             lambda examples: tokenizer(
-                examples[text_column_name],
+                supercase(
+                    examples[text_column_name], is_split_into_words=False
+                ) if do_supercase else examples[text_column_name],
                 max_length=max_length,
                 padding=padding,
                 truncation=True,
@@ -363,8 +453,22 @@ def main(args):
             padding=padding,
         )
         compute_metrics = sk_compute_metrics
+    train_dataset = dataset_select(
+        tokenized_datasets[train_split], args.max_train_size
+    )
+    test_dataset = dataset_select(
+        tokenized_datasets[test_split], args.max_test_size
+    )
+    validation_dataset = dataset_select(
+        tokenized_datasets[validation_split], args.max_validation_size
+    )
+    wandb.log({
+        "train_size": len(train_dataset),
+        "test_size": len(test_dataset),
+        "validation_size": len(validation_dataset),
+    })
     samples_per_batch = (
-        dataset["train"].shape[0] / args.train_batch_size
+        train_dataset.shape[0] / args.train_batch_size
     )
     total_steps = args.num_train_epochs * samples_per_batch
     warmup_steps = int(args.warmup_steps * total_steps)
@@ -372,13 +476,14 @@ def main(args):
         "total_steps": int(total_steps),
         "total_warmup_steps": warmup_steps
     })
-    do_eval = "validation" in tokenized_datasets
+    do_eval = validation_split in tokenized_datasets
+    do_test = test_split in tokenized_datasets
     training_args = TrainingArguments(
         output_dir=output_dir.as_posix(),
         overwrite_output_dir=args.overwrite_output_dir,
         do_train=True,
         do_eval=do_eval,
-        do_predict=True,
+        do_predict=do_test,
         per_device_train_batch_size=int(args.train_batch_size),
         per_device_eval_batch_size=int(args.eval_batch_size or args.train_batch_size),
         learning_rate=float(args.learning_rate),
@@ -390,7 +495,7 @@ def main(args):
         num_train_epochs=args.num_train_epochs,
         warmup_steps=warmup_steps,
         load_best_model_at_end=load_best_model_at_end,
-        seed=args.seed,
+        seed=seed,
         save_total_limit=save_total_limit,
         run_name=run_name,
         disable_tqdm=True,
@@ -400,44 +505,48 @@ def main(args):
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=tokenized_datasets["train"],
-        eval_dataset=tokenized_datasets["validation"] if do_eval else None,
+        train_dataset=train_dataset,
+        eval_dataset=validation_dataset if do_eval else None,
         tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=lambda pairs: compute_metrics(pairs, label_list),
     )
     train_result = trainer.train()
     trainer.save_model()  # Saves the tokenizer too for easy upload
-    write_file("train", train_result.metrics, output_dir)
+    write_file("train", train_result.metrics, output_dir, save_artifact=args.save_artifacts)
     # Need to save the state, since Trainer.save_model saves only the tokenizer with the model
     trainer.state.save_to_json(output_dir / "trainer_state.json")
     # Evaluation
     if do_eval:
         printm(f"**Evaluate**")
         results = trainer.evaluate()
-        write_file("eval", results, output_dir)
+        write_file("eval", results, output_dir, save_artifact=args.save_artifacts)
     # Tesing
-    printm("**Test**")
-    test_dataset = tokenized_datasets["test"]
-    predictions, labels, metrics = trainer.predict(test_dataset)
-    write_file("test", metrics, output_dir)
-    if args.task_name in ("ner", "pos"):
-        predictions = np.argmax(predictions, axis=2)
-        # Remove ignored index (special tokens)
-        true_predictions = [
-            [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
-            for prediction, label in zip(predictions, labels)
-        ]
-    else:
-        predictions = np.argmax(predictions, axis=1)
-        true_predictions = [
-            label_list[p] for (p, l) in zip(predictions, labels) if l != -100
-        ]
-    # Save predictions
-    output_test_predictions_file = os.path.join(output_dir, "test_predictions.txt")
-    with open(output_test_predictions_file, "a+") as writer:
-        for prediction in true_predictions:
-            writer.write(" ".join(prediction) + "\n")
+    if do_test:
+        printm("**Test**")
+        predictions, labels, metrics = trainer.predict(test_dataset)
+        write_file("test", metrics, output_dir, save_artifact=args.save_artifacts)
+        if args.task_name in ("ner", "pos"):
+            predictions = np.argmax(predictions, axis=2)
+            # Remove ignored index (special tokens)
+            true_predictions = [
+                [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
+                for prediction, label in zip(predictions, labels)
+            ]
+        else:
+            predictions = np.argmax(predictions, axis=1)
+            true_predictions = [
+                label_list[p] for (p, l) in zip(predictions, labels) if l != -100
+            ]
+        # Save predictions
+        output_test_predictions_file = os.path.join(output_dir, "test_predictions.txt")
+        output_test_predictions = "\n".join(" ".join(map(str, p)) for p in true_predictions)
+        with open(output_test_predictions_file, "a+") as writer:
+            writer.write(output_test_predictions)
+        if args.save_artifacts:
+            artifact = wandb.Artifact("predictions", type="result")
+            artifact.add_file(output_test_predictions_file)
+            wandb.log_artifact(artifact)
     # # Log the results
     # logfile = output_dir / "evaluation.csv"
     # # Check if logfile exist
@@ -465,6 +574,25 @@ if __name__ == "__main__":
         metavar='dataset_name', help='Dataset name. It might enforce a config if added after a semicolon: "conll2002:es". This will ignore dataset_config, useful when run in grid search')
     parser.add_argument('--dataset_config',
         metavar='dataset_config', help='Dataset config name')
+
+    parser.add_argument('--dataset_split_train', default="train",
+        metavar='dataset_split_train', help='Dataset train split name')
+    parser.add_argument('--dataset_split_test', default="test",
+        metavar='dataset_split_test', help='Dataset test split name')
+    parser.add_argument('--dataset_split_validation', default="validation",
+        metavar='dataset_split_validation', help='Dataset validation split name')
+
+    parser.add_argument('--max_train_size', type=float, default=-1.0,
+        metavar='max_train_size', help='Percentage of train dataset or number of rows to use')
+    parser.add_argument('--max_test_size', type=float, default=-1.0,
+        metavar='max_test_size', help='Percentage of test dataset or number of rows to use')
+    parser.add_argument('--max_validation_size', type=float, default=-1.0,
+        metavar='max_validation_size', help='Percentage of validation dataset or number of rows to use')
+
+    parser.add_argument('--supercase',
+        metavar='supercase', type=bool, default=False,
+        help='Supercase (lower case and add casing token) datasets',
+    )
     parser.add_argument('--task_name',
         metavar='task_name', default="ner",
         help='Task name (supported in the dataset), either ner or pos',
@@ -493,6 +621,10 @@ if __name__ == "__main__":
         metavar='seed', type=int, default=2021,
         help='Seed for the experiments',
     )
+    parser.add_argument('--run',
+        metavar='run', type=int,
+        help='Control variable for doing several runs of the same experiment. It will force random seeds even across the same set of parameters fo a grid search',
+    )
     parser.add_argument('--train_batch_size',
         metavar='train_batch_size', type=int, default=8,
         help='Batch size for training',
@@ -500,6 +632,10 @@ if __name__ == "__main__":
     parser.add_argument('--eval_batch_size',
         metavar='eval_batch_size', type=int,
         help='Batch size for evaluation. Defaults to train_batch_size',
+    )
+    parser.add_argument('--max_length',
+        metavar='max_length', type=int, default=512,
+        help='Maximum sequence length',
     )
     parser.add_argument('--learning_rate',
         metavar='learning_rate', type=str, default="3e-05",
@@ -515,11 +651,18 @@ if __name__ == "__main__":
     )
     parser.add_argument('--label_all_tokens',
         metavar='label_all_tokens', type=bool, default=False,
-        help='Label all tokens',
+        help=('Whether to put the label for one word on all tokens of '
+              'generated by that word or just on the one (in which case the '
+              'other tokens will have a padding index).'),
     )
     parser.add_argument('--force_download',
         metavar='force_download', type=bool, default=False,
         help='Force the download of model, tokenizer, and config',
     )
+    parser.add_argument('--save_artifacts',
+        metavar='save_artifacts', type=bool, default=False,
+        help='Save train, eval, and test files in Weight & Biases',
+    )
+
     args = parser.parse_args()
     main(args)

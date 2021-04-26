@@ -1,5 +1,6 @@
 name: NoTraM NER evaluation on Swedish, English, Spanish, Danish, and Finnish
 project: notram-eval-multi-ner
+entity: nbailab
 program: notram_eval.py
 command:
   - ${env}

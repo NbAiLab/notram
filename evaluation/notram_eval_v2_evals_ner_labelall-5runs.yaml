@@ -1,0 +1,50 @@
+project: notram-v2_evals-ner-labelall-5runs
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_micro
+  goal: maximize
+parameters:
+  dataset_name:
+    values: ["NbAiLab/norne:bokmaal"]  # "NbAiLab/norne:nynorsk", "swedish_ner_corpus", "conll2003", "conll2002:es", "dane", "finer"]
+  task_name:
+    value: "ner"  # ["ner", "pos"]
+  model_name:
+    values:
+    #- NbAiLab/nb-bert-base
+    - ./v2_evals/checkpoints/T10_BERT_large_norwegian_uncased
+    #- ./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay
+    #- ./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06
+    #- ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_decay
+    #- ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_2try
+    #- bert-base-multilingual-cased
+    #- ltgoslo/norbert
+    #values: ["./v2_evals/checkpoints/T10_BERT_large_norwegian_uncased"]
+    # values: ["./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay", "./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06"]
+    # values: ["NbAiLab/nb-bert-base", "bert-base-multilingual-cased", "ltgoslo/norbert"]
+  label_all_tokens:
+    value: true
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 3
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  run:
+    values: [1, 2, 3, 4, 5]

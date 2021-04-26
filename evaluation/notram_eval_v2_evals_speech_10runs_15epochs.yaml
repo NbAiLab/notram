@@ -1,0 +1,41 @@
+name: NoTraM v2 Parliamentary Speeches evaluation (10 runs, 15 epochs)
+project: notram-v2_evals-speech-10runs-15epochs
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_macro
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norwegian_parliament
+  task_name:
+    value: "speech"
+  model_name:
+    values:
+    - NbAiLab/nb-bert-base
+    - ./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06
+    - bert-base-multilingual-cased
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 15
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  run:
+    values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

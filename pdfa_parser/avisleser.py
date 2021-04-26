@@ -495,6 +495,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
         )
         for step, pdf in enumerate(bar))
     # bar.set_description("Done")
+    logger.info(f"Finished at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("Done!")
 
 
