@@ -39,7 +39,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 |   | - Norwegian | 2| 50.0 |
 |   | - Danish | 2 | 48.0  |
 |   | - Swedish | 2 | 78.0  |
-|   | - English | (2) | 301.0 |
+|   | - English | 2 | 301.0 |
 
 
 
