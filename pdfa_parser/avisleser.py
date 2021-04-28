@@ -168,7 +168,12 @@ def get_text_line(
     return chars, line_font
 
 
-def get_text(pages: List[LTPage], font: str, size: float) -> str:
+def get_text(
+    pages: List[LTPage],
+    font: str,
+    size: float,
+    page_break: Optional[str]=None,
+) -> str:
     text = ""
     for page_layout in pages:
         for box_id, element in enumerate(page_layout):
@@ -178,10 +183,17 @@ def get_text(pages: List[LTPage], font: str, size: float) -> str:
                     chars, last_font = get_text_line(text_line, line_number, font, size, last_font)
                     text = f"{text} {chars} "
                 text = f"{text}\n"
+        if page_break and text.strip():
+            text = f"{text}{page_break}"
     return text
 
 
-def get_unstructured_text(pages: List[LTPage], font: str, size: float) -> str:
+def get_unstructured_text(
+    pages: List[LTPage],
+    font: str,
+    size: float,
+    page_break: Optional[str]=None,
+) -> str:
     text = ""
     for element in get_text_containers(pages):
         last_font = ""
@@ -189,6 +201,8 @@ def get_unstructured_text(pages: List[LTPage], font: str, size: float) -> str:
             chars, last_font = get_text_line(text_line, line_number, font, size, last_font)
             text = f"{text} {chars} "
         text = f"{text}\n"
+        if page_break and text.strip():
+            text = f"{text}{page_break}"
     return text
 
 
@@ -197,6 +211,7 @@ def get_all_texts(
     line_margin: float=0.15,
     detect_vertical: bool=-0.8,
     boxes_flow: Optional[float]=None,
+    page_break: Optional[str]=None,
 ) -> str:
     laparams = LAParams(
         line_margin=line_margin,
@@ -206,7 +221,7 @@ def get_all_texts(
     )
     pages = list(extract_pages(filename, laparams=laparams))
     font, size, _ = get_most_frequent_and_largest_fonts(pages)
-    text = get_unstructured_text(pages, font, size)
+    text = get_unstructured_text(pages, font, size, page_break)
     if text.strip():
         return text, None
     with open(filename, 'rb') as file, io.StringIO() as buffer:
@@ -222,7 +237,21 @@ def get_all_texts(
     return text, html
 
 
-def reformat(text: str, single_hyphens: bool=True) -> str:
+def reformat(
+    text: str,
+    single_hyphens: bool=True,
+    page_break: Optional[str]=None,
+) -> str:
+    if not page_break:
+        return reformat_page(text, single_hyphens=single_hyphens)
+    else:
+        return f"\n{page_break}\n".join(
+            reformat_page(text_page.strip(), single_hyphens=single_hyphens)
+            for text_page in text.split(page_break)
+        )
+
+
+def reformat_page(text: str, single_hyphens: bool=True) -> str:
     text = SPACES_RE.sub(r" ", text)
     if single_hyphens:
         text = HYPHENS_RE.sub(r"\1\2", text)
@@ -261,6 +290,7 @@ def get_text_pdfminer(
     boxes_flow: Optional[float]=None,
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
+    page_break: Optional[str]=None,
 ) -> str:
     text = ""
     html = None
@@ -272,7 +302,7 @@ def get_text_pdfminer(
     )
     pages = list(extract_pages(filename, laparams=laparams))
     font, size, _ = get_most_frequent_and_largest_fonts(pages)
-    text = get_text(pages, font, size)
+    text = get_text(pages, font, size, page_break)
     if len(text.strip()) == 0 and all_texts:
         text, html = get_all_texts(
             filename,
@@ -280,7 +310,7 @@ def get_text_pdfminer(
             boxes_flow=boxes_flow,
             detect_vertical=detect_vertical,
         )
-    return reformat(text).strip(), html
+    return reformat(text, page_break=page_break).strip(), html
 
 
 def get_text_fitz(
@@ -291,6 +321,7 @@ def get_text_fitz(
     boxes_flow: Optional[float]=None,
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
+    page_break: Optional[str]=None,
 ) -> str:
     faulthandler.enable()
     # Disable ascender/descender values as per
@@ -359,7 +390,9 @@ def get_text_fitz(
                 text.append(" ")
             text.append("\n")
         text.append("\n")
-    text = reformat("".join(text), single_hyphens=False)
+        if page_break and "".join(text).strip():
+            text.append(page_break)
+    text = reformat("".join(text), page_break=page_break, single_hyphens=False)
     if "-#" in text:
         text = text.replace("-#", "-")
     return text, None
@@ -378,6 +411,7 @@ def get_text_from_pdf(
     skip_empty: Optional[bool]=True,
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
+    page_break: Optional[str]=None,
 ) -> NoReturn:
     """Writes PDFs to text files"""
     logger = get_logger()
@@ -401,7 +435,7 @@ def get_text_from_pdf(
         with time_limit(args.timeout, description=description):
             text, html = get_text(
                 filename, line_margin, detect_vertical, all_texts, boxes_flow,
-                same_sizes, occurrence_rate
+                same_sizes, occurrence_rate, page_break
             )
         if not text and skip_empty:
             dest = dest / "empty"
@@ -454,6 +488,19 @@ def generate_paths(paths: List, progress_file: str) -> Path:
     #         yield path
 
 
+def get_page_break(page_break: str) -> str:
+    if page_break == "\\f":
+        return "\f"
+    elif page_break == "\\r":
+        return "\r"
+    elif page_break == "\\n":
+        return "\n"
+    elif page_break == "\\t":
+        return "\t"
+    else:
+        return page_break
+
+
 def main(args: argparse.ArgumentParser) -> NoReturn:
     """Main function"""
     logger = get_logger()
@@ -463,6 +510,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
     logger.info(f"Writing texts: {args.output_dir}")
     logger.info(f"Texts will{' NOT' if args.no_overwrite else ''} be overwritten")
     logger.info(f"All texts will{' NOT' if args.no_all_texts else ''} be extracted")
+    logger.info(f"Page breaks are {'not added' if not args.page_break else f'{args.page_break}'}")
     logger.info(f"Progress file: {args.progress_file}")
     logger.info(f"Processing time out of {args.timeout} seconds")
     logger.info(
@@ -492,6 +540,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
             skip_empty=args.skip_empty,
             same_sizes=args.same_sizes,
             occurrence_rate=args.occurrence_rate or None,
+            page_break=get_page_break(args.page_break) if args.page_break else None,
         )
         for step, pdf in enumerate(bar))
     # bar.set_description("Done")
@@ -551,6 +600,10 @@ if __name__ == '__main__':
              'pair is not at least OCCURRENCE_RATE percent [0.0 - 1.0] of the '
              'characters in a page. If not passed, only the most frequent pair '
              'of font family and size will be used'
+    )
+    parser.add_argument('--page_break',
+        default="", type=str,
+        help='Add a PAGE_BREAK character between pages.'
     )
     parser.add_argument('--skip_empty',
         action="store_true",
