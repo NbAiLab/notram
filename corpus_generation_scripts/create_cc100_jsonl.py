@@ -17,7 +17,7 @@ def main(args):
     print('Starting to read text/csv file...')
     artid = 0
     myarticle = {}
-    myarticle['doctype'] = str(args.doctype)
+    myarticle['doc_type'] = str(args.doc_type)
     myarticle['id'] = artid
     myarticle['language_reported'] = args.language_reported
     myarticle['paragraphs'] = [] 
@@ -25,8 +25,8 @@ def main(args):
 
     with jsonlines.open(args.output_file, 'w') as writer:
         with open(args.input_file) as f:
+            pid=0
             for n, line in tqdm(enumerate(f)): 
-                pid = 0
                 if line != "\n":
                     p = {}
                     p['paragraph_id'] = pid
@@ -39,7 +39,7 @@ def main(args):
                     artid += 1
                     pid = 0
                     myarticle = {}
-                    myarticle['doctype'] = str(args.doctype)
+                    myarticle['doc_type'] = str(args.doc_type)
                     myarticle['id'] = str(artid)
                     myarticle['language_reported'] = str(args.language_reported)
                     myarticle['paragraphs'] = [] 
@@ -55,7 +55,7 @@ def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser()
     parser.add_argument('--language_reported', required=True, type=str, help='Language reported. Can be nob, nno, no or N/A')
-    parser.add_argument('--doctype', required=True, type=str, help='For instance cc-100')
+    parser.add_argument('--doc_type', required=True, type=str, help='For instance cc100_no')
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')
     args = parser.parse_args()
