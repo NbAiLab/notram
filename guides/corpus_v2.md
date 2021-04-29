@@ -34,7 +34,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Målfrid Collection -2021  | Large collection collected by Språkbanken. We will be using the mupdf-version. | 2| 19.0 |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
-| MC4  | We are discussing whether to add more MC4 data here| 0| ? |
+| MC4  | We waiting for email regarding if it is possible to get more MC4 data from other places.| 0| ? |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
 |   | - Norwegian | 2| 50.0 |
 |   | - Danish | 2 | 48.0  |
