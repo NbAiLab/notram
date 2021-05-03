@@ -9,6 +9,7 @@ Specification for the internal format used when extracting text from OCR documen
 "publish_date": "20190101" # Date for publication. For books this is set to 0101 for the publication year
 "language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Only reported for books in METS/ALTO. 
 "language_detected": "nob" #3-letter language code
+"tesseract_version": "4.1.1" #If Tesseract is used for scanning
 "docworks_version": "6.5-1.28" #Text reported in METS/ALTO
 "abbyy_version": "8.1" #Text reported in METS/ALTO
 "document_word_confidence": "0.9" #Float 0-1. Average calculated while processing. 
