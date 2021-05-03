@@ -3,7 +3,7 @@ Specification for the internal format used when extracting text from OCR documen
 
 ## Book example (one for each book)
 ```bash
-"id": "digibok_2006080900001" # The original digibook id
+"id": "digibok_2006080900001" # The original digibook id - have to be unique for each jsonl line
 "doc_type": "book" # The type of material. Newspaper or book
 "scan_date": "20191224" #Date for scanning in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. For books this is set to 0101 for the publication year
@@ -13,7 +13,7 @@ Specification for the internal format used when extracting text from OCR documen
 "abbyy_version": "8.1" #Text reported in METS/ALTO
 "document_word_confidence": "0.9" #Float 0-1. Average calculated while processing. 
 "document_word_98_confidence": "0.56" #Float 0-1. Percentage above 0.98 confidence. Calculated while processing 
-"page": "1" #Page number - From in METS/ALTO - If documents is divided into one document per page
+"page": "1" #Page number - From in METS/ALTO - If documents are divided into one document per page
 "paragraphs":   "paragraph_id": "1" #Integer. Starting on 0. Counted during processing.
                 "page": "1" #Page number - From in METS/ALTO - if entire book is one document
                 "block": "1" #Block number on current page - From in METS/ALTO
