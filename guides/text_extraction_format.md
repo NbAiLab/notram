@@ -15,7 +15,7 @@ Specification for the internal format used when extracting text from OCR documen
 "document_word_98_confidence": "0.56" #Float 0-1. Percentage above 0.98 confidence. Calculated while processing 
 "page": "1" #Page number - From in METS/ALTO - If documents is divided into one document per page
 "paragraphs":   "paragraph_id": "1" #Integer. Starting on 0. Counted during processing.
-                "page": "1" #Page number - From in METS/ALTO
+                "page": "1" #Page number - From in METS/ALTO - if entire book is one document
                 "block": "1" #Block number on current page - From in METS/ALTO
                 "confidence": "0.36" #Float 0-1. From METS/ALTO
                 "text": "text goes here" #utf8-encoded-text
