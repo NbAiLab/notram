@@ -1,4 +1,4 @@
-#!python
+#!/opt/anaconda3/bin/python
 import os
 import jsonlines
 import argparse
