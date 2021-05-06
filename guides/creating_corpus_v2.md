@@ -25,4 +25,8 @@ python create_oscar_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/c
 python create_oscar_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/oscar/no_dedup.txt --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/oscar_nob.jsonl --doctype oscar --language_reported nob
 python create_publicreports_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/publicreports/ --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/public_reports.jsonl --doctype publicreport
 
+python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/government/xhtml/nb/ --language_reported nbo --doc_type government --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/government_nbo.jsonl
+python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/government/xhtml/nn/ --language_reported nno --doc_type government --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/government_nno.jsonl
+python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/government/xhtml/en/ --language_reported en --doc_type government --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/government_en.jsonl
+
 ````
