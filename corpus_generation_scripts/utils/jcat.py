@@ -17,7 +17,7 @@ def add_bool_arg(parser, name, default=False, help=''):
 def print_header(mydict):
     hl = "---------"
     for k in mydict.keys():
-        if k != "paragraphs":
+        if k != "paragraphs" and k!= "text":
             hl += k+"="+str(mydict.get(k,"N/A"))+"---"
     print(hl+"------")
 
