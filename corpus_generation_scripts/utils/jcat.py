@@ -44,7 +44,9 @@ def main(args):
                                 print_header(p)
 
                             print(f'{p.get("text","[EMPTY]")}\n')
-
+            
+            elif count>int(args.number_of_articles):
+                break
 
 def parse_args():
     parser = ArgParseDefault()
