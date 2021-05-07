@@ -30,7 +30,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
 | Government Documents NOB -2021  | Large collection parsed directly from xhtml.| 2| 0.7 |
-| Government Documents NNO -2021  | Large collection parsed directly from xhtml. Should just be copied over.| 2| 0.1 |
+| Government Documents NNO -2021  | As above, but in Nynorsk. | 2| 0.1 |
 | Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 19.0 |
 | Idun Collection -2019  | Downloaded Idun data| 0| ? |
 | Norart Collection -2019  | Downloaded Norart data| 0| ? |
