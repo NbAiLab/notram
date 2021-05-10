@@ -19,9 +19,17 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Corpora updated since v1
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Books OCR 1814-2021| In the first version we did delete all books OCRed before 01.01.2009. This is now rescanned in Tesseract.  | (2) | More than 69.0 |
-| Newspapers pdf-delivered 2008-2021| The last years several newspapers have been delivered as pdf to the library. The quality of these are a lot higher than the OCRed material. We are currently parsing these and using the pdf version if possible. We are using the PLM-list to determine if the newspapers are pdf-delivered. | (2) | Approx 20.0 |
-| Newspapers OCR 1960-2021|  In v1 only 1961,1971,1981,1998-2007 from microfilm was included. We are now downloading a much larger number of newspapers. We are yet to decide exactly the starting date here. | (2)| Much more than 1.8 |
+| Books OCR 1814-2021 DocWorks| All books OCRed with DocWorks after 01.01.2009. Quality of DocWorks prior to this data is too low to be included. | 2 | 144.0 |
+| Books OCR 1814-2021 Tesseract| Bookes OCRed with Tesseract in 2021. ReOCR of the DocWork-files with scan date prior to 01.01.2009.  | 2 | 40.0 |
+| Newspapers 1940-1949 | Docworks OCR-scanned newspapers | 2 | 42.0 |
+| Newspapers 1950-1959 | Docworks OCR-scanned newspapers | 2 | 7.4 |
+| Newspapers 1960-1969 | Docworks OCR-scanned newspapers | 2 | 30.0 |
+| Newspapers 1970-1979 | Docworks OCR-scanned newspapers | 2 | 18.0 |
+| Newspapers 1980-1989 | Docworks OCR-scanned newspapers | 2 | 15.0 |
+| Newspapers 1990-1999 | Docworks OCR-scanned newspapers | 2 | 20.0 |
+| Newspapers 2000-2010 | Mainly Docworks OCR-scanned newspapers | 2 | 51.4 |
+| Newspapers 2010-2019 | Mix of OCR-scanned and pdf-delivered newspapers | 2 | 78.0 |
+| Newspapers 2020-2019 | Mainly pdf-delivered newspapers| 2 | 10.0 |
 | Lovdata Transfer |  We have gotten an extended version of the data from Lovdata. This one is larger but will not be possible to redistribute without agreement with Lovdata. The document is on paragraph level. Transferred but not parsed. | 2 | 3.8|
 
 
