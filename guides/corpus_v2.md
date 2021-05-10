@@ -21,15 +21,15 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | -------- |   :-----|   -----:| -----:|
 | Books OCR 1814-2021 DocWorks| All books OCRed with DocWorks after 01.01.2009. Quality of DocWorks prior to this data is too low to be included. | 2 | 144.0 |
 | Books OCR 1814-2021 Tesseract| Bookes OCRed with Tesseract in 2021. ReOCR of the DocWork-files with scan date prior to 01.01.2009.  | 2 | 40.0 |
-| Newspapers 1940-1949 | - Docworks OCR-scanned newspapers | 2 | 42.0 |
-| Newspapers 1950-1959 | Docworks OCR-scanned newspapers | 2 | 7.4 |
-| Newspapers 1960-1969 | Docworks OCR-scanned newspapers | 2 | 30.0 |
-| Newspapers 1970-1979 | Docworks OCR-scanned newspapers | 2 | 18.0 |
-| Newspapers 1980-1989 | Docworks OCR-scanned newspapers | 2 | 15.0 |
-| Newspapers 1990-1999 | Docworks OCR-scanned newspapers | 2 | 20.0 |
-| Newspapers 2000-2010 | Mainly Docworks OCR-scanned newspapers | 2 | 51.4 |
-| Newspapers 2010-2019 | Mix of OCR-scanned and pdf-delivered newspapers | 2 | 78.0 |
-| Newspapers 2020-2019 | Mainly pdf-delivered newspapers| 2 | 10.0 |
+| Newspapers|  1940-1949 - Docworks OCR-scanned newspapers | 2 | 42.0 |
+| | 1950-1959 - Docworks OCR-scanned newspapers | 2 | 7.4 |
+| | 1960-1969 - Docworks OCR-scanned newspapers | 2 | 30.0 |
+|  | 1970-1979 - Docworks OCR-scanned newspapers | 2 | 18.0 |
+|   | 1980-1989 - Docworks OCR-scanned newspapers | 2 | 15.0 |
+| | 1990-1999 - Docworks OCR-scanned newspapers | 2 | 20.0 |
+|  | 2000-2010 - Mainly Docworks OCR-scanned newspapers | 2 | 51.4 |
+|  | 2010-2019 - Mix of OCR-scanned and pdf-delivered newspapers | 2 | 78.0 |
+|  | 2020-2019 - Mainly pdf-delivered newspapers| 2 | 10.0 |
 | Lovdata Transfer |  We have gotten an extended version of the data from Lovdata. This one is larger but will not be possible to redistribute without agreement with Lovdata. The document is on paragraph level. Transferred but not parsed. | 2 | 3.8|
 | Government Documents NOB -2021  | Large collection with exceptional high quality parsed directly from xhtml.| 2| 0.7 |
 | Government Documents NNO -2021  | As above, but in Nynorsk. | 2| 0.1 |
