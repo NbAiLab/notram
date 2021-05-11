@@ -54,6 +54,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Unlikely to be included
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
+| Twitter archive | An attempt at trying to extract Norwegian tweets from the Internet Archive. | 0| 0 |
 | MC4  | We waiting for email regarding if it is possible to get more MC4 data from other places.| 0| 0 |
 | Social Media  | SAB is waiting for reply to email from Twitter. Not likely at the moment.| 0| 0 |
 | Parliament Documents -2021  | This needs to be followed up. SAB. | 0| 0 |
