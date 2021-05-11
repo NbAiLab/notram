@@ -135,7 +135,8 @@ def tokenize_and_align_labels(
 
 
 # Metrics
-def seq_compute_metrics(pairs, label_list):
+def token_compute_metrics(pairs, label_list):
+    """Token metrics based on seqeval"""
     raw_predictions, labels = pairs
     predictions = np.argmax(raw_predictions, axis=2)
 
@@ -209,7 +210,8 @@ def seq_compute_metrics(pairs, label_list):
     return metrics
 
 
-def sk_compute_metrics(pairs, label_list):
+def sequence_compute_metrics(pairs, label_list):
+    """Sequence metrics based on sklearn"""
     raw_predictions, labels = pairs
     predictions = np.argmax(raw_predictions, axis=1)
     metrics = {
@@ -421,7 +423,7 @@ def main(args):
         )
         # Data collator
         data_collator = DataCollatorForTokenClassification(tokenizer)
-        compute_metrics = seq_compute_metrics
+        compute_metrics = token_compute_metrics
     # Sequence tasks
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
@@ -452,7 +454,7 @@ def main(args):
             max_length=max_length,
             padding=padding,
         )
-        compute_metrics = sk_compute_metrics
+        compute_metrics = sequence_compute_metrics
     train_dataset = dataset_select(
         tokenized_datasets[train_split], args.max_train_size
     )
