@@ -1,6 +1,6 @@
 ####################################################################################
-# Create Oscar from downloaded files. Just wraps it in jsonl
-# This corpus is formed as a document per line. No paragraphs.
+# Covert the transferred Lovdata corpus to jsonl.
+# This corpus is formed as a document per line. All paragraphs are randomised with no meta information
 # Output is an UTF-8 file with one article per line
 ####################################################################################
 
@@ -20,7 +20,7 @@ def main(args):
         i = 0
         for line in f: 
             myarticle = {}
-            myarticle['doc_type'] = str(args.doctype)
+            myarticle['doc_type'] = str(args.doc_type)
             myarticle['id'] = i
             myarticle['language_reported'] = str(args.language_reported)
             myarticle['paragraphs'] = [] 
@@ -45,7 +45,7 @@ def main(args):
 def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser()
-    parser.add_argument('--language_reported', required=True, type=str, help='Language reported')
+    parser.add_argument('--language_reported', required=False, default="N/A",type=str, help='Language reported')
     parser.add_argument('--doc_type', required=True, type=str, help='Doctype')
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')

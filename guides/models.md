@@ -432,19 +432,55 @@ Norwegian Uncased Model (07.03.2021)
 ## T6 BERT Norwegian Cased
 Following the same principle and training schedule as T4. However, this time we are using the Huggingface tokenizer for creating the dataset.
 
+```bash
+Train Step: 3800000/3800000  / loss = 1.901314377784729  masked_lm_accuracy = 0.636563  lm_example_loss = 1.864438  next_sentence_accuracy = 0.987370  next_sentence_loss = 0.036877  lr = 0.000000
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-21-39_382880_T6_noTram2_BERT_norwegian_cased/ctl_step_3800000.ckpt-6
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-21-39_382880_T6_noTram2_BERT_norwegian_cased/pretrained/bert_model.ckpt-6
+Training Summary: {'total_training_steps': 3800000, 'train_loss': 1.901314377784729}
+Finished training after 7021.7 min
+Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-21-39_382880_T6_noTram2_BERT_norwegian_cased/run_logs.json...
+Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-21-39_382880_T6_noTram2_BERT_norwegian_cased/bert_config.json...
+```
+
 The POD-version is a bit simplified, where step 1 and 2 is together and a decaying learning rate. The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
 gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-03_06-25-01_581252_T6POD_BERT_base_norwegian_cased_decay/ctl_step_380000.ckpt-5
 
 ## T7 BERT Norwegian Uncased
 Following the same principle and training schedule as T5. However, this time we are using the Huggingface tokenizer for creating the dataset.
-
+```bash
+Train Step: 3800000/3800000  / loss = 1.8729134798049927  masked_lm_accuracy = 0.638725  lm_example_loss = 1.835060  next_sentence_accuracy = 0.987057  next_sentence_loss = 0.037853  lr = 0.000000                                                                                                                                                  
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-47-13_534396_T7_noTram2_BERT_norwegian_uncased/ctl_step_3800000.ckpt-6
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-47-13_534396_T7_noTram2_BERT_norwegian_uncased/pretrained/bert_model.ckpt-6
+Training Summary:{'total_training_steps': 3800000, 'train_loss': 1.8729134798049927}
+Finished training after 7015.5 min
+Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-47-13_534396_T7_noTram2_BERT_norwegian_uncased/run_logs.json...
+Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-47-13_534396_T7_noTram2_BERT_norwegian_uncased/bert_config.json...
+```
 The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
 gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-03-28_19-36-06_145747_T7POD_BERT_base_norwegian_uncased_decay/ctl_step_380000.ckpt-10
 
 
-
 ## T8 BERT Scandinavian Uncased
 Following the same principle and training schedule as T4 and T5. However, it uses the 50.500 vocab created by KBS based on Oscar of sv+no+dk. Swedish is overrrepresented in this corpus. The reason for training the model is to get an idea if this affects training significantly.
+```bash
+Train Step: 3800000/3800000  / loss = 1.912283182144165  masked_lm_accuracy = 0.627946  lm_example_loss = 1.873785  next_sentence_accuracy = 0.986276  next_sentence_loss = 0.038499  lr = 0.000000                                                                                                                                                   
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-42-03_908002_T8_noTram2_scandinavian_uncased/ctl_step_3800000.ckpt-10
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-42-03_908002_T8_noTram2_scandinavian_uncased/pretrained/bert_model.ckpt-10
+Training Summary:{'total_training_steps': 3800000, 'train_loss': 1.912283182144165}
+Finished training after 11694.6 min
+Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-42-03_908002_T8_noTram2_scandinavian_uncased/run_logs.json...
+Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-20_13-42-03_908002_T8_noTram2_scandinavian_uncased/bert_config.json...
+```
+
+The trained POD-version of the model is available here. Here the batch sizes are 32k and 5120:
+```bash
+Train Step: 380000/380000  / loss = 1.9606670141220093  masked_lm_accuracy = 0.620199  lm_example_loss = 1.917404  next_sentence_accuracy = 0.984572  next_sentence_loss = 0.043262  lr = 0.000000                                                                                                                       Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-19_07-16-40_520813_T8POD_BERT_base_scandinavian_uncased_decay/ctl_step_380000.ckpt-10
+Saving model as TF checkpoint: gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-19_07-16-40_520813_T8POD_BERT_base_scandinavian_uncased_decay/pretrained/bert_model.ckpt-10
+Training Summary:{'total_training_steps': 380000, 'train_loss': 1.9606670141220093}
+Finished training after 1333.3 min
+Writing final training log to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-19_07-1640_520813_T8POD_BERT_base_scandinavian_uncased_decay/run_logs.json...
+Writing BERT config to gs://notram-west4-a/notram_v2/pretrain/runs/run_2021-04-19_07-16-40_520813_T8POD_BERT_base_scandinavian_uncased_decay/bert_config.json...
+```
 
 ## T9 BERT Large Norwegian Uncased
 NOTE: Disregard model. Started with the wrong number of layers!
