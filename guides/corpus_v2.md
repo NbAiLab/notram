@@ -5,15 +5,15 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Corpora unchanged from v1
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Wikipedia NOB -2019  | Ready in jsonl-format. | 2| 0.9 |
-| Wikipedia NNO -2019 | Ready in jsonl-format. | 2 | 0.2 |
-| Newspapers Online NOB -2019 | Ready in jsonl-format. | 2 | 5.0 |
-| Newspapers Online NNO -2019 |  Ready in jsonl-format.  | 2 | 0.3 |
-| Common Crawl OSCAR NOB -2020 |  Ready in jsonl-format. | 2 | 4.9 |
-| Common Crawl OSCAR NNO -2020 |  Ready in jsonl-format. | 2 | 0.1 |
-| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Should be copied from v1 to v2. | 1 | 5.1 |
-| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Ready in jsonl-format. |2 | 0.6 |
-| Lovdata CD -2005 |  Copied from v1 | 2 | 0.4 |
+| Wikipedia NOB -2019  | Wikipediadump downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file. This is the extracted bokmål version.| 2| 0.9 |
+| Wikipedia NNO -2019 | Same as above. This is the extracted nynorsk version.| 2 | 0.2 |
+| Newspapers Online NOB -2019 | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | 2 | 5.0 |
+| Newspapers Online NNO -2019 |  A Norwegian Newspaper Corpus with texts from online nynorsk newspapers between 1998 and 2019 collected by Språkbanken.  | 2 | 0.3 |
+| Common Crawl OSCAR NOB -2020 |  OSCAR or Open Super-large Crawled Aggregated coRpus is a huge multilingual corpus obtained by language classification and filtering of the Common Crawl corpus using the goclassy architecture. | 2 | 4.9 |
+| Common Crawl OSCAR NNO -2020 |  Same as above in nynorsk.| 2 | 0.1 |
+| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Collection of documents from the Norwegian Parliament. Part of the collection at the National Library. | 1 | 5.1 |
+| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Collection of public report from the National Library. |2 | 0.6 |
+| Lovdata CD -2005 |  CD/DVD last published in 2005. Contains a very complete collection of legal resources, including laws, verdicts, NOUs etc. This is now totally out of copyright. | 2 | 0.4 |
 
 
 ## Corpora updated since v1
