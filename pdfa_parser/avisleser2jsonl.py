@@ -36,6 +36,9 @@ def main(args):
     logger.info(f"Started at {NOW.strftime('%Y-%m-%d %H:%M:%S')}")
     base = args.input_dir
     output = args.output_dir
+    logger.info(f"Ensure ASCII is set to {args.ensure_ascii}")
+    logger.info(f"Input dir is '{args.input_dir}/{args.input_dir_glob}'")
+    logger.info(f"Output dir is '{args.output_dir}'")
     # date_page_re = re.compile(r"_(\d{8})_.*_(\d{3})_[\w.]", re.I)
     date_page_re = re.compile(r"_(\d{8})_.*_(\d{2,3})(?:_\w+|\.txt)", re.I)
     total = len(list(Path(base).glob(args.input_dir_glob)))
@@ -77,7 +80,9 @@ def main(args):
                     'title': '',
                     'paragraphs': paragraphs,
                 }
-                jsonl.write(json.dumps(json_line) + "\n")
+                jsonl.write(json.dumps(
+                    json_line, ensure_ascii=args.ensure_ascii
+                ) + "\n")
     logger.info(f"Finished at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("Done!")
 
@@ -100,5 +105,7 @@ if __name__ == "__main__":
         metavar='pymupdf_version', help='PyMuPDF version')
     parser.add_argument('--report_parsing_error', default=True, type=bool,
         metavar='report_parsing_error', help='Report filename parsing errors')
+    parser.add_argument('--ensure_ascii', default=False, type=bool,
+        metavar='ensure_ascii', help='Do not escape non-ASCII characters')
     args = parser.parse_args()
     main(args)
