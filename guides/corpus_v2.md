@@ -36,8 +36,9 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Government Documents NOB -2021  | Large collection with exceptional high quality parsed directly from xhtml.| 2| 0.7 |
 | Government Documents NNO -2021  | As above, but in Nynorsk. | 2| 0.1 |
 | Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 19.0 |
-| Idun Collection -2019  | Downloaded Idun data| 0| ? |
-| Norart Collection -2019  | Downloaded Norart data| 0| ? |
+| Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | (1) | ? |
+| Open Subtitles -2021  | Norwegian open subtitles. | (1) | ? |
+
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
 |   | - Norwegian | 2| 50.0 |
 
@@ -51,14 +52,15 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 |   | - English | 2 | 301.0 |
 
 
-## Unlikely to be included
+## In process - not confirmed
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Twitter archive | An attempt at trying to extract Norwegian tweets from the Internet Archive. | 0| 0 |
-| MC4  | We waiting for email regarding if it is possible to get more MC4 data from other places.| 0| 0 |
-| Social Media  | SAB is waiting for reply to email from Twitter. Not likely at the moment.| 0| 0 |
-| Parliament Documents -2021  | This needs to be followed up. SAB. | 0| 0 |
-| Periodicals OCR 2010-2021 |  We have reOCRed this with Tesseract but quality seem to be too low compared to the rest of our sorpus. | 0 | More than 1.9 |
+| Discussion forums | We are working with including some major Norwegian discussion forums. Not confirmed yet. @PEK | 0| 0 |
+| Twitter archive | An attempt at trying to extract Norwegian tweets from the Internet Archive. Seems to be too few Norweigan tweets. @PEK| 0| 0 |
+| MC4  | We are waiting for email regarding if it is possible to get more MC4 data from other places. @JR| 0| 0 |
+| Social Media  | We are waiting for a reply to email from Twitter. Not likely at the moment. @SAB| 0| 0 |
+| Parliament Documents -2021  | This needs to be followed up. @SAB. | 0| 0 |
+| Periodicals OCR 2010-2021 |  We have reOCRed this with Tesseract but quality seem to be too low compared to the rest of our sorpus. @FW| 0 | More than 1.9 |
 
 
 ## Processing Levels
