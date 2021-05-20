@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import requests
 import ftfy, glob, argparse, os
 import jsonlines
+from tqdm import tqdm
 
 def main(args):
     #Create the new file. Overwrite if it exits
@@ -19,7 +20,7 @@ def main(args):
     
     n = 0
     with jsonlines.open(args.output_file, 'w') as writer:
-        for f in filelist:
+        for f in tqdm(filelist):
             html_content = open(f, "r")
             basename = os.path.basename(f).replace(".xml","")
 
@@ -32,10 +33,20 @@ def main(args):
             myarticle['id'] = args.doc_type+"_"+basename
             myarticle['language_reported'] = args.language_reported
             myarticle['paragraphs'] = [] 
-            myarticle['publish_date'] = soup.year.text.strip()+"0101"
-            myarticle['original_language'] = soup.original.text.strip()
-            myarticle['genre'] = soup.genre.text.strip()
+            try:
+                myarticle['publish_date'] = soup.year.text.strip()+"0101"
+            except:
+                ...
 
+            try:
+                myarticle['original_language'] = soup.original.text.strip()
+            except:
+                myarticle['original_language'] = "Unknown"
+
+            try:
+                myarticle['genre'] = soup.genre.text.strip()
+            except:
+                myarticle['genre'] = "Unknown"
 
             pid = 0
 
