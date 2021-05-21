@@ -48,7 +48,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 |   | - Danish | 2 | 48.0  |
 |   | - Swedish | 2 | 78.0  |
 |   | - English | 2 | 301.0 |
-| Wikipedia EN -2020  | Wikipediadump from the HuggingFace datasets downloaded May 2020| (2)| approx 10.0 |
+| Wikipedia EN -2020  | Wikipedia. From the HuggingFace datasets. Downloaded  downloaded May 2020| (2)| approx 10.0 |
 
 
 ## In process - not confirmed
