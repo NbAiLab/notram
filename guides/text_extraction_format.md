@@ -5,8 +5,8 @@ Specification for the internal format used when extracting text from OCR documen
 ```bash
 "id": "digibok_2006080900001" # The original digibook id - have to be unique for each jsonl line
 "doc_type": "book" # The type of material. Newspaper or book
-"scan_date": "20191224" #Date for scanning in the format yyyymmdd. Set to N/A if not in meta post.
-"publish_date": "20190101" # Date for publication. For books this is set to 0101 for the publication year. Set to N/A if not in meta post.
+"scan_date": "20191224" #Date for scanning in the format yyyymmdd. Set to N/A if not in mods post.
+"publish_date": "20190101" # Date for publication. For books this is set to 0101 for the publication year. Set to N/A if not in mods post.
 "language_reported": "nob" #3-letter language code. nob for Bokmål and nno for Nynorsk. Only reported for books in METS/ALTO. 
 "language_detected": "nob" #3-letter language code
 "tesseract_version": "4.1.1" #If Tesseract is used for scanning
