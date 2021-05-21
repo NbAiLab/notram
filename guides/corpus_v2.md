@@ -11,7 +11,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Newspapers Online NNO -2019 |  A Norwegian Newspaper Corpus with texts from online nynorsk newspapers between 1998 and 2019 collected by Språkbanken.  | 2 | 0.3 |
 | Common Crawl OSCAR NOB -2020 |  OSCAR or Open Super-large Crawled Aggregated coRpus is a huge multilingual corpus obtained by language classification and filtering of the Common Crawl corpus using the goclassy architecture. | 2 | 4.8 |
 | Common Crawl OSCAR NNO -2020 |  Same as above in nynorsk.| 2 | 0.1 |
-| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Collection of documents from the Norwegian Parliament. Part of the collection at the National Library. | 1 | 8.5 |
+| Parliament Collection OCR 1814-2014 (Stortingsforhandlingene)  |  Collection of documents from the Norwegian Parliament. Part of the collection at the National Library. | 2 | 8.5 |
 | Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Collection of public report from the National Library. |2 | 0.6 |
 | Lovdata CD -2005 |  CD/DVD last published in 2005. Contains a very complete collection of legal resources, including laws, verdicts, NOUs etc. This is now totally out of copyright. | 2 | 0.4 |
 
