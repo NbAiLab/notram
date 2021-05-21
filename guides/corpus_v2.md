@@ -35,7 +35,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Government Documents NOB -2021  | Large collection with exceptional very quality parsed directly from xhtml.| 2| 0.1 |
 | Government Documents NNO -2021  | As above, but in Nynorsk. | 2| 0.1 |
 | Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 16.0 |
-| Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | (1) | ? |
+| Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | (2) | approx 1.5 |
 | Open Subtitles -2021  | Norwegian open subtitles. | 2 | 0.4 |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
 |   | - Norwegian | 2| 50.0 |
