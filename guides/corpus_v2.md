@@ -37,6 +37,7 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 | Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 16.0 |
 | Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | 2 | 1.0 |
 | Open Subtitles -2021  | Norwegian open subtitles. | 2 | 0.4 |
+| Reddit 2005-2019  | A collection of around 500k Norwegian Reddit posts. Only posts with more than 20 characters and with a 0.7 confidence of Norwegian are included. Source: http://files.pushshift.io/reddit/comments/ | 2 | 0.2 |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
 |   | - Norwegian | 2| 50.0 |
 
@@ -44,10 +45,14 @@ This page tracks the status of version 2 of our corpus. The purpose of the table
 ## Non Norwegian corpora
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
+| CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/.  | |  |
 |   | - Danish | 2 | 48.0  |
 |   | - Swedish | 2 | 78.0  |
 |   | - English | 2 | 301.0 |
+| Reddit 2005 - 2019 | A collection of Reddit posts. Only posts with more than 20 characters and with a 0.7 confidence of target language are included. Source: http://files.pushshift.io/reddit/comments/. The last step in converting this to our json-format is not completed for English since it is unlikely that it will be used. | |  |
+|   | - Danish | 2 | 0.5  |
+|   | - Swedish | 2 | 0.9  |
+|   | - English | 2 | Approx 1000.0|
 | Wikipedia EN -2020  | Wikipedia. From the HuggingFace datasets. Downloaded  downloaded May 2020| (2)| 17.0 |
 
 
