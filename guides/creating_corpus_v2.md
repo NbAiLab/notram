@@ -35,5 +35,13 @@ python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/
 # iconv -f ISO-8859-1 data.txt -t UTF-8 -o data_utf8.txt
 python create_lovdata_transfer_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/lovdata_transfer/data_utf8.txt --doc_type lovdata_transfer --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/lovdata_transfer.jsonl
 
+# First run the lang_detect-script to split the original files into languages
+# Then parse it
+python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/da --language_reported da --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_da.jsonl
+python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/sv --language_reported sv --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_sv.jsonl
+python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/no --language_reported no --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_no.jsonl
+python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/is --language_reported is --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_is.jsonl
+
+python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/en --language_reported en --year 2019 --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_2019_en.jsonl
 
 ````
