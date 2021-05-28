@@ -33,7 +33,7 @@ def main(args):
                     myarticle['id'] = args.doc_type+"_"+ redditpost['id'] 
                     myarticle['language_reported'] = args.language_reported
                     myarticle['paragraphs'] = []
-                    myarticle['publishdate'] = datetime.utcfromtimestamp(int(redditpost['created_utc'])).strftime('%Y%m%d')
+                    myarticle['publish_date'] = datetime.utcfromtimestamp(int(redditpost['created_utc'])).strftime('%Y%m%d')
                     myarticle['created_utc'] = redditpost['created_utc']
                     myarticle['subreddit_id'] = redditpost['subreddit_id']
                     myarticle['author'] = redditpost['author']
