@@ -45,3 +45,14 @@ python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/sour
 python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/en --language_reported en --year 2019 --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_2019_en.jsonl
 
 ````
+## Clean jsonl-files
+### Single file
+```bash
+python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file /nfsmounts/datastore/corpus/v2/jsonl_2/government_en.jsonl
+
+````
+
+### Everthing
+```bash
+ls /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 10 python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+````
