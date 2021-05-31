@@ -31,6 +31,8 @@ python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/
 python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/government/xhtml/nn/ --language_reported nno --doc_type government --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/government_nno.jsonl
 python create_government_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/government/xhtml/en/ --language_reported en --doc_type government --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/government_en.jsonl
 
+python create_opensubtitles_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/open_subtitles/OpenSubtitles/ --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/open_subtitles_no.jsonl --doc_type opensubtitles
+
 # First converted to utf8 by using this command
 # iconv -f ISO-8859-1 data.txt -t UTF-8 -o data_utf8.txt
 python create_lovdata_transfer_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/lovdata_transfer/data_utf8.txt --doc_type lovdata_transfer --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/lovdata_transfer.jsonl
