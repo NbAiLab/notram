@@ -25,11 +25,10 @@ def main(args):
             myarticle['doc_type'] = args.doc_type
             myarticle['id'] = args.doc_type+"_"+basename
             myarticle['language_reported'] = args.language_reported
-            myarticle['paragraphs'] = [] 
 
 
             pid = 0
-            paragraphs = {}
+            paragraphs = []
 
             for p in soup.find_all("p"):
                 
@@ -68,12 +67,13 @@ def main(args):
                             
                             else:
                                 if len(text.split()) >= 10 and not text.startswith("Det har oppstått en teknisk feil.") and not text.startswith("A technical error has occurred. You can try to locate relevant documents"):
-                                    paragraphs['paragraph_id'] = pid
-                                    paragraphs['text'] = text.rstrip("\n")
-                                    myarticle['paragraphs'].append(paragraphs)
-                                    pid += 1
-     
+                                    paragraphs.append({
+                                        'paragraph_id': len(paragraphs),
+                                        'text': text.rstrip("\n")
+                                    })
             
+                        
+            myarticle['paragraphs'] = paragraphs 
             writer.write(myarticle)
             n += 1
             

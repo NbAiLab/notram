@@ -20,10 +20,12 @@ from datetime import datetime
 import logging
 
 # Invoke logger globally
-console = logging.StreamHandler() 
-console.setLevel(logging.DEBUG) 
-logging.getLogger('').addHandler(console) 
-logger=logging.getLogger(__name__)
+#console = logging.StreamHandler() 
+#console.setLevel(logging.INFO) 
+#logging.getLogger('').addHandler(console) 
+#logger=logging.getLogger(__name__)
+logger= logging.getLogger()
+#logger = logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 logger.setLevel(logging.INFO)
 
 
@@ -63,9 +65,9 @@ def load_jsonl(jsonl):
 
 def save_jsonl(data, filename):
     colnames = list(data.columns)
-    colnames = [c for c in colnames if not c.startswith('para') and not c.startswith('tmp') and not c.startswith('text')]
-
-    data.groupby(colnames, as_index=False).apply(lambda x: x[['paragraph_id','text']].to_dict('r')).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
+    colnames = [c for c in colnames if not c.startswith('para') and not c.startswith('tmp') and c !='text' and c!='hash']
+    data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
+    #data.groupby(colnames, as_index=False).apply(lambda x: x[['paragraph_id','text','hash']].to_json(orient='records')).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
 
     logger.info(f'Saved jsonl as "{filename}"')
 
@@ -184,10 +186,14 @@ def main(args):
     logging.basicConfig(filename=os.path.join(args.output_folder,log_name), format='%(asctime)s %(message)s', filemode='w')
 
     config = read_config(os.path.join(args.output_folder,args.config_file))
+    
+    print(f'*** Starting to process: {args.input_file}')
     data = load_jsonl(args.input_file)
    
     logger.info(f'***  Data loaded. {len(data)} posts')
-   
+    print(f'*** Data loaded with {len(data)} posts. Log written to {os.path.join(args.output_folder,log_name)}')
+
+
     #Create columns if they do not exist
     if 'publish_date' not in data:
         data['publish_date'] = datetime.today().strftime('%Y%m%d')
@@ -220,7 +226,7 @@ def main(args):
     data['hash'] = data['text'].apply(lambda x: get_hash(x))
 
     #Convert to datetime
-    data['publish_date'] = pd.to_datetime(data['publish_date']) 
+    data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d') 
     data['ocr_date'] = pd.to_datetime(data['ocr_date']) 
 
     #Filter for ocrdate
@@ -270,7 +276,7 @@ def main(args):
 
     #Numbers of words in paragraph
     cond = data['text'].apply(lambda x: count_words(x)) >= config['min_words_paragraph']
-    logger.info(f'\n\n*** The following text was deleted: \n{data[~cond]["text"]}')
+    logger.info(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering min words. Valid posts = {len(data)}')
 
@@ -278,7 +284,7 @@ def main(args):
     #Add this to the frame since we will use it later for sorting
     data['doc_length'] = data["text"].apply(len).groupby(data['id']).transform(sum)
     cond = data['doc_length'] >= config['min_length_article']
-    logger.info(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]}')
+    logger.info(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}')
  
@@ -286,12 +292,14 @@ def main(args):
     data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
     data.drop_duplicates(subset="hash",inplace=True,keep='first')
 
-    logger.info(f'***  Finished cleaning. Final valid posts: {len(data)}')
+    logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}')
 
+    
     #save jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
     save_jsonl(data, output_filename)
-
+    logger.info(f'***  Writing final file to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
+    print(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
 
 def parse_args():
     parser = ArgParseDefault()

@@ -23,20 +23,23 @@ def main(args):
         for f in tqdm(filelist):
             html_content = open(f, "r")
             basename = os.path.basename(f).replace(".xml","")
-
+            year = f.split('/')[-3]
             # Parse the html content
             soup = BeautifulSoup(html_content, "lxml")
-           
+            
+            print(year)
+            if(len(year) != 4):
+                print(f'{year} - wrong year. Fix')
+                exit()
+
             written = 0
             myarticle = {}
             myarticle['doc_type'] = args.doc_type
             myarticle['id'] = args.doc_type+"_"+basename
+            myarticle['publish_date'] = str(year)+"0101"
             myarticle['language_reported'] = args.language_reported
             myarticle['paragraphs'] = [] 
-            try:
-                myarticle['publish_date'] = soup.year.text.strip()+"0101"
-            except:
-                ...
+            myarticle['publish_date'] = year+"0101"
 
             try:
                 myarticle['original_language'] = soup.original.text.strip()
