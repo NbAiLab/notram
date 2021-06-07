@@ -59,7 +59,7 @@ def load_jsonl(jsonl):
 
     #Normalise
     metakeys = get_metakeys(lines)
-    data = pd.json_normalize(df_inter['json_element'].apply(json.loads), record_path =['paragraphs'], meta=metakeys)
+    data = pd.json_normalize(df_inter['json_element'].apply(json.loads), record_path =['paragraphs'], meta=metakeys, errors='ignore')
 
     return data
 
@@ -196,11 +196,17 @@ def main(args):
 
     #Create columns if they do not exist
     if 'publish_date' not in data:
-        data['publish_date'] = datetime.today().strftime('%Y%m%d')
+        data['publish_date'] = "20991231"
     
+    if 'publish_year' not in data:
+        data['publish_year'] = "2099"
+
     if 'ocr_date' not in data:
-        data['ocr_date'] = datetime.today().strftime('%Y%m%d')
+        data['ocr_date'] = "20991231"
     
+    if 'ocr_year' not in data:
+        data['ocr_year'] = "2099"
+
     if 'document_word_confidence' not in data:
         data['document_word_confidence'] = 1.0
     
@@ -226,15 +232,29 @@ def main(args):
     data['hash'] = data['text'].apply(lambda x: get_hash(x))
 
     #Convert to datetime
-    data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d') 
-    data['ocr_date'] = pd.to_datetime(data['ocr_date']) 
+    if "olddataformat" in args.input_file:
+        data['publish_date'] = pd.to_datetime(data['publish_date'], format='%d%m%Y', errors='coerce').dt.strftime('%Y%m%d')
+    else:
+        data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
 
-    #Filter for ocrdate
+    data['publish_year'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y')
+    
+
+    data['ocr_date'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d') 
+    data['ocr_year'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
+   
+    #Set meaningfult default for missing dates
+    data['publish_date'] = data['publish_date'].fillna('18000101')
+    data['publish_year'] = data['publish_year'].fillna('1800')
+    data['ocr_date'] = data['ocr_date'].fillna('20990101')
+    data['ocr_year'] = data['ocr_year'].fillna('2009')
+
     cond = data['ocr_date'] >= config['min_ocr_date']
     logger.info(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering date. Valid posts = {len(data)}')
 
+    
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
     logger.info(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
@@ -242,13 +262,13 @@ def main(args):
     logger.info(f'***  Completed filtering publishdate. Valid posts = {len(data)}')
 
     #Filter for document word confidence
-    cond = data['document_word_confidence'] >= config['min_document_word_confidence']
+    cond = data['document_word_confidence'].astype(float) >= config['min_document_word_confidence']
     logger.info(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
 
     #Filter for paragraph confidence
-    cond = data['confidence'] >= config['min_confidence']
+    cond = data['confidence'].astype(float) >= config['min_confidence_paragraph']
     logger.info(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
@@ -312,5 +332,6 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     main(args)
+
 
 

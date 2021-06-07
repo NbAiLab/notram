@@ -1,0 +1,17 @@
+{
+	"min_alphawords_paragraph": 2,
+	"min_words_article": 20,
+	"min_words_paragraph": 4,
+	"max_word_length_paragraph":25,
+	"remove_control_characters": true,
+	"standardize_punctuation": true,
+	"replace_usernames_tweets": "@twitteruser",
+	"replace_urls_tweets": false,
+	"replace_email_addresses": false,
+	"fix_unicode":true,
+	"min_ocr_date": "20090101",
+	"min_publish_data": "19000101",
+	"min_confidence_article": 0.9,
+	"min_confidence_paragraph": 0.9,
+	"remove_non_terminated_paragraphs": true
+}
