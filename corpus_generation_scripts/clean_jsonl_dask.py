@@ -11,7 +11,8 @@ from utils.textCleaner import cleanTextBlock
 from utils.misc import ArgParseDefault, add_bool_arg
 import jsonlines
 import json
-import pandas as pd
+#import pandas as pd
+from dask import dataframe as dd
 import re
 from slugify import slugify
 import hashlib
@@ -50,7 +51,7 @@ def load_jsonl(jsonl):
     #Read the json and get it into pandas
     with open(jsonl) as f:
         lines = f.read().splitlines()
-    df_inter = pd.DataFrame(lines)
+    df_inter = dd.DataFrame(lines)
     df_inter.columns = ['json_element']
     
     
@@ -59,7 +60,7 @@ def load_jsonl(jsonl):
 
     #Normalise
     metakeys = get_metakeys(lines)
-    data = pd.json_normalize(df_inter['json_element'].apply(json.loads), record_path =['paragraphs'], meta=metakeys, errors='ignore')
+    data = dd.json_normalize(df_inter['json_element'].apply(json.loads), record_path =['paragraphs'], meta=metakeys, errors='ignore')
 
     return data
 
@@ -179,7 +180,7 @@ def replace_email_addresses(text, filler='email@email.no'):
     return text
 
 def main(args):
-    pd.set_option("display.max_rows", None)
+    dd.set_option("display.max_rows", None)
     
     #Invoke logging
     log_name = os.path.basename(args.input_file).replace(".jsonl",".log")
@@ -233,15 +234,15 @@ def main(args):
 
     #Convert to datetime
     if "olddataformat" in args.input_file:
-        data['publish_date'] = pd.to_datetime(data['publish_date'], format='%d%m%Y', errors='coerce').dt.strftime('%Y%m%d')
+        data['publish_date'] = dd.to_datetime(data['publish_date'], format='%d%m%Y', errors='coerce').dt.strftime('%Y%m%d')
     else:
-        data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
+        data['publish_date'] = dd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
 
-    data['publish_year'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y')
+    data['publish_year'] = dd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y')
     
 
-    data['ocr_date'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d') 
-    data['ocr_year'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
+    data['ocr_date'] = dd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d') 
+    data['ocr_year'] = dd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
    
     #Set meaningfult default for missing dates
     data['publish_date'] = data['publish_date'].fillna('18000101')

@@ -32,7 +32,7 @@ def main(args):
         print(f'Parsing {fl}')
         with open(fl) as f:
             myarticle = {}
-            myarticle['doctype'] = str(args.doctype)
+            myarticle['doc_type'] = str(args.doc_type)
             head, tail = os.path.split(args.input_file)
             myarticle['id'] = str(tail)
             if args.language_reported:
@@ -62,7 +62,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--language_reported', required=False,
                         default='', type=str, help='Language reported')
-    parser.add_argument('--doctype', required=True, type=str, help='Doctype')
+    parser.add_argument('--doc_type', required=True, type=str, help='Doctype')
     parser.add_argument('--input_file', required=True,
                         type=str, help='Input file')
     parser.add_argument('--output_file', required=True,
