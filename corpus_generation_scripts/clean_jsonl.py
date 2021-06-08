@@ -20,12 +20,7 @@ from datetime import datetime
 import logging
 
 # Invoke logger globally
-#console = logging.StreamHandler() 
-#console.setLevel(logging.INFO) 
-#logging.getLogger('').addHandler(console) 
-#logger=logging.getLogger(__name__)
 logger= logging.getLogger()
-#logger = logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 logger.setLevel(logging.INFO)
 
 
@@ -42,6 +37,7 @@ def read_config(cfile):
         config = json.load(f)
     except:
         logger.info("Error. There has to be a valid config-file in the output directory")
+        print("Error. There has to be a valid config-file in the output directory")
         exit()
 
     return config
@@ -121,7 +117,7 @@ def normalise_unicode(text):
     text = ftfy.fix_text(text)
    
     if input_text != text:
-        logger.info(f'Changed "{input_text}" -> "{text}"')
+        logger.debug(f'Changed "{input_text}" -> "{text}"')
 
     return text
 
@@ -134,7 +130,7 @@ def truncate_last_valid_sentence(text):
         last_val = 0
     
     if last_val != len(text):
-        logger.info(f'Changed "{text}" -> "{text[0:last_val]}"')
+        logger.debug(f'Changed "{text}" -> "{text[0:last_val]}"')
     
     return text[0:last_val]
 
@@ -147,7 +143,7 @@ def replace_usernames_tweets(text, filler='@peregil'):
     text = ' '.join(text.split())
     
     if input_text != text:
-        logger.info(f'Changed "{input_text}" -> {text}"')
+        logger.debug(f'Changed "{input_text}" -> {text}"')
 
     return text
 
@@ -162,7 +158,7 @@ def replace_urls(text, filler='http://url.no'):
     text = ' '.join(text.split()) 
     
     if input_text != text:
-        logger.info(f'Changed "{input_text}" -> {text}"')
+        logger.debug(f'Changed "{input_text}" -> {text}"')
 
     return text
 
@@ -174,7 +170,7 @@ def replace_email_addresses(text, filler='email@email.no'):
     text = ' '.join(text.split()) 
     
     if input_text != text:
-        logger.info(f'Changed "{input_text}" -> {text}"')
+        logger.debug(f'Changed "{input_text}" -> {text}"')
 
     return text
 
@@ -217,6 +213,7 @@ def main(args):
     if config['normalise_unicode']:
         data['text'] = data['text'].apply(normalise_unicode)
     logger.info(f'***  Normalised unicode. Removed double spaces. Trimmed string.')
+    print(f'***  Normalised unicode. Removed double spaces. Trimmed string.')
 
     #Truncate last valid sentence in paragraph
     if config['truncate_last_valid_sentence']:
@@ -224,10 +221,12 @@ def main(args):
    
     #Delete paragraph where the max word length is too long. This indicate OCR errors
     cond = data['text'].apply(lambda x: max_word_length(x)) <= config['max_word_length_paragraph']
-    logger.info(f'\n\n*** The following text was deleted because some of the words were too long:\n {data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because some of the words were too long:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}')
+    print(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}')
     
+
     #Add hash
     data['hash'] = data['text'].apply(lambda x: get_hash(x))
 
@@ -250,70 +249,81 @@ def main(args):
     data['ocr_year'] = data['ocr_year'].fillna('2009')
 
     cond = data['ocr_date'] >= config['min_ocr_date']
-    logger.info(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering date. Valid posts = {len(data)}')
-
+    print(f'***  Completed filtering date. Valid posts = {len(data)}')
+    
     
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
-    logger.info(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering publishdate. Valid posts = {len(data)}')
+    print(f'***  Completed filtering publishdate. Valid posts = {len(data)}')
 
     #Filter for document word confidence
     cond = data['document_word_confidence'].astype(float) >= config['min_document_word_confidence']
-    logger.info(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
-
+    print(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
+    
     #Filter for paragraph confidence
     cond = data['confidence'].astype(float) >= config['min_confidence_paragraph']
-    logger.info(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
+    print(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
 
     #Replace username in tweets
     if config['replace_usernames_tweets']:
         data['text'] = data['text'].apply(lambda x: replace_usernames_tweets(x, config['replace_usernames_tweets']))
         logger.info(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}.')
-
+        print(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}.')
+        
     #Replace urls
     if config['replace_urls']:
         data['text'] = data['text'].apply(lambda x: replace_urls(x, config['replace_urls']))
         logger.info(f'***  Replaced urls with {config["replace_urls"]}.')
+        print(f'***  Replaced urls with {config["replace_urls"]}.')
 
     #Replace email addresses
     if config['replace_email_addresses']:
         data['text'] = data['text'].apply(lambda x: replace_email_addresses(x, config['replace_email_addresses']))
         logger.info(f'***  Replaced email addresses with {config["replace_email_addresses"]}.')
+        print(f'***  Replaced email addresses with {config["replace_email_addresses"]}.')
 
     #Number of alpha words in paragraph
     cond = data['text'].apply(lambda x: count_alphawords(x)) >= config['min_alphawords_paragraph']
-    logger.info(f'\n\n*** The following text was deleted because too few alpha words: \n{data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because too few alpha words: \n{data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering min alpha words. Valid posts = {len(data)}')
+    print(f'***  Completed filtering min alpha words. Valid posts = {len(data)}')
 
     #Numbers of words in paragraph
     cond = data['text'].apply(lambda x: count_words(x)) >= config['min_words_paragraph']
-    logger.info(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering min words. Valid posts = {len(data)}')
+    print(f'***  Completed filtering min words. Valid posts = {len(data)}')
 
     #Minimum number of characters in an article
     #Add this to the frame since we will use it later for sorting
     data['doc_length'] = data["text"].apply(len).groupby(data['id']).transform(sum)
     cond = data['doc_length'] >= config['min_length_article']
-    logger.info(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
+    logger.debug(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}')
+    print(f'***  Completed filtering min length article. Valid posts = {len(data)}')
  
     #Remove duplicates
     data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
     data.drop_duplicates(subset="hash",inplace=True,keep='first')
 
     logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}')
-
+    print(f'***  Finished deduplicating. Final valid posts: {len(data)}')
+    
     
     #save jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
