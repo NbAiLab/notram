@@ -50,7 +50,7 @@ def main(args):
             
         for n,d in enumerate(document.findall('body/div')):
             myarticle = {}
-            myarticle['doctype'] = "online_newspapers"
+            myarticle['doc_type'] = args.doc_type
             myarticle['id'] = basename + "-"+str(n)
             myarticle['language_reported'] = str(args.language_reported)
             myarticle['paragraphs'] = [] 
@@ -90,6 +90,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i','--input_path', required=True, type=str, help='Input path')
     parser.add_argument('-o', '--output_file', required=True, type=str, help='Output file')
+    parser.add_argument('--doc_type', required=True, type=str, help='Doc type')
     parser.add_argument('-l', '--language_reported', required=True, type=str, help='Language. nob, nno or . Folder names determine language.')
 
     args = parser.parse_args()

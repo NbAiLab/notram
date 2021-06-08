@@ -29,7 +29,7 @@ def main(args):
         #All 
         
         myarticle = {}
-        myarticle['doctype'] = str(args.doctype)
+        myarticle['doc_type'] = str(args.doc_type)
         myarticle['id'] = index
         myarticle['language_reported'] = str(args.language_reported)
         myarticle['paragraphs'] = [] 
@@ -55,7 +55,7 @@ def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser()
     parser.add_argument('--language_reported', required=True, type=str, help='Language reported')
-    parser.add_argument('--doctype', required=True, type=str, help='Doctype')
+    parser.add_argument('--doc_type', required=True, type=str, help='Doc type')
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')
     args = parser.parse_args()
