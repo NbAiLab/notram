@@ -37,6 +37,8 @@ python create_opensubtitles_jsonl.py --input_folder /nfsmounts/datastore/corpus/
 # iconv -f ISO-8859-1 data.txt -t UTF-8 -o data_utf8.txt
 python create_lovdata_transfer_jsonl.py --input_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/lovdata_transfer/data_utf8.txt --doc_type lovdata_transfer --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/lovdata_transfer.jsonl
 
+python create_lovdata_cd_jsonl.py --input_folder /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/lovdata_cd/ --doc_type lovdata_cd --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/lovdata_cd.jsonl
+
 # First run the lang_detect-script to split the original files into languages
 # Then parse it
 python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/source_1/reddit/da --language_reported da --doc_type reddit --output_file /nfsmounts/datastore/corpus/v2/jsonl_2/reddit_da.jsonl
