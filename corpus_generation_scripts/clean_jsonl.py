@@ -60,12 +60,10 @@ def load_jsonl(jsonl):
     return data
 
 def save_jsonl(data, filename):
-    colnames = list(data.columns)
-    colnames = [c for c in colnames if not c.startswith('para') and not c.startswith('tmp') and c !='text' and c!='hash']
+    colnames = [c for c in list(data.columns) if c!='paragraph_id' and c!='text' and c!='hash']
     data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
-    #data.groupby(colnames, as_index=False).apply(lambda x: x[['paragraph_id','text','hash']].to_json(orient='records')).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
-
     logger.info(f'Saved jsonl as "{filename}"')
+
 
 def get_metakeys(lines):
     allkeys = set()
@@ -189,26 +187,40 @@ def main(args):
     logger.info(f'***  Data loaded. {len(data)} posts')
     print(f'*** Data loaded with {len(data)} posts. Log written to {os.path.join(args.output_folder,log_name)}')
 
+    
+    if config['assume_late_missing_dates']:
+        publish_date = "20991231"
+        publish_year = "2099"
+        ocr_date = "20991231"
+        ocr_year = "2099"
+    else:
+        publish_date = "18000101"
+        publish_year = "1800"
+        ocr_date = "18000101"
+        ocr_year = "1800"
+
+
 
     #Create columns if they do not exist
     if 'publish_date' not in data:
-        data['publish_date'] = "20991231"
+        data['publish_date'] = publish_date
     
     if 'publish_year' not in data:
-        data['publish_year'] = "2099"
+        data['publish_year'] = publish_year
 
     if 'ocr_date' not in data:
-        data['ocr_date'] = "20991231"
+        data['ocr_date'] = ocr_date
     
     if 'ocr_year' not in data:
-        data['ocr_year'] = "2099"
+        data['ocr_year'] = ocr_year
 
     if 'document_word_confidence' not in data:
         data['document_word_confidence'] = 1.0
     
     if 'confidence' not in data:
         data['confidence'] = 1.0
- 
+    
+
     #Fix unicode
     if config['normalise_unicode']:
         data['text'] = data['text'].apply(normalise_unicode)
@@ -320,15 +332,28 @@ def main(args):
     #Remove duplicates
     data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
     data.drop_duplicates(subset="hash",inplace=True,keep='first')
-
     logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}')
     print(f'***  Finished deduplicating. Final valid posts: {len(data)}')
     
-    
-    #save jsonl
+    #Minimise the size of the jsonl
+    if config['minimise_jsonl']:
+        valid_columns = ['id','doc_type','publish_year','doc_length','paragraph_id','hash','text']
+        data.drop(columns=[col for col in data if col not in valid_columns], inplace=True)
+        logger.info(f'***  Minimised the dataframe')
+        print(f'***  Minimised the dataframe')
+
+    #Tidy up the file and sort it 
+    data['publish_year'] = data['publish_year'].astype(int)
+    data['paragraph_id'] = data['paragraph_id'].astype(int)
+    data.sort_values(['doc_length', 'paragraph_id'], ascending=[False, True], inplace=True)
+    logger.info(f'***  Fixed data type and sorted the dataframe')
+    print(f'***  Fixed data type and sorted the dataframe')
+
+
+    #Save is as jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
     save_jsonl(data, output_filename)
-    logger.info(f'***  Writing final file to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
+    logger.info(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
     print(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
 
 def parse_args():

@@ -1,17 +1,21 @@
 {
 	"min_alphawords_paragraph": 2,
-	"min_words_article": 20,
+	"min_length_article": 20,
 	"min_words_paragraph": 4,
 	"max_word_length_paragraph":25,
 	"remove_control_characters": true,
 	"standardize_punctuation": true,
-	"replace_usernames_tweets": "@twitteruser",
-	"replace_urls_tweets": false,
+	"replace_usernames_tweets": false,
+	"replace_urls": false,
 	"replace_email_addresses": false,
 	"fix_unicode":true,
+	"normalise_unicode": true,
 	"min_ocr_date": "20090101",
-	"min_publish_data": "19000101",
-	"min_confidence_article": 0.9,
+	"min_publish_date": "18140517",
+	"min_document_word_confidence": 0.9,
 	"min_confidence_paragraph": 0.9,
-	"remove_non_terminated_paragraphs": true
+	"remove_non_terminated_paragraphs": true,
+	"truncate_last_valid_sentence": true,
+	"minimise_jsonl": true,
+	"assume_late_missing_dates": true
 }

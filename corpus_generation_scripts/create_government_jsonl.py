@@ -34,7 +34,6 @@ def main(args):
                 
                 text = p.text.strip()
                 text = ftfy.fix_text(text)
-
                 if len(text):
                     if text[-1] != '.' and text[-1] != ":":
                         ...
@@ -72,7 +71,6 @@ def main(args):
                                         'text': text.rstrip("\n")
                                     })
             
-                        
             myarticle['paragraphs'] = paragraphs 
             writer.write(myarticle)
             n += 1
