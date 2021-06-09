@@ -349,7 +349,6 @@ def main(args):
     logger.info(f'***  Fixed data type and sorted the dataframe')
     print(f'***  Fixed data type and sorted the dataframe')
 
-
     #Save is as jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
     save_jsonl(data, output_filename)
