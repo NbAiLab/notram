@@ -266,7 +266,6 @@ def main(args):
     logger.info(f'***  Completed filtering date. Valid posts = {len(data)}')
     print(f'***  Completed filtering date. Valid posts = {len(data)}')
     
-    
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
     logger.debug(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
