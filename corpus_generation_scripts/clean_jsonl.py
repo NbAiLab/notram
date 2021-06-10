@@ -243,7 +243,7 @@ def main(args):
     data['hash'] = data['text'].apply(lambda x: get_hash(x))
 
     #Convert to datetime
-    if "olddataformat" in args.input_file:
+    if "olddateformat" in args.input_file:
         data['publish_date'] = pd.to_datetime(data['publish_date'], format='%d%m%Y', errors='coerce').dt.strftime('%Y%m%d')
     else:
         data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
@@ -255,19 +255,21 @@ def main(args):
     data['ocr_year'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
    
     #Set meaningfult default for missing dates
-    data['publish_date'] = data['publish_date'].fillna('18000101')
-    data['publish_year'] = data['publish_year'].fillna('1800')
-    data['ocr_date'] = data['ocr_date'].fillna('20990101')
-    data['ocr_year'] = data['ocr_year'].fillna('2009')
+    data['publish_date'] = data['publish_date'].fillna(publish_date)
+    data['publish_year'] = data['publish_year'].fillna(publish_year)
+    data['ocr_date'] = data['ocr_date'].fillna(ocr_date)
+    data['ocr_year'] = data['ocr_year'].fillna(ocr_year)
 
     cond = data['ocr_date'] >= config['min_ocr_date']
     logger.debug(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
     data = data[cond]
-    logger.info(f'***  Completed filtering date. Valid posts = {len(data)}')
-    print(f'***  Completed filtering date. Valid posts = {len(data)}')
+    logger.info(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
+    print(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
     
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
+
+    
     logger.debug(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
     data = data[cond]
     logger.info(f'***  Completed filtering publishdate. Valid posts = {len(data)}')
