@@ -54,7 +54,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | Library books/newspapers | 1.0| 
 | Reddit | 1.1| 
 | MC4 | 60|
-| **Total Icelandic**| **60Gb**|
+| **Total Danish**| **60Gb**|
 
 ## Icelandic
 | Sources  |   Gb | 
@@ -77,7 +77,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 
 # Composition of Training Corpus for NoTraM Large
 Norwegian model but with added Swedish/Danish and English text. Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, however there are mainly two reasons for adding quite a lot of English text here:
-* Most Norwegians speak English, and it is expected that English should be understood. Ther are also a lot of English words in use and it is likely that new words in the future will come from Nowegian.
+* Most Norwegians speak English, and it is expected that English should be understood. There are also a lot of English words in use and it is likely that new words in the future will come from Nowegian. We expect this to strengthen the Norwegian model.
 * This amount of English will also make it a decent English model. It will make evaluating the model easier. We can for instance evaluate the model directly of Glue/SuperGlue. We can also train it directly on large non-translated dataset, like SQuAD and MNLI, and then expect it to have decent Norwegian capabilities in solving similar tasks.
 
 | Sources  |   % available | Gb | 
@@ -87,8 +87,8 @@ Norwegian model but with added Swedish/Danish and English text. Swedish and Dani
 | Norwegian Social Media | 100% | 40| 
 | Norwegian Admin | 100% | 20|
 | **Norwegian Total** |  | **250GB**|
-| Swedish | 100% | 50|
-| Danish | 100% | 50|
+| Swedish | 30% | 50|
+| Danish | 80% | 50|
 | English | <10% | 150|
 | **Total Corpus**| **500GB**|
 
