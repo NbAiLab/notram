@@ -2,7 +2,7 @@
 This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of uncompressed text is roughly 160M words. Not all numbers are ready yet.
 
 ## Norwegian
-| General   |   Gb | Web   |   Gb | Social Media  |   Gb | Administrative  |   Gb | 
+| General   |   GB | Web   |   GB | Social Media  |   GB | Administrative  |   GB | 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  -------- |   :-----|  
 | Library Books | 83.0| CC-100 | 52.0| Facebook | 6.5| Government Docs | 0.2|
 | Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|Parliament Docs | 8.4|
@@ -10,17 +10,17 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Open Subtitles | 0.6| | | Twitter Top | ?|Lovdata CD | 0.5|
 | Norart | 0.4| | | | |Lovdata Transfer | 2.8|
 | Online Newspapers|5.0| || | |Målfrid | 13.0|
-| **Total Unique General**| **150Gb**| **Total Unique Web**| **80Gb**| **Total Unique Social**| **40Gb**??|**Total Unique Admin**| **20Gb**|
-| **Total Unique Norwegian Estimate** | **289Gb??**| | | | | |
+| **Total Unique General**| **150GB**| **Total Unique Web**| **80GB**| **Total Unique Social**| **40GB**??|**Total Unique Admin**| **20GB**|
+| **Total Unique Norwegian Estimate** | **289GB??**| | | | | |
 
  
 ## Other Languages
-| Sources  |  Swedish Gb | Danish Gb | English  Gb | 
+| Sources  |  Swedish GB | Danish GB | English  GB | 
 | -------- |   :-----|   :-----|:-----| 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
 | Reddit | 1.6|  1.1| 520.0|
-| MC4/CC-100 | 150.0| 60.0| >1Tb|
-| **Total Unique Estimate**| **150Gb**| **60Gb**|**>1Tb**|
+| MC4/CC-100 | 150.0| 60.0| >1TB|
+| **Total Unique Estimate**| **150GB**| **60Gb**|**>1TB**|
 
 
 # Composition of Training Corpus for NoTraM Large
