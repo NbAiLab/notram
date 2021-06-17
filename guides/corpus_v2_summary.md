@@ -10,7 +10,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Open Subtitles | 0.6| | | Twitter Top | ?|Lovdata CD | 0.5|
 | Norart | 0.4| | | | |Lovdata Transfer | 2.8|
 | || || | |Målfrid | 13.0|
-| **Total Unique General**| **149Gb**| **Total Unique Web**| **80Gb**| **Total Unique Social**| **40Gb**??|**Total Unique Admin**| **20Gb**|
+| **Total Unique General**| **149Gb**| **Total Unique Web**| **139Gb**| **Total Unique Social**| **40Gb**??|**Total Unique Admin**| **20Gb**|
 | **Total Norwegian** | **289Gb??**| | | | | |
 
  
