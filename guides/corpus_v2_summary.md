@@ -38,5 +38,5 @@ Norwegian model but with added Swedish/Danish and English text. Swedish and Dani
 | Swedish | 30% | 50|
 | Danish | 80% | 50|
 | English | <10% | 150|
-| **Total Corpus**| **500GB**|
+| **Total Corpus**| | **500GB**|
 
