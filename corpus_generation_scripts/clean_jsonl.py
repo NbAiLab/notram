@@ -61,7 +61,11 @@ def load_jsonl(jsonl):
 
 def save_jsonl(data, filename):
     colnames = [c for c in list(data.columns) if c!='paragraph_id' and c!='text' and c!='hash']
-    data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'}).to_json(filename,orient='records',lines=True)
+    data = data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'})
+    
+    with open(filename, 'w', encoding='utf-8') as file:
+        data.to_json(file, orient='records', lines=True, force_ascii=False)
+    
     logger.info(f'Saved jsonl as "{filename}"')
 
 
