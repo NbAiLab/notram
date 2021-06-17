@@ -19,12 +19,12 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 
 
 
-| Swedish  |   Gb | Danish  |   Gb | 
-| -------- |   :-----|  -------- |   :-----|
-| Library books/newspapers | 0.5| Library books/newspapers | 1.0| 
-| Reddit | 1.6| Reddit | 1.1| 
-| MC4 | 150|MC4 | 60|
-| **Total Swedish**| **150Gb**|**Total Danish**| **60Gb**|
+| Sources  |  Swedish Gb | Danish Gb |  
+| -------- |   :-----|   :-----|
+| Library books/newspapers | 0.5|  1.0| 
+| Reddit | 1.6|  1.1| 
+| MC4 | 150| 60|
+| **Total **| **150Gb**| **60Gb**|
 
 
 
