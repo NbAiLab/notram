@@ -20,7 +20,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
 | Reddit | 1.6|  1.1| 520|
 | MC4/CC-100 | 150| 60| >1Tb|
-| **Total **| **150Gb**| **60Gb**|**>1Tb**|
+| **Total**| **150Gb**| **60Gb**|**>1Tb**|
 
 
 # Composition of Training Corpus for NoTraM Large
