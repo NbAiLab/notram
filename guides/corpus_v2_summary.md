@@ -4,7 +4,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 ## Norwegian
 | General   |   Gb | Web   |   Gb | Social Media  |   Gb | Administrative  |   Gb | 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  -------- |   :-----|  
-| Library Books | 83.0| CC-100 | 52.0| Facebook | ?| Government Docs | 0.2|
+| Library Books | 83.0| CC-100 | 52.0| Facebook | 6.5| Government Docs | 0.2|
 | Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|Parliament Docs | 8.4|
 | Wikipedia | 1.6| MC4 | ?80?| Twitter News | ?|Public Reports | 0.6|
 | Open Subtitles | 0.6| | | Twitter Top | ?|Lovdata CD | 0.5|
