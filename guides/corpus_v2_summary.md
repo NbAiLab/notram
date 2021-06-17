@@ -11,34 +11,11 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | Norart | 0.4| | | | |Lovdata Transfer | 2.8|
 | || || | |Målfrid | 13.0|
 | **Total Unique General**| **149**| **Total Unique Web**| **80**| **Total Unique Social**| **40**??|**Total Unique Admin**| **20**|
-
-
+| **Total Norwegian | 289Gb??**| | | | | |
 
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-
-**Total Norwegian text: 289Gb??**
 
 
 ## Swedish
