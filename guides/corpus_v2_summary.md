@@ -2,7 +2,7 @@
 This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of uncompressed text is roughly 160M words. Not all numbers are ready yet.
 
 ## Norwegian
-| General Sources  |   Gb | Web Harvested  |   Gb | Social Media  |   Gb | Administrative sources  |   Gb | 
+| General   |   Gb | Web Harvested  |   Gb | Social Media  |   Gb | Administrative  |   Gb | 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  -------- |   :-----|  
 | Library Books | 83.0| CC-100 | 52.0| Facebook | ?| Government Collection | 0.2|
 | Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|Parliament Collection | 8.4|
