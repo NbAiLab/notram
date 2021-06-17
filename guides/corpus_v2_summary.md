@@ -9,9 +9,9 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Wikipedia | 1.6| MC4 | ?80?| Twitter News | ?|Public Reports | 0.6|
 | Open Subtitles | 0.6| | | Twitter Top | ?|Lovdata CD | 0.5|
 | Norart | 0.4| | | | |Lovdata Transfer | 2.8|
-| || || | |Målfrid | 13.0|
-| **Total Unique General**| **149Gb**| **Total Unique Web**| **80Gb**| **Total Unique Social**| **40Gb**??|**Total Unique Admin**| **20Gb**|
-| **Total Norwegian** | **289Gb??**| | | | | |
+| Online Newspapers|5.0| || | |Målfrid | 13.0|
+| **Total Unique General**| **150Gb**| **Total Unique Web**| **80Gb**| **Total Unique Social**| **40Gb**??|**Total Unique Admin**| **20Gb**|
+| **Total Unique Norwegian Estimate** | **289Gb??**| | | | | |
 
  
 ## Other Languages
@@ -20,7 +20,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
 | Reddit | 1.6|  1.1| 520.0|
 | MC4/CC-100 | 150.0| 60.0| >1Tb|
-| **Total**| **150Gb**| **60Gb**|**>1Tb**|
+| **Total Unique Estimate**| **150Gb**| **60Gb**|**>1Tb**|
 
 
 # Composition of Training Corpus for NoTraM Large
@@ -30,7 +30,7 @@ NoTraM Large is primarily a Norwegian model but with added Swedish, Danish and E
 
 | Sources  |   % available | Gb | 
 | -------- |   :-----| :-----| 
-| Norwegian General | 100% | 149| 
+| Norwegian General | 100% | 150| 
 | Norwegian Web | 70% | 70| 
 | Norwegian Social Media | 100% | 40| 
 | Norwegian Admin | 100% | 20|
