@@ -4,9 +4,9 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 ## Norwegian
 | General Sources  |   Gb | Web Harvested  |   Gb | Social Media  |   Gb | 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  
-| Library Books | 83.0| CC-100 | 52.0| | Facebook | ?| 
+| Library Books | 83.0| CC-100 | 52.0| Facebook | ?| 
 | Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|
-| Wikipedia | 1.6| MC4 | ?80?|| Twitter News | ?|
+| Wikipedia | 1.6| MC4 | ?80?| Twitter News | ?|
 | Open Subtitles | 0.6| | || Twitter Top | ?|
 | Norart | 0.4| | | | ?|
 | **Total Unique General**| **149**| **Total Unique Web**| **80**| **Total Unique Web**| **40**??|
