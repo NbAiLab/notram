@@ -34,7 +34,7 @@ NoTraM Large is primarily a Norwegian model but with added Swedish, Danish and E
 | Norwegian Web | 70% | 70| 
 | Norwegian Social Media | 100% | 40| 
 | Norwegian Admin | 100% | 20|
-| **Norwegian Total** |  | **350GB**|
+| **Norwegian Total** |  | **250GB**|
 | Swedish | 30% | 50|
 | Danish | 80% | 50|
 | English | <10% | 150|
