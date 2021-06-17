@@ -9,6 +9,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | Wikipedia | 1.6| MC4 | ?80?| Twitter News | ?|Public Reports | 0.6|
 | Open Subtitles | 0.6| | | Twitter Top | ?|Lovdata CD | 0.5|
 | Norart | 0.4| | | | |Lovdata Transfer | 2.8|
+| || || |Målfrid | 13.0|
 | **Total Unique General**| **149**| **Total Unique Web**| **80**| **Total Unique Social**| **40**??|**Total Unique Admin**| **20**|
 
 
@@ -34,7 +35,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | 
 | 
 | 
-| Målfrid | 13.0|
+| 
 | 
 
 **Total Norwegian text: 289Gb??**
