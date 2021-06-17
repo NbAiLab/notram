@@ -9,7 +9,7 @@ This page tracks summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 
 | Wikipedia | 1.6|
 | Open Subtitles | 0.6|
 | Norart | 0.4|
-| **Total Unique General| 149**|
+| **Total Unique General**| **149**|
 
 
 | Web Harvested  |   Gb | 
