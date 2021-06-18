@@ -28,7 +28,6 @@ Specification for the internal format used when extracting text from OCR documen
 "doc_type": "newspaper" # The type of material. Newspaper or book
 "ocr_date": "20191224" #Date for OCR in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. 
-"language_reported": "nob" #3-letter language code. nob for Bokmål, nno for Nynorsk and no for unspecified Norwegian. Set to N/A for newspapers since it is not reported in METS/ALTO
 "language_detected": "nob" #3-letter language code
 "docworks_version": "6.5-1.28" #Text reported in METS/ALTO
 "abbyy_version": "8.1" #Text reported in METS/ALTO
@@ -36,7 +35,6 @@ Specification for the internal format used when extracting text from OCR documen
 "document_word_confidence": 0.9 #Float 0-1. Average calculated while processing. 
 "paragraphs":   "paragraph_id": 1 #Integer. Starting on 0. Counted during processing.
                 "page": 1 #Page number -  From in METS/ALTO
-                "block": 1 #Block number on current page - From in METS/ALTO
                 "confidence": 0.36 #Float 0-1. From METS/ALTO
                 "text": "text goes here" #utf8-encoded-text
 ```
