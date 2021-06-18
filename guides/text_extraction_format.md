@@ -25,7 +25,7 @@ Specification for the internal format used when extracting text from OCR documen
 ## Newspaper example (one for each article)
 ```bash
 "id": "aftenposten_null_null_20190102_160_1_1-2_007_bilag_ARTICLE316" # Reference to the exact article
-"doc_type": "newspaper" # The type of material. Newspaper or book
+"doc_type": "newspaper_ocr" # The type of material. Newspaper or book
 "ocr_date": "20191224" #Date for OCR in the format yyyymmdd
 "publish_date": "20190101" # Date for publication. 
 "language_detected": "nob" #3-letter language code
