@@ -19,10 +19,6 @@ import ftfy
 from datetime import datetime
 import logging
 
-# Invoke logger globally
-logger= logging.getLogger()
-logger.setLevel(logging.INFO)
-
 
 # compile regexes
 username_regex = re.compile(r'(^|[^@\w])@(\w{1,15})\b')
@@ -365,11 +361,22 @@ def parse_args():
     parser.add_argument('--input_file', required=True, help='Path to input file.')
     parser.add_argument('--output_folder', required=True, help='Path to output folder.')
     parser.add_argument('--config_file',required=False, default="config.json", help='Needs to be placed in output folder. Overrides the default config.json')
+    parser.add_argument('--log_level',required=False, default="INFO", help='Set logging level to DEBUG to get a report on all decisions')
     args = parser.parse_args()
     return args
 
 if __name__ == "__main__":
     args = parse_args()
+   
+    # Invoke logger globally
+    logger= logging.getLogger()
+    if args.log_level == "INFO":
+       logger.setLevel(logging.INFO)
+    elif args.log_level =="DEBUG":
+       logger.setLevel(logging.DEBUG)
+    else:
+        print("Log level not accepted")
+        exit()
     main(args)
 
 
