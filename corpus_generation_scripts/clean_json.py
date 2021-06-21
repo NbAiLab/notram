@@ -21,7 +21,7 @@ import logging
 
 from pandarallel import pandarallel
 
-pandarallel.initialize(progress_bar=True, nb_workers=20)
+pandarallel.initialize()
 
 # compile regexes
 username_regex = re.compile(r'(^|[^@\w])@(\w{1,15})\b')
