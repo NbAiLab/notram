@@ -1,67 +1,76 @@
 ####################################################################################
-# Cleaning up Norwegian Wikipedia
+# Convert the OpenSubtitles corpus to jsonl.
+# This corpus is in xml format
 # Output is an UTF-8 file with one article per line
 ####################################################################################
 
-import sys, glob, os, re, argparse
-import pandas as pd
+from bs4 import BeautifulSoup
+import requests
+import ftfy, glob, argparse, os
 import jsonlines
-import ftfy
+from tqdm import tqdm
+from datetime import datetime
 
 def main(args):
-    all_articles = []
-    valid_article_count = 0
+    #Create the new file. Overwrite if it exits
+    f = open(args.output_file, "w+") 
+    f.close()
 
-    #Read the file
-    print('Starting to read json-file...')
-    df = pd.read_json(args.input_file)
-    print(f'Finished loading {len(df)} articles.')
+    #Get a list of documents in the folder
+    if args.year != "":
+        filelist = glob.glob(args.input_folder+'/*'+args.year+"*", recursive=True)
+    else:
+        filelist = glob.glob(args.input_folder+'/*', recursive=True)
     
-    #df = df[0:100]
-    print('Starting to parse json file...')
-    
-    for index, row in df.iterrows():
-        #There are some encoded line breaks in here that seems to confuse Spacey. Replace them
-        wikiarticle = row['text'].replace("\n\n","<p>")
-        wikiarticle = wikiarticle.replace("\n"," ")
-        wikiarticle = wikiarticle.replace("<p>","\n").strip().strip('\n\r')
-        
-        #All 
-        
-        myarticle = {}
-        myarticle['doc_type'] = str(args.doc_type)
-        myarticle['id'] = index
-        myarticle['language_reported'] = str(args.language_reported)
-        myarticle['paragraphs'] = [] 
-        
-        for id,paragraph in enumerate(wikiarticle.split('\n')):
-            p = {}
-            p['paragraph_id'] = id
-            p['text'] = str(ftfy.fix_text(paragraph))
-            myarticle['paragraphs'].append(p)
-
-        valid_article_count += 1
-        all_articles.append(myarticle)
-
+    n = 0
     with jsonlines.open(args.output_file, 'w') as writer:
-        writer.write_all(all_articles)
+        for f in tqdm(filelist):
+            with jsonlines.open(f) as reader:
+                for redditpost in reader:
+                    written = 0
+                    myarticle = {}
+                    myarticle['doc_type'] = args.doc_type
+                    myarticle['id'] = args.doc_type+"_"+ redditpost['id'] 
+                    myarticle['language_reported'] = args.language_reported
+                    myarticle['paragraphs'] = []
+                    myarticle['publish_date'] = datetime.utcfromtimestamp(int(redditpost['created_utc'])).strftime('%Y%m%d')
+                    myarticle['created_utc'] = redditpost['created_utc']
+                    myarticle['subreddit_id'] = redditpost['subreddit_id']
+                    myarticle['author'] = redditpost['author']
+                    myarticle['parent_id'] = redditpost['parent_id']
 
+                    alltext = list(filter(bool, redditpost['body'].splitlines()))
+                    
+                    pid = 0
+                    for p in alltext:
+                        paragraph = {}
+                        text =  " ".join(p.split())
+                        text = ftfy.fix_text(text)
 
-    print(f'Saved file: {args.output_file}')
-    print(f'Total number of articles: {index+1}')
-    print(f'Number of valid articles: {valid_article_count}')
+                        paragraph['paragraph_id'] = pid
+                        paragraph['text'] = text
+                        
+                        myarticle['paragraphs'].append(paragraph)
+                        pid += 1
+                       
+                    writer.write(myarticle)
+                    n += 1
+                    
+    print(f'{n} posts from {len(filelist)} files are written to {args.output_file}')
+
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--language_reported', required=True, type=str, help='Language reported')
-    parser.add_argument('--doc_type', required=True, type=str, help='Doc type')
-    parser.add_argument('--input_file', required=True, type=str, help='Input file')
-    parser.add_argument('--output_file', required=True, type=str, help='Output file')
+    parser = argparse.ArgumentParser()    
+    parser.add_argument('--language_reported', required=False, default="N/A", type=str, help='Language reported. Can be nob, nno, no or N/A')
+    parser.add_argument('--doc_type', required=True, type=str, help='For instance government')
+    parser.add_argument('--year', default="", type=str, help='Selects only one year')
+    parser.add_argument('-o', '--output_file', required=True, help='Output file name. Will overwrite it exists')
+    parser.add_argument('-i', '--input_folder', required=True, help='Input folder. Will read all files in folder')
     args = parser.parse_args()
     return args
-    
+
 if __name__ == "__main__":
     args = parse_args()
     main(args)
-
+#print(soup.prettify()) # print the parsed data of html
