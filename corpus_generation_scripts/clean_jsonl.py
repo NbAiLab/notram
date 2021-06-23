@@ -135,9 +135,10 @@ def truncate_last_valid_sentence(text):
     
     return text[0:last_val]
 
-def replace_usernames_tweets(text, filler='@peregil'):
+def replace_usernames_tweets(text, filler='@User'):
     # replace other user handles by filler
-    input_text = text
+    text = str(text)
+    input_text = str(text)
     text = re.sub(username_regex, filler, text)
     # add spaces between, and remove double spaces again
     text = text.replace(filler, f' {filler} ')
@@ -148,7 +149,8 @@ def replace_usernames_tweets(text, filler='@peregil'):
 
     return text
 
-def replace_urls(text, filler='http://url.no'):
+def replace_urls(text, filler='http://www.no'):
+    text = str(text)
     input_text = text
     # <url> is a marker used internally. use filler instead
     text = text.replace('<url>', filler)
@@ -164,6 +166,7 @@ def replace_urls(text, filler='http://url.no'):
     return text
 
 def replace_email_addresses(text, filler='email@email.no'):
+    text = str(text)
     input_text = text
     text = re.sub(email_regex, filler, text)
     # add spaces between, and remove double spaces again
