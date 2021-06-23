@@ -297,19 +297,19 @@ def main(args):
 
     #Replace username in tweets
     if config['replace_usernames_tweets']:
-        data['text'] = data['text'].parallel_apply(lambda x: replace_usernames_tweets(x, config['replace_usernames_tweets']))
+        data['text'] = data['text'].parallel_apply(lambda x: replace_usernames_tweets(x))
         logger.info(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}.')
         print(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}.')
         
     #Replace urls
     if config['replace_urls']:
-        data['text'] = data['text'].parallel_apply(lambda x: replace_urls(x, config['replace_urls']))
+        data['text'] = data['text'].parallel_apply(lambda x: replace_urls(x))
         logger.info(f'***  Replaced urls with {config["replace_urls"]}.')
         print(f'***  Replaced urls with {config["replace_urls"]}.')
 
     #Replace email addresses
     if config['replace_email_addresses']:
-        data['text'] = data['text'].parallel_apply(lambda x: replace_email_addresses(x, config['replace_email_addresses']))
+        data['text'] = data['text'].parallel_apply(lambda x: replace_email_addresses(x))
         logger.info(f'***  Replaced email addresses with {config["replace_email_addresses"]}.')
         print(f'***  Replaced email addresses with {config["replace_email_addresses"]}.')
 
