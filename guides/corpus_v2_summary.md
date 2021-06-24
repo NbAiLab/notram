@@ -6,7 +6,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  -------- |   :-----|  
 | Library Books | 83.0| CC-100 | 52.0| Facebook | 6.5| Government Docs | 0.2|
 | Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|Parliament Docs | 8.4|
-| Wikipedia | 1.6| MC4 | ?80?| Twitter News | 0.8|Public Reports | 0.6|
+| Wikipedia | 2.0| MC4 | ?80?| Twitter News | 0.8|Public Reports | 0.6|
 | Open Subtitles | 0.6| | | Twitter Top | 14.0|Lovdata CD | 0.5|
 | Norart | 0.4| | | VG Debatt| ?|Lovdata Transfer | 2.8|
 | Online Newspapers|5.0| || | |Målfrid | 13.0|
@@ -19,6 +19,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | -------- |   :-----|   :-----|:-----| 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
 | Reddit | 1.6|  1.1| 520.0|
+| Wikipedia | 3.9|  0.8| 23.0|
 | MC4/CC-100 | 150.0| 60.0| >1TB|
 | **Total Unique Estimate**| **150GB**| **60Gb**|**>1TB**|
 
