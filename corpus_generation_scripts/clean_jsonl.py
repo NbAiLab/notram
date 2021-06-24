@@ -180,7 +180,8 @@ def replace_email_addresses(text, filler='email@email.no'):
 
 def main(args):
     pd.set_option("display.max_rows", None)
-    
+    ocr_doc = 1
+
     #Invoke logging
     log_name = os.path.basename(args.input_file).replace(".jsonl",".log")
     logging.basicConfig(filename=os.path.join(args.output_folder,log_name), format='%(asctime)s %(message)s', filemode='w')
@@ -222,9 +223,13 @@ def main(args):
 
     if 'document_word_confidence' not in data:
         data['document_word_confidence'] = 1.0
-    
+        #If documen_word_confidence is not set, we assume that this is not an ocr1ed document
+        ocr_doc = 0
+
+
     if 'confidence' not in data:
         data['confidence'] = 1.0
+        
     
 
     #Fix unicode
@@ -266,15 +271,17 @@ def main(args):
     data['ocr_date'] = data['ocr_date'].fillna(ocr_date)
     data['ocr_year'] = data['ocr_year'].fillna(ocr_year)
 
-    cond = data['ocr_date'] >= config['min_ocr_date']
-    logger.debug(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
-    data = data[cond]
-    logger.info(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
-    print(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
-    
+    if ocr_date:
+        cond = data['ocr_date'] >= config['min_ocr_date']
+        logger.debug(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
+        data = data[cond]
+        logger.info(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
+        print(f'***  Completed filtering OCR date. Valid posts = {len(data)}')
+    else:
+        print(f'***  Skipped evaluating ocr date since this is not an ocr document')
+
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
-
     
     logger.debug(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
     data = data[cond]
@@ -282,18 +289,26 @@ def main(args):
     print(f'***  Completed filtering publishdate. Valid posts = {len(data)}')
 
     #Filter for document word confidence
-    cond = data['document_word_confidence'].astype(float) >= config['min_document_word_confidence']
-    logger.debug(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
-    data = data[cond]
-    logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
-    print(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
-    
+    if ocr_doc:
+        cond = data['document_word_confidence'].astype(float) >= config['min_document_word_confidence']
+        logger.debug(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
+        data = data[cond]
+        logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
+        print(f'***  Completed filtering document confidence. Valid posts = {len(data)}')
+    else:
+        print(f'***  Skipped document confidence evaluation since this is not an ocr document')
+
+
     #Filter for paragraph confidence
-    cond = data['confidence'].astype(float) >= config['min_confidence_paragraph']
-    logger.debug(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
-    data = data[cond]
-    logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
-    print(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
+    if ocr_doc:
+        cond = data['confidence'].astype(float) >= config['min_confidence_paragraph']
+        logger.debug(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
+        data = data[cond]
+        logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
+        print(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}')
+    else:
+        print(f'***  Skipped paragraph confidence evaluation since this is not an ocr document')
+
 
     #Replace username in tweets
     if config['replace_usernames_tweets']:
