@@ -183,7 +183,9 @@ def main(args):
     ocr_doc = 1
 
     #Invoke logging
-    log_name = os.path.basename(args.input_file).replace(".jsonl",".log")
+    log_name = os.path.basename(args.input_file).replace(".jsonl","")
+    log_name = log_name + ".log"
+
     logging.basicConfig(filename=os.path.join(args.output_folder,log_name), format='%(asctime)s %(message)s', filemode='w')
 
     config = read_config(os.path.join(args.output_folder,args.config_file))
