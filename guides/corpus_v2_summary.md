@@ -20,7 +20,8 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
 | Reddit | 1.6|  1.1| 520.0|
 | Wikipedia | 3.9|  0.8| 23.0|
-| MC4/CC-100 | 150.0| 60.0| >1TB|
+| CC-100 | 98.0| 58.0| 376.0|
+| MC4 | 150.0| 60.0| >1TB|
 | **Total Unique Estimate**| **150GB**| **60Gb**|**>1TB**|
 
 
