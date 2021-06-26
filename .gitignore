@@ -142,8 +142,8 @@ cython_debug/
 **/ppss_dir_1/**
 **/ppss_dir_*/**
 tmp/
-**vocab_generation/tokenizers/**
-**vocab_generation/generated_tokenizers/**
+#**vocab_generation/tokenizers/**
+#**vocab_generation/generated_tokenizers/**
 <<<<<<< HEAD
 **finetuning_datasets/english_nli/**
 =======
