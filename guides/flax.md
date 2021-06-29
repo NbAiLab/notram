@@ -40,7 +40,7 @@ $ cd ~/
 $ git clone https://github.com/huggingface/datasets.git
 $ cd datasets
 $ pip install -e ".[streaming]"
-sudo apt install python-is-python3
+$ sudo apt install python-is-python3
 
 ```
 Start python, and verify that you can runthe script on https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects#how-to-install-relevant-libraries
