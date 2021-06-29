@@ -16,6 +16,7 @@ gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 
 Install latest jax and transformers
 ```bash
+pip install --upgrade clu
 pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 ```
 
@@ -33,8 +34,8 @@ $ git clone https://github.com/<your Github handle>/transformers.git
 $ cd transformers
 $ git remote add upstream https://github.com/huggingface/transformers.git
 $ git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
-$ sudo pip -e install ".[flax]" 
-$ sudo pip install -e ".[transformers]"
+$ pip install --user -e ".[flax]" 
+$ pip install --user -e ".[transformers]"
 
 $ cd ~/
 $ git clone https://github.com/huggingface/datasets.git
