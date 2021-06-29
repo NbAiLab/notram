@@ -7,25 +7,25 @@ https://github.com/huggingface/transformers/tree/master/examples/flax/language-m
 #Running everything from the console seems to be the only thing that works:
 Trying to run this from Dante.
 ```bash
-gcloud auth login
-gcloud services enable tpu.googleapis.com
-gcloud beta services identity create --service tpu.googleapis.com
-gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha
-gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
+$ gcloud auth login
+$ gcloud services enable tpu.googleapis.com
+$ gcloud beta services identity create --service tpu.googleapis.com
+$ gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha
+$ gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 ```
 
 Install latest jax and transformers
 ```bash
-pip install --upgrade clu
-pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+$ pip install --upgrade clu
+$ pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 ```
 
 Test if it all works:
 ```bash
-python3
+$ python3
 >>import jax
 >>jax.device_count()
->>8
+8
 ```
 
 Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). This creates a copy of the code under your GitHub user account.
@@ -55,6 +55,8 @@ $ git lfs track "*tfevents*"
 $ cd ..
 $ export MODEL_DIR="./norwegian-roberta-base"
 $ ln -s ~/transformers/examples/flax/language-modeling/run_mlm_flax.py run_mlm_flax.py
+
+$ export XRT_TPU_CONFIG="localservice;0;localhost:51011"
 ```
 
 Follow the instructions. Make a script for training a tokenizer. Make a script for creating config. Run them
