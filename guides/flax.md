@@ -56,7 +56,7 @@ $ export MODEL_DIR="./norwegian-roberta-base"
 $ ln -s ~/transformers/examples/flax/language-modeling/run_mlm_flax.py run_mlm_flax.py
 ```
 
-* Follow the instructions. Make a script for training a tokenizer. Make a script for creating config. Run them
+Follow the instructions. Make a script for training a tokenizer. Make a script for creating config. Run them
 
 We are now ready to run the training script:
 
