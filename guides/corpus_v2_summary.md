@@ -11,7 +11,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Norart | 0.4| | | VG Debatt| 20.0|Lovdata Transfer | 2.8|
 | Online Newspapers|5.0| || | |Målfrid | 13.0|
 | **Total Unique General**| **150GB**| **Total Unique Web**| **100GB**| **Total Unique Social**| **25GB**|**Total Unique Admin**| **20GB**|
-| **Total Unique Norwegian Estimate** | **289GB??**| | | | | |
+| **Total Unique Norwegian Estimate** | **295GB (estimate)**| | | | | |
 
  
 ## Other Languages
