@@ -2,6 +2,7 @@ Main documents:
 ```bash
 https://cloud.google.com/tpu/docs/jax-quickstart-tpu-vm
 https://github.com/huggingface/transformers/tree/master/examples/flax/language-modeling#masked-language-modeling
+https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects#how-to-install-relevant-libraries
 ```
 
 #Running everything from the console seems to be the only thing that works:
@@ -55,6 +56,12 @@ $ git lfs track "*tfevents*"
 $ cd ..
 $ export MODEL_DIR="./norwegian-roberta-base"
 $ ln -s ~/transformers/examples/flax/language-modeling/run_mlm_flax.py run_mlm_flax.py
+
+
+Here I am getting this error:
+RuntimeError: tensorflow/compiler/xla/xla_client/computation_client.cc:273 : Missing XLA configuration
+
+Tried this, it then runs, but do not find the TPU. Number of TPU_cores is also null.
 
 $ export XRT_TPU_CONFIG="localservice;0;localhost:51011"
 ```
