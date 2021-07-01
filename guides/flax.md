@@ -23,7 +23,7 @@ $ pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/
 
 Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). This creates a copy of the code under your GitHub user account.
 ```bash
-$ git clone https://github.com/<your Github handle>/transformers.git
+$ git clone https://github.com/huggingface/transformers.git
 $ cd transformers
 $ git remote add upstream https://github.com/huggingface/transformers.git
 $ git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
