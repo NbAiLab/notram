@@ -27,8 +27,8 @@ $ git clone https://github.com/huggingface/transformers.git
 $ cd transformers
 $ git remote add upstream https://github.com/huggingface/transformers.git
 $ git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
-$ pip install --user -e ".[flax]" 
-$ pip install --user -e ".[transformers]"
+$ pip install --user --no-use-pep517 -e ".[flax]"
+$ pip install --user --no-use-pep517 -e ".[transformers]"
 
 $ cd ~/
 $ git clone https://github.com/huggingface/datasets.git
