@@ -35,6 +35,7 @@ $ git clone https://github.com/huggingface/datasets.git
 $ cd datasets
 $ pip install -e ".[streaming]"
 $ sudo apt install python-is-python3
+$ cd ..
 
 ```
 
