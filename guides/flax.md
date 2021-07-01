@@ -3,6 +3,7 @@ Following these documents:
 https://cloud.google.com/tpu/docs/jax-quickstart-tpu-vm
 https://github.com/huggingface/transformers/tree/master/examples/flax/language-modeling#masked-language-modeling
 https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects#how-to-install-relevant-libraries
+https://cloud.google.com/tpu/docs/system-architecture-tpu-vm
 ```
 
 Running this on local machine:
