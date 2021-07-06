@@ -59,9 +59,7 @@ def load_jsonl(jsonl):
     return data
 
 def save_jsonl(data, filename):
-    colnames = [c for c in list(data.columns) if c!='paragraph_id' and c!='text' and c!='hash']
-    data = data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'})
-    
+   
     with open(filename, 'w', encoding='utf-8') as file:
         data.to_json(file, orient='records', lines=True, force_ascii=False)
     
@@ -232,7 +230,6 @@ def main(args):
     if 'confidence' not in data:
         data['confidence'] = 1.0
         
-    
 
     #Fix unicode
     if config['normalise_unicode']:
@@ -353,6 +350,24 @@ def main(args):
     logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}')
     print(f'***  Completed filtering min length article. Valid posts = {len(data)}')
  
+    #Remove paragraphs with curly brackets
+    if config['drop_paragraphs_with_curly_brackets']:
+        cond = data['text'].str.contains('\\{')
+        logger.debug(f'\n\n*** The following text was deleted because it contained left curly brackets:\n {data[~cond]["text"]}')
+        data = data[~cond]
+        cond = data['text'].str.contains('\\}')
+        logger.debug(f'\n\n*** The following text was deleted because it contained right curly brackets:\n {data[~cond]["text"]}')
+        data = data[~cond]
+        print(f'***  Completed filtering out paragraphs with curly brackets. Valid posts = {len(data)}')
+    
+    #Filter out paragraphs with encoding errors
+    if config['drop_paragraphs_with_encoding_errors']:
+        cond = data['text'].str.contains('�')
+        data = data[~cond]
+    logger.info(f'***  Filtered out encoding errors. The length is now {len(data)}.')
+    print(f'***  Filtered out encoding errors. The length is now {len(data)}.')
+
+
     #Remove duplicates
     data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
     data.drop_duplicates(subset="hash",inplace=True,keep='first')
@@ -366,12 +381,19 @@ def main(args):
         logger.info(f'***  Minimised the dataframe')
         print(f'***  Minimised the dataframe')
 
+
     #Tidy up the file and sort it 
     data['publish_year'] = data['publish_year'].astype(int)
     data['paragraph_id'] = data['paragraph_id'].astype(int)
     data.sort_values(['doc_length', 'paragraph_id'], ascending=[False, True], inplace=True)
     logger.info(f'***  Fixed data type and sorted the dataframe')
     print(f'***  Fixed data type and sorted the dataframe')
+    
+    #Collapse the dataset
+    colnames = [c for c in list(data.columns) if c!='paragraph_id' and c!='text' and c!='hash']
+    data = data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'})
+    logger.info(f'***  Collapsed the dataframe. The length after collapsing it {len(data)}.')
+    print(f'***  Collapse the dataframe. The length after collapsing it {len(data)}.')
 
     #Save is as jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
