@@ -10,8 +10,8 @@ model = fasttext.load_model(PRETRAINED_MODEL_PATH)
 
 def main(args):
     basename = os.path.basename(args.input_file).replace(".jsonl","")
-    with jsonlines.open(os.path.join(args.output_folder, basename+'_nno.jsonl'), mode='a') as nnowriter:
-        with jsonlines.open(os.path.join(args.output_folder, basename+'nob.jsonl'), mode='a') as nobwriter:
+    with jsonlines.open(os.path.join(args.output_folder, basename+'_nn.jsonl'), mode='a') as nnowriter:
+        with jsonlines.open(os.path.join(args.output_folder, basename+'_nb.jsonl'), mode='a') as nobwriter:
             with jsonlines.open(args.input_file) as reader:
                 for line in tqdm(reader):
                     t = line['text']
