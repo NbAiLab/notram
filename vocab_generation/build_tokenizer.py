@@ -9,7 +9,7 @@ import glob
 tokenizer = Tokenizer(WordPiece())
 tokenizer.pre_tokenizer = Whitespace()
 
-#tokenizer.normalizer = normalizers.Sequence([Lowercase()])
+tokenizer.normalizer = normalizers.Sequence([Lowercase()])
 
 trainer = WordPieceTrainer(
         vocab_size=49500,
@@ -19,11 +19,11 @@ trainer = WordPieceTrainer(
         limit_alphabet=1500
 )
 
-files = glob.glob('/var/ml/tmp/*0.txt')
+files = glob.glob('/nfsmounts/datastore/corpus/scandcorpus/*.*')
 for _ in range(0,100):
     files.append('emoji/emoji.txt')
 
 
 tokenizer.train(trainer,files)
 
-tokenizer.save('tokenizers/tokenizer_wordpiece_49500_cased_alphabet1500_emoji_large.json', pretty=True)
+tokenizer.save('tokenizers/tokenizer_scandinavian_ordpiece_49500_lowercased_alphabet1500_emoji_large.json', pretty=True)
