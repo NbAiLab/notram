@@ -1,4 +1,4 @@
-# Balanced Norweigan Bokmål amd Norwegian Nynorsk Corpus
+# Balanced Norwegian Bokmål and Norwegian Nynorsk Corpus
 This is a balanced Nynorsk-Bokmål corpus created specifically for doing machine translations or other NLP tasks requiring balancing between the two language variants. The corpus has the same amount of data from both languages
 
 The balancing is done both across the language variants. In addition we have tried to make sure that we have gotten about the same amount of data from each source. The corpus is randomized. 
