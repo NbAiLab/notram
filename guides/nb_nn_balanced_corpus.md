@@ -5,7 +5,7 @@ The balancing is done both across the language variants. In addition we have tri
 
 Fasttext 0.9.2 is used for language detection including anything with a probability above 0.5 for each of the variants. 
 
-Since the Bokmål corpus is more than 10 times larger, a shuffled sub corpora for Bokmål is trimmed in all cases to match the Nynorsk sub corpora. The final corpus is shuffled and unlabeled. All text is from the Collossal Norwegian Corpus v2. All Nynorsk text in this corpus is used.
+Since the Bokmål corpus is significantly larger, a shuffled sub corpora for Bokmål is trimmed to approximately match the Nynorsk sub corpora. The final corpus is shuffled. All the text is collected from the Collossal Norwegian Corpus v2. The goal has been to extract as much Nynorsk text as possible from this collection.
 
 
 ## Corpus in GB
@@ -17,5 +17,5 @@ Since the Bokmål corpus is more than 10 times larger, a shuffled sub corpora fo
 | Administration | 0.4| 0.4 |
 | Social | 0.3| 0.3 |
 | Wikipedia | 0.2| 0.2 |
-| **Total **| **?GB**| **?**| 
+| **Total**| **?GB**| **?**| 
 
