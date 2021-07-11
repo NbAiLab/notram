@@ -8,7 +8,7 @@ Fasttext 0.9.2 is used for language detection including anything with a probabil
 Since the Bokmål corpus is significantly larger, a shuffled sub corpora for Bokmål is trimmed to approximately match the Nynorsk sub corpora. The final corpus is shuffled. All the text is collected from the Collossal Norwegian Corpus v2. The goal has been to extract as much Nynorsk text as possible from this collection.
 
 
-## Composition of the 20GB Balanced Corpus
+## Composition of the 19GB Balanced Corpus
 | Sub Corpus   |   Bokmål  | Nynorsk   | 
 | -------- |   :-----|  :-----| 
 | Library Books | 3.9| 3.9 |
@@ -17,5 +17,5 @@ Since the Bokmål corpus is significantly larger, a shuffled sub corpora for Bok
 | Administration | 0.4| 0.4 |
 | Social | 0.3| 0.3 |
 | Wikipedia | 0.2| 0.2 |
-| **Total**| **10.0**| **10.0**| 
+| **Total**| **9.5**| **9.5**| 
 
