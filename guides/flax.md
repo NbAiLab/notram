@@ -73,14 +73,11 @@ Lead to this error:
 RuntimeError: tensorflow/compiler/xla/xla_client/computation_client.cc:273 : Missing XLA configuration
 ```
 
-Then tried setting this variable:
+Fix this simply by setting:
 
 ```bash
-$ export XRT_TPU_CONFIG="localservice;0;localhost:51011"
+$ export USE_TORCH=False
 ```
-
-After this the script runs, but do not find the TPU. Number of TPU_cores is also null.
-
 
 
 
