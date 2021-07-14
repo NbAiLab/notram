@@ -16,7 +16,7 @@ rm validation_and_test.json
 wc -l
 ```
 
-We will then split the train set in 1024 train chunks, each with 8547 lines. Giving 57 chunks on the validation and test set.
+We will then split the train set in 1024 train chunks, each with 8547 lines. Using the same chunk length on validation and test set gives us 57 chunks in each of these sets.
 
 ```
 split --numeric-suffixes=1 -a 4 --additional-suffix "-of-1024.json" -l 8547 nb_nn_balanced_shuffled_train.json "nb_nn_balanced_shuffled_train-shard-" &&
