@@ -20,8 +20,8 @@ We will then split the train set in 1024 train chunks, each with 8547 lines. Usi
 
 ```
 split --numeric-suffixes=1 -a 4 --additional-suffix "-of-1024.json" -l 8547 nb_nn_balanced_shuffled_train.json "nb_nn_balanced_shuffled_train-shard-" &&
-split --numeric-suffixes=1 -a 4 --additional-suffix "-of-57.json" -l 8547 nb_nn_balanced_shuffled_test.json "nb_nn_balanced_shuffled_test-shard-" &&
-split --numeric-suffixes=1 -a 4 --additional-suffix "-of-57.json" -l 8547 nb_nn_balanced_shuffled_validation.json "nb_nn_balanced_shuffled_validation-shard-"
+split --numeric-suffixes=1 -a 4 --additional-suffix "-of-0057.json" -l 8547 nb_nn_balanced_shuffled_test.json "nb_nn_balanced_shuffled_test-shard-" &&
+split --numeric-suffixes=1 -a 4 --additional-suffix "-of-0057.json" -l 8547 nb_nn_balanced_shuffled_validation.json "nb_nn_balanced_shuffled_validation-shard-"
 ```
 
 In the end we gzip all the individual files.
