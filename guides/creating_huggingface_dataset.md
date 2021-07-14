@@ -33,9 +33,9 @@ gzip *
 And upload all the sharded files to the bucket
 
 ```
-gsutil cp -m *shards* gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/shards/ &&
-gsutil cp -m nb_nn_balanced_shuffled_train.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&
-gsutil cp -m nb_nn_balanced_shuffled_test.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&v
-gsutil cp -m nb_nn_balanced_shuffled_validation.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
+gsutil -m cp *shard*.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/shards/ &&
+gsutil -m cp nb_nn_balanced_shuffled_train.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&
+gsutil -m cp nb_nn_balanced_shuffled_test.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&v
+gsutil -m cp nb_nn_balanced_shuffled_validation.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
 
 ```
