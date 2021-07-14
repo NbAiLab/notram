@@ -12,4 +12,30 @@ head -n 8752545 nb_nn_balanced_shuffled.json > nb_nn_balanced_shuffled_train.jso
 tail -n +8752546 nb_nn_balanced_shuffled.json > validation_and_test.json
 head -n 486253 validation_and_test.json > nb_nn_balanced_shuffled_validation.json
 tail -n +486254 validation_and_test.json > nb_nn_balanced_shuffled_validation.json
+rm validation_and_test.json
+wc -l
+```
+
+We will then split the train set in 1024 train chunks, each with 8547 lines. Giving 57 chunks on the validation and test set.
+
+```
+split --numeric-suffixes=1 --additional-suffix "-of-1024.json" -l 8547 nb_nn_balanced_shuffled_train.json "nb_nn_balanced_shuffled_train-shard-"
+split --numeric-suffixes=1 --additional-suffix "-of-57.json" -l 8547 nb_nn_balanced_shuffled_test.json "nb_nn_balanced_shuffled_test-shard-"
+split --numeric-suffixes=1 --additional-suffix "-of-57.json" -l 8547 nb_nn_balanced_shuffled_validation.json "nb_nn_balanced_shuffled_validation-shard-"
+```
+
+In the end we gzip all the individual files.
+
+```
+gzip *
+```
+
+And upload all the sharded files to the bucket
+
+```
+gsutil cp *shards* gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/shards/
+gsutil cp nb_nn_balanced_shuffled_train.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
+gsutil cp nb_nn_balanced_shuffled_test.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
+gsutil cp nb_nn_balanced_shuffled_validation.json gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
+
 ```
