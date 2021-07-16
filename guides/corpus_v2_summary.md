@@ -26,19 +26,21 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 
 
 # Composition of Training Corpus for NoTraM Large
-NoTraM Large is primarily a Norwegian model but with added Swedish, Danish and English text. Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, however there are mainly two reasons for adding a significant amountof English text to the training corpus:
+NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia, then added 1 GB of social media text (Reddit) and in the end added web crawled data until the target (15GB for Swedish/Danish and 40GB for English). The total training corpus is 300GB.
+
+Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, however there are mainly two reasons for adding a significant amountof English text to the training corpus:
 * Most Norwegians speak English. There are also a lot of English in use, especially in social media, and it is likely that new words in the future will come from Nowegian. A good understanding of English is therefore necessary for a model used to understand the Norwegian language.
 * This amount of English will also make it a decent English model. It will make evaluating the model easier. We can for instance evaluate the model directly of Glue/SuperGlue. We can also train it directly on large non-translated dataset, like SQuAD and MNLI, and then expect it to have decent Norwegian capabilities in solving similar tasks.
 
 | Sources  |   % available | Gb | 
 | -------- |   :-----| :-----| 
-| Norwegian General | 100% | 150| 
-| Norwegian Web | 70% | 70| 
-| Norwegian Social Media | 100% | 40| 
-| Norwegian Admin | 100% | 20|
-| **Norwegian Total** |  | **250GB**|
-| Swedish | 30% | 50|
-| Danish | 80% | 50|
-| English | <10% | 150|
-| **Total Corpus**| | **500GB**|
+| Norwegian General | 100% | 117| 
+| Norwegian Web | 70% | 77| 
+| Norwegian Social Media | 100% | 25| 
+| Norwegian Admin | 100% | 22|
+| **Norwegian Total** |  | **230GB**|
+| Swedish | - | 15|
+| Danish | - | 15|
+| English | - | 40|
+| **Total Corpus**| | **300GB**|
 
