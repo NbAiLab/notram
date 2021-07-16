@@ -4,12 +4,12 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 ## Norwegian
 | General   |   GB | Web   |   GB | Social Media  |   GB | Administrative  |   GB | 
 | -------- |   :-----|  -------- |   :-----| -------- |   :-----|  -------- |   :-----|  
-| Library Books | 83.0| CC-100 | 52.0| Facebook | 6.5| Government Docs | 0.2|
-| Library Newspapers | 63.0| OSCAR | 6.8|Reddit | 0.3|Parliament Docs | 8.4|
-| Wikipedia | 2.0| MC4 | 100.0| Twitter News | 0.8|Public Reports | 0.6|
-| Open Subtitles | 0.6| | | Twitter Top | 14.0|Lovdata CD | 0.5|
-| Norart | 0.4| | | VG Debatt| 20.0|Lovdata Transfer | 2.8|
-| Online Newspapers|5.0| || | |Målfrid | 13.0|
+| Library Books | 60.0| CC-100 | 24.0| Facebook | 3.9| Government Docs | 0.1|
+| Library Newspapers | 50.0| OSCAR | 0.5|Reddit | 0.2|Parliament Docs | 8.1|
+| Wikipedia | 1.6| MC4 | 68.0| Twitter News | 0.3|Public Reports | 0.5|
+| Open Subtitles | 0.2| | | Twitter Top | 5.9|Lovdata CD | 0.3|
+| Norart | 0.2| | | VG Debatt| 15.0|Lovdata Transfer | 1.6|
+| Online Newspapers|5.0| || | |Målfrid | 11.0|
 | **Total Unique General**| **150GB**| **Total Unique Web**| **100GB**| **Total Unique Social**| **25GB**|**Total Unique Admin**| **20GB**|
 | **Total Unique Norwegian Estimate** | **295GB (estimate)**| | | | | |
 
