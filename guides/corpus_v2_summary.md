@@ -18,19 +18,17 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 | Sources  |  Swedish GB | Danish GB | English  GB | 
 | -------- |   :-----|   :-----|:-----| 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
-| Reddit | 1.6|  1.1| 520.0|
-| Wikipedia | 3.9|  0.8| 23.0|
-| CC-100 | 98.0| 58.0| 376.0|
-| MC4 | 150.0| 60.0| >1TB|
+| Reddit | 1.0|  0.5| 1.9|
+| Wikipedia | 1.8|  0.4| 15.0|
+| MC4 | 126.0| 86.0| >1TB|
 | **Total Unique Estimate**| **150GB**| **60Gb**|**>1TB**|
 
 
 # Composition of Training Corpus for NoTraM Large
-NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia for each of the languages, then added Reddit (1GB/1GB/4GB) and finally web text until we reached the target (15GB for Swedish/Danish and 40GB for English). The total training corpus is 300GB.
+NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia for each of the languages, then added Reddit (1.0GB/0.5GB/1.5GB) and finally web text until we reached the target of 15GB for each of the languages. The total training corpus is 250GB.
 
-Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, however there are some additional reasons for adding English text to the training corpus:
-* Most Norwegians speak English. There are also a lot of English in use, especially in social media, and it is likely that new words in the future will come from Nowegian. A good understanding of English is therefore necessary for a model used to understand the Norwegian language.
-* This amount of English will also make it a decent English model. It will make evaluating the model easier. We can for instance evaluate the model directly of Glue/SuperGlue. We can also train it directly on large non-translated dataset, like SQuAD and MNLI, and then expect it to have decent Norwegian capabilities in solving similar tasks.
+Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, there are also a lot of English in use, especially in social media, and it is likely that new words in the future will come from Nowegian. A good understanding of English is therefore necessary for a model used to understand the Norwegian language.
+
 
 | Sources  |   % available | Gb | 
 | -------- |   :-----| :-----| 
@@ -38,9 +36,9 @@ Swedish and Danish is added mainly for support since the languages are very simi
 | Norwegian Web | 50% | 46| 
 | Norwegian Social Media | 100% | 25| 
 | Norwegian Admin | 100% | 22|
-| **Norwegian Total** |  | **210GB**|
+| **Norwegian Total** |  | **205GB**|
 | Swedish | - | 15|
 | Danish | - | 15|
-| English | - | 60|
-| **Total Corpus**| | **300GB**|
+| English | - | 15|
+| **Total Corpus**| | **250GB**|
 
