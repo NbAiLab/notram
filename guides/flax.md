@@ -15,6 +15,13 @@ $ gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerat
 $ gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 ```
 
+If you need to set up an VM with an extra disk
+```bash
+$ gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
+$ gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
+```
+After starting the VM, the disk needs to be formatted according to this: https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting
+
 Running this on the VM:
 ```bash
 $ pip install --upgrade clu
