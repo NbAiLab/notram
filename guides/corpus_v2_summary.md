@@ -33,7 +33,7 @@ Swedish and Danish is added mainly for support since the languages are very simi
 | Sources  |   % available | Gb | 
 | -------- |   :-----| :-----| 
 | Norwegian General | 100% | 117| 
-| Norwegian Web | 50% | 46| 
+| Norwegian Web | 50% | 44| 
 | Norwegian Social Media | 100% | 25| 
 | Norwegian Admin | 100% | 22|
 | **Norwegian Total** |  | **205GB**|
