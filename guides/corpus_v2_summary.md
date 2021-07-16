@@ -26,7 +26,7 @@ This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of 
 
 
 # Composition of Training Corpus for NoTraM Large
-NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia, then added 1 GB of social media text (Reddit) and in the end added web crawled data until the target (15GB for Swedish/Danish and 40GB for English). The total training corpus is 300GB.
+NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia for each of the languages, then added Reddit (1GB/1GB/4GB) and finally web text until we reached the target (15GB for Swedish/Danish and 40GB for English). The total training corpus is 300GB.
 
 Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, however there are some additional reasons for adding English text to the training corpus:
 * Most Norwegians speak English. There are also a lot of English in use, especially in social media, and it is likely that new words in the future will come from Nowegian. A good understanding of English is therefore necessary for a model used to understand the Norwegian language.
@@ -35,12 +35,12 @@ Swedish and Danish is added mainly for support since the languages are very simi
 | Sources  |   % available | Gb | 
 | -------- |   :-----| :-----| 
 | Norwegian General | 100% | 117| 
-| Norwegian Web | 70% | 77| 
+| Norwegian Web | 50% | 46| 
 | Norwegian Social Media | 100% | 25| 
 | Norwegian Admin | 100% | 22|
-| **Norwegian Total** |  | **230GB**|
+| **Norwegian Total** |  | **210GB**|
 | Swedish | - | 15|
 | Danish | - | 15|
-| English | - | 40|
+| English | - | 60|
 | **Total Corpus**| | **300GB**|
 
