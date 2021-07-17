@@ -50,8 +50,9 @@ source gptneo-red/bin/activate
 
 Run this on the VM. Dont worry if the first commend has some errors.:
 ```bash
-$ pip install --upgrade clu
-$ pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+pip install --upgrade clu
+pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+export USE_TORCH=False
 ```
 Test if it all works:
 ```bash
@@ -63,36 +64,54 @@ $ python
 
 Set up Transformers
 ```bash
-$ git clone https://github.com/huggingface/transformers.git
-$ cd transformers
-$ git remote add upstream https://github.com/huggingface/transformers.git
-$ # Not necessary since we are not planning on making changes here
-$ # git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
-$ pip install -e ".[flax]"
-$ pip install -e ".[transformers]"
+git clone https://github.com/huggingface/transformers.git
+cd transformers
+git remote add upstream https://github.com/huggingface/transformers.git
+# Not necessary since we are not planning on making changes here
+# git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
+pip install -e ".[flax]"
+pip install -e ".[transformers]"
+cd ~/
 
-$ cd ~/
-$ git clone https://github.com/huggingface/datasets.git
-$ cd datasets
-$ pip install -e ".[streaming]"
-$ cd 
-
+git clone https://github.com/huggingface/datasets.git
+cd datasets
+pip install -e ".[streaming]"
+cd ~/
 ```
 
-#Model Specific Installations
+Make sure you are logged into Huggingface, GCloud and that your Git credentials are stored appropriately
+```bash
+#Install Git LFS
+sudo apt-get install git-lfs
 
+#Login to Huggingface
+huggingface-cli login
+
+#Replace name and email below
+git config --global user.name "Per E Kummervold" 
+git config --global user.email "per@capia.no"
+
+#Make sure username and password will then be stored globally after first login
+git config --global credential.helper store
+
+#Log in to GCloud
+gcloud auth login
+gcloud auth application-default login 
+
+#You might have to change to another project for billing and access
+gcloud config set project <MY-PROJECT-ID>
+```
+
+# Model Specific Installations
+
+## RoBERTa
 Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). You can also use this command:
 ```bash
 huggingface-cli repo create norwegian-roberta-base
-```
 
-
-Set up the RoBERTa scripts. Here the norwegian-roberta-base is already forked (if not see above):
-
-```bash
 $ git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
 $ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-$ sudo apt-get install git-lfs
+
 $ cd norwegian-roberta-base
 $ git lfs track "*tfevents*"
 $ cd ..
@@ -108,16 +127,55 @@ Trying to run run_mlm_flax-script:
 ```bash
 python ./run_mlm_flax.py --output_dir="./runs" --model_type="roberta" --config_name="${MODEL_DIR}" --tokenizer_name="${MODEL_DIR}" --dataset_name="oscar" --dataset_config_name="unshuffled_deduplicated_no" --max_seq_length="128" --weight_decay="0.01" --per_device_train_batch_size="128" --per_device_eval_batch_size="128"  --learning_rate="3e-4" --warmup_steps="1000" --overwrite_output_dir --pad_to_max_length --num_train_epochs="10" --adam_beta1="0.9" --adam_beta2="0.98"
 ```
-Lead to this error:
-```bash
-RuntimeError: tensorflow/compiler/xla/xla_client/computation_client.cc:273 : Missing XLA configuration
-```
 
-Fix this simply by setting:
+## GTP Neo
+Since this requires a lot of disk space, everything here should be done in /mnt/disks/flaxdisk/
 
 ```bash
-$ export USE_TORCH=False
+cd /mnt/disks/flaxdisk/
+#Create the repo if it does not exist
+huggingface-cli repo create norwegian-gptneo-red
+#Clone it
+git clone https://huggingface.co/pere/norwegian-gptneo-red
+cd norwegian-gptneo-red
 ```
+
+To continue we need a tokenizer and a model to start with.
+
+### Train the tokenizer or copy an existing one
+Training a tokenizer is explained above. We just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
+```bash
+cd git clone https://huggingface.co/pere/norwegian-gpt2
+no norwegian-gpt2
+cp *token* ../norwegian-gptneo-red/
+cp vocab.json ../norwegian-gptneo-red/
+cd ..
+```
+
+Setting up the model requires recreating the EleutherAI-model as described here: https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/model%20parallel. We are using a slighlty modified script:
+```python
+import jax
+import jax.numpy as jnp
+from transformers import FlaxGPTNeoForCausalLM, GPTNeoConfig
+model = FlaxGPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
+
+emb = jnp.zeros((50264, model.config.hidden_size))
+# update the first 50257 weights using pre-trained weights
+emb = jax.ops.index_update(emb, jax.ops.index[:50257, :], model.params["transformer"]["wte"]["embedding"])
+params = model.params
+params["transformer"]["wte"]["embedding"] = emb
+
+# initialize a random model with the right vocab_size
+config = GPTNeoConfig.from_pretrained("EleutherAI/gpt-neo-1.3B", vocab_size=50264)
+model = FlaxGPTNeoForCausalLM(config)
+
+# assign the pre-trained weights and save the model.
+model.params = params
+model.save_pretrained("./")
+```
+
+Run the following script in Python to set up the model
+
 
 How to set up neo-gpt-red. There are some files in 
 https://huggingface.co/pere/norwegian-gptneo-red. Copy them, and run the setup_devices.py.
