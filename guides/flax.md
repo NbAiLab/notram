@@ -19,40 +19,73 @@ If you need to set up an VM with an extra disk
 ```bash
 $ gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
 $ gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
+gcloud alpha compute tpus tpu-vm ssh gptneo-red --zone europe-west4-a
 ```
-After starting the VM, the disk needs to be formatted according to this: https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting
 
-Running this on the VM:
+After starting the VM, the disk needs to be formatted according to this: https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting
+```bash
+sudo lsblk
+#Find the disk here, and the device name. Most likely it will be "sdb". Given that name, procede with 
+sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+#Mount the disk - and give everyone 
+sudo mkdir -p /mnt/disks/flaxdisk
+sudo mount -o discard,defaults /dev/sdb /mnt/disks/flaxdisk
+sudo chmod a+w /mnt/disks/flaxdisk
+#Configure automatic mount on restarts
+sudo cp /etc/fstab /etc/fstab.backup
+#Find the uid of the disk - you need this value in the following steps
+sudo blkid /dev/sdb
+#Add this to /etc/fstab with the correct uuid
+UUID=52af08e4-f249-4efa-9aa3-7c7a9fd560b0 /mnt/disks/flaxdisk ext4 discard,defaults,nofail 0 2
+```
+Make a sane virtual environment. Here we give it the name of the project "gptneo-red"
+```bash
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user virtualenv
+sudo apt install python3.8-venv
+python3 -m venv gptneo-red
+source gptneo-red/bin/activate
+```
+
+Run this on the VM. Dont worry if the first commend has some errors.:
 ```bash
 $ pip install --upgrade clu
 $ pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 ```
+Test if it all works:
+```bash
+$ python
+>>import jax
+>>jax.device_count()
+8
+```
 
-Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). This creates a copy of the code under your GitHub user account.
+Set up Transformers
 ```bash
 $ git clone https://github.com/huggingface/transformers.git
 $ cd transformers
 $ git remote add upstream https://github.com/huggingface/transformers.git
-$ git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
-$ pip install --user --no-use-pep517 -e ".[flax]"
-$ pip install --user --no-use-pep517 -e ".[transformers]"
+$ # Not necessary since we are not planning on making changes here
+$ # git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
+$ pip install -e ".[flax]"
+$ pip install -e ".[transformers]"
 
 $ cd ~/
 $ git clone https://github.com/huggingface/datasets.git
 $ cd datasets
 $ pip install -e ".[streaming]"
-$ sudo apt install python-is-python3
-$ cd ..
+$ cd 
 
 ```
 
-Test if it all works:
+#Model Specific Installations
+
+Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). You can also use this command:
 ```bash
-$ python3
->>import jax
->>jax.device_count()
-8
+huggingface-cli repo create norwegian-roberta-base
 ```
+
 
 Set up the RoBERTa scripts. Here the norwegian-roberta-base is already forked (if not see above):
 
@@ -85,6 +118,9 @@ Fix this simply by setting:
 ```bash
 $ export USE_TORCH=False
 ```
+
+How to set up neo-gpt-red. There are some files in 
+https://huggingface.co/pere/norwegian-gptneo-red. Copy them, and run the setup_devices.py.
 
 
 
