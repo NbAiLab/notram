@@ -8,16 +8,20 @@ https://github.com/huggingface/transformers/tree/master/examples/research_projec
 https://cloud.google.com/tpu/docs/system-architecture-tpu-vm
 ```
 
-Run this on local machine:
+Run this on local machine to make sure the necessary libraries are installed:
 ```bash
 gcloud auth login
 gcloud services enable tpu.googleapis.com
 gcloud beta services identity create --service tpu.googleapis.com
+```
+
+Create the TPU VM. The procedure here depends on whether to need an extra disk. If you do not, just do this:
+```bash
 gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha
 gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 ```
 
-If you need to set up an VM with an extra disk
+However, if an additional disk is required. This sets up the VM with an external disk of 1TB
 ```bash
 gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
 gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
