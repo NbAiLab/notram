@@ -230,7 +230,8 @@ python run_clm_mp.py \
         --cache_dir /mnt/disks/flaxdisk/cache/ \
         --dtype bfloat16 \   
         --logging_steps 97 \ 
-        --eval_steps 96\
+        --eval_steps 96 \
+        --preprocessing_num_workers 96 \
         --push_to_hub
 ```
 
