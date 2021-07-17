@@ -115,6 +115,7 @@ gcloud config set project <MY-PROJECT-ID>
 # Model Specific Installations
 
 ## RoBERTa
+---This specific part of the guide is not really ready yet--
 Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). You can also use this command:
 ```bash
 huggingface-cli repo create norwegian-roberta-base
