@@ -137,14 +137,17 @@ Since this requires a lot of disk space, everything here should be done in /mnt/
 
 ```bash
 cd /mnt/disks/flaxdisk/
+
 #Create the repo if it does not exist
 huggingface-cli repo create norwegian-gptneo-red
+
 #Clone it
 git clone https://huggingface.co/pere/norwegian-gptneo-red
 cd norwegian-gptneo-red
 git lfs track "*tfevents*"
 git lfs track "*model*"
 cd ..
+
 #Make cache dir
 mkdir cache
 
@@ -180,9 +183,10 @@ We are using a slighlty modified script to initiate the model and save it in the
 import jax
 import jax.numpy as jnp
 from transformers import FlaxGPTNeoForCausalLM, GPTNeoConfig
-model = FlaxGPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
 
+model = FlaxGPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
 emb = jnp.zeros((50264, model.config.hidden_size))
+
 # update the first 50257 weights using pre-trained weights
 emb = jax.ops.index_update(emb, jax.ops.index[:50257, :], model.params["transformer"]["wte"]["embedding"])
 params = model.params
