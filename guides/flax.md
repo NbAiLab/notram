@@ -231,7 +231,6 @@ python run_clm_mp.py \
         --dtype bfloat16 \   
         --logging_steps 97 \ 
         --eval_steps 96 \
-        --preprocessing_num_workers 96 \
         --push_to_hub
 ```
 
