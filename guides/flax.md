@@ -10,17 +10,17 @@ https://cloud.google.com/tpu/docs/system-architecture-tpu-vm
 
 Run this on local machine:
 ```bash
-$ gcloud auth login
-$ gcloud services enable tpu.googleapis.com
-$ gcloud beta services identity create --service tpu.googleapis.com
-$ gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha
-$ gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
+gcloud auth login
+gcloud services enable tpu.googleapis.com
+gcloud beta services identity create --service tpu.googleapis.com
+gcloud alpha compute tpus tpu-vm create flax --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha
+gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 ```
 
 If you need to set up an VM with an extra disk
 ```bash
-$ gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
-$ gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
+gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
+gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
 gcloud alpha compute tpus tpu-vm ssh gptneo-red --zone europe-west4-a
 ```
 
@@ -56,12 +56,11 @@ pip install --upgrade clu
 pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 export USE_TORCH=False
 ```
-Test if it all works:
-```bash
-$ python
->>import jax
->>jax.device_count()
-8
+Run this in python to verify that all works:
+```python
+import jax
+jax.device_count()
+>> 8
 ```
 
 Set up Transformers
