@@ -115,38 +115,6 @@ gcloud config set project <MY-PROJECT-ID>
 
 # Model Specific Installations
 
-## RoBERTa
-There is quite a lot of other information available on (https://github.com/huggingface/transformers). This is based on this code but also adds some extra details. Use the external disk here for everything since the models are taking a lot of space:
-```bash
-cd /mnt/disks/flaxdisk/
-
-# Create a repo if it doesn not exist
-huggingface-cli repo create norwegian-roberta-base
-
-# Clone the repo
-git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
-cd norwegian-roberta-base
-
-#Make sure the repo is configured
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-git lfs track "*tfevents*"
-git lfs track "*model*"
-
-#Lets copy the main script from the transformers example
-cp ~/transformers/examples/flax/language-modeling/run_mlm_flax.py .
-```
-
-### Create configs
-We will use exactly the same configs here that are used on the official RoBERTa model
-
-
-Follow the FLAX-instructions. Make a script for training a tokenizer. Make a script for creating config. Run them. This goes without any issues, and creates the tokenizer and the config in the norwegian-roberta-base - folder.
-
-
-Trying to run run_mlm_flax-script:
-```bash
-python ./run_mlm_flax.py --output_dir="./runs" --model_type="roberta" --config_name="${MODEL_DIR}" --tokenizer_name="${MODEL_DIR}" --dataset_name="oscar" --dataset_config_name="unshuffled_deduplicated_no" --max_seq_length="128" --weight_decay="0.01" --per_device_train_batch_size="128" --per_device_eval_batch_size="128"  --learning_rate="3e-4" --warmup_steps="1000" --overwrite_output_dir --pad_to_max_length --num_train_epochs="10" --adam_beta1="0.9" --adam_beta2="0.98"
-```
 
 ## GTP Neo
 Since this requires a lot of disk space, everything here should be done in /mnt/disks/flaxdisk/
@@ -251,6 +219,39 @@ Start tmux, then start training
 ```bash
 tmux new
 sh ./run.sh
+```
+
+## RoBERTa
+There is quite a lot of other information available on (https://github.com/huggingface/transformers). This is based on this code but also adds some extra details. Use the external disk here for everything since the models are taking a lot of space:
+```bash
+cd /mnt/disks/flaxdisk/
+
+# Create a repo if it doesn not exist
+huggingface-cli repo create norwegian-roberta-base
+
+# Clone the repo
+git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
+cd norwegian-roberta-base
+
+#Make sure the repo is configured
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+git lfs track "*tfevents*"
+git lfs track "*model*"
+
+#Lets copy the main script from the transformers example
+cp ~/transformers/examples/flax/language-modeling/run_mlm_flax.py .
+```
+
+### Create configs
+We will use exactly the same configs here that are used on the official RoBERTa model
+
+
+Follow the FLAX-instructions. Make a script for training a tokenizer. Make a script for creating config. Run them. This goes without any issues, and creates the tokenizer and the config in the norwegian-roberta-base - folder.
+
+
+Trying to run run_mlm_flax-script:
+```bash
+python ./run_mlm_flax.py --output_dir="./runs" --model_type="roberta" --config_name="${MODEL_DIR}" --tokenizer_name="${MODEL_DIR}" --dataset_name="oscar" --dataset_config_name="unshuffled_deduplicated_no" --max_seq_length="128" --weight_decay="0.01" --per_device_train_batch_size="128" --per_device_eval_batch_size="128"  --learning_rate="3e-4" --warmup_steps="1000" --overwrite_output_dir --pad_to_max_length --num_train_epochs="10" --adam_beta1="0.9" --adam_beta2="0.98"
 ```
 
 
