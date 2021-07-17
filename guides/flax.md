@@ -217,6 +217,11 @@ model = FlaxGPTNeoForCausalLM(config)
 model.params = params
 model.save_pretrained("./")
 ```
+I need to make a small change to the run_script here. Setting this:
+```python
+chunksize = 50<<20
+load_dataset(..., chunksize=chunksize)
+```
 
 ### Start Training
 Save the following script as run.sh
