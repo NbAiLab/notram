@@ -154,7 +154,7 @@ git clone https://huggingface.co/pere/norwegian-gptneo-red
 cd norwegian-gptneo-red
 git lfs track "*tfevents*"
 git lfs track "*model*"
-transformers-cli lfs-enable-largefiles /mnt/disks/flaxdisk/norwegian-gptneo-red/
+huggingface-cli lfs-enable-largefiles /mnt/disks/flaxdisk/norwegian-gptneo-red/
 cd ..
 
 #Make cache dir
