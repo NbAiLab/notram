@@ -31,7 +31,7 @@ gcloud alpha compute tpus tpu-vm ssh gptneo-red --zone europe-west4-a
 After starting the VM, the disk needs to be formatted according to this: https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting
 ```bash
 sudo lsblk
-#Find the disk here, and the device name. Most likely it will be "sdb". Given that name, procede with 
+#Find the disk here, and the device name. Most likely it will be "sdb". Given that is correct, format the disk with this command: 
 sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
 #Mount the disk - and give everyone 
 sudo mkdir -p /mnt/disks/flaxdisk
