@@ -157,7 +157,7 @@ cd ..
 ```
 
 ### Setting up the model
-Setting up the model requires recreating the EleutherAI-model as described here: https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/model%20parallel. You need to copy the two files from this page transformers to the home directory.
+Setting up the model requires recreating the EleutherAI-model as described here: https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/model%20parallel. I prefer copying the two python scripts (partitions.py and run_clm_mp.py) instead of symlinking them.
 
 ```bash
 cp ~/transformers/examples/research_projects/jax-projects/model parallel/*.py ../norwegian-gptneo-red/
@@ -184,11 +184,6 @@ model = FlaxGPTNeoForCausalLM(config)
 # assign the pre-trained weights and save the model.
 model.params = params
 model.save_pretrained("./")
-```
-I need to make a small change to the run_script here. Setting this:
-```python
-chunksize = 50<<20
-load_dataset(..., chunksize=chunksize)
 ```
 
 ### Start Training
