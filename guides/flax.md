@@ -116,21 +116,29 @@ gcloud config set project <MY-PROJECT-ID>
 # Model Specific Installations
 
 ## RoBERTa
----This specific part of the guide is not really ready yet--
-Fork the repository by clicking on the 'Fork' button on the repository's page (https://github.com/huggingface/transformers). You can also use this command:
+There is quite a lot of other information available on (https://github.com/huggingface/transformers). This is based on this code but also adds some extra details. Use the external disk here for everything since the models are taking a lot of space:
 ```bash
+cd /mnt/disks/flaxdisk/
+
+# Create a repo if it doesn not exist
 huggingface-cli repo create norwegian-roberta-base
 
-$ git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
-$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+# Clone the repo
+git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
+cd norwegian-roberta-base
 
-$ cd norwegian-roberta-base
-$ git lfs track "*tfevents*"
-$ cd ..
-$ export MODEL_DIR="./norwegian-roberta-base"
-$ ln -s ~/transformers/examples/flax/language-modeling/run_mlm_flax.py run_mlm_flax.py
+#Make sure the repo is configured
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+git lfs track "*tfevents*"
+git lfs track "*model*"
 
+#Lets copy the main script from the transformers example
+cp ~/transformers/examples/flax/language-modeling/run_mlm_flax.py .
 ```
+
+### Create configs
+We will use exactly the same configs here that are used on the official RoBERTa model
+
 
 Follow the FLAX-instructions. Make a script for training a tokenizer. Make a script for creating config. Run them. This goes without any issues, and creates the tokenizer and the config in the norwegian-roberta-base - folder.
 
