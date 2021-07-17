@@ -50,12 +50,13 @@ python3 -m venv gptneo-red
 source gptneo-red/bin/activate
 ```
 
-Run this on the VM. Dont worry if the first commend has some errors.:
+Run this on the VM. Dont worry if the first command returns a few errors.:
 ```bash
 pip install --upgrade clu
 pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 export USE_TORCH=False
 ```
+
 Run this in python to verify that all works:
 ```python
 import jax
@@ -68,8 +69,10 @@ Set up Transformers
 git clone https://github.com/huggingface/transformers.git
 cd transformers
 git remote add upstream https://github.com/huggingface/transformers.git
-# Not necessary since we are not planning on making changes here
-# git checkout -b norwegian-roberta-base-oscar (Any descriptive name)
+
+# Recommended in the Workshop but noe necessary here since we are not planning on making changes here
+# git checkout -b [Any descriptive name]
+
 pip install -e ".[flax]"
 pip install -e ".[transformers]"
 cd ~/
@@ -80,7 +83,7 @@ pip install -e ".[streaming]"
 cd ~/
 ```
 
-Make sure you are logged into Huggingface, GCloud and that your Git credentials are stored appropriately
+Make sure you are logged into Hugging Face, GCloud and that your Git credentials are stored appropriately
 ```bash
 #Install Git LFS
 sudo apt-get install git-lfs
