@@ -1,3 +1,5 @@
+
+# Setting up TPU VM for Flax
 Following these documents:
 ```bash
 https://cloud.google.com/tpu/docs/jax-quickstart-tpu-vm
@@ -6,7 +8,7 @@ https://github.com/huggingface/transformers/tree/master/examples/research_projec
 https://cloud.google.com/tpu/docs/system-architecture-tpu-vm
 ```
 
-Running this on local machine:
+Run this on local machine:
 ```bash
 $ gcloud auth login
 $ gcloud services enable tpu.googleapis.com
@@ -94,6 +96,8 @@ git config --global user.email "per@capia.no"
 #Make sure username and password will then be stored globally after first login
 git config --global credential.helper store
 
+#!!Following this, it is a good idea to make a push to the git, just to make sure your username is saved. If not, the scripts below might crash after the first epoch
+
 #Log in to GCloud
 gcloud auth login
 gcloud auth application-default login 
@@ -138,12 +142,24 @@ huggingface-cli repo create norwegian-gptneo-red
 #Clone it
 git clone https://huggingface.co/pere/norwegian-gptneo-red
 cd norwegian-gptneo-red
+git lfs track "*tfevents*"
+git lfs track "*model*"
+cd ..
+#Make cache dir
+mkdir cache
+
+#Copy and rename corpus files
+mkdir corpus
+cd corpus
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_social_media/splits/social_train.jsonl social_train.json
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_social_media/splits/social_validation.jsonl social_validation.json
+
 ```
 
 To continue we need a tokenizer and a model to start with.
 
 ### Train the tokenizer or copy an existing one
-Training a tokenizer is explained above. We just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
+Training a tokenizer is explained above. Here we just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
 ```bash
 cd git clone https://huggingface.co/pere/norwegian-gpt2
 no norwegian-gpt2
@@ -152,7 +168,14 @@ cp vocab.json ../norwegian-gptneo-red/
 cd ..
 ```
 
-Setting up the model requires recreating the EleutherAI-model as described here: https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/model%20parallel. We are using a slighlty modified script:
+### Setting up the model
+Setting up the model requires recreating the EleutherAI-model as described here: https://github.com/huggingface/transformers/tree/master/examples/research_projects/jax-projects/model%20parallel. You need to copy the two files from this page transformers to the home directory.
+
+```bash
+cp ~/transformers/examples/research_projects/jax-projects/model parallel/*.py ../norwegian-gptneo-red/
+```
+
+We are using a slighlty modified script to initiate the model and save it in the home directory:
 ```python
 import jax
 import jax.numpy as jnp
@@ -174,12 +197,35 @@ model.params = params
 model.save_pretrained("./")
 ```
 
-Run the following script in Python to set up the model
+### Start Training
+Save the following script as run.sh
+```bash
+python run_clm_mp.py \
+        --model_name_or_path /mnt/disks/flaxdisk/norwegian-gptneo-red/ \
+        --tokenizer_name /mnt/disks/flaxdisk/norwegian-gptneo-red/ \
+        --train_file /mnt/disks/flaxdisk/corpus/social_train.json \ 
+        --validation_file /mnt/disks/flaxdisk/corpus/social_validation.json \   
+        --do_train \ 
+        --do_eval  \   
+        --block_size 1024 \     
+        --num_train_epochs 10 \     
+        --learning_rate 4e-6 \
+        --per_device_train_batch_size 3 \ 
+        --per_device_eval_batch_size 3 \    
+        --overwrite_output_dir \
+        --output_dir /mnt/disks/flaxdisk/norwegian-gptneo-red \
+        --cache_dir /mnt/disks/flaxdisk/cache/ \
+        --dtype bfloat16 \   
+        --logging_steps 97 \ 
+        --eval_steps 96\
+        --push_to_hub
+```
 
-
-How to set up neo-gpt-red. There are some files in 
-https://huggingface.co/pere/norwegian-gptneo-red. Copy them, and run the setup_devices.py.
-
+Start tmux, then start training
+```bash
+tmux new
+sh ./run.sh
+```
 
 
 
