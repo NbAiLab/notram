@@ -46,6 +46,7 @@ UUID=52af08e4-f249-4efa-9aa3-7c7a9fd560b0 /mnt/disks/flaxdisk ext4 discard,defau
 ```
 Make a sane virtual environment. Here we give it the name of the project "gptneo-red"
 ```bash
+sudo apt-get update
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user virtualenv
