@@ -236,17 +236,83 @@ git lfs track "*model*"
 #Lets copy the main script from the transformers example
 cp ~/transformers/examples/flax/language-modeling/run_mlm_flax.py .
 ```
+### Download corpus
+```bash
+cd /mnt/disks/flaxdisk/corpus
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official/nor* .
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official/spe* .
+```
+
+### Create tokenizer
+We have made a small addition to the tokenizer by giving it a list of emoticons to consider. Apart from that we simply train the tokenizer on the validation script. 
+```python
+from datasets import load_dataset, concatenate_datasets
+from tokenizers import trainers, Tokenizer, normalizers, ByteLevelBPETokenizer
+
+model_dir = "./"  # ${MODEL_DIR}
+
+# load dataset
+dataset = load_dataset("json", data_files=["/mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json","/mnt/disks/flaxdisk/corpus/special_chars.json"], split='train')
+
+
+# Instantiate tokenizer
+tokenizer = ByteLevelBPETokenizer()
+
+def batch_iterator(batch_size=1000):
+    for i in range(0, len(dataset), batch_size):
+        yield dataset[i: i + batch_size]["text"]
+
+# Customized training
+tokenizer.train_from_iterator(batch_iterator(), vocab_size=50265, min_frequency=2, special_tokens=[
+    "<s>",
+    "<pad>",
+    "</s>",
+    "<unk>",
+    "<mask>",
+])
+
+# Save files to disk
+tokenizer.save(f"{model_dir}/tokenizer.json")
+```
+
 
 ### Create configs
 We will use exactly the same configs here that are used on the official RoBERTa model
+```python
+from transformers import RobertaConfig
 
+model_dir = "./"  # ${MODEL_DIR}
 
-Follow the FLAX-instructions. Make a script for training a tokenizer. Make a script for creating config. Run them. This goes without any issues, and creates the tokenizer and the config in the norwegian-roberta-base - folder.
+config = RobertaConfig.from_pretrained("roberta-base")
+config.save_pretrained(model_dir)
+```
+### Train the model
+Currently using this train script
 
-
-Trying to run run_mlm_flax-script:
 ```bash
-python ./run_mlm_flax.py --output_dir="./runs" --model_type="roberta" --config_name="${MODEL_DIR}" --tokenizer_name="${MODEL_DIR}" --dataset_name="oscar" --dataset_config_name="unshuffled_deduplicated_no" --max_seq_length="128" --weight_decay="0.01" --per_device_train_batch_size="128" --per_device_eval_batch_size="128"  --learning_rate="3e-4" --warmup_steps="1000" --overwrite_output_dir --pad_to_max_length --num_train_epochs="10" --adam_beta1="0.9" --adam_beta2="0.98"
+./run_mlm_flax.py \
+    --output_dir="./" \
+    --model_type="roberta" \
+    --config_name="./" \
+    --tokenizer_name="./" \
+    --train_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_train.json \
+    --validation_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json \
+    --max_seq_length="128" \
+    --weight_decay="0.01" \
+    --per_device_train_batch_size="128" \
+    --per_device_eval_batch_size="128" \
+    --learning_rate="3e-4" \
+    --warmup_steps="1000" \
+    --overwrite_output_dir \
+    --cache_dir /mnt/disks/flaxdisk/cache/ \
+    --num_train_epochs="10" \
+    --adam_beta1="0.9" \
+    --adam_beta2="0.98" \
+    --logging_steps="500" \
+    --save_steps="2500" \
+    --eval_steps="2500" \
+    --push_to_hub
+
 ```
 
 
