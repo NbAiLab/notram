@@ -321,10 +321,10 @@ Currently using this train script. This can be run directly if you cloned the re
 ```
 
 ## Norwegian T5-base-NCC
-This makes the basic installation of Norwegian T5-base-NCC. It traines on the entire 255GB corpus, and the files will therefore need to be installed on an external disk. This guide is based on info from (https://github.com/huggingface/transformers).:
+This makes the basic installation of Norwegian T5-base-NCC. It traines on the entire 255GB Norwegian Colossal Corpus (NCC), and the files will therefore need to be installed on an external disk. I am using a 5TB disk here for the corpus and the caching.
 
 ```bash
-#You can also install the libraries on the external disk
+# It is recommended to put everything on the external disk.
 cd /mnt/disks/flaxdisk/
 
 # Create a repo if it doesn not exist
@@ -369,15 +369,17 @@ config.save_pretrained(model_dir)
 
 
 ### Create tokenizer
-We have also made a small addition to the tokenizer by giving it a list of emoticons to consider. If you have cloned the repo this tokenizer is already created. There is no point in retraining it. The easiest way to train this, is to run the following script. Here we choose to train on the validation set only since training a sentencepiece tokenizer takes a very long time. This is more than sufficient.
+We have also made a small addition to the tokenizer by giving it a list of emoticons to consider. If you have cloned the repo this tokenizer is already created. There is no point in retraining it. The easiest way to train this, is to run the following script. Here we choose to train on the validation set only since training a Sentencepiece tokenizer takes a very long time. It still might take up to an hours. This is more than sufficient for building a good tokenizer.
 
-Copy a library file that is needed
+Copy a library file that is needed:
 ```bash
 cp ../transformers/examples/flax/language-modeling/t5_tokenizer_model.py .
+
 # Make a small change here, and comment out line 44, so we are able to make a cased model.
 vim t5_tokenizer_model.py
 ````
 
+This might be copied to an external file, and is probably already avaiable as train_tokenizer.py if you cloned the repo.
 ```python
 from datasets import load_dataset, concatenate_datasets
 from tokenizers import trainers, Tokenizer, normalizers
@@ -413,12 +415,12 @@ tokenizer.save(f"{model_dir}/tokenizer.json")
 ```
 
 ### Train the model
-Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh".
+Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh". Remember always to run this in tmux/screen.
 
 ```bash
-./run_mlm_flax.py \
+./run_t5_mlm_flax.py \
     --output_dir="./" \
-    --model_type="roberta" \
+    --model_type="t5" \
     --config_name="./" \
     --tokenizer_name="./" \
     --train_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_train.json \
@@ -427,17 +429,18 @@ Currently using this train script. This can be run directly if you cloned the re
     --weight_decay="0.01" \
     --per_device_train_batch_size="128" \
     --per_device_eval_batch_size="128" \
-    --learning_rate="3e-4" \
-    --warmup_steps="1000" \
+    --learning_rate="8e-3" \
+    --warmup_steps="2000" \
     --overwrite_output_dir \
     --cache_dir /mnt/disks/flaxdisk/cache/ \
     --num_train_epochs="3" \
     --adam_beta1="0.9" \
     --adam_beta2="0.98" \
-    --logging_steps="500" \
+    --logging_steps="100" \
     --save_steps="2500" \
     --eval_steps="2500" \
     --preprocessing_num_workers 96 \
+    --adafactor \
     --push_to_hub
 
 ```
