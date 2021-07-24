@@ -373,7 +373,9 @@ We have also made a small addition to the tokenizer by giving it a list of emoti
 
 Copy a library file that is needed
 ```bash
-cp ../transformers/examples/flax/language-modeling/t5_tokenizer_model.py
+cp ../transformers/examples/flax/language-modeling/t5_tokenizer_model.py .
+# Make a small change here, and comment out line 44, so we are able to make a cased model.
+vim t5_tokenizer_model.py
 ````
 
 ```python
@@ -399,7 +401,6 @@ def batch_iterator(input_sentence_size=None):
     for i in range(0, input_sentence_size, batch_length):
         yield dataset[i: i + batch_length]["text"]
 
-
 # Train tokenizer
 tokenizer.train_from_iterator(
     iterator=batch_iterator(input_sentence_size=input_sentence_size),
@@ -409,7 +410,6 @@ tokenizer.train_from_iterator(
 
 # Save files to disk
 tokenizer.save(f"{model_dir}/tokenizer.json")
-
 ```
 
 ### Train the model
