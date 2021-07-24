@@ -48,7 +48,6 @@ Make a sane virtual environment. Here we give it the name of the project "gptneo
 ```bash
 sudo apt-get update
 python3 -m pip install --user --upgrade pip
-python3 -m pip install --user --upgrade pip
 python3 -m pip install --user virtualenv
 sudo apt install python3.8-venv
 python3 -m venv gptneo-red
@@ -217,9 +216,10 @@ sh ./run.sh
 ```
 
 ## RoBERTa
-There is quite a lot of other information available on (https://github.com/huggingface/transformers). This is based on this code but also adds some extra details. Use the external disk here for everything since the models are taking a lot of space:
+There is quite a lot of other information available on (https://github.com/huggingface/transformers). This is based on this code but also adds some extra details. The corpus and the cache directory requires a lot of space, so make sure to place these on the external disk:
 ```bash
-cd /mnt/disks/flaxdisk/
+#You can also install the libraries on the external disk
+# cd /mnt/disks/flaxdisk/
 
 # Create a repo if it doesn not exist
 huggingface-cli repo create norwegian-roberta-base
@@ -238,13 +238,16 @@ cp ~/transformers/examples/flax/language-modeling/run_mlm_flax.py .
 ```
 ### Download corpus
 ```bash
+#Copy and rename the files to .json since this is required by the script
+mkdir /mnt/disks/flaxdisk/corpus
 cd /mnt/disks/flaxdisk/corpus
-gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official/nor* .
-gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official/spe* .
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norwegian_colossal_corpus_train.jsonl norwegian_colossal_corpus_train.json
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norwegian_colossal_corpus_validation.jsonl norwegian_colossal_corpus_validation.json
+
 ```
 
 ### Create tokenizer
-We have made a small addition to the tokenizer by giving it a list of emoticons to consider. Apart from that we simply train the tokenizer on the validation script. 
+We have made a small addition to the tokenizer by giving it a list of emoticons to consider. Apart from that we simply train the tokenizer on the validation script. If you have cloned the repo this tokenizer is already created. There is no point in retraining it.
 ```python
 from datasets import load_dataset, concatenate_datasets
 from tokenizers import trainers, Tokenizer, normalizers, ByteLevelBPETokenizer
@@ -277,7 +280,7 @@ tokenizer.save(f"{model_dir}/tokenizer.json")
 
 
 ### Create configs
-We will use exactly the same configs here that are used on the official RoBERTa model
+We will use exactly the same configs here that are used on the official RoBERTa model. You can also do this directly from the run-script but it is nice to have it stored locally for reference.
 ```python
 from transformers import RobertaConfig
 
@@ -287,7 +290,7 @@ config = RobertaConfig.from_pretrained("roberta-base")
 config.save_pretrained(model_dir)
 ```
 ### Train the model
-Currently using this train script
+Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh".
 
 ```bash
 ./run_mlm_flax.py \
@@ -305,12 +308,13 @@ Currently using this train script
     --warmup_steps="1000" \
     --overwrite_output_dir \
     --cache_dir /mnt/disks/flaxdisk/cache/ \
-    --num_train_epochs="10" \
+    --num_train_epochs="3" \
     --adam_beta1="0.9" \
     --adam_beta2="0.98" \
     --logging_steps="500" \
     --save_steps="2500" \
     --eval_steps="2500" \
+    --preprocessing_num_workers 96 \
     --push_to_hub
 
 ```
