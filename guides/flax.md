@@ -146,7 +146,38 @@ gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_social_media/splits
 To continue we need a tokenizer and a model to start with.
 
 ### Train the tokenizer or copy an existing one
-Training a tokenizer is explained above. Here we just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
+Training a BPE tokenizer:
+```python
+from datasets import load_dataset, concatenate_datasets
+from tokenizers import trainers, Tokenizer, normalizers, ByteLevelBPETokenizer
+
+model_dir = "./"  # ${MODEL_DIR}
+
+# load dataset
+dataset = load_dataset("json", data_files=["/mnt/disks/flaxdisk/corpus/social_train.json","/mnt/disks/flaxdisk/corpus/special_chars.json"], split='train')
+
+
+# Instantiate tokenizer
+tokenizer = ByteLevelBPETokenizer()
+
+def batch_iterator(batch_size=1000):
+    for i in range(0, len(dataset), batch_size):
+        yield dataset[i: i + batch_size]["text"]
+
+# Customized training
+tokenizer.train_from_iterator(batch_iterator(), vocab_size=50264, min_frequency=2, special_tokens=[
+    "<s>",
+    "<pad>",
+    "</s>",
+    "<unk>",
+    "<mask>",
+])
+
+# Save files to disk
+tokenizer.save(f"{model_dir}/tokenizer.json")
+```
+
+We can also just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
 ```bash
 cd git clone https://huggingface.co/pere/norwegian-gpt2
 no norwegian-gpt2
@@ -247,37 +278,7 @@ gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norw
 ```
 
 ### Create tokenizer
-We have made a small addition to the tokenizer by giving it a list of emoticons to consider. Apart from that we simply train the tokenizer on the validation script. If you have cloned the repo this tokenizer is already created. There is no point in retraining it.
-```python
-from datasets import load_dataset, concatenate_datasets
-from tokenizers import trainers, Tokenizer, normalizers, ByteLevelBPETokenizer
-
-model_dir = "./"  # ${MODEL_DIR}
-
-# load dataset
-dataset = load_dataset("json", data_files=["/mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json","/mnt/disks/flaxdisk/corpus/special_chars.json"], split='train')
-
-
-# Instantiate tokenizer
-tokenizer = ByteLevelBPETokenizer()
-
-def batch_iterator(batch_size=1000):
-    for i in range(0, len(dataset), batch_size):
-        yield dataset[i: i + batch_size]["text"]
-
-# Customized training
-tokenizer.train_from_iterator(batch_iterator(), vocab_size=50265, min_frequency=2, special_tokens=[
-    "<s>",
-    "<pad>",
-    "</s>",
-    "<unk>",
-    "<mask>",
-])
-
-# Save files to disk
-tokenizer.save(f"{model_dir}/tokenizer.json")
-```
-
+If you have cloned the repo this tokenizer is already created. There is no point in retraining it. If not, look at the GPT-Neo for details on how to train a BPE tokenizer.
 
 ### Create configs
 We will use exactly the same configs here that are used on the official RoBERTa model. You can also do this directly from the run-script but it is nice to have it stored locally for reference.
@@ -289,6 +290,128 @@ model_dir = "./"  # ${MODEL_DIR}
 config = RobertaConfig.from_pretrained("roberta-base")
 config.save_pretrained(model_dir)
 ```
+### Train the model
+Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh".
+
+```bash
+./run_mlm_flax.py \
+    --output_dir="./" \
+    --model_type="roberta" \
+    --config_name="./" \
+    --tokenizer_name="./" \
+    --train_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_train.json \
+    --validation_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json \
+    --max_seq_length="128" \
+    --weight_decay="0.01" \
+    --per_device_train_batch_size="128" \
+    --per_device_eval_batch_size="128" \
+    --learning_rate="3e-4" \
+    --warmup_steps="1000" \
+    --overwrite_output_dir \
+    --cache_dir /mnt/disks/flaxdisk/cache/ \
+    --num_train_epochs="3" \
+    --adam_beta1="0.9" \
+    --adam_beta2="0.98" \
+    --logging_steps="500" \
+    --save_steps="2500" \
+    --eval_steps="2500" \
+    --preprocessing_num_workers 96 \
+    --push_to_hub
+
+```
+
+## Norwegian T5-base-NCC
+This makes the basic installation of Norwegian T5-base-NCC. It traines on the entire 255GB corpus, and the files will therefore need to be installed on an external disk. This guide is based on info from (https://github.com/huggingface/transformers).:
+
+```bash
+#You can also install the libraries on the external disk
+cd /mnt/disks/flaxdisk/
+
+# Create a repo if it doesn not exist
+huggingface-cli repo create norwegian-roberta-base
+
+# Clone the repo
+git clone https://huggingface.co/<your Github handle>/norwegian-roberta-base
+cd norwegian-roberta-base
+
+#Make sure the repo is configured
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+git lfs track "*tfevents*"
+git lfs track "*model*"
+
+#Lets copy the main script from the transformers example. You can also symlink this if you prefer.
+cp ../transformers/examples/flax/language-modeling/run_mlm_flax.py .
+
+#This a good time to check this into git to make sure your username is stored.
+```
+### Download corpus
+```bash
+#Copy and rename the files to .json since this is required by the script. It is 250GB of data. Time for coffee...
+mkdir /mnt/disks/flaxdisk/corpus
+cd /mnt/disks/flaxdisk/corpus
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norwegian_colossal_corpus_validation.jsonl norwegian_colossal_corpus_validation.json
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norwegian_colossal_corpus_train.jsonl norwegian_colossal_corpus_train.json
+gsutil -m cp gs://notram-west4-a/pretrain_datasets/tokenizer_files/special_chars.json special_chars.json
+
+```
+### Create configs
+Google has just released a new v1.1 version of the T5. We will use this exact config as the basis for the norwegian T5, but since we are making a small change, we decide to store it locally. We just do this from the Python shell.
+
+```python
+from transformers import T5Config
+
+model_dir = "./"  # ${MODEL_DIR}
+
+config = T5Config.from_pretrained("google/t5-v1_1-base", vocab_size=50000)
+config.save_pretrained(model_dir)
+```
+
+
+
+### Create tokenizer
+We have also made a small addition to the tokenizer by giving it a list of emoticons to consider. If you have cloned the repo this tokenizer is already created. There is no point in retraining it. The easiest way to train this, is to run the following script. Here we choose to train on the validation set only since training a sentencepiece tokenizer takes a very long time. This is more than sufficient.
+
+Copy a library file that is needed
+```bash
+cp ../transformers/examples/flax/language-modeling/t5_tokenizer_model.py
+````
+
+```python
+from datasets import load_dataset, concatenate_datasets
+from tokenizers import trainers, Tokenizer, normalizers
+from t5_tokenizer_model import SentencePieceUnigramTokenizer
+
+
+vocab_size = 50_000
+input_sentence_size = None
+model_dir = "./"  # ${MODEL_DIR}
+
+# Initialize a dataset
+dataset = load_dataset("json", data_files=["/mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json","/mnt/disks/flaxdisk/corpus/special_chars.json"], split='train')
+
+tokenizer = SentencePieceUnigramTokenizer(unk_token="<unk>", eos_token="</s>", pad_token="<pad>")
+
+# Build an iterator over this dataset
+def batch_iterator(input_sentence_size=None):
+    if input_sentence_size is None:
+        input_sentence_size = len(dataset)
+    batch_length = 100
+    for i in range(0, input_sentence_size, batch_length):
+        yield dataset[i: i + batch_length]["text"]
+
+
+# Train tokenizer
+tokenizer.train_from_iterator(
+    iterator=batch_iterator(input_sentence_size=input_sentence_size),
+    vocab_size=vocab_size,
+    show_progress=True,
+)
+
+# Save files to disk
+tokenizer.save(f"{model_dir}/tokenizer.json")
+
+```
+
 ### Train the model
 Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh".
 
