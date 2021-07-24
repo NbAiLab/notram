@@ -354,17 +354,6 @@ gsutil -m cp gs://notram-west4-a/pretrain_datasets/notram_v2_official_short/norw
 gsutil -m cp gs://notram-west4-a/pretrain_datasets/tokenizer_files/special_chars.json special_chars.json
 
 ```
-### Create configs
-Google has just released a new v1.1 version of the T5. We will use this exact config as the basis for the norwegian T5, but since we are making a small change, we decide to store it locally. We just do this from the Python shell.
-
-```python
-from transformers import T5Config
-
-model_dir = "./"  # ${MODEL_DIR}
-
-config = T5Config.from_pretrained("google/t5-v1_1-base", vocab_size=50000)
-config.save_pretrained(model_dir)
-```
 
 
 
@@ -413,6 +402,21 @@ tokenizer.train_from_iterator(
 # Save files to disk
 tokenizer.save(f"{model_dir}/tokenizer.json")
 ```
+
+### Create configs
+Google has just released a new v1.1 version of the T5. We will use this exact config as the basis for the norwegian T5, but since we are making a small change, we decide to store it locally. We just do this from the Python shell.
+
+```python
+from transformers import T5Config
+from transformers import AutoTokenizer
+
+model_dir = "./"  # ${MODEL_DIR}
+
+tokenizer = AutoTokenizer.from_pretrained(model_dir)
+config = T5Config.from_pretrained("google/t5-v1_1-base", vocab_size=tokenizer.vocab_size)
+config.save_pretrained(model_dir)
+```
+
 
 ### Train the model
 Currently using this train script. This can be run directly if you cloned the repo by "sh ./run.sh". Remember always to run this in tmux/screen.
