@@ -425,7 +425,7 @@ Currently using this train script. This can be run directly if you cloned the re
     --tokenizer_name="./" \
     --train_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_train.json \
     --validation_file /mnt/disks/flaxdisk/corpus/norwegian_colossal_corpus_validation.json \
-    --max_seq_length="128" \
+    --max_seq_length="512" \
     --weight_decay="0.01" \
     --per_device_train_batch_size="128" \
     --per_device_eval_batch_size="128" \
