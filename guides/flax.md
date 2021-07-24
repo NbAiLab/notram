@@ -177,7 +177,7 @@ tokenizer.train_from_iterator(batch_iterator(), vocab_size=50264, min_frequency=
 tokenizer.save(f"{model_dir}/tokenizer.json")
 ```
 
-We can also just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50264.
+We can also just copy the tokenizer trained in norwegian-gpt2. The vocab-size needs to be 50257.
 ```bash
 cd git clone https://huggingface.co/pere/norwegian-gpt2
 no norwegian-gpt2
