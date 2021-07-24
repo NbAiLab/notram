@@ -407,8 +407,7 @@ tokenizer.save(f"{model_dir}/tokenizer.json")
 Google has just released a new v1.1 version of the T5. We will use this exact config as the basis for the norwegian T5, but since we are making a small change, we decide to store it locally. We just do this from the Python shell.
 
 ```python
-from transformers import T5Config
-from transformers import AutoTokenizer
+from transformers import T5Config, AutoTokenizer
 
 model_dir = "./"  # ${MODEL_DIR}
 
