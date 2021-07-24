@@ -340,7 +340,7 @@ git lfs track "*tfevents*"
 git lfs track "*model*"
 
 #Lets copy the main script from the transformers example. You can also symlink this if you prefer.
-cp ../transformers/examples/flax/language-modeling/run_mlm_flax.py .
+cp ../transformers/examples/flax/language-modeling/run_t5_mlm_flax.py .
 
 #This a good time to check this into git to make sure your username is stored.
 ```
