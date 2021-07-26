@@ -24,6 +24,14 @@ split --numeric-suffixes=1 -a 4 --additional-suffix "-of-0057.json" -l 8547 nb_n
 split --numeric-suffixes=1 -a 4 --additional-suffix "-of-0057.json" -l 8547 nb_nn_balanced_shuffled_validation.json "nb_nn_balanced_shuffled_validation-shard-"
 ```
 
+Here is a similar example for the notram_v2_official_short100k. The train file here is 256GB, while the validation file is 1GB. We want it all in 1GB chunks. The train file has 215849980 lines, meaning we want 843164 lines in each file.
+
+```
+split --numeric-suffixes=1 -a 4 --additional-suffix "-of-0256.json" -l 843164 norwegian_colossal_corpus_train.jsonl "norwegian_colossal_corpus_train-shard-"
+mv norwegian_colossal_corpus_validation.jsonl norwegian_colossal_corpus_validation-shard-0001-of-0001.json
+```
+
+
 In the end we gzip all the individual files.
 
 ```
