@@ -36,6 +36,9 @@ In the end we gzip all the individual files.
 
 ```
 gzip *
+
+## Run this in parallel to save some time
+parallel gzip ::: *
 ```
 
 And upload all the sharded files to the bucket
