@@ -11,9 +11,7 @@ Currently the following models are available.
 
 
 ## Results
-Our first released model was NB-BERT-Base model. This is The model is thoroughly tested in the article cited below.
-
-Here are some of our results:
+The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are some of our results:
 | Task  |   mBERT-base| NB-BERT-base |
 | -------- |   -----:| -----:|
 |POS - NorNE - Bokmål|98.32|**98.86**|
