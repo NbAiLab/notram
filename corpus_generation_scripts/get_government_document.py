@@ -1,7 +1,11 @@
+###############################################
+#### Script for downloading documents from the government #####
+#### For API-key contact the archive ##############
+##################################################
+
 import requests, json, os, argparse
 
 def main(args):
-    #Debug_APIKEY = "YbH8IBFUqxrGP9fUNzFtgtvV6M1d1VI46WdPfu4bvjc"
     req_url='https://data.regjeringen.no/api/v1/publikasjoner'
 
     #'stm', 'prp' eller 'nou'.

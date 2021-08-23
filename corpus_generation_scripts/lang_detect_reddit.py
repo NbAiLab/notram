@@ -1,5 +1,11 @@
 #!/opt/anaconda3/bin/python
 
+#####################################
+## Loops through reddit posts and detect language ##
+## Splits in files and saves
+#####################################
+
+
 import fasttext
 import sys, glob, os, re, argparse
 import pandas as pd

@@ -1,3 +1,7 @@
+##################################################
+### Splits jsonl-file in Bokmål and nynorsk ######
+##################################################
+
 import fasttext
 from utils.misc import ArgParseDefault, add_bool_arg
 import jsonlines

@@ -1,3 +1,8 @@
+########################################################
+## File for generating a super-cased corpus ##
+## Adds unicode characters at beginning of words ##
+#######################################################
+
 from nltk.tokenize import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from utils.misc import ArgParseDefault, add_bool_arg
