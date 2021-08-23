@@ -83,6 +83,24 @@ The table below describes the size of the current version of the corpus.
 | Current unscanned part of NL archive | ~50 GB |
 | Governments documents | ~5 GB |
 
+# Citation
+If you use our models or our corpus, please cite our article:
+@inproceedings{kummervold-etal-2021-operationalizing,
+    title = "Operationalizing a National Digital Library: The Case for a {N}orwegian Transformer Model",
+    author = "Kummervold, Per E  and
+      De la Rosa, Javier  and
+      Wetjen, Freddy  and
+      Brygfjeld, Svein Arne",
+    booktitle = "Proceedings of the 23rd Nordic Conference on Computational Linguistics (NoDaLiDa)",
+    month = may # " 31--2 " # jun,
+    year = "2021",
+    address = "Reykjavik, Iceland (Online)",
+    publisher = {Link{\"o}ping University Electronic Press, Sweden},
+    url = "https://aclanthology.org/2021.nodalida-main.3",
+    pages = "20--29",
+    abstract = "In this work, we show the process of building a large-scale training set from digital and digitized collections at a national library. The resulting Bidirectional Encoder Representations from Transformers (BERT)-based language model for Norwegian outperforms multilingual BERT (mBERT) models in several token and sequence classification tasks for both Norwegian Bokm{\aa}l and Norwegian Nynorsk. Our model also improves the mBERT performance for other languages present in the corpus such as English, Swedish, and Danish. For languages not included in the corpus, the weights degrade moderately while keeping strong multilingual properties. Therefore, we show that building high-quality models within a memory institution using somewhat noisy optical character recognition (OCR) content is feasible, and we hope to pave the way for other memory institutions to follow.",
+}
+
 
 # Guides
 Technical guides made available that explains the process of both creating the corpus, and doing the actual training. 
