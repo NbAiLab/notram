@@ -1,5 +1,7 @@
-# Corpus v2 Summary and NoTram Large
-This page summarizes the Norwegian Collossal Corpus v2. All sizes in GB. 1GB of uncompressed text is roughly 160M words. Not all numbers are ready yet.
+# Norwegian Colossal Corpus v2
+This page summarizes the Norwegian Collossal Corpus v2. The corpus consists of both publicly available sources and of sources that is handed over to the National Library of Norway in compliance with ["pliktavleveringslova"](https://lovdata.no/dokument/NL/lov/1989-06-09-32) - a Norwegian law that requires all published materials to be sent to the library so it can be made available for research and documentation. 
+
+All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 
 ## Norwegian
 | General   |   GB | Web   |   GB | Social Media  |   GB | Administrative  |   GB | 
