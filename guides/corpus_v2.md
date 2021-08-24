@@ -1,5 +1,6 @@
-# Status Corpus v2
-This page tracks the status of version 2 of our corpus. The purpose of the table is currently to track the status. When the processing has reached at least level 4, the word count and exact size will be calculated. See level description at the bottom of this document.
+# Detailed Description - Norwegian Colossal Corpus v2
+This is a detailed description of the corpus. The entire corpus is available in a standardised jsonlines-format.
+
 
 
 ## Corpora unchanged from v1
