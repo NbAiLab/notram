@@ -33,6 +33,7 @@ All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 | **Total Unique Norwegian**|  |  | **256GB** |
  
 ## Other Languages
+It is often beneficial for training to add similar languages. These are all from open sources and is converted to the internal jsonl-format.
 | Sources  |  Swedish GB | Danish GB | English  GB | 
 | -------- |   :-----|   :-----|:-----| 
 | Library books/newspapers | 0.5|  1.0|  5.0| 
