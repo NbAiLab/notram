@@ -1,4 +1,6 @@
 # Preparing the mC4
+This guide is sort of outdated now since AllenAI has done this job and published this entire dataset on HuggingFace. Keeping just for the archive.
+
 
 Procedure for downloading and preparing the Common Crawl Corpus. Start with setting up a new VM following [this guide](https://github.com/NBAiLab/notram/blob/master/set_up_vm.md) or loading a prebuilt image. Make sure you have a bucket and change the bucket name in the script below.
 
