@@ -42,25 +42,11 @@ All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 | **Total Unique Estimate**| **150GB**| **60Gb**|**>1TB**|
 
 
-## Composition of Training Corpus for NoTraM Large
-NoTraM Large is primarily a Norwegian model but with added high quality Swedish, Danish and English text. For these languages we have added the entire Wikipedia for each of the languages, then added Reddit (1.0GB/0.5GB/1.5GB) and finally web text until we reached the target of 15GB for each of the languages. The total training corpus is 250GB.
+## Sub Corpora
+From the Norwegian Colossal Corpus v2 we have generated several cup corpra that can directly be used for training. The base-format is here json-lines, and they are all sharded in 1GB chunks for streaming.
 
-Swedish and Danish is added mainly for support since the languages are very similar, and it is expexted that this will strenghten the Norwegian capabilities. English is also a simililar language, there are also a lot of English in use, especially in social media, and it is likely that new words in the future will come from Nowegian. A good understanding of English is therefore necessary for a model used to understand the Norwegian language.
-
-
-| Sources  |   % available | Gb | 
-| -------- |   :-----| :-----| 
-| Norwegian General | 100% | 117| 
-| Norwegian Web | 50% | 44| 
-| Norwegian Social Media | 100% | 25| 
-| Norwegian Admin | 100% | 22|
-| **Norwegian Total** |  | **205GB**|
-| Swedish | - | 15|
-| Danish | - | 15|
-| English | - | 15|
-| **Total Corpus**| | **250GB**|
-
-
+* (Official Large Norwegian Colossal Corpus v2)[https://github.com/NBAiLab/notram/blob/master/guides/official_NCC2.md]. The actual 250GB corpus used for training. 
+* (Norwegian Bokmål and Nynorsk)[https://github.com/NBAiLab/notram/blob/master/guides/nb_nn_balanced_corpus.md]. A balanced 19GB corpus used for bokmål to nynorsk translation.
 
 ## Processing Levels
 The base format for the corpus is json-lines (jsonl). A lot of the sources overlaps each other, and efficient deduplication is essential for creating a high quality corpus. The corpus exists on several processing levels. The raw files often contains a lot of meta-information that can be useful in some cases.
