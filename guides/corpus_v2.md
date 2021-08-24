@@ -5,7 +5,9 @@ This is a detailed description of the corpus. The entire corpus is heavily dedub
 | Sources  |   Description | Public status | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
 | Wikipedia  | Wikipediadump downloaded 20210620.| Publicly available - NB and Wikipedia. | 1.5 |
-| Språkbanken | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | Publicly available - NB and Wikipedia. | 5.0 |
+| Online Newspapers | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | Publicly available - NB and Språkbanken. | 5.0 |
+| Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | Restricted. | 0.2 |
+
 | Newspapers Online NNO -2019 |  A Norwegian Newspaper Corpus with texts from online nynorsk newspapers between 1998 and 2019 collected by Språkbanken.  | 2 | 0.3 |
 | Common Crawl OSCAR NOB -2020 |  OSCAR or Open Super-large Crawled Aggregated coRpus is a huge multilingual corpus obtained by language classification and filtering of the Common Crawl corpus using the goclassy architecture. | 2 | 4.8 |
 | Common Crawl OSCAR NNO -2020 |  Same as above in nynorsk.| 2 | 0.1 |
@@ -17,10 +19,10 @@ This is a detailed description of the corpus. The entire corpus is heavily dedub
 ## Corpora updated since v1
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Books OCR 1814-2021| The books OCRed by DocWorks prior to 01.01.2009 had so low quality that it is reOCRed with Tesseract.  | 2 | 184.0 |
-|  | DocWorks - All books OCRed with DocWorks after 01.01.2009.| 2 | (144.0) |
-| | Tesseract - Books OCRed with Tesseract in 2021.   | 2 | (40.0) |
-| Newspapers|  Newspapers in the National Library. Either scanned newspapers that are OCRed or pdf-delivered newspapers processed by mypdf. |  | 136.5 |
+| Library Books 1814-2021| The books OCRed by DocWorks prior to 01.01.2009 had so low quality that it is reOCRed with Tesseract.  | Restricted | 60.0 |
+|  | DocWorks - All books OCRed with DocWorks after 01.01.2009.|   |   |
+| | Tesseract - Books OCRed with Tesseract in 2021.   |  |   |
+| Library Newspapers|  Newspapers in the National Library. Either scanned newspapers that are OCRed or pdf-delivered newspapers processed by mypdf. | Avaiting new agreement | 50 |
 | |  1940-1949 - Docworks OCR-scanned newspapers | 2 | (21.6) |
 | | 1950-1959 - Docworks OCR-scanned newspapers | 2 | (4.0) |
 | | 1960-1969 - Docworks OCR-scanned newspapers | 2 | (14.9) |
@@ -33,7 +35,7 @@ This is a detailed description of the corpus. The entire corpus is heavily dedub
 | Government Documents NOB -2021  | Large collection with exceptional very quality parsed directly from xhtml.| 2| 0.7 |
 | Government Documents NNO -2021  | As above, but in Nynorsk. | 2| 0.1 |
 | Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 16.0 |
-| Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | 2 | 1.0 |
+
 | Open Subtitles -2021  | Norwegian open subtitles. | 2 | 0.4 |
 | Reddit 2005-2019  | A collection of around 500k Norwegian Reddit posts. Only posts with more than 20 characters and with a 0.7 confidence of Norwegian are included. Source: http://files.pushshift.io/reddit/comments/ | 2 | 0.2 |
 | CC-100 | Monolingual Datasets from Web Crawl Data. Jan-December 2018 Commoncrawl snapshot. http://data.statmt.org/cc-100/. All files are downloaded. Conversion to jsonl format is running on Dante. | |  |
