@@ -28,7 +28,7 @@ The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are 
 # Colossal Norwegian Corpus
 We aim at building a copus of Norwegian text that is on par with available datasets for English. Our aim is to make as much of this publicly available as possible. 
 
-In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the bases for this training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_v2_summary.md).
+In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/blob/master/guides/corpus_v2_summary.md).
 
 We are working on releasing a significant part of the corpus to the public in the next months. 
 
