@@ -5,9 +5,9 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 Currently the following models are available. 
 | Name  |  Description | Download/Demo|
 | -------- |  -----| -----:|
-| nb-bert-base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). It is trained on The Colossal Norwegian Corpus v1.  | [TEST](https://huggingface.co/NbAiLab/nb-bert-base)|
-| nb-bert-base-mnli | The nb-bert-base-model finetuned on the mnli task. Unlike the other models, this model can be used for classification tasks without any additional finetuning. | [TEST](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
-| nb-bert-large (beta) | The model is based on the BERT-large-uncased architecture, and is trained on the Colossal Norwegian Corpus v1. For classification tasks, this model will give the best results.| [TEST](https://huggingface.co/NbAiLab/nb-bert-large)|
+| nb-bert-base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). It is trained on The Colossal Norwegian Corpus v1.  | [INFO](https://huggingface.co/NbAiLab/nb-bert-base)|
+| nb-bert-base-mnli | The nb-bert-base-model finetuned on the mnli task. Unlike the other models, this model can be used for classification tasks without any additional finetuning. | [INFO](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
+| nb-bert-large (beta) | The model is based on the BERT-large-uncased architecture, and is trained on the Colossal Norwegian Corpus v1. For classification tasks, this model will give the best results.| [INFO](https://huggingface.co/NbAiLab/nb-bert-large)|
 
 
 ## Results
