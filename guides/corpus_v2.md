@@ -1,14 +1,11 @@
 # Detailed Description - Norwegian Colossal Corpus v2
-This is a detailed description of the corpus. The entire corpus is available in a standardised jsonlines-format.
+This is a detailed description of the corpus. The entire corpus is heavily dedublicated and cleaned, and is saved in a standardised jsonlines-format. Part of the corpus is already publicly available. In this case you can both retrieve the corpus from the original source, or get a cleaned version from us. Please contact us if you want to train large models based on this since we might be able to give you restricted access.
 
 
-
-## Corpora unchanged from v1
-| Sources  |   Status | Level | Estimated GB text |
+| Sources  |   Description | Public status | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Wikipedia NOB -2019  | Wikipediadump downloaded March 2019 and published by Språkbanken. Nynorsk and Bokmål are published in the same file. This is the extracted bokmål version.| 2| 1.0 |
-| Wikipedia NNO -2019 | Same as above. This is the extracted nynorsk version.| 2 | 0.2 |
-| Newspapers Online NOB -2019 | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | 2 | 3.8 |
+| Wikipedia  | Wikipediadump downloaded 20210620.| Publicly available - NB and Wikipedia. | 1.5 |
+| Språkbanken | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | Publicly available - NB and Wikipedia. | 5.0 |
 | Newspapers Online NNO -2019 |  A Norwegian Newspaper Corpus with texts from online nynorsk newspapers between 1998 and 2019 collected by Språkbanken.  | 2 | 0.3 |
 | Common Crawl OSCAR NOB -2020 |  OSCAR or Open Super-large Crawled Aggregated coRpus is a huge multilingual corpus obtained by language classification and filtering of the Common Crawl corpus using the goclassy architecture. | 2 | 4.8 |
 | Common Crawl OSCAR NNO -2020 |  Same as above in nynorsk.| 2 | 0.1 |
