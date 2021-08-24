@@ -23,7 +23,7 @@ The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are 
 |Classification - ToN - Frp/SV|73.75|**77.49**|
 |Sentence-level binary sentiment classification|73.27|**84.04**|
 
-* F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.
+* *F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.*
 
 # Colossal Norwegian Corpus
 We aim at building a copus of Norwegian text that is on par with available datasets for English. Our aim is to make as much of this publicly available as possible. 
