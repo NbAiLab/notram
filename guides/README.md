@@ -1,8 +1,8 @@
 # Guides
 A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work.  
 
-## Json-lines data format
-* [Dokumentation internal jsonl-format](text_extraction_format.md)
+## Specifications
+* [Internal jsonl-format](text_extraction_format.md)
 
 ## Creating dataset
 * [Creating the Norwegian Collossal Corpus v2](creating_corpus_v2.md)
