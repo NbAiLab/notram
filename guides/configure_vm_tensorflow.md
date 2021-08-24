@@ -1,4 +1,4 @@
-# Setting up a Notram VM for Training with Tensorflow
+# Configure a Notram VM for Training with Tensorflow
 This guide explains a standard setup of a VM for BERT training. It installs the necessary dependencies and sets up a few necessary tools. It also clones the Notram-github and the Notram-branch of the CT-BERT-github. If you are connecting as a new user to an existing VM you will have to run most of these steps as well.
 
 ## Get some general tools and generate the public key
