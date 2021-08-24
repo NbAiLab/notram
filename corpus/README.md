@@ -24,12 +24,12 @@ All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 | Twitter News | Collection of tweets from StoryBoard. Comments to Norwegian news articles. Collected by Web64. | Restricted| 0.3 |
 | VGDebatt  | A download of all posts from VGD since they started around 1998 until 2021.| Restricted| 15.0 |
 | **Byrocratic**|  |  | **22GB** |
-| Government Documents  | Large collection with exceptional very quality parsed directly from xhtml.| 2| 0.1 |
+| Government Documents  | Large collection with exceptional very quality parsed directly from xhtml.| Public from NB| 0.1 |
 | Parliament Documents  |  Also referred to as Stortingsforhandlingene. Collection of documents from the Norwegian Parliament. The corpus contains mainly OCRed reports. Part of the collection at the National Library. | Public from NB | 8.1 |
-| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Collection of public report from the National Library. |2 | 0.6 |
+| Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Collection of public report from the National Library. |Public from NB | 0.6 |
 | Lovdata CD |  CD/DVD last published in 2005. Contains a very complete collection of legal resources, including laws, verdicts, NOUs etc. This is now totally out of copyright. | Public from NB | 0.4 |
 | Lovdata Transfer |  A more updated corpus delivered directly from Lovdata. It contains smaller shunks of data. | Restricted | 0.3 |
-| Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| 2| 11.0 |
+| Målfrid Collection -2021  | A collection of more than 9.2M public documents in pdf-format from 311 different sources. Collected from Språkbanken. We are using the part that is possible to read as text (more than 95% of the corpus). The largest sources are ssb (1.5M), regjeringen (1M), Uio (1M), fylkesmannen (0.7M), nve (0.4M), ntnu (0.3M), patentstyret (0.2M), vegvesenen (0.2M), fhi (0.2M).| Public from NB| 11.0 |
 | **Total Unique Norwegian**|  |  | **256GB** |
  
 ## Other Languages
