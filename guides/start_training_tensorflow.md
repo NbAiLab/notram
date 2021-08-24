@@ -1,5 +1,6 @@
 
-# Preparations
+# Training Tensorflow
+
 Currently this requires Tensorflow 2.2 and Python 3.8. With the newest conda there is a few errors. Run the following:
 ```bash
 pip install numpy==1.19.5
