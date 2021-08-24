@@ -11,7 +11,7 @@ This guide describes the steps used for creating the Norwegian Corpus. The final
 
 
 ## Create jsonl-files
-### External sources
+The create-scripts are creating jsonl-files directly from the source files. Here are some examples of commands that are used. 
 
 ```bash
 python create_newspapers_online_jsonl.py --doc_type newspapers_online --language_reported nno --input_path /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/source_1/newspapers_online/ --output_file /nfsmounts/meta2/disk4/folder1/nancy/content/text/v2/jsonl_2/newspapers_online_nno.jsonl &&
