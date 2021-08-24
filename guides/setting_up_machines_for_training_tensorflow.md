@@ -1,4 +1,4 @@
-# Setting up machines for training
+# Create VM, buckets and TPU
 This goes through the process of setting up the machines necessary for training with Tensorflow on a TPU. With the new TPU VM architecture, this step is unnecessary.
 
 ## Create a VM
