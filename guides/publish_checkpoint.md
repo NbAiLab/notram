@@ -1,4 +1,4 @@
-# Publish pretrain checkpoints
+# Publish Pretrained Tensorflow Checkpoints
 
 This assumes having pretrained a model with [covid-twitter-bert](https://github.com/digitalepidemiologylab/covid-twitter-bert).
 
