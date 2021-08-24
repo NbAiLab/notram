@@ -56,7 +56,7 @@ python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl
 
 ````
 
-### Everthing
+### Everything
 ```bash
 ls /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 10 python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
 ````
