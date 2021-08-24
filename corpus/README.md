@@ -46,8 +46,8 @@ It is often beneficial for training to add similar languages. These are all from
 ## Sub Corpora
 From the Norwegian Colossal Corpus v2 we have generated several cup corpra that can directly be used for training. The base-format is here json-lines, and they are all sharded in 1GB chunks for streaming.
 
-* [Official Large Norwegian Colossal Corpus v2](https://github.com/NBAiLab/notram/blob/master/guides/official_NCC2.md). The actual 250GB corpus used for training. 
-* [Norwegian Bokmål and Nynorsk](https://github.com/NBAiLab/notram/blob/master/guides/nb_nn_balanced_corpus.md). A balanced 19GB corpus used for bokmål to nynorsk translation.
+* [Official Large Norwegian Colossal Corpus v2](https://github.com/NBAiLab/notram/blob/master/corpus/official_NCC2.md). The actual 250GB corpus used for training. 
+* [Norwegian Bokmål and Nynorsk](https://github.com/NBAiLab/notram/blob/master/corpus/nb_nn_balanced_corpus.md). A balanced 19GB corpus used for bokmål to nynorsk translation.
 
 ## Processing Levels
 The base format for the corpus is json-lines (jsonl). A lot of the sources overlaps each other, and efficient deduplication is essential for creating a high quality corpus. The corpus exists on several processing levels. The raw files often contains a lot of meta-information that can be useful in some cases.
