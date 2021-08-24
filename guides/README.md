@@ -1,16 +1,21 @@
 # Guides
 A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work.  
 
-## Creating corpus
+## Json-lines data format
+* [Dokumentation internal jsonl-format](text_extraction_format.md)
+
+## Creating dataset
 * [Creating the Norwegian Collossal Corpus v2](creating_corpus_v2.md)
+* [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
+* [Processing MC4 (obsolete)](prepare_common_crawl.md)
 
+## Flax
+* [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
 
-creating_huggingface_dataset.md
-flax.md
-models_tensorflow.md
-prepare_common_crawl.md
-publish_checkpoint.md
-set_up_vm_tensorflow.md
-setting_up_machines_for_training.md
-start_training_tensorflow.md
-text_extraction_format.md
+## Tensorflow
+* [Trained Tensorflow models](models_tensorflow.md)
+* [Configuring a VM](configure_vm_tensorflow.md)
+* [Create VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
+* [Starting training](start_training_tensorflow.md)
+* [Publish Tensorflow Checkpoint](publish_checkpoint.md)
+
