@@ -4,6 +4,9 @@ This is a detailed description of the corpus. The entire corpus is heavily dedub
 
 | Sources  |   Description | Public status | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
+| Library Books 1814-2021| The books OCRed by DocWorks prior to 01.01.2009 had so low quality that it is reOCRed with Tesseract.  | Restricted | 60.0 |
+| | DocWorks - All books OCRed with DocWorks after 01.01.2009.| | |
+| | Tesseract - Books OCRed with Tesseract in 2021.   | | |
 | Wikipedia  | Wikipediadump downloaded 20210620.| Publicly available - NB and Wikipedia. | 1.5 |
 | Online Newspapers | A Norwegian Newspaper Corpus with texts from online bokmål newspapers between 1998 and 2019 collected by Språkbanken. | Publicly available - NB and Språkbanken. | 5.0 |
 | Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | Restricted. | 0.2 |
@@ -19,9 +22,7 @@ This is a detailed description of the corpus. The entire corpus is heavily dedub
 ## Corpora updated since v1
 | Sources  |   Status | Level | Estimated GB text |
 | -------- |   :-----|   -----:| -----:|
-| Library Books 1814-2021| The books OCRed by DocWorks prior to 01.01.2009 had so low quality that it is reOCRed with Tesseract.  | Restricted | 60.0 |
-|  | DocWorks - All books OCRed with DocWorks after 01.01.2009.|   |   |
-| | Tesseract - Books OCRed with Tesseract in 2021.   |  |   |
+
 | Library Newspapers|  Newspapers in the National Library. Either scanned newspapers that are OCRed or pdf-delivered newspapers processed by mypdf. | Avaiting new agreement | 50 |
 | |  1940-1949 - Docworks OCR-scanned newspapers | 2 | (21.6) |
 | | 1950-1959 - Docworks OCR-scanned newspapers | 2 | (4.0) |
