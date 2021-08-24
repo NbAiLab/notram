@@ -1,5 +1,5 @@
 # Setting up machines for training
-This goes through the process of setting up the machines necessary for training on a TPU. Before attempting this, you should have generated some tfrecord-files with your training data.
+This goes through the process of setting up the machines necessary for training with Tensorflow on a TPU. With the new TPU VM architecture, this step is unnecessary.
 
 ## Create a VM
 The VM needs to be in the same zone as your TPU and bucket. There are a lot of ways of creating the VM, and in many cases you will create from a stored image. However, if you want to create one from scratch, you can go through https//console.cloud.google.com -> Compute Engine -> VM Instances. Click "Create Instance". 
