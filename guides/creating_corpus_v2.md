@@ -9,11 +9,6 @@ This guide describes the steps used for creating the Norwegian Corpus. The final
 ### Periodicals
 
 
-## Extract Text from Other Sources
-Run the script below for extracting text to /source. As much text as possible should be extracted at this stage.
-```bash
-script here
-```
 
 ## Create jsonl-files
 ### External sources
