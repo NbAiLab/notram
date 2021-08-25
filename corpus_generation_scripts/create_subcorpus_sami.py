@@ -2,22 +2,10 @@
 ### Creates a sub-corpus  - In this example: sami
 #####################################################################
 
-import os, sys
-import glob
 from tqdm import tqdm
-from pathlib import Path
 from utils.misc import ArgParseDefault, add_bool_arg
-import jsonlines
-import json
-import pandas as pd
-import re
-from slugify import slugify
-import hashlib
-import ftfy
-from datetime import datetime
+import jsonlines, json
 import logging
-
-
 
 def main(args):
     with open(args.json_file_list) as file:
