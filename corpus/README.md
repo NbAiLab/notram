@@ -23,7 +23,7 @@ All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 | Twitter Top | Collection of tweets from the top 10.000 Norwegian tweeters between 2016 and 2018. Collected by Web64. | Restricted| 5.9 |
 | Twitter News | Collection of tweets from StoryBoard. Comments to Norwegian news articles. Collected by Web64. | Restricted| 0.3 |
 | VGDebatt  | A download of all posts from VGD since they started around 1998 until 2021.| Restricted| 15.0 |
-| **Byrocratic**|  |  | **22GB** |
+| **Bureaucratic**|  |  | **22GB** |
 | Government Documents  | Large collection with exceptional very quality parsed directly from xhtml.| Public from NB| 0.1 |
 | Parliament Documents  |  Also referred to as Stortingsforhandlingene. Collection of documents from the Norwegian Parliament. The corpus contains mainly OCRed reports. Part of the collection at the National Library. | Public from NB | 8.1 |
 | Public Reports OCR 1814-2020 (Evalueringsrapporter) |  Collection of public report from the National Library. |Public from NB | 0.6 |
