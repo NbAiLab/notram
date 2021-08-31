@@ -8,7 +8,7 @@ All sizes in GB. 1GB of uncompressed text is roughly 160M words.
 | -------- |   :-----|   -----:| -----:|
 | **General**|  |  | **117GB** |
 | Library Books 1814-2021| The main collections of books in the National Library. The majority of of the books are OCRed, with varying quality. In this version of the corpus we have reOCRed a significant part of the corpus with Tesseract, increasing the OCR quality. When cleaning, the parts with low OCR quality is dropped.   | Newer parts mainly restricted | 60.0 |
-| Library Newspapers|  Newspapers in the National Library. Contains both scanned newspapers that are OCRed or pdf-delivered newspapers post-processed by mypdf. When cleaning, the parts with low OCR quality is dropped. | Avaiting new agreement | 50 |
+| Library Newspapers|  Newspapers in the National Library. Contains both scanned newspapers that are OCRed or pdf-delivered newspapers post-processed by mypdf. When cleaning, the parts with low OCR quality is dropped. | Newer parts mainly restricted | 50 |
 | Wikipedia  | Wikipediadump downloaded 20210620.| Publicly available - NB and Wikipedia. | 1.6 |
 | Open Subtitles -2021  | Norwegian subtitles from OpenSubtitles. | Publicly available - NB and OpenSubtitles | 0.2 |
 | Norart Collection -2019  | A collection of scientific articles. Mainly in Norwegian. | Restricted. | 0.2 |
