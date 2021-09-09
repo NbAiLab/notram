@@ -70,17 +70,13 @@ jax.device_count()
 
 Set up Transformers
 ```bash
-git clone https://github.com/huggingface/transformers.git
+pip install tensorflow-cpu
+git clone https://github.com/huggingface/transformers
 cd transformers
-git remote add upstream https://github.com/huggingface/transformers.git
+pip install .
+pip install flax optax datasets
 
-# Recommended in the Workshop but noe necessary here since we are not planning on making changes here
-# git checkout -b [Any descriptive name]
-
-pip install -e ".[flax]"
-pip install -e ".[transformers]"
-cd ~/
-
+#You might need this if you are planning on streaming datasets
 git clone https://github.com/huggingface/datasets.git
 cd datasets
 pip install -e ".[streaming]"
