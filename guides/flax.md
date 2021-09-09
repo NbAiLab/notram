@@ -44,14 +44,14 @@ sudo blkid /dev/sdb
 #Add this to /etc/fstab with the correct uuid
 UUID=52af08e4-f249-4efa-9aa3-7c7a9fd560b0 /mnt/disks/flaxdisk ext4 discard,defaults,nofail 0 2
 ```
-Make a sane virtual environment. Here we give it the name of the project "gptneo-red"
+Make a sane virtual environment. Here we give it the name of the project "flax"
 ```bash
 sudo apt-get update
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user virtualenv
 sudo apt install python3.8-venv
-python3 -m venv gptneo-red
-source gptneo-red/bin/activate
+python3 -m venv flax
+source flax/bin/activate
 ```
 
 Run this on the VM. Dont worry if the first command returns a few errors.:
