@@ -88,6 +88,9 @@ Make sure you are logged into Hugging Face, GCloud and that your Git credentials
 #Install Git LFS
 sudo apt-get install git-lfs
 
+#Make sure username and password will then be stored globally after first login
+git config --global credential.helper store
+
 #Login to Huggingface
 huggingface-cli login
 
@@ -95,8 +98,7 @@ huggingface-cli login
 git config --global user.name "Per E Kummervold" 
 git config --global user.email "per@capia.no"
 
-#Make sure username and password will then be stored globally after first login
-git config --global credential.helper store
+
 
 #!!Following this, it is a good idea to make a push to the git, just to make sure your username is saved. If not, the scripts below might crash after the first epoch
 
