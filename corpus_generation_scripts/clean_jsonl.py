@@ -229,7 +229,16 @@ def main(args):
 
     if 'confidence' not in data:
         data['confidence'] = 1.0
-        
+    
+    
+    #Fix possible NaN is mixing datasets
+    data['document_word_confidence'] = data['document_word_confidence'].fillna(1.0)
+    data['confidence'] = data['confidence'].fillna(1.0)
+    data['publish_date'] = data['publish_date'].fillna(publish_date)
+    data['publish_year'] = data['publish_year'].fillna(publish_date)
+    data['ocr_date'] = data['ocr_date'].fillna(publish_date)
+    data['ocr_year'] = data['ocr_year'].fillna(publish_date)
+
 
     #Fix unicode
     if config['normalise_unicode']:
