@@ -1,8 +1,4 @@
-####################################################################################
-# Create CC-100 from downloaded files. Just wraps it in jsonl
-# This corpus is formed as a document per line. No paragraphs.
-# Output is an UTF-8 file with one article per line
-####################################################################################
+#!/opt/anaconda3/bin/python
 
 import sys, glob, os, re, argparse
 import pandas as pd
@@ -53,7 +49,7 @@ def main(args):
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Process the CC-100 downloaded corpus. This corpus has one document per line. No paragraphs. Output is an UTF-8 json-lines-file with one document per line")
     parser.add_argument('--language_reported', required=True, type=str, help='Language reported. Can be nob, nno, no or N/A')
     parser.add_argument('--doc_type', required=True, type=str, help='For instance cc100_no')
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
