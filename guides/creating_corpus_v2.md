@@ -49,9 +49,14 @@ python create_reddit_jsonl.py --input_folder /nfsmounts/datastore/corpus/v2/sour
 ```bash
 python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file /nfsmounts/datastore/corpus/v2/jsonl_2/government_en.jsonl
 
-````
+```
 
 ### Everything
 ```bash
 ls /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 10 python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
-````
+```
+
+### Add Fasttext tag
+```bash
+ls /nfsmounts/datastore/corpus/v2/clean_jsonl_3/*.jsonl|xargs -n 1 -P 10 python add_lang.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/with_fasttext/ --input_file
+```
