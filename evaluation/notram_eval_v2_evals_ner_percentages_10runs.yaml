@@ -18,6 +18,8 @@ parameters:
     value: "ner"  # ["ner", "pos"]
   model_name:
     values:
+    - ./v2_evals/checkpoints/T6_noTram2_BERT_norwegian_cased_3.8m
+    - ./v2_evals/checkpoints/T7_noTram2_BERT_norwegian_uncased_3.8m
     - ./v2_evals/checkpoints/T10_BERT_large_norwegian_uncased_360k
     - ./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay
     - ./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06

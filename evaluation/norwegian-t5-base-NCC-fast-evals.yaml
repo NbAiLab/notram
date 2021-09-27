@@ -1,0 +1,57 @@
+name: Norwegian T5-base-NCC-fast evals
+project: norwegian-t5-base-NCC-fast-evals
+program: run_summarization_flax.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:rouge2
+  goal: maximize
+parameters:
+  model_name_or_path:
+    values:
+    # - facebook/bart-base
+    - pere/norwegian-t5-base-NCC-fast@1cb5886a497c22970bc52e383efc7374cedd8453
+    - pere/norwegian-t5-base-NCC-fast@7ad8e71da0065a9436fb157d2d2291cbcecced16
+    - pere/norwegian-t5-base-NCC-fast@558f64effcff041436691ae226b479ad25d461a6
+    - pere/norwegian-t5-base-NCC-fast@30037e4265746a3c34e80fbb5d4ca30e9e31d8bd
+    - pere/norwegian-t5-base-NCC-fast@b4b21036618fcdfeae732c09a1e055868794268f
+    - pere/norwegian-t5-base-NCC-fast@243b652e790e0f9ae572168f9f37a1265cef0a38
+    - pere/norwegian-t5-base-NCC-fast@df10679da542af728846ff4ec12f424b5f4880a5
+    - pere/norwegian-t5-base-NCC-fast@8b36ff3d75d0c3595163f6d98b9599a0beffacdf
+    - pere/norwegian-t5-base-NCC-fast@6c67e76f005f35fb21e17687e3773e88decda55e
+    - pere/norwegian-t5-base-NCC-fast@5404b0166a10b3a36072d10a2145fbaa3666b19b
+  dataset_name:
+    value: xsum
+  do_train:
+    value: true
+  do_eval:
+    value: true
+  do_predict:
+    value: true
+  predict_with_generate:
+    value: true
+  num_train_epochs:
+    value:  6
+  learning_rate:
+    value:  5e-5
+  warmup_steps:
+    value: 0
+  per_device_train_batch_size:
+    value: 64
+  per_device_eval_batch_size:
+    value: 64
+  overwrite_output_dir:
+    value: true
+  max_source_length:
+    value: 512
+  max_target_length:
+    value: 64
+  # push_to_hub:
+  #   value: false
+  output_dir:
+    value: ./output
