@@ -52,8 +52,13 @@ python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl
 ```
 
 ### Everything
+This line does not reall work, since some of the files requires a specific config-file
 ```bash
-ls /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 10 python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 5 python clean.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+```
+This line runs all the books
+```bash
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/books*.jsonl|xargs -n 1 -P 5 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
 ```
 
 ### Add Fasttext tag
