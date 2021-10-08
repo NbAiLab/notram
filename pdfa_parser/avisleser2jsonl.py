@@ -50,7 +50,7 @@ def main(args):
         jsonl_path.mkdir(parents=True, exist_ok=True)
         progress.set_description(f"{path.parts[-1]: <60}")
         with (jsonl_path / jsonl_name).open(mode="w") as jsonl:
-            for text_file in path.glob("*.txt"):
+            for text_file in tqdm(path.glob("*.txt")):
                 file_id = text_file.stem
                 date_page = date_page_re.search(text_file.name)
                 if date_page:
@@ -80,9 +80,23 @@ def main(args):
                     'title': '',
                     'paragraphs': paragraphs,
                 }
-                jsonl.write(json.dumps(
+                jsonl_contents = json.dumps(
                     json_line, ensure_ascii=args.ensure_ascii
-                ) + "\n")
+                ) + "\n"
+                match = None
+                if args.output_filename_re:
+                    filename_re = re.compile(rf"{args.output_filename_re}", re.IGNORECASE)
+                    match = filename_re.match(text_file.name)
+                    if match:
+                        if args.output_dir_dates and date:
+                            jsonl_path_out = jsonl_path / date[:4] / date[4:6] / date[6:]
+                            jsonl_path_out.mkdir(parents=True, exist_ok=True)
+                        else:
+                            jsonl_path_out = jsonl_path
+                        with (jsonl_path_out / f"{match.group()}.jsonl").open(mode="a") as jsonl_file:
+                            jsonl_file.write(jsonl_contents)
+                if args.output_filename_re is None or match is None:
+                    jsonl.write(jsonl_contents)
     logger.info(f"Finished at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("Done!")
 
@@ -99,6 +113,16 @@ if __name__ == "__main__":
         metavar='input_dir_glob', help='Input directory glob')
     parser.add_argument('--output_dir', default='./jsonl',
         metavar='output_dir', help='Output directory')
+    parser.add_argument('--output_dir_dates', default=False,
+        metavar='output_dir_dates', help='If filename contains YYYYMMDD dates, use them to create subfolders')
+    parser.add_argument('--output_filename_re',
+        metavar='output_filename_re', help="""
+        Output filename re to match when generating the filename. Useful to group by several pages of the same issueo of a newspaper
+        For example, "[^_]+_[^_]+_[^_]+_[0-9]{8}_[0-9]+_[0-9]+_[0-9]+" will
+        match names such as "aandalsnesavis_null_null_20210105_96_2_1", placing
+        the corresponding JSON line entry in the file
+        "aandalsnesavis_null_null_20210105_96_2_1.jsonl"
+        """)
     parser.add_argument('--doc_type', default='newspaper_pdf',
         metavar='doc_type', help='Document type')
     parser.add_argument('--pymupdf_version', default='1.18.10',

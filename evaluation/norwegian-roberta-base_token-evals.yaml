@@ -1,0 +1,52 @@
+name: RoBERTa-base token evaluation (3 runs)
+project: roberta-base-token-eval
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_micro
+  goal: maximize
+parameters:
+  dataset_name:
+    values: ["NbAiLab/norne:bokmaal"]  # "NbAiLab/norne:nynorsk", "swedish_ner_corpus", "conll2003", "conll2002:es", "dane", "finer"]
+  task_name:
+    values:
+    - ner
+    - pos
+  model_name:
+    values:
+    - pere/norwegian-roberta-base@71f0e70b16df4991a04877978ea96975818c6ec0
+    - pere/norwegian-roberta-base@7a3af445bf2ca3405a77a76c64faf9f840af97d9
+    - pere/norwegian-roberta-base@0f0bccca5717d6cdbbaf04fd1b72b3e0a8ad0b41
+    - pere/norwegian-roberta-base@75d94cf85f7987463160e10439c4a5859eed741a
+    - pere/norwegian-roberta-base@1d60f0410b88ab44f63d7d0435d0f0addfab6af0
+    - pere/norwegian-roberta-base@61c669503dc349a51d871d1a2d3cc346de0117ef
+    - pere/norwegian-roberta-base@19fd9e581d1645607cf625bf3a4eac0be7e27a74
+    - pere/norwegian-roberta-base@f6eac6587334d88784f4e7bbf1efb77d9eeaa1a2
+    - pere/norwegian-roberta-base@195182d5b627c495fdf79ca9efc97fa76bcdec0c
+    - pere/norwegian-roberta-base@c86234e14c16b5af507479a6037cb7e32ce92be0
+  from_flax:
+    value: true
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 3
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  run:
+    values: [1, 2, 3]

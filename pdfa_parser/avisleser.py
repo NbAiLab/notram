@@ -9,6 +9,7 @@ import signal
 import statistics
 import string
 import sys
+import tarfile
 import traceback
 from collections import Counter
 from collections.abc import Iterable
@@ -291,6 +292,7 @@ def get_text_pdfminer(
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
     page_break: Optional[str]=None,
+    contents: Optional[io.BytesIO]=None,
 ) -> str:
     text = ""
     html = None
@@ -322,13 +324,17 @@ def get_text_fitz(
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
     page_break: Optional[str]=None,
+    contents: Optional[io.BytesIO]=None,
 ) -> str:
     faulthandler.enable()
     # Disable ascender/descender values as per
     # https://github.com/pymupdf/PyMuPDF/issues/930 and
     # https://bugs.ghostscript.com/show_bug.cgi?id=703649
     fitz.TOOLS.unset_quad_corrections(True)
-    pdf = fitz.open(filename)
+    if contents is None:
+        pdf = fitz.open(filename)
+    else:
+        pdf = fitz.Document(stream=contents, filetype=filename.name)
     text = []
     for page in pdf:
         fonts = []
@@ -398,6 +404,69 @@ def get_text_fitz(
     return text, None
 
 
+def get_text_from_pdf_or_tar(
+    filename: str,
+    pdfs_dir: Union[Path, str],
+    output: Union[Path, str],
+    overwrite: bool=False,
+    bar: Optional[tqdm]=None,
+    line_margin: float=0.15,
+    detect_vertical: bool=-0.8,
+    all_texts: bool=False,
+    boxes_flow: Optional[float]=None,
+    skip_empty: Optional[bool]=True,
+    same_sizes: Optional[bool]=False,
+    occurrence_rate: Optional[bool]=None,
+    page_break: Optional[str]=None,
+) -> NoReturn:
+    if ".tar" in filename.suffixes or ".tgz" in filename.suffixes:
+        if ".gz" in filename.suffixes or ".tgz" in filename.suffixes:
+            mode = "r:gz'"
+        else:
+            mode = "r"
+        tar = tarfile.open(filename, mode=mode)
+        if bar is not None:
+            pdf_names = tqdm(tar.getnames(), desc="  - ")
+        else:
+            pdf_names = tar.getnames()
+        for pdf_name in pdf_names:
+            if pdf_name.endswith(".pdf"):
+                pdf_file = tar.extractfile(pdf_name)
+                pdf_bytes = io.BytesIO(pdf_file.read())
+                get_text_from_pdf(
+                    filename=Path(pdf_name),
+                    pdfs_dir=pdfs_dir,
+                    output=output,
+                    overwrite=overwrite,
+                    bar=bar,
+                    line_margin=line_margin,
+                    detect_vertical=detect_vertical,
+                    all_texts=all_texts,
+                    boxes_flow=boxes_flow,
+                    skip_empty=skip_empty,
+                    same_sizes=same_sizes,
+                    occurrence_rate=occurrence_rate,
+                    page_break=page_break,
+                    contents=pdf_bytes,
+                )
+    else:
+        get_text_from_pdf(
+            filename=filename,
+            pdfs_dir=pdfs_dir,
+            output=output,
+            overwrite=overwrite,
+            bar=bar,
+            line_margin=line_margin,
+            detect_vertical=detect_vertical,
+            all_texts=all_texts,
+            boxes_flow=boxes_flow,
+            skip_empty=skip_empty,
+            same_sizes=same_sizes,
+            occurrence_rate=occurrence_rate,
+            page_break=page_break,
+        )
+
+
 def get_text_from_pdf(
     filename: str,
     pdfs_dir: Union[Path, str],
@@ -412,6 +481,7 @@ def get_text_from_pdf(
     same_sizes: Optional[bool]=False,
     occurrence_rate: Optional[bool]=None,
     page_break: Optional[str]=None,
+    contents: Optional[io.BytesIO]=None,
 ) -> NoReturn:
     """Writes PDFs to text files"""
     logger = get_logger()
@@ -427,7 +497,10 @@ def get_text_from_pdf(
     # Create the empty file if it doesn't exist
     text_dest.parent.mkdir(parents=True, exist_ok=True)
     with text_dest.open(mode="a") as _: pass
-    description = f"{filename} ({sizeof_fmt(filename.stat().st_size)})"
+    if contents is None:
+        description = f"{filename} ({sizeof_fmt(filename.stat().st_size)})"
+    else:
+        description = f"{filename} ({sizeof_fmt(len(contents.getvalue()))})"
     get_text = get_text_pdfminer if args.engine == "pdf2txt" else get_text_fitz
     text = ""
     html = None
@@ -435,7 +508,7 @@ def get_text_from_pdf(
         with time_limit(args.timeout, description=description):
             text, html = get_text(
                 filename, line_margin, detect_vertical, all_texts, boxes_flow,
-                same_sizes, occurrence_rate, page_break
+                same_sizes, occurrence_rate, page_break, contents
             )
         if not text and skip_empty:
             dest = dest / "empty"
@@ -517,7 +590,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
         f"Running using {'all' if args.n_jobs < 0 else args.n_jobs} processes"
     )
     if not args.total:
-        logger.info("Calculating number of pdfs...")
+        logger.info("Calculating number of files...")
         path = Path(args.pdfs_dir).rglob(args.pdfs_glob)
         total = len(list(None for p in path if p.is_file()))
         logger.info(f"Found {total} pdf files")
@@ -527,7 +600,7 @@ def main(args: argparse.ArgumentParser) -> NoReturn:
     path = Path(args.pdfs_dir).rglob(args.pdfs_glob)
     bar = tqdm(generate_paths(path, args.progress_file), total=total)
     Parallel(n_jobs=args.n_jobs)(
-        delayed(get_text_from_pdf)(
+        delayed(get_text_from_pdf_or_tar)(
             pdf,
             pdfs_dir=args.pdfs_dir,
             output=args.output_dir,
@@ -560,7 +633,7 @@ if __name__ == '__main__':
         help='Directory with the pdfs files'
     )
     parser.add_argument('pdfs_glob', default="*.pdf",
-        help='Glob for the directory with the pdfs files'
+        help='Glob for the directory with the pdf or tar.gz pdf files'
     )
     parser.add_argument('output_dir',
         help='Directory to store output files'

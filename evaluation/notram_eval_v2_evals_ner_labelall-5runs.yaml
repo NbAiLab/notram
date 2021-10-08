@@ -17,17 +17,17 @@ parameters:
     value: "ner"  # ["ner", "pos"]
   model_name:
     values:
-    #- NbAiLab/nb-bert-base
+    - ./v2_evals/checkpoints/T8POD_BERT_base_scandinavian_uncased_380k
+    - ./v2_evals/checkpoints/T6_noTram2_BERT_norwegian_cased_3.8m
+    - ./v2_evals/checkpoints/T7_noTram2_BERT_norwegian_uncased_3.8m
+    - NbAiLab/nb-bert-base
     - ./v2_evals/checkpoints/T10_BERT_large_norwegian_uncased
-    #- ./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay
-    #- ./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06
-    #- ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_decay
-    #- ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_2try
-    #- bert-base-multilingual-cased
-    #- ltgoslo/norbert
-    #values: ["./v2_evals/checkpoints/T10_BERT_large_norwegian_uncased"]
-    # values: ["./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay", "./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06"]
-    # values: ["NbAiLab/nb-bert-base", "bert-base-multilingual-cased", "ltgoslo/norbert"]
+    - ./v2_evals/checkpoints/T6POD_BERT_base_norwegian_cased_decay
+    - ./v2_evals/checkpoints/T7POD_BERT_base_norwegian_uncased_decay_2021-03-28_19-36-06
+    - ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_decay
+    - ./v2_evals/checkpoints/T11POD_BERT_base_norwegian_supercased_2try
+    - bert-base-multilingual-cased
+    - ltgoslo/norbert
   label_all_tokens:
     value: true
   force_download:

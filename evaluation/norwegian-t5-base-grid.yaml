@@ -1,0 +1,72 @@
+name: Norwegian T5-base grid evals
+project: norwegian-t5-base-grid
+program: run_translation_t5_flax.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval_score
+  goal: maximize
+parameters:
+  model_name_or_path:
+    values:
+    # - pere/norwegian-t5-base-NCC
+    - pere/norwegian-t5-base-NCC-fast
+    # - pere/norwegian-t5-base-NCC-nb-nn
+  # tokenizer_name:
+  #   value: pere/norwegian-t5-base-NCC
+  train_file:
+    value: src_tgt_nb-nn.json  # nb_nn_nb.json
+  validation_file:
+    value: parallel_src_tgt_dev.json
+  test_file:
+    value: parallel_src_tgt_test.json
+  do_train:
+    value: true
+  do_eval:
+    value: true
+  do_predict:
+    value: true
+  predict_with_generate:
+    value: true
+  adafactor:
+    value: true
+  dropout_rate:
+    value: 0.1  # 0
+  weight_decay:
+    values:
+    - 0.1
+    - 0.05
+    - 0.01
+    - 0.001
+  num_train_epochs:
+    value:  20
+  learning_rate:
+    values:
+    - 1e-3
+    # - 1.5e-4
+    - 1e-4
+    # - 1.5e-5
+    # - 1e-5
+  learning_rate_is_constant:
+    values:
+    # - true
+    - false
+  warmup_steps:
+    value: 0
+  per_device_train_batch_size:
+    value: 4
+  per_device_eval_batch_size:
+    value: 4
+  overwrite_output_dir:
+    value: true
+  max_source_length:
+    value: 512
+  max_target_length:
+    value: 512
+  output_dir:
+    value: ./output

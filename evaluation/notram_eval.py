@@ -45,6 +45,8 @@ from transformers import (
     AutoModelForTokenClassification,
     AutoModelForSequenceClassification,
     AutoTokenizer,
+    RobertaTokenizer,
+    RobertaTokenizerFast,
     DataCollatorForTokenClassification,
     DataCollatorWithPadding,
     PreTrainedTokenizerFast,
@@ -288,6 +290,13 @@ def dataset_select(dataset, size):
         return dataset.select(range(int(size)))
 
 
+def extract_revision(name):
+    if name and "@" in name:
+        return name.split("@")
+    else:
+        return name, None
+
+
 def main(args):
     # Set seed
     if args.run:
@@ -380,19 +389,31 @@ def main(args):
     #     !gsutil -m cp -r gs://notram-public/nb_models/eval/* nb_models/eval/
 
     # Training
+    model_name, revision = extract_revision(args.model_name)
     config = AutoConfig.from_pretrained(
-        args.model_name,
+        model_name,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir,
         force_download=args.force_download,
+        revision=revision,
     )
     tokenizer = AutoTokenizer.from_pretrained(
-        args.model_name,
+        model_name,
         cache_dir=args.cache_dir,
         use_fast=True,
         force_download=args.force_download,
+        revision=revision,
     )
+    if isinstance(tokenizer, (RobertaTokenizer, RobertaTokenizerFast)):
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_name,
+            cache_dir=args.cache_dir,
+            use_fast=True,
+            force_download=args.force_download,
+            revision=revision,
+            add_prefix_space=True,
+        )
     tokenizer_test_sentence = """
     Denne gjengen håper at de sammen skal bidra til å gi kvinnefotballen i Kristiansand et lenge etterlengtet løft.
     """.strip()
@@ -405,11 +426,13 @@ def main(args):
     # Token tasks
     if args.task_name in ("pos", "ner"):
         model = AutoModelForTokenClassification.from_pretrained(
-            args.model_name,
+            model_name,
             from_tf=bool(".ckpt" in args.model_name),
             config=config,
             cache_dir=args.cache_dir,
             force_download=args.force_download,
+            from_flax=args.from_flax,
+            revision=revision,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -427,11 +450,13 @@ def main(args):
     # Sequence tasks
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
-            args.model_name,
-            from_tf=bool(".ckpt" in args.model_name),
+            model_name,
+            from_tf=bool(".ckpt" in model_name),
             config=config,
             cache_dir=args.cache_dir,
             force_download=args.force_download,
+            from_flax=args.from_flax,
+            revision=revision,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -478,14 +503,15 @@ def main(args):
         "total_steps": int(total_steps),
         "total_warmup_steps": warmup_steps
     })
-    do_eval = validation_split in tokenized_datasets
-    do_test = test_split in tokenized_datasets
+    do_eval = args.do_eval and (validation_split in tokenized_datasets)
+    do_test = args.do_test and (test_split in tokenized_datasets)
+    do_predict = args.do_predict and (test_split in tokenized_datasets)
     training_args = TrainingArguments(
         output_dir=output_dir.as_posix(),
         overwrite_output_dir=args.overwrite_output_dir,
-        do_train=True,
+        do_train=args.do_train,
         do_eval=do_eval,
-        do_predict=do_test,
+        do_predict=do_test or do_predict,
         per_device_train_batch_size=int(args.train_batch_size),
         per_device_eval_batch_size=int(args.eval_batch_size or args.train_batch_size),
         learning_rate=float(args.learning_rate),
@@ -513,21 +539,23 @@ def main(args):
         data_collator=data_collator,
         compute_metrics=lambda pairs: compute_metrics(pairs, label_list),
     )
-    train_result = trainer.train()
-    trainer.save_model()  # Saves the tokenizer too for easy upload
-    write_file("train", train_result.metrics, output_dir, save_artifact=args.save_artifacts)
-    # Need to save the state, since Trainer.save_model saves only the tokenizer with the model
-    trainer.state.save_to_json(output_dir / "trainer_state.json")
+    if args.do_train:
+        train_result = trainer.train()
+        trainer.save_model()  # Saves the tokenizer too for easy upload
+        write_file("train", train_result.metrics, output_dir, save_artifact=args.save_artifacts)
+        # Need to save the state, since Trainer.save_model saves only the tokenizer with the model
+        trainer.state.save_to_json(output_dir / "trainer_state.json")
     # Evaluation
     if do_eval:
         printm(f"**Evaluate**")
         results = trainer.evaluate()
         write_file("eval", results, output_dir, save_artifact=args.save_artifacts)
-    # Tesing
-    if do_test:
-        printm("**Test**")
+    # Tesing and predicting
+    if do_test or do_predict:
+        printm("**Test**" if not do_predict else "***Predict***")
         predictions, labels, metrics = trainer.predict(test_dataset)
-        write_file("test", metrics, output_dir, save_artifact=args.save_artifacts)
+        if not do_predict:
+            write_file("test", metrics, output_dir, save_artifact=args.save_artifacts)
         if args.task_name in ("ner", "pos"):
             predictions = np.argmax(predictions, axis=2)
             # Remove ignored index (special tokens)
@@ -566,7 +594,7 @@ def main(args):
 if __name__ == "__main__":
     # yesno = lambda x: str(x).lower() in {'true', 't', '1', 'yes', 'y'}
     parser = argparse.ArgumentParser(description=f""
-    f"Evaluating NoTraM models for NER, POS, and Sentiment"""
+    f"Evaluating NoTraM models for token and sequence classification"""
     f"", epilog=f"""Example usage:
     {__file__} --task_name ner --model_name "NbAiLab/nb-bert-base"
     """, formatter_class=argparse.RawTextHelpFormatter)
@@ -590,6 +618,23 @@ if __name__ == "__main__":
         metavar='max_test_size', help='Percentage of test dataset or number of rows to use')
     parser.add_argument('--max_validation_size', type=float, default=-1.0,
         metavar='max_validation_size', help='Percentage of validation dataset or number of rows to use')
+
+    parser.add_argument('--do_train',
+        metavar='do_train', default=True, type=bool,
+        help='Run training',
+    )
+    parser.add_argument('--do_eval',
+        metavar='do_eval', default=True, type=bool,
+        help='Run evaluation on validation test',
+    )
+    parser.add_argument('--do_test',
+        metavar='do_test', default=True, type=bool,
+        help='Run evaluation on test set',
+    )
+    parser.add_argument('--do_predict',
+        metavar='do_predict', default=False, type=bool,
+        help='Run prediction only on test set',
+    )
 
     parser.add_argument('--supercase',
         metavar='supercase', type=bool, default=False,
@@ -664,6 +709,11 @@ if __name__ == "__main__":
     parser.add_argument('--save_artifacts',
         metavar='save_artifacts', type=bool, default=False,
         help='Save train, eval, and test files in Weight & Biases',
+    )
+
+    parser.add_argument('--from_flax',
+        metavar='from_flax', default=False, type=bool,
+        help='Load models from Flax format',
     )
 
     args = parser.parse_args()

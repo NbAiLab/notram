@@ -1,0 +1,48 @@
+name: RoBERTa-base-highlr speech evaluation (3 runs)
+project: roberta-base-highlr-speech-eval
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_macro
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norwegian_parliament
+  task_name:
+    value: "speech"
+  model_name:
+    values:
+    # - pere/norwegian-roberta-base-highlr@c85aa53e7926b26a1a05da1fd0d4996ac8416ffa
+    # - pere/norwegian-roberta-base-highlr@d2917876ada0b57ad5191b51eb078e87779d7b4b
+    # - pere/norwegian-roberta-base-highlr@8c35d5759fb7e83ea0415d9a0fa3fb13d1b63241
+    # - pere/norwegian-roberta-base-highlr@992f1bffc0d27d32a31b678e822751c9dcc251dd
+    - pere/norwegian-roberta-base-highlr@c27ac92cf6806cccd8122452681627a6c6b5c78b
+    - pere/norwegian-roberta-base-highlr@c9b57a36124f9f4804da578564c45eabea9a2b66
+    - pere/norwegian-roberta-base-highlr@bb294db72f4c4b623ab0923712b85363bb1f8900
+    - pere/norwegian-roberta-base-highlr-512@7043fc5cf5bc349aaa230f1b504c4686108c2cbe
+  from_flax:
+    value: true
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 3
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  run:
+    values: [1, 2, 3]
