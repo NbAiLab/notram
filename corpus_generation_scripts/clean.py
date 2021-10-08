@@ -184,7 +184,7 @@ def main(args):
     log_name = os.path.basename(args.input_file).replace(".jsonl","")
     log_name = log_name + ".log"
 
-    logging.basicConfig(filename=os.path.join(args.output_folder,log_name), format='%(asctime)s %(message)s', filemode='w')
+    logging.basicConfig(filename=os.path.join(args.output_folder,"log/",log_name), format='%(asctime)s %(message)s', filemode='w')
 
     config = read_config(os.path.join(args.output_folder,args.config_file))
     
@@ -192,19 +192,19 @@ def main(args):
     data = load_jsonl(args.input_file)
    
     logger.info(f'***  Data loaded. {len(data)} posts')
-    print(f'*** Data loaded with {len(data)} posts. Log written to {os.path.join(args.output_folder,log_name)}')
+    print(f'*** Data loaded with {len(data)} posts. Log written to {os.path.join(args.output_folder, "log/", log_name)}')
 
     
     if config['assume_late_missing_dates']:
-        publish_date = "20991231"
-        publish_year = "2099"
-        ocr_date = "20991231"
-        ocr_year = "2099"
+        publish_date = "20211007"
+        publish_year = "2021"
+        ocr_date = "20211007"
+        ocr_year = "2021"
     else:
-        publish_date = "18000101"
-        publish_year = "1800"
-        ocr_date = "18000101"
-        ocr_year = "1800"
+        publish_date = "18140517"
+        publish_year = "1814"
+        ocr_date = "18140517"
+        ocr_year = "1814"
 
 
 
@@ -337,25 +337,28 @@ def main(args):
         print(f'***  Replaced email addresses with {config["replace_email_addresses"]}.')
 
     #Number of alpha words in paragraph
-    cond = data['text'].parallel_apply(lambda x: count_alphawords(x)) >= config['min_alphawords_paragraph']
-    logger.debug(f'\n\n*** The following text was deleted because too few alpha words: \n{data[~cond]["text"]}')
-    data = data[cond]
+    if len(data)>0:
+        cond = data['text'].parallel_apply(lambda x: count_alphawords(x)) >= config['min_alphawords_paragraph']
+        logger.debug(f'\n\n*** The following text was deleted because too few alpha words: \n{data[~cond]["text"]}')
+        data = data[cond]
     logger.info(f'***  Completed filtering min alpha words. Valid posts = {len(data)}')
     print(f'***  Completed filtering min alpha words. Valid posts = {len(data)}')
 
     #Numbers of words in paragraph
-    cond = data['text'].parallel_apply(lambda x: count_words(x)) >= config['min_words_paragraph']
-    logger.debug(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
-    data = data[cond]
+    if len(data)>0:
+        cond = data['text'].parallel_apply(lambda x: count_words(x)) >= config['min_words_paragraph']
+        logger.debug(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
+        data = data[cond]
     logger.info(f'***  Completed filtering min words. Valid posts = {len(data)}')
     print(f'***  Completed filtering min words. Valid posts = {len(data)}')
 
     #Minimum number of characters in an article
     #Add this to the frame since we will use it later for sorting
-    data['doc_length'] = data["text"].parallel_apply(len).groupby(data['id']).transform(sum)
-    cond = data['doc_length'] >= config['min_length_article']
-    logger.debug(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
-    data = data[cond]
+    if len(data)>0:
+        data['doc_length'] = data["text"].parallel_apply(len).groupby(data['id']).transform(sum)
+        cond = data['doc_length'] >= config['min_length_article']
+        logger.debug(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
+        data = data[cond]
     logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}')
     print(f'***  Completed filtering min length article. Valid posts = {len(data)}')
  
@@ -378,13 +381,14 @@ def main(args):
 
 
     #Remove duplicates
-    data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
-    data.drop_duplicates(subset="hash",inplace=True,keep='first')
+    if len(data)>0:
+        data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
+        data.drop_duplicates(subset="hash",inplace=True,keep='first')
     logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}')
     print(f'***  Finished deduplicating. Final valid posts: {len(data)}')
     
     #Minimise the size of the jsonl
-    if config['minimise_jsonl']:
+    if config['minimise_jsonl'] and len(data)>0:
         valid_columns = ['id','doc_type','publish_year','doc_length','paragraph_id','hash','text']
         data.drop(columns=[col for col in data if col not in valid_columns], inplace=True)
         logger.info(f'***  Minimised the dataframe')
@@ -394,7 +398,8 @@ def main(args):
     #Tidy up the file and sort it 
     data['publish_year'] = data['publish_year'].astype(int)
     data['paragraph_id'] = data['paragraph_id'].astype(int)
-    data.sort_values(['doc_length', 'paragraph_id'], ascending=[False, True], inplace=True)
+    if len(data)>0:
+        data.sort_values(['doc_length', 'paragraph_id'], ascending=[False, True], inplace=True)
     logger.info(f'***  Fixed data type and sorted the dataframe')
     print(f'***  Fixed data type and sorted the dataframe')
     
@@ -404,7 +409,7 @@ def main(args):
     logger.info(f'***  Collapsed the dataframe. The length after collapsing it {len(data)}.')
     print(f'***  Collapse the dataframe. The length after collapsing it {len(data)}.')
 
-    #Save is as jsonl
+    #Save it as jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
     save_jsonl(data, output_filename)
     logger.info(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}')
