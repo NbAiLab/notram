@@ -52,13 +52,17 @@ python clean_jsonl.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl
 ```
 
 ### Everything
-This line does not reall work, since some of the files requires a specific config-file
+This line does not reall work, since some of the files requires a specific config-file but shows the principle. Can be parallalised but this is also done within the script, so the effect might not be huge.
 ```bash
 ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 5 python clean.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
 ```
-This line runs all the books
+The main command for running this. Small files can be parellised.
 ```bash
-ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/books*.jsonl|xargs -n 1 -P 5 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/books*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspapers_published_19s*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspapers_published_20s*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+
+
 ```
 
 ### Add Fasttext tag
