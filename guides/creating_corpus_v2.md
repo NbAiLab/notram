@@ -59,8 +59,8 @@ ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 5 python clea
 The main command for running this. Small files can be parellised.
 ```bash
 ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/books*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
-ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspapers_published_19s*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
-ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspapers_published_20s*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspaper_published_*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+
 
 
 ```
