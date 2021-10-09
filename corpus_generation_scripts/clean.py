@@ -52,6 +52,10 @@ def load_jsonl(jsonl):
     #Decode into dictionary
     df_inter['json_element'].parallel_apply(json.loads)
 
+    logger.info(f'***  Json parsed. {len(df_inter)} lines')
+    print(f'***  Json parsed with {len(df_inter)} lines.')
+
+
     #Normalise
     metakeys = get_metakeys(lines)
     data = pd.json_normalize(df_inter['json_element'].parallel_apply(json.loads), record_path =['paragraphs'], meta=metakeys, errors='ignore')
@@ -191,8 +195,8 @@ def main(args):
     print(f'*** Starting to process: {args.input_file}')
     data = load_jsonl(args.input_file)
    
-    logger.info(f'***  Data loaded. {len(data)} posts')
-    print(f'*** Data loaded with {len(data)} posts. Log written to {os.path.join(args.output_folder, "log/", log_name)}')
+    logger.info(f'***  Data loaded. {len(data)} paragraphs')
+    print(f'*** Data loaded with {len(data)} paragraphs. Log written to {os.path.join(args.output_folder, "log/", log_name)}')
 
     
     if config['assume_late_missing_dates']:
