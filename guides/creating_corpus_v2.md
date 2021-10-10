@@ -58,9 +58,16 @@ ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/*.jsonl|xargs -n 1 -P 5 python clea
 ```
 The main command for running this. Small files can be parellised.
 ```bash
+# All books
 ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/books*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+# All newspapers
 ls -1 /nfsmounts/datastore/corpus/v2/jsonl_2/newspaper_published_*.jsonl|xargs -n 1 python clean.py --config_file config_ocr.json --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
-
+# everything ending with _no except Twitter (that has a special config)
+find /nfsmounts/datastore/corpus/v2/jsonl_2/*_no.jsonl -not -name twitter*|xargs -n 1 python clean.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+# everything ending with _nb except Twitter (that has a special config)
+find /nfsmounts/datastore/corpus/v2/jsonl_2/*_nn.jsonl -not -name twitter*|xargs -n 1 python clean.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
+# everything ending with _nn except Twitter (that has a special config)
+find /nfsmounts/datastore/corpus/v2/jsonl_2/*_nn.jsonl -not -name twitter*|xargs -n 1 python clean.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/ --input_file
 
 
 ```
