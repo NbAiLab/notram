@@ -271,8 +271,8 @@ def main(args):
 
     #Add hash
     data['hash'] = data['text'].parallel_apply(lambda x: get_hash(x))
-    logger.info(f'***  Added hash')
-    print(f'***  Added hash')
+    logger.info(f'***  Added hash. ({exec_time()})')
+    print(f'***  Added hash. ({exec_time()})')
     
     #Convert to datetime
     if "olddateformat" in args.input_file:
