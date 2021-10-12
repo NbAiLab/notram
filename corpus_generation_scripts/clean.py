@@ -59,8 +59,8 @@ def load_jsonl(jsonl):
     #Decode into dictionary
     df_inter['json_element'].parallel_apply(json.loads)
 
-    logger.info(f'***  Json parsed. {len(df_inter)} lines. ({exec_time})')
-    print(f'***  Json parsed with {len(df_inter)} lines. ({exec_time})')
+    logger.info(f'***  Json parsed. {len(df_inter)} lines. ({exec_time()})')
+    print(f'***  Json parsed with {len(df_inter)} lines. ({exec_time()})')
 
 
     #Normalise
@@ -202,8 +202,8 @@ def main(args):
     print(f'*** Starting to process: {args.input_file}')
     data = load_jsonl(args.input_file)
    
-    logger.info(f'***  Data loaded. {len(data)} paragraphs. ({exec_time})')
-    print(f'*** Data loaded with {len(data)} paragraphs. Log written to {os.path.join(args.output_folder, "log/", log_name)}. ({exec_time})')
+    logger.info(f'***  Data loaded. {len(data)} paragraphs. ({exec_time()})')
+    print(f'*** Data loaded with {len(data)} paragraphs. Log written to {os.path.join(args.output_folder, "log/", log_name)}. ({exec_time()})')
 
     
     if config['assume_late_missing_dates']:
@@ -254,8 +254,8 @@ def main(args):
     #Fix unicode
     if config['normalise_unicode']:
         data['text'] = data['text'].parallel_apply(normalise_unicode)
-    logger.info(f'***  Normalised unicode. Removed double spaces. Trimmed string. ({exec_time})')
-    print(f'***  Normalised unicode. Removed double spaces. Trimmed string.({exec_time})')
+    logger.info(f'***  Normalised unicode. Removed double spaces. Trimmed string. ({exec_time()})')
+    print(f'***  Normalised unicode. Removed double spaces. Trimmed string.({exec_time()})')
 
     #Truncate last valid sentence in paragraph
     if config['truncate_last_valid_sentence']:
@@ -265,8 +265,8 @@ def main(args):
     cond = data['text'].parallel_apply(lambda x: max_word_length(x)) <= config['max_word_length_paragraph']
     logger.debug(f'\n\n*** The following text was deleted because some of the words were too long:\n {data[~cond]["text"]}')
     data = data[cond]
-    logger.info(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time})')
-    print(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time})')
+    logger.info(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time()})')
+    print(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time()})')
     
 
     #Add hash
@@ -280,50 +280,50 @@ def main(args):
     else:
         data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
     
-    logger.info(f'***  Converted old date format. ({exec_time})')
-    print(f'***  Converted old data format. ({exec_time})')
+    logger.info(f'***  Converted old date format. ({exec_time()})')
+    print(f'***  Converted old data format. ({exec_time()})')
 
     data['publish_year'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y')
     data['ocr_date'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d') 
     data['ocr_year'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
-    logger.info(f'***  Created publish year, ocr_date, ocr_year. ({exec_time})')
-    print(f'***  Created publish year, ocr_date, ocr_year. ({exec_time})')
+    logger.info(f'***  Created publish year, ocr_date, ocr_year. ({exec_time()})')
+    print(f'***  Created publish year, ocr_date, ocr_year. ({exec_time()})')
 
     #Set meaningfult default for missing dates
     data['publish_date'] = data['publish_date'].fillna(publish_date)
     data['publish_year'] = data['publish_year'].fillna(publish_year)
     data['ocr_date'] = data['ocr_date'].fillna(ocr_date)
     data['ocr_year'] = data['ocr_year'].fillna(ocr_year)
-    logger.info(f'***  Created defaults for dates. ({exec_time})')
-    print(f'***  Created defaults for dates. ({exec_time})')
+    logger.info(f'***  Created defaults for dates. ({exec_time()})')
+    print(f'***  Created defaults for dates. ({exec_time()})')
 
 
     if ocr_date:
         cond = data['ocr_date'] >= config['min_ocr_date']
         logger.debug(f'\n\n*** The following text was deleted because the ocr date was too old:\n {data[~cond]["text"]}')
         data = data[cond]
-        logger.info(f'***  Completed filtering OCR date. Valid posts = {len(data)}. ({exec_time})')
-        print(f'***  Completed filtering OCR date. Valid posts = {len(data)}. ({exec_time})')
+        logger.info(f'***  Completed filtering OCR date. Valid posts = {len(data)}. ({exec_time()})')
+        print(f'***  Completed filtering OCR date. Valid posts = {len(data)}. ({exec_time()})')
     else:
-        print(f'***  Skipped evaluating ocr date since this is not an ocr document. ({exec_time})')
+        print(f'***  Skipped evaluating ocr date since this is not an ocr document. ({exec_time()})')
 
     #Filter for publish date
     cond = data['publish_date'] >= config['min_publish_date']
     
     logger.debug(f'\n\n*** The following text was deleted because publish data was too old:\n {data[~cond]["text"]}')
     data = data[cond]
-    logger.info(f'***  Completed filtering publishdate. Valid posts = {len(data)}. ({exec_time})')
-    print(f'***  Completed filtering publishdate. Valid posts = {len(data)}. ({exec_time})')
+    logger.info(f'***  Completed filtering publishdate. Valid posts = {len(data)}. ({exec_time()})')
+    print(f'***  Completed filtering publishdate. Valid posts = {len(data)}. ({exec_time()})')
 
     #Filter for document word confidence
     if ocr_doc:
         cond = data['document_word_confidence'].astype(float) >= config['min_document_word_confidence']
         logger.debug(f'\n\n*** The following text was deleted because document confidence was too low: \n{data[~cond]["text"]}')
         data = data[cond]
-        logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}. ({exec_time})')
-        print(f'***  Completed filtering document confidence. Valid posts = {len(data)}. ({exec_time})')
+        logger.info(f'***  Completed filtering document confidence. Valid posts = {len(data)}. ({exec_time()})')
+        print(f'***  Completed filtering document confidence. Valid posts = {len(data)}. ({exec_time()})')
     else:
-        print(f'***  Skipped document confidence evaluation since this is not an ocr document. ({exec_time})')
+        print(f'***  Skipped document confidence evaluation since this is not an ocr document. ({exec_time()})')
 
 
     #Filter for paragraph confidence
@@ -331,45 +331,45 @@ def main(args):
         cond = data['confidence'].astype(float) >= config['min_confidence_paragraph']
         logger.debug(f'\n\n*** The following text was deleted because paragraph confidence was too low:\n {data[~cond]["text"]}')
         data = data[cond]
-        logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}. ({exec_time})')
-        print(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}. ({exec_time})')
+        logger.info(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}. ({exec_time()})')
+        print(f'***  Completed filtering paragraph confidence. Valid posts = {len(data)}. ({exec_time()})')
     else:
-        print(f'***  Skipped paragraph confidence evaluation since this is not an ocr document. ({exec_time})')
+        print(f'***  Skipped paragraph confidence evaluation since this is not an ocr document. ({exec_time()})')
 
 
     #Replace username in tweets
     if config['replace_usernames_tweets']:
         data['text'] = data['text'].parallel_apply(lambda x: replace_usernames_tweets(x))
-        logger.info(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}. ({exec_time})')
-        print(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}. ({exec_time})')
+        logger.info(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}. ({exec_time()})')
+        print(f'***  Replaced usernames in tweets with {config["replace_usernames_tweets"]}. ({exec_time()})')
         
     #Replace urls
     if config['replace_urls']:
         data['text'] = data['text'].parallel_apply(lambda x: replace_urls(x))
-        logger.info(f'***  Replaced urls with {config["replace_urls"]}. ({exec_time})')
-        print(f'***  Replaced urls with {config["replace_urls"]}. ({exec_time})')
+        logger.info(f'***  Replaced urls with {config["replace_urls"]}. ({exec_time()})')
+        print(f'***  Replaced urls with {config["replace_urls"]}. ({exec_time()})')
 
     #Replace email addresses
     if config['replace_email_addresses']:
         data['text'] = data['text'].parallel_apply(lambda x: replace_email_addresses(x))
-        logger.info(f'***  Replaced email addresses with {config["replace_email_addresses"]}. ({exec_time})')
-        print(f'***  Replaced email addresses with {config["replace_email_addresses"]}. ({exec_time})')
+        logger.info(f'***  Replaced email addresses with {config["replace_email_addresses"]}. ({exec_time()})')
+        print(f'***  Replaced email addresses with {config["replace_email_addresses"]}. ({exec_time()})')
 
     #Number of alpha words in paragraph
     if len(data)>0:
         cond = data['text'].parallel_apply(lambda x: count_alphawords(x)) >= config['min_alphawords_paragraph']
         logger.debug(f'\n\n*** The following text was deleted because too few alpha words: \n{data[~cond]["text"]}')
         data = data[cond]
-    logger.info(f'***  Completed filtering min alpha words. Valid posts = {len(data)}. ({exec_time})')
-    print(f'***  Completed filtering min alpha words. Valid posts = {len(data)}. ({exec_time})')
+    logger.info(f'***  Completed filtering min alpha words. Valid posts = {len(data)}. ({exec_time()})')
+    print(f'***  Completed filtering min alpha words. Valid posts = {len(data)}. ({exec_time()})')
 
     #Numbers of words in paragraph
     if len(data)>0:
         cond = data['text'].parallel_apply(lambda x: count_words(x)) >= config['min_words_paragraph']
         logger.debug(f'\n\n*** The following text was deleted because it had too few words: \n{data[~cond]["text"]}')
         data = data[cond]
-    logger.info(f'***  Completed filtering min words. Valid posts = {len(data)}. ({exec_time})')
-    print(f'***  Completed filtering min words. Valid posts = {len(data)}. ({exec_time})')
+    logger.info(f'***  Completed filtering min words. Valid posts = {len(data)}. ({exec_time()})')
+    print(f'***  Completed filtering min words. Valid posts = {len(data)}. ({exec_time()})')
 
     #Minimum number of characters in an article
     #Add this to the frame since we will use it later for sorting
@@ -378,8 +378,8 @@ def main(args):
         cond = data['doc_length'] >= config['min_length_article']
         logger.debug(f'\n\n*** The following text was deleted because the article minimum lenght was too small:\n {data[~cond]["text"]}')
         data = data[cond]
-    logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}. ({exec_time})')
-    print(f'***  Completed filtering min length article. Valid posts = {len(data)}. ({exec_time})')
+    logger.info(f'***  Completed filtering min length article. Valid posts = {len(data)}. ({exec_time()})')
+    print(f'***  Completed filtering min length article. Valid posts = {len(data)}. ({exec_time()})')
  
     #Remove paragraphs with curly brackets
     if config['drop_paragraphs_with_curly_brackets']:
@@ -389,29 +389,29 @@ def main(args):
         cond = data['text'].str.contains('\\}')
         logger.debug(f'\n\n*** The following text was deleted because it contained right curly brackets:\n {data[~cond]["text"]}')
         data = data[~cond]
-        print(f'***  Completed filtering out paragraphs with curly brackets. Valid posts = {len(data)}. ({exec_time})')
+        print(f'***  Completed filtering out paragraphs with curly brackets. Valid posts = {len(data)}. ({exec_time()})')
     
     #Filter out paragraphs with encoding errors
     if config['drop_paragraphs_with_encoding_errors']:
         cond = data['text'].str.contains('�')
         data = data[~cond]
-    logger.info(f'***  Filtered out encoding errors. The length is now {len(data)}. ({exec_time})')
-    print(f'***  Filtered out encoding errors. The length is now {len(data)}. ({exec_time})')
+    logger.info(f'***  Filtered out encoding errors. The length is now {len(data)}. ({exec_time()})')
+    print(f'***  Filtered out encoding errors. The length is now {len(data)}. ({exec_time()})')
 
 
     #Remove duplicates
     if len(data)>0:
         data.sort_values(by=['doc_length','paragraph_id'], inplace=True, ascending=[False,True])
         data.drop_duplicates(subset="hash",inplace=True,keep='first')
-    logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}. ({exec_time})')
-    print(f'***  Finished deduplicating. Final valid posts: {len(data)}. ({exec_time})')
+    logger.info(f'***  Finished deduplicating. Final valid posts: {len(data)}. ({exec_time()})')
+    print(f'***  Finished deduplicating. Final valid posts: {len(data)}. ({exec_time()})')
     
     #Minimise the size of the jsonl
     if config['minimise_jsonl'] and len(data)>0:
         valid_columns = ['id','doc_type','publish_year','doc_length','paragraph_id','hash','text']
         data.drop(columns=[col for col in data if col not in valid_columns], inplace=True)
-        logger.info(f'***  Minimised the dataframe. ({exec_time})')
-        print(f'***  Minimised the dataframe. ({exec_time})')
+        logger.info(f'***  Minimised the dataframe. ({exec_time()})')
+        print(f'***  Minimised the dataframe. ({exec_time()})')
 
 
     #Tidy up the file and sort it 
@@ -419,20 +419,20 @@ def main(args):
     data['paragraph_id'] = data['paragraph_id'].astype(int)
     if len(data)>0:
         data.sort_values(['doc_length', 'paragraph_id'], ascending=[False, True], inplace=True)
-    logger.info(f'***  Fixed data type and sorted the dataframe. ({exec_time})')
-    print(f'***  Fixed data type and sorted the dataframe. ({exec_time})')
+    logger.info(f'***  Fixed data type and sorted the dataframe. ({exec_time()})')
+    print(f'***  Fixed data type and sorted the dataframe. ({exec_time()})')
     
     #Collapse the dataset
     colnames = [c for c in list(data.columns) if c!='paragraph_id' and c!='text' and c!='hash']
     data = data.groupby(colnames, as_index=False).apply(lambda x:[x[['paragraph_id','text','hash']].to_dict('records')]).rename(columns={None:'paragraphs'})
-    logger.info(f'***  Collapsed the dataframe. The length after collapsing it {len(data)}. ({exec_time})')
-    print(f'***  Collapse the dataframe. The length after collapsing it {len(data)}. ({exec_time})')
+    logger.info(f'***  Collapsed the dataframe. The length after collapsing it {len(data)}. ({exec_time()})')
+    print(f'***  Collapse the dataframe. The length after collapsing it {len(data)}. ({exec_time()})')
 
     #Save it as jsonl
     output_filename = os.path.join(args.output_folder, os.path.basename(args.input_file))
     save_jsonl(data, output_filename)
-    logger.info(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}. ({exec_time})')
-    print(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}. ({exec_time})')
+    logger.info(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}. ({exec_time()})')
+    print(f'*** Finished processing file. Result has {len(data)} posts. Result is written to {os.path.join(args.output_folder, os.path.basename(args.input_file))}. ({exec_time()})')
 
 def parse_args():
     parser = ArgParseDefault()
