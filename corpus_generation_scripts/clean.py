@@ -21,7 +21,7 @@ import logging
 
 from pandarallel import pandarallel
 
-pandarallel.initialize()
+pandarallel.initialize(use_memory_fs=True)
 
 # compile regexes
 username_regex = re.compile(r'(^|[^@\w])@(\w{1,15})\b')
@@ -264,7 +264,9 @@ def main(args):
 
     #Add hash
     data['hash'] = data['text'].parallel_apply(lambda x: get_hash(x))
-
+    logger.info(f'***  Added hash')
+    print(f'***  Added hash')
+    
     #Convert to datetime
     if "olddateformat" in args.input_file:
         data['publish_date'] = pd.to_datetime(data['publish_date'], format='%d%m%Y', errors='coerce').dt.strftime('%Y%m%d')
@@ -272,11 +274,11 @@ def main(args):
         data['publish_date'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d')
 
     data['publish_year'] = pd.to_datetime(data['publish_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y')
-    
-
     data['ocr_date'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y%m%d') 
     data['ocr_year'] = pd.to_datetime(data['ocr_date'], format='%Y%m%d', errors='coerce').dt.strftime('%Y') 
-   
+    logger.info(f'***  Converted date format')
+    print(f'***  Converted data format')
+
     #Set meaningfult default for missing dates
     data['publish_date'] = data['publish_date'].fillna(publish_date)
     data['publish_year'] = data['publish_year'].fillna(publish_year)
