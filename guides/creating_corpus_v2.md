@@ -71,5 +71,5 @@ find /nfsmounts/datastore/corpus/v2/jsonl_2/twitter*.jsonl|xargs -n 1 python cle
 
 ### Add Fasttext tag
 ```bash
-ls /nfsmounts/datastore/corpus/v2/clean_jsonl_3/*.jsonl|xargs -n 1 -P 10 python add_lang.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/with_fasttext/ --input_file
+find /nfsmounts/datastore/corpus/v2/clean_jsonl_3/*.jsonl|xargs -n 1 -P 10 python add_lang.py --output_folder /nfsmounts/datastore/corpus/v2/clean_jsonl_3/fasttext/ --log_file /nfsmounts/datastore/corpus/v2/clean_jsonl_3/log/fasttext.log --input_file
 ```
