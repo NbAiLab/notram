@@ -48,9 +48,6 @@ if __name__ == '__main__':
 
     cnttotal=0
     print("fixing (. is 10000 records) ",flush=True)
-    #fflush(stdout)
-
-    maxlen = 100000
 
     with open(args.sourcejsonlfile) as reader:
             for l in reader:
@@ -58,23 +55,7 @@ if __name__ == '__main__':
                
                 try:
                     j=json.loads(cleanl)
-                    j['id'] = str(j['id'])
-                    #Check if this is a deduplicated file. If so, it should be trimmed to maxlen
-                    #If there is no text field - just ignore this
-                    text = j.get('text', "")
-                    currentlen = len(text)
-
-                    if currentlen > maxlen:
-                        text = j['text']
-                        chunks = [text[i:i+maxlen] for i in range(0, len(text), maxlen)]
-                        for n,c in enumerate(chunks):
-                            k = {}
-                            k['id'] = j['id']+"_"+str(n)
-                            k['text'] = c
-                            writer.write(k)
-                        print(f'Text longer than {maxlen}. Split in {n+1} chunks.')
-                    else:
-                        writer.write(j)
+                    writer.write(j)
                     
                     cnttotal += 1
                     if ((cnttotal % 10000) == 0):
