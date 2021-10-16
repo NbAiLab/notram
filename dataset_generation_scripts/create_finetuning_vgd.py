@@ -20,7 +20,7 @@ def main(args):
     idx = 0
     with jsonlines.open(args.input_file) as reader:
         for post in reader:  
-            text = ""
+            
             topictext = post['forum'].split('.')
             topicnumber = int(post['id'].split('_')[2])
             docid = str(post['id'].split('_')[1])
@@ -29,14 +29,20 @@ def main(args):
             user = post['user']
             
             paragraphs = post['paragraphs']
-            for n,p in enumerate(paragraphs):
-                if n != 0:
-                    text = text + '<br />'
-                text = text + str(p['text'])
-                text = text.replace("\n","<br />").replace("\r","<br />")
+            #text = ""
+            #for n,p in enumerate(paragraphs):
+            #    if n != 0:
+            #        text = text + '<br />'
+            #    text = text + str(p['text'])
+            #    text = text.replace("\n","<br />").replace("\r","<br />")
         
-            test = text.replace("<br />","\n")
-            text = text.strip()
+            #text = text.replace("<br />","\n")
+            #text = text.strip()
+            text = ""
+            for p in paragraphs:
+                 text = text + str(p['text'])
+            text = " ".join(text.split())
+
             topic = topictext[0]
             subtopic = topictext[1].replace('-',' ')
             if user!="VG Nett" and user!="oyssol" and (topicnumber == 0 or topicnumber == 1):
@@ -48,9 +54,34 @@ def main(args):
     print("Finished loading everything into Pandas")
     #breakpoint()
     data.dropna(subset=['firstanswer'], inplace=True)
+    data = data[data.text != "[Slettet]"]
+    data = data[data.firstanswer != "[Slettet]"]
+
     dataset = Dataset.from_pandas(data)
     dataset.save_to_disk(args.output_folder)
     data.to_csv(args.output_folder+"/vgd.csv", index=False)
+    
+
+    #Create GPT training set
+    gpt_text = ""
+    for index, row in data.iterrows():
+        
+        if "/kjaerlighetssorg/" in row['docid']:
+            topic = "Kjærlighetssorg"
+        elif "/fotball-premier-league/" in row['docid']:
+            topic = "Premiere League"
+        elif "/politikk-norsk/" in row['docid']:
+            topic = "Norsk politikk"
+        else:
+            topic = "Ukjent"
+
+        question = row['text']
+        answer = row['firstanswer']
+        
+        gpt_text += "<forum>"+topic+"</forum><post>"+question+"</post><svar>"+answer+"<svar>"+"\n"
+        with open(args.output_folder+"/gpt_file.txt", "w") as gpt_file:
+            gpt_file.write(gpt_text)
+
     print(f'A total number of {len(data)} is written to file {args.output_folder}')
 
 
