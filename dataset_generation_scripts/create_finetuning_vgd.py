@@ -41,7 +41,13 @@ def main(args):
             text = ""
             for p in paragraphs:
                  text = text + str(p['text'])
+                 text = text.replace("', '"," ")
+                 text = text.replace("'","")
+                 text = text.replace("[","")
+                 text = text.replace("]","")
+
             text = " ".join(text.split())
+            
 
             topic = topictext[0]
             subtopic = topictext[1].replace('-',' ')
