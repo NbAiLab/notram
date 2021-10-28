@@ -11,7 +11,7 @@ from string import printable
 import ftfy
 import jsonlines
 import json
-
+import uuid
 import sys
 import shutil
 from datetime import date,datetime
@@ -24,7 +24,9 @@ def printwithtime(ostring):
 def changedoctype(inputfile,doctype_from,doctype_to):
     values_changed = 0
     num_lines = 0
-    tmpfile="/tmp/" + inputfile.split("/")[-1]
+    
+    unique_filename = str(uuid.uuid4())
+    tmpfile="/tmp/" + unique_filename
     outputfilefp = jsonlines.open(tmpfile, "w")
     with open(inputfile, "r") as reader:
         for l in reader:
