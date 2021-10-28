@@ -40,14 +40,13 @@ def main(args):
             #text = text.strip()
             text = ""
             for p in paragraphs:
-                 text = text + str(p['text'])
-                 text = text.replace("', '"," ")
+                 text = text + "<br>" + str(p['text'])
+                 text = text.replace("', '","<br>")
                  text = text.replace("'","")
                  text = text.replace("[","")
                  text = text.replace("]","")
 
             text = " ".join(text.split())
-            
 
             topic = topictext[0]
             subtopic = topictext[1].replace('-',' ')
@@ -84,7 +83,8 @@ def main(args):
         question = row['text']
         answer = row['firstanswer']
         
-        gpt_text += "<forum>"+topic+"</forum><post>"+question+"</post><svar>"+answer+"<svar>"+"\n"
+        #gpt_text += "<|forum|>"+topic+"<|post|>"+question+"<|svar|>"+answer+"<|slutt[>"+"\n"
+        gpt_text += "<|post|>"+question+"<|svar|>"+answer+"<|slutt|>"+"\n"
         with open(args.output_folder+"/gpt_file.txt", "w") as gpt_file:
             gpt_file.write(gpt_text)
 
