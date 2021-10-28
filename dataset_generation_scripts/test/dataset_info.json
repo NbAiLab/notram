@@ -1,0 +1,59 @@
+{
+  "builder_name": null,
+  "citation": "",
+  "config_name": null,
+  "dataset_size": null,
+  "description": "",
+  "download_checksums": null,
+  "download_size": null,
+  "features": {
+    "__index_level_0__": {
+      "_type": "Value",
+      "dtype": "int64",
+      "id": null
+    },
+    "docid": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    },
+    "firstanswer": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    },
+    "id": {
+      "_type": "Value",
+      "dtype": "int64",
+      "id": null
+    },
+    "subtopic": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    },
+    "text": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    },
+    "title": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    },
+    "topic": {
+      "_type": "Value",
+      "dtype": "string",
+      "id": null
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "post_processed": null,
+  "post_processing_size": null,
+  "size_in_bytes": null,
+  "splits": null,
+  "supervised_keys": null,
+  "version": null
+}
