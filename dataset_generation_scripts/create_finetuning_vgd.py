@@ -84,7 +84,8 @@ def main(args):
         question = row['text']
         answer = row['firstanswer']
         
-        gpt_text += "<forum>"+topic+"</forum><post>"+question+"</post><svar>"+answer+"<svar>"+"\n"
+        #gpt_text += "<forum>"+topic+"</forum><post>"+question+"</post><svar>"+answer+"<svar>"+"\n"
+        gpt_text += "<post>"+question+"</post><svar>"+answer+"</svar>"+"\n"
         with open(args.output_folder+"/gpt_file.txt", "w") as gpt_file:
             gpt_file.write(gpt_text)
 

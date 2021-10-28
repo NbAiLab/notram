@@ -22,16 +22,21 @@ def printwithtime(ostring):
     print(mystrdate + "\t\t"+ ostring)
 
 def changedoctype(inputfile,doctype_from,doctype_to):
+    values_changed = 0
+    num_lines = 0
     tmpfile="/tmp/" + inputfile.split("/")[-1]
     outputfilefp = jsonlines.open(tmpfile, "w")
     with open(inputfile, "r") as reader:
         for l in reader:
+            num_lines += 1
             j = json.loads(l)
             if 'doc_type' in j and j['doc_type']== doctype_from:
                 j['doc_type'] = doctype_to
+                values_changed += 1
             outputfilefp.write(j)
     outputfilefp.close()
     shutil.move(tmpfile,inputfile)
+    print(f"Finished {inputfile}. {values_changed} of {num_lines} values_changed")
     return True
 
 def parse_args():
