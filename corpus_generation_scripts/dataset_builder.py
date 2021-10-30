@@ -48,13 +48,16 @@ setname=""
 def makesinglecorpusfile(datasetname,corpusfiledir,corpus_output_dir):
     global setname
     setname=datasetname
-    dirlist = sorted(glob.glob(corpusfiledir + '/*.jsonl'))
+
+    dirlist = glob.glob(corpusfiledir.strip() + '/*.jsonl')
+    print("start reading corpus files")
     with open(corpus_output_dir+ "/" + datasetname + ".json", 'w') as outfile:
         for fname in dirlist:
+            print("reading " + fname)
             with open(fname) as infile:
                 for line in infile:
                     outfile.write(line)
-
+    print("end reading corpus files")
     return
 
 
@@ -120,11 +123,18 @@ def addtosplitfile(line):
     if lastusedfileno > numberofsplits:
         lastusedfileno=0
 
+def fileexists(absfile):
+    if os.path.isfile(absfile):
+        return True
+    else:
+        return False
+
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--corpus_dataset_name', help='Name of dataset', required=True, type=str)
-    parser.add_argument('--corpus_file_dir', help='Path to corpusfile', required=True, type=str)
-    parser.add_argument('--corpus_output_dir', help='Path to corpus output dir', required=True, type=str)
+    parser.add_argument('--corpus_output_dir', help='Name of dataset', required=True, type=str)
+    parser.add_argument('--corpus_split_size_in_byte', help='Name of dataset', required=False, type=str)
+    parser.add_argument('--corpus_eval_size_in_byte', help='Name of dataset', required=False, type=str)
+
     args = parser.parse_args()
     return args
 
@@ -137,10 +147,31 @@ def gzipsplitfiles(indir):
             os.remove(indir + "/" +f)
 
 if __name__ == '__main__':
-
     args = parse_args()
-    makesinglecorpusfile(args.corpus_dataset_name,args.corpus_file_dir,args.corpus_output_dir)
-    shuffleandsplitcorpusfile(args.corpus_output_dir + "/" + args.corpus_dataset_name + ".json")
+    if args.corpus_split_size_in_byte is not None:
+        maxsplitsize = int(args.corpus_split_size_in_byte)
+    if args.corpus_eval_size_in_byte is not None:
+        maxevallimit = int(args.corpus_eval_size_in_byte)
+    lastchar=str(args.corpus_output_dir)[-1]
+
+    outdir=""
+    if lastchar == "/":
+        outdir=str(args.corpus_output_dir)[:-1]
+    else:
+        outdir = str(args.corpus_output_dir)
+
+    datasetname=outdir.split("/")[-1]
+    corpusfiledirfile = args.corpus_output_dir + "/dirspesification.txt"
+    if (fileexists(corpusfiledirfile) == False):
+        printwithtime("dirspesification.txt does not exist for dir: " + args.corpus_output_dir)
+        exit(-1)
+
+    dirlistfp = open(corpusfiledirfile, "r")
+    indir = dirlistfp.readlines()
+    corpusfiledir=indir[0]
+
+    makesinglecorpusfile(datasetname,corpusfiledir,args.corpus_output_dir)
+    shuffleandsplitcorpusfile(args.corpus_output_dir + "/" + datasetname + ".json")
     cnt=1
     while (cnt <= numberofsplits):
         fp = open(splitpointers[cnt], "a")
@@ -150,10 +181,10 @@ if __name__ == '__main__':
     gzipsplitfiles(args.corpus_output_dir + "/splits" )
     evalfp.close()
     trainfp.close()
-    evalnamefrom = args.corpus_output_dir + "/splits" + "/" + args.corpus_dataset_name + "_" + EVALNAME + ".gz"
-    evalnameto = args.corpus_output_dir  + "/" + args.corpus_dataset_name + "_" + EVALNAME + ".gz"
-    trainnamefrom = args.corpus_output_dir + "/splits" + "/" + args.corpus_dataset_name + "_" + TRAINNAME + ".gz"
-    trainnameto = args.corpus_output_dir + "/" + args.corpus_dataset_name + "_" + TRAINNAME + ".gz"
+    evalnamefrom = args.corpus_output_dir + "/splits" + "/" + datasetname + "_" + EVALNAME + ".gz"
+    evalnameto = args.corpus_output_dir  + "/" + datasetname + "_" + EVALNAME + ".gz"
+    trainnamefrom = args.corpus_output_dir + "/splits" + "/" + datasetname + "_" + TRAINNAME + ".gz"
+    trainnameto = args.corpus_output_dir + "/" + datasetname + "_" + TRAINNAME + ".gz"
 
     shutil.move(evalnamefrom,evalnameto)
     shutil.move(trainnamefrom, trainnameto)
