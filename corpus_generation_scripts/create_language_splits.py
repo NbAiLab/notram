@@ -44,7 +44,8 @@ def directoryexists(dir):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--corpus_output_dir', help='Name of dataset', required=True, type=str)
+    parser.add_argument('--corpus_input_dir', help='Input dir with files to be language split', required=True, type=str)
+    parser.add_argument('--corpus_output_dir', help='Master output dir for language splitted files', required=True, type=str)
 
 
     args = parser.parse_args()
@@ -60,19 +61,9 @@ if __name__ == '__main__':
     else:
         outdir = str(args.corpus_output_dir)
 
-
-    corpusfiledirfile = args.corpus_output_dir + "/dirspesification.txt"
-    if (fileexists(corpusfiledirfile) == False):
-        printwithtime("dirspesification.txt does not exist for dir: " + args.corpus_output_dir)
-        exit(-1)
-
-    dirlistfp = open(corpusfiledirfile, "r")
-    indir = dirlistfp.readlines()
-    corpusfiledir=indir[0]
-
-    dirlist = glob.glob(corpusfiledir.strip() + '/*.json')
-    print(dirlist)
-    print("start reading corpus files from " + corpusfiledir.strip() )
+    dirlist = glob.glob(args.corpus_input_dir + '/*.json')
+    print("start creating language split for: " + args.corpus_input_dir)
+    print("Output from split process stored in:  " + args.corpus_output_dir + "/language_splits")
     masteroutputdir=args.corpus_output_dir.strip() + "/language_splits"
     if directoryexists(masteroutputdir) == True:
         shutil.rmtree(masteroutputdir)
@@ -82,8 +73,8 @@ if __name__ == '__main__':
         #print(f)
         with open(f) as infile:
             for line in infile:
-                print(line)
-                print(masteroutputdir)
+                #print(line)
+                #print(masteroutputdir)
                 j = json.loads(line)
                 lang =j['lang_fasttext']
                 outputdir = masteroutputdir + "/" + lang
@@ -95,10 +86,10 @@ if __name__ == '__main__':
 
     subfolders = [ f.path for f in os.scandir(masteroutputdir) if f.is_dir() ]
     for fdir in subfolders:
-        print(fdir)
+        #print(fdir)
         dirlist = glob.glob(fdir +  '/*.json')
         for f in dirlist:
-            print(f)
+            #print(f)
             fp = open(f, "a")
             fp.write("\n")
             fp.close()
