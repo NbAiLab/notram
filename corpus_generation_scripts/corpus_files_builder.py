@@ -223,6 +223,11 @@ if __name__ == '__main__':
         else:
             outfilename=outputdir + "/" + l.strip().replace("/","_")
 
+        if outfilename.endswith(".jsonl"):
+            outfilename=outfilename.split(".")[0] + ".json"
+        else:
+            outfilename = outfilename + ".json"
+
         outputfilefp = jsonlines.open(outfilename, "w")
         srcfilename = l.strip()
         printwithtime("Writing corpus file: " +  outfilename)
@@ -260,6 +265,7 @@ if __name__ == '__main__':
                         jsonObject = {"id": j['id'], "doc_type":j['doc_type'],"publish_year":j['publish_year'],"lang_fasttext":lang,"lang_fasttext_conf": str(precision),"text": outputstring.strip()}
                         outputfilefp.write(jsonObject)
 
+        outputfilefp.write("\n")
         outputfilefp.close()
         print("\n")
     printwithtime("End writing corpus files")
