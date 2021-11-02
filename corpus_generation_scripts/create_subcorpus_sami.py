@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 ######################################################################
 ### Creates a sub-corpus  - In this example: sami
 #####################################################################
@@ -43,7 +45,8 @@ def main(args):
     print(docid_notfound_list)
 
 def parse_args():
-    parser = ArgParseDefault()
+    parser = argparse.ArgumentParser(
+        description="Fill in! Output is an UTF-8 JSON lines")
     parser.add_argument('--json_file_list', required=True, help='List of json-files that should be processed')
     parser.add_argument('--output_file', required=True, help='Path to output file. Will replace existing file.')
     parser.add_argument('--docid_list',required=True, default="config.json", help='List of docids that should be included')

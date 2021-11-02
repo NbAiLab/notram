@@ -1,8 +1,4 @@
-####################################################################################
-# Create Public Report jsonl from downloaded text files
-# This corpus is formed as a document per line. No paragraphs.
-# Output is an UTF-8 file with one article per line
-####################################################################################
+#!/usr/bin/env python3
 
 import sys
 import glob
@@ -21,12 +17,11 @@ def main(args):
     lines = []
     valid_article_count = 0
 
-
     if os.path.isdir(args.input_file):
         filelist = glob.glob(args.input_file+"*.txt")
     else:
         filelist = [args.input_file]
-    
+
     for fl in filelist:
         # Read the file
         print(f'Parsing {fl}')
@@ -59,7 +54,8 @@ def main(args):
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Create Public Report jsonl from downloaded text files. This corpus is formed as a document per line. No paragraphs.Output is an UTF-8 JSON lines")
     parser.add_argument('--language_reported', required=False,
                         default='', type=str, help='Language reported')
     parser.add_argument('--doc_type', required=True, type=str, help='Doctype')
