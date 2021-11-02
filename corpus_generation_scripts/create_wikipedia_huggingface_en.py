@@ -1,7 +1,4 @@
-####################################################################################
-# Create Wikipedia jsonl from Hugging Face. Just wraps it in jsonl
-# Output is an UTF-8 file with one article per line
-####################################################################################
+#!/usr/bin/env python3
 
 import sys, glob, os, re, argparse
 import pandas as pd
@@ -47,7 +44,8 @@ def main(args):
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Create Wikipedia jsonl from Hugging Face.  Output is an UTF-8 JSON lines")
     parser.add_argument('--language_reported', required=True, type=str, help='Language reported')
     parser.add_argument('--doc_type', required=True, type=str, help='Doctype')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')

@@ -51,7 +51,7 @@ def main(args):
 def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser(
-        description="Process the CC-100 corpus. This corpus has one document per line. No paragraphs. Output is an UTF-8 JSON lines ")
+        description="Process the parliament documents (Stortingsforhandlingene). Output is UTF-8 JSON lines ")
     parser.add_argument('--language_reported', required=True, type=str,
                         help='Language reported. Can be nob, nno, no or N/A')
     parser.add_argument('--doc_type', required=True,

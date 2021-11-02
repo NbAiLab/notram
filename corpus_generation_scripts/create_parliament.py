@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 ####################################################################################
 # Script is not in use, since this is no longer in the main corpus
 # Cleaning up parliament speech files
@@ -39,7 +41,8 @@ def main(args):
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Fill in! Output is an UTF-8 JSON lines")
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')
     args = parser.parse_args()

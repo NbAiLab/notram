@@ -1,8 +1,4 @@
-####################################################################################
-# Cleaning up newspaper xml corpus
-# These are the unpacked files in the 3/ directory
-# Output is an UTF-8 jsonl-file with one article per line
-####################################################################################
+#!/usr/bin/env python3
 
 import sys, glob, os, re, argparse
 import pandas as pd
@@ -87,7 +83,8 @@ def get_input_files(input_folder):
 
 def parse_args():
     # Parse commandline
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Processing the newspaper corpus published by Språkbanken. Output is an UTF-8 JSON lines")
     parser.add_argument('-i','--input_path', required=True, type=str, help='Input path')
     parser.add_argument('-o', '--output_file', required=True, type=str, help='Output file')
     parser.add_argument('--doc_type', required=True, type=str, help='Doc type')
