@@ -27,24 +27,6 @@ import collections
 import logging
 import gzip
 
-EVALNAME="eval.json"
-maxsplitsize=1073741824
-#maxsplitsize=102400
-
-maxevallimit=1073741824
-#maxevallimit=102400
-
-splitpointers=[" "]*200000
-numberofsplits=0
-lastusedfileno=1
-evalfile="eval.json"
-sizeeval=0
-evalfp=None
-TRAINNAME="train.json"
-trainfp=None
-
-setname=""
-
 def fileexists(absfile):
     if os.path.isfile(absfile):
         return True
