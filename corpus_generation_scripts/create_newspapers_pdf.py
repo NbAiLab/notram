@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 import json
 import logging
@@ -6,12 +6,10 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-
 from tqdm import tqdm
 
 LOGGER = None
 NOW = datetime.now()
-
 
 def get_logger() -> logging.Logger:
     """
@@ -29,7 +27,6 @@ def get_logger() -> logging.Logger:
         console.setFormatter(formatter)
         LOGGER.addHandler(console)
     return LOGGER
-
 
 def main(args):
     logger = get_logger()
@@ -81,24 +78,23 @@ def main(args):
     logger.info(f"Finished at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("Done!")
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=f""
-    f"Convert extracted plain text from avisleser (mupdf) to JSON lines"""
-    f"", epilog=f"""Example usage:
+                                     f"Convert extracted plain text from mupdf to JSON lines"""
+                                     f"", epilog=f"""Example usage:
     {__file__} --input_dir mupdf --output_dir jsonl
     """, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('--input_dir', default='./mupdf',
-        metavar='input_dir', help='Input directory')
+                        metavar='input_dir', help='Input directory')
     parser.add_argument('--input_dir_glob', default='*/*/*/*/',
-        metavar='input_dir_glob', help='Input directory glob')
+                        metavar='input_dir_glob', help='Input directory glob')
     parser.add_argument('--output_dir', default='./jsonl',
-        metavar='output_dir', help='Output directory')
+                        metavar='output_dir', help='Output directory')
     parser.add_argument('--doc_type', default='newspaper_pdf',
-        metavar='doc_type', help='Document type')
+                        metavar='doc_type', help='Document type')
     parser.add_argument('--pymupdf_version', default='1.18.10',
-        metavar='pymupdf_version', help='PyMuPDF version')
+                        metavar='pymupdf_version', help='PyMuPDF version')
     parser.add_argument('--report_parsing_error', default=True, type=bool,
-        metavar='report_parsing_error', help='Report filename parsing errors')
+                        metavar='report_parsing_error', help='Report filename parsing errors')
     args = parser.parse_args()
     main(args)
