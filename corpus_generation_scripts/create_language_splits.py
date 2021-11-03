@@ -65,8 +65,8 @@ if __name__ == '__main__':
     print("start creating language split for: " + args.corpus_input_dir)
     print("Output from split process stored in:  " + args.corpus_output_dir + "/language_splits")
     masteroutputdir=args.corpus_output_dir.strip() + "/language_splits"
-    if directoryexists(masteroutputdir) == True:
-        shutil.rmtree(masteroutputdir)
+    # if directoryexists(masteroutputdir) == True:
+    #     shutil.rmtree(masteroutputdir)
     os.makedirs(masteroutputdir, exist_ok=True)
 
     for f in dirlist:
