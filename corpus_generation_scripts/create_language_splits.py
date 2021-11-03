@@ -46,7 +46,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--corpus_input_dir', help='Input dir with files to be language split', required=True, type=str)
     parser.add_argument('--corpus_output_dir', help='Master output dir for language splitted files', required=True, type=str)
-
+    parser.add_argument('--languages_separated', help='languages to be separated, default="no,nn,en,sv,da,is,fo"', required=False,
+                        type=str,default='no,nn,en,sv,da,is,fo')
 
     args = parser.parse_args()
     return args
@@ -70,16 +71,23 @@ if __name__ == '__main__':
     os.makedirs(masteroutputdir, exist_ok=True)
 
     for f in dirlist:
-        #print(f)
+        print("processing file: " +f)
         with open(f) as infile:
             for line in infile:
-                #print(line)
+                #print("processing line: \n\n" + line + "\n\n")
                 #print(masteroutputdir)
+                if len(line) < 10:
+                    continue
                 j = json.loads(line)
                 lang =j['lang_fasttext']
-                outputdir = masteroutputdir + "/" + lang
+                if lang in args.languages_separated:
+                    outputdir = masteroutputdir + "/" + lang
+                else:
+                    outputdir = masteroutputdir + "/other"
+                    
                 if directoryexists(outputdir) == False:
                     os.makedirs(outputdir)
+
                 fp=open(outputdir+ "/" +f.split("/")[-1],"a")
                 fp.write(line)
                 fp.close()
