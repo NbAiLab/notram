@@ -40,7 +40,12 @@ def directoryexists(dir):
     else:
         return False
 
-
+def is_json(myjson):
+  try:
+    json.loads(myjson)
+  except ValueError as e:
+    return False
+  return True
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -76,15 +81,16 @@ if __name__ == '__main__':
             for line in infile:
                 #print("processing line: \n\n" + line + "\n\n")
                 #print(masteroutputdir)
-                if len(line) < 10:
+                if is_json(line) == False:
                     continue
+
                 j = json.loads(line)
                 lang =j['lang_fasttext']
                 if lang in args.languages_separated:
                     outputdir = masteroutputdir + "/" + lang
                 else:
                     outputdir = masteroutputdir + "/other"
-                    
+
                 if directoryexists(outputdir) == False:
                     os.makedirs(outputdir)
 
