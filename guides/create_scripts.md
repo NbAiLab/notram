@@ -6,7 +6,8 @@ Process the CC100 corpus. Output is UTF-8 JSON lines
 ```
 usage: create_cc100.py [-h] --language_reported LANGUAGE_REPORTED --doc_type DOC_TYPE --input_file INPUT_FILE --output_file OUTPUT_FILE
 ```
-´´´
+
+```
 optional arguments:
   -h, --help            show this help message and exit
   --language_reported LANGUAGE_REPORTED
