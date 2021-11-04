@@ -13,4 +13,4 @@ This document gives an overview of how the NCC is processed. The document links 
 
 5) **Training corpuses**. In the end training corpuses are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use.
 
-+WALK_THOUGH_GUIDE_WITH_ACTUAL_COMMANDS+
+**WALK_THOUGH_GUIDE_WITH_ACTUAL_COMMANDS(doc to be done)**
