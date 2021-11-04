@@ -3,7 +3,7 @@ This document gives an overview of how the NCC is processed. The document links 
 
 ## Processing structure
 
-1) Source files
+1) **Source files**
 NCC is composed from multiple sources in various formats. At the "source file"-level the files are stored as close to the original format as possibly.
 
 2) Json files
