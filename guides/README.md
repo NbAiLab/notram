@@ -7,7 +7,7 @@ The process consists of five separate steps from source to corpus and HuggingFac
 * [Process overview](corpus_building.md)
 * [Internal jsonl-format](text_extraction_format.md)
 
-## Creating da*taset
+## Creating dataset
 * [Creating the Norwegian Collossal Corpus v2](creating_corpus_v2.md)
 * [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
