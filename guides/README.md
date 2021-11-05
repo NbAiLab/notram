@@ -1,7 +1,10 @@
 # Guides
-A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work.  
+A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work. The is the complete set of scripts needed going from source to corpus file and HF (HugingFace) dataset.
+
+The process consists of five separate steps from source to corpus and HuggingFace (HF) daaset.
 
 ## Specifications
+. Process overiew
 * [Internal jsonl-format](text_extraction_format.md)
 
 ## Creating dataset
