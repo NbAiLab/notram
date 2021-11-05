@@ -4,7 +4,7 @@ A collection of documentation and guides used for creating the NB-models. This i
 The process consists of five separate steps from source to corpus and HuggingFace (HF) daaset.
 
 ## Specifications
-. Process overiew
+**.** Process overview (corpus_building.md)
 * [Internal jsonl-format](text_extraction_format.md)
 
 ## Creating dataset
