@@ -122,7 +122,10 @@ if __name__ == '__main__':
 
     for myfile in indexdict.keys():
         if writtento[myfile]== False:
-            os.unlink(indexdict[myfile].name)
+            thename=indexdict[myfile].name
+            indexdict[myfile].close()
+            if (fileexists(thename)) == True:
+                os.unlink(thename)
         else:
             indexdict[myfile].write("\n")
             indexdict[myfile].close()
