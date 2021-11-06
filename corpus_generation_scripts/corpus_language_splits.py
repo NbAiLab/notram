@@ -27,6 +27,8 @@ import collections
 import logging
 import gzip
 
+
+
 def fileexists(absfile):
     if os.path.isfile(absfile):
         return True
@@ -46,6 +48,9 @@ def is_json(myjson):
   except ValueError as e:
     return False
   return True
+
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -76,18 +81,19 @@ if __name__ == '__main__':
     subfolders = args.languages_separated.split(",")
     os.makedirs(masteroutputdir, exist_ok=True)
     indexdict = {}
-
+    writtento={}
 
     for fdir in subfolders:
         outputdir=masteroutputdir +"/" + fdir +"/"
         if directoryexists(outputdir) == False:
             os.makedirs(outputdir)
         indexdict[fdir] = open(outputdir+ relativefilename,"w")
+        writtento[fdir]=False
 
     if  directoryexists(masteroutputdir + "/other") == False:
             os.makedirs(masteroutputdir + "/other")
     indexdict['other'] = open(masteroutputdir + "/other/" + relativefilename,"w")
-
+    writtento['other'] = False
 
     f=args.corpus_input_file
     print("processing file: " +f)
@@ -107,11 +113,16 @@ if __name__ == '__main__':
             lang =j['lang_fasttext']
             if lang in args.languages_separated:
                 indexdict[lang].write(line)
+                writtento[lang] = True
             else:
                 indexdict['other'].write(line)
+                writtento['other'] = True
     print()
-    for myfile in indexdict.values():
-        myfile.write("\n")
-        myfile.close()
 
 
+    for myfile in indexdict.keys():
+        if writtento[myfile]== False:
+            os.unlink(indexdict[myfile].name)
+        else:
+            indexdict[myfile].write("\n")
+            indexdict[myfile].close()
