@@ -58,20 +58,26 @@ def main(args):
                 elif topicnumber == 1:
                     data.loc[data.docid == docid,"firstanswer"] = text
     print("Finished loading everything into Pandas")
-    #breakpoint()
     data.dropna(subset=['firstanswer'], inplace=True)
+    data.drop_duplicates(subset=['text'], inplace=True)
+    data = data[data['text'].map(len) < 250]
+    data = data[data['firstanswer'].map(len) < 250]
+    data = data[data['text'].map(len) > 15]
+    data = data[data['firstanswer'].map(len) > 15]
+
+
     data = data[data.text != "[Slettet]"]
     data = data[data.firstanswer != "[Slettet]"]
 
-    dataset = Dataset.from_pandas(data)
-    dataset.save_to_disk(args.output_folder)
-    data.to_csv(args.output_folder+"/vgd.csv", index=False)
-    
+    #dataset = Dataset.from_pandas(data)
+    #dataset.save_to_disk(args.output_folder)
+    #data.to_csv(args.output_folder+"/vgd.csv", index=False)
+   
+
 
     #Create GPT training set
     gpt_text = ""
     for index, row in data.iterrows():
-        
         if "/kjaerlighetssorg/" in row['docid']:
             topic = "Kjærlighetssorg"
         elif "/fotball-premier-league/" in row['docid']:
@@ -86,8 +92,9 @@ def main(args):
         
         #gpt_text += "<forum>"+topic+"</forum><post>"+question+"</post><svar>"+answer+"<svar>"+"\n"
         gpt_text += "<post>"+question+"</post><svar>"+answer+"</svar>"+"\n"
-        with open(args.output_folder+"/gpt_file.txt", "w") as gpt_file:
-            gpt_file.write(gpt_text)
+    
+    with open(args.output_folder+"/gpt_file.txt", "a+") as gpt_file:
+        gpt_file.write(gpt_text)
 
     print(f'A total number of {len(data)} is written to file {args.output_folder}')
 

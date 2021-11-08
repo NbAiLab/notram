@@ -60,7 +60,7 @@ def main(args):
 def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser(
-        description="# Create jsonl from the Lovdata CD. This content does have double breaks between each artile. Some meta-info is collected from the file names. Output is an UTF-8 file with one article per line")
+        description="Create jsonl from the Lovdata CD. This content does have double breaks between each artile. Some meta-info is collected from the file names. Output is an UTF-8 file with one article per line")
     parser.add_argument('--language_reported', required=True, type=str,
                         help='Language reported. Can be nob, nno, no or N/A')
     parser.add_argument('--doc_type', required=True,

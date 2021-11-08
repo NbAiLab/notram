@@ -42,7 +42,8 @@ def main(args):
 def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser(
-        description="Fill in! Output is an UTF-8 JSON lines")
+        description="Create corpus from parliament files! Output is an UTF-8 JSON lines")
+
     parser.add_argument('--input_file', required=True, type=str, help='Input file')
     parser.add_argument('--output_file', required=True, type=str, help='Output file')
     args = parser.parse_args()
