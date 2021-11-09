@@ -107,6 +107,7 @@ if __name__ == '__main__':
                 print(".", end="", flush=True)
 
             if is_json(line) == False:
+                print("disgarding line")
                 continue
 
             j = json.loads(line)
