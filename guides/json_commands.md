@@ -23,4 +23,29 @@ awk '{print}' a.json b.json > final.json
 cat a.json <(echo) b.json > final.json
 ```
 
+## List unique values for key
+```
+# List all values
+cat  a.json |jq -r '.doc_type' > out.json
+
+# Create a unique list of these
+cat out.json | sort | uniq -c > final.json
+```
+
+## Filtering based on key value
+```
+# Language confidence above o.5
+cat a.json | jq 'select(.lang_fasttext_conf|tonumber >= 0.5)' | jq -s|jq -c .[] > final.json
+
+# Text length longer than 1000 characters
+cat a.json | jq 'select(.text|length >= 1000)' | jq -s|jq -c .[] > final.json
+
+# publish year after 1970
+cat a.json | jq 'select(.publish_year >= 1970)' | jq -s|jq -c .[] > final.json
+```
+
+
+
+
+
 
