@@ -1,10 +1,10 @@
 # Commands for handling json lines
-This is a collection of handy commands for handling large json-line files.
+This is a collection of commands we frequently use for handling large json-line files.
 
 ## Splitting a file at a specific point
 ```
-$ head -n 1000 input.json > head.json
-$ tail -n +1001 input-json > tail.json
+head -n 1000 input.json > head.json
+tail -n +1001 input-json > tail.json
 ```
 
 ## Concatenating a group of files
