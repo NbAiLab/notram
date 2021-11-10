@@ -11,7 +11,7 @@ tail -n +1001 input-json > tail.json
 ```
 for f in *.json; do (cat "${f}"; echo) >> final.json; done
 
-# This will do the same but will fail if there are json errors
+# This is slower since it parses the files but will also verify that are no json errors
 cat *.json | jq -c '.' > final.json
 ```
 
