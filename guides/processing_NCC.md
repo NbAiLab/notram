@@ -11,6 +11,6 @@ This document gives an overview of how the NCC is processed. The document links 
 
 4) **Collation and deduplication**. At this stage paragraphs are collated, fasttext-language detections are performed and the keys are standardised and limited. See a **HERE FOR A DESCRIPTION OF THE FILE FORMAT(doc to be done)**.
 
-5) **Training corpuses**. In the end training corpuses are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use.
+5) **Training corpuses**. In the end training corpuses are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use. **LICENCE DESCRIPTION**
 
 **WALK_THOUGH_GUIDE_WITH_ACTUAL_COMMANDS(doc to be done)**
