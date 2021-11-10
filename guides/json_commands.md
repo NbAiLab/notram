@@ -25,7 +25,7 @@ cat a.json <(echo) b.json > final.json
 
 ## List unique values for key
 ```
-# List all values
+# Create a list all doc_type values
 cat  a.json |jq -r '.doc_type' > out.json
 
 # Create a unique list of these
