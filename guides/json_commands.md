@@ -11,7 +11,7 @@ $ tail -n +1001 input-json > tail.json
 ```
 for f in *.json; do (cat "${f}"; echo) >> final.json; done
 
-# This will do the same and will also parse the file so there should not be json errors
+# This will do the same and will fail if there is json error
 cat *.json | jq -c '.' > final.json
 ```
 
@@ -19,7 +19,7 @@ cat *.json | jq -c '.' > final.json
 ```
 awk '{print}' a.json b.json > final.json
 
-# This also works but might mess up if there is a newline after the last jsonline
+# This also works if you are sure there is no linebreak at the end of the file
 cat a.json <(echo) b.json > final.json
 ```
 
