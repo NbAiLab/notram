@@ -8,16 +8,15 @@ import pprint
 import pandas as pd
 import gzip
 
-def main(args):
-    with gzip.open(args.input_file, 'rb') as fp:
-        reader = jsonlines.Reader(fp)
-        doc_type = {}
-        doc_type_lines = {}
-        lang_fasttext = {}
-        lang_fasttext_lines = {}
-        publish_year = {}
-        publish_year_lines = {}
+def is_gzipped(path):
+    with open(path, "rb") as f:
+        return f.read(2) == b'\x1f\x8b'
 
+def main(args):
+    open_fn = gzip.open if is_gzipped(args.input_file) else open
+    with open_fn(args.input_file) as fp:
+        reader = jsonlines.Reader(fp)
+        doc_type, doc_type_lines, lang_fasttext, lang_fasttext_lines, publish_year, publish_year_lines = [dict() for _ in range(6)]
 
         for n, line in tqdm(enumerate(reader)):
             num_words = len(line['text'].split())
@@ -39,7 +38,7 @@ def main(args):
     lang_fasttext = sorted(lang_fasttext.items(), key=lambda x: x[1], reverse=True)
     lang_fasttext_lines = sorted(lang_fasttext_lines.items(), key=lambda x: x[1], reverse=True)
     
-    all_json=[doc_type,doc_type_lines,lang_fasttext,lang_fasttext_lines,publish_year,publish_year_lines]
+    all_dict=[doc_type,doc_type_lines,lang_fasttext,lang_fasttext_lines,publish_year,publish_year_lines]
    
     # Report Document Types
     df_doc = pd.DataFrame.from_dict(doc_type)
@@ -92,21 +91,28 @@ def main(args):
     output += "### Document Types\n"+df_doc_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     output += "### Languages\n"+df_lang_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     output += "### Publish Periode\n"+df_decade_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
+   
+    if ".md" in args.output_file:
+        file = open(args.output_file, 'w')
+        file.write(output)
+        file.close()
     
-    file = open(args.output_file, 'w')
-    file.write(output)
-    file.close()
+        print(f"Markdown file is written to {args.output_file}")
     
-    print(f"Markdown file is written to {args.output_file}")
+    elif ".json" in args.output_file:
+        with open(args.output_file, "w") as outfile:
+            json.dump(all_dict, outfile)
+    else:
+        print ("unsupported output format")
 
 def parse_args():
     # Parse commandline
     parser = argparse.ArgumentParser(
         description="Convert the WEB64 Facebook corpus to jsonl. This corpus is in json format. Output is a jsonl  UTF-8 file with one post per line")
     parser.add_argument('--output_file', required=True,
-                        help='Output file name. Will overwrite it exists')
+                        help='Output file name. Will overwrite it exists. Output either markkdown (.md) or json (.json). ')
     parser.add_argument('--input_file', required=True,
-                        help='Input file. Will read all files in folder')
+                        help='Input file. Must be json. Can be gzipped.')
     args = parser.parse_args()
     return args
 
