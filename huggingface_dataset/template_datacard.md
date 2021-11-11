@@ -29,9 +29,8 @@
 
 - **Homepage:** https://github.com/NBAiLab/notram
 - **Repository:** https://github.com/NBAiLab/notram
-- **Paper:** [Needs More Information]
-- **Leaderboard:** [Needs More Information]
-- **Point of Contact:** [Freddy wetjen][mailto:freddy.wetjen@nb.no]
+- **Paper:** https://arxiv.org/abs/2104.09617
+- **Point of Contact:** [Freddy Wetjen][mailto:freddy.wetjen@nb.no] or [Per Egil Kummervold](mailto:per.egil.kummervold@nb.no)
 
 ### Dataset Summary
 
@@ -39,103 +38,58 @@ The <corpusname> dataset contains json lines with language training data. Here i
 
 {"id": "1006205", "doc_type": "cc100", "publish_year": 2021, "lang_fasttext": "nn", "lang_fasttext_conf": "0.641", "text": "Eg har en PLAN! KOS deg og ha en fortryllende herlig pinse :)"}
 
-
-
-### Supported Tasks and Leaderboards
-
-[Needs More Information]
-
 ### Languages
-<languages>
-
-
-## Dataset Structure
-
-### Data Instances
-
-{
-"id": "1021619", 
-"doc_type": "cc100", 
-"publish_year": 2021, 
-"lang_fasttext": "nn",
- "lang_fasttext_conf": "0.409",
- "text": "�Henry Melson Stommel� i Store norske leksikon, snl.no."
-}
-
+[Needs More Information]
 
 ### Data Fields
 
-Id: String with id to source of line and a unique identifier
-doc_type: String describing type of media text extracted from (I.e. book,newspaper etc)
-publish_year: String with year text pulished
-lang_fasttext:String. language of text identified by fasttext
-lang_fasttext_conf: String. Confidence
-text: String. text
+**id:** String with id to source of line and a unique identifier
+**doc_type:** String describing type of media text extracted from (I.e. book,newspaper etc)
+**publish_year:** String with year text pulished
+**lang_fasttext:** String. Language of text identified by FastText
+**lang_fasttext_conf:** String. Confidence calculated by FastText
+**text:** String. The complete utf-8 document. If longer than 1M characters it is split. 
 
-### Data Splits
+### Dataset Creation
+We are providing two a **train** and a **validation** split. The standard size of the validation is a single 1GB file, while train is sharded in 1GB chunks. The files are gxipped.
 
-[Needs More Information]
-
-## Dataset Creation
-The set is sharded into 1GB of uncompressed text, making it <nosplits> json-files for training, and 1 json-file for validation. The files are gzipped.
 Build date: <builddate>
-### Curation Rationale
 
-[Needs More Information]
-
-### Source Data
-
-#### Initial Data Collection and Normalization
-
-[Needs More Information]
+#### Initial Data Collection abd Curation
+The procedure for the dataset creation is described in detail in our paper.
 
 #### Who are the source language producers?
-
-[Needs More Information]
-
-### Annotations
-
-#### Annotation process
-
-[Needs More Information]
-
-#### Who are the annotators?
-
-[Needs More Information]
-
-### Personal and Sensitive Information
-
 [Needs More Information]
 
 ## Considerations for Using the Data
+This is part of the private dataset collection of the National Library of Norway. The dataset should not be distributed.
 
-### Social Impact of Dataset
-
-[Needs More Information]
 
 ### Discussion of Biases
-
-We do not know anything of biases in the corpus
-
-### Other Known Limitations
-
-[Needs More Information]
-
-## Additional Information
+Please refer to our paper.
 
 ### Dataset Curators
-
 Freddy.wetjen@nb.no
+Per.Kummervold@nb.no
 
 ### Licensing Information
 
 Restricted license
 
 ### Citation Information
+If you use our models or our corpus, please cite our article:
 
-{
-author = {Kummervold, Per E  and
-  De la Rosa, Javier  and
-  Wetjen, Freddy  and
-  Brygfjeld, Svein Arne",
-}
+    @inproceedings{kummervold-etal-2021-operationalizing,
+    title = {Operationalizing a National Digital Library: The Case for a {N}orwegian Transformer Model},
+    author = {Kummervold, Per E  and
+      De la Rosa, Javier  and
+      Wetjen, Freddy  and
+      Brygfjeld, Svein Arne",
+    booktitle = {Proceedings of the 23rd Nordic Conference on Computational Linguistics (NoDaLiDa)},
+    year = "2021",
+    address = "Reykjavik, Iceland (Online)",
+    publisher = {Link{\"o}ping University Electronic Press, Sweden},
+    url = "https://aclanthology.org/2021.nodalida-main.3",
+    pages = "20--29",
+    abstract = "In this work, we show the process of building a large-scale training set from digital and digitized collections at a national library. The resulting Bidirectional Encoder Representations from Transformers (BERT)-based language model for Norwegian outperforms multilingual BERT (mBERT) models in several token and sequence classification tasks for both Norwegian Bokm{\aa}l and Norwegian Nynorsk. Our model also improves the mBERT performance for other languages present in the corpus such as English, Swedish, and Danish. For languages not included in the corpus, the weights degrade moderately while keeping strong multilingual properties. Therefore, we show that building high-quality models within a memory institution using somewhat noisy optical character recognition (OCR) content is feasible, and we hope to pave the way for other memory institutions to follow.",
+    }
