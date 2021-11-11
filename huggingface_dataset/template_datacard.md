@@ -55,11 +55,14 @@ We are providing two a **train** and a **validation** split. The standard size o
 
 Build date: <builddate>
 
-#### Initial Data Collection abd Curation
+#### Initial Data Collection and Curation
 The procedure for the dataset creation is described in detail in our paper.
 
 #### Who are the source language producers?
 [Needs More Information]
+
+
+<stats>
 
 ## Considerations for Using the Data
 This is part of the private dataset collection of the National Library of Norway. The dataset should not be distributed.
