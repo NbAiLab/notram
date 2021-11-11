@@ -19,16 +19,21 @@
   - [Citation Information](#citation-information)
 
 ## Dataset Description
-
 - **Homepage:** https://github.com/NBAiLab/notram
 - **Repository:** https://github.com/NBAiLab/notram
 - **Paper:** https://arxiv.org/abs/2104.09617
 - **Point of Contact:** [Freddy Wetjen][mailto:freddy.wetjen@nb.no]
 
+## How to Use
+```
+from datasets import load_dataset
+data = load_dataset("NBAiLab/<corpusname>")
+```
+
 ### Dataset Summary
 The <corpusname> dataset contains json lines with language training data. Here is an example json line:
 ```
-{"id": "1006205", "doc_type": "cc100", "publish_year": 2021, "lang_fasttext": "nn", "lang_fasttext_conf": "0.641", "text": "Eg har en PLAN! KOS deg og ha en fortryllende herlig pinse :)"}
+{"id": "1006205", "doc_type": "cc100", "publish_year": 2021, "lang_fasttext": "no", "lang_fasttext_conf": "0.641", "text": "Eg har en PLAN! KOS deg og ha en fortryllende herlig pinse :)"}
 ```
 ## Data Fields
 **id:** String with id to source of line and a unique identifier  
