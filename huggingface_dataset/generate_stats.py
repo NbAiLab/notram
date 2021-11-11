@@ -6,12 +6,11 @@ from tqdm import tqdm
 import json
 import pprint
 import pandas as pd
-#pd.options.display.float_format = '{:,}'.format
-#pd.options.display.float_format = '${:,.2f}'.format
+import gzip
 
 def main(args):
-
-    with jsonlines.open(args.input_file) as reader:
+    with gzip.open(args.input_file, 'rb') as fp:
+        reader = jsonlines.Reader(fp)
         doc_type = {}
         doc_type_lines = {}
         lang_fasttext = {}
@@ -31,7 +30,7 @@ def main(args):
                 year = 2021
             publish_year[year] = publish_year.get(year, 0) + num_words
             publish_year_lines[year] = publish_year_lines.get(year, 0) + 1
-    
+
     #Do sone reasonable sorting
     publish_year = list(publish_year.items())
     publish_year_lines= list(publish_year_lines.items())
