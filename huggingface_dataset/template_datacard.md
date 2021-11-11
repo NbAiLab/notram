@@ -5,17 +5,12 @@
 ## Table of Contents
 - [Dataset Description](#dataset-description)
   - [Dataset Summary](#dataset-summary)
-  - [Supported Tasks](#supported-tasks-and-leaderboards)
-  - [Languages](#languages)
-- [Dataset Structure](#dataset-structure)
-  - [Data Instances](#data-instances)
-  - [Data Fields](#data-instances)
-  - [Data Splits](#data-instances)
+- [Data Fields](#data-fiels)
 - [Dataset Creation](#dataset-creation)
-  - [Curation Rationale](#curation-rationale)
-  - [Source Data](#source-data)
-  - [Annotations](#annotations)
-  - [Personal and Sensitive Information](#personal-and-sensitive-information)
+- [Statistics](#statistics)
+  - [Document Types](#document-types)
+  - [Languages](#languages)
+  - [Publish Periode](#publish-periode)
 - [Considerations for Using the Data](#considerations-for-using-the-data)
   - [Social Impact of Dataset](#social-impact-of-dataset)
   - [Discussion of Biases](#discussion-of-biases)
@@ -33,15 +28,11 @@
 - **Point of Contact:** [Freddy Wetjen][mailto:freddy.wetjen@nb.no] or [Per Egil Kummervold](mailto:per.egil.kummervold@nb.no)
 
 ### Dataset Summary
-
 The <corpusname> dataset contains json lines with language training data. Here is an example json line:
 
 {"id": "1006205", "doc_type": "cc100", "publish_year": 2021, "lang_fasttext": "nn", "lang_fasttext_conf": "0.641", "text": "Eg har en PLAN! KOS deg og ha en fortryllende herlig pinse :)"}
 
-### Languages
-[Needs More Information]
-
-### Data Fields
+## Data Fields
 
 **id:** String with id to source of line and a unique identifier
 **doc_type:** String describing type of media text extracted from (I.e. book,newspaper etc)
@@ -51,21 +42,17 @@ The <corpusname> dataset contains json lines with language training data. Here i
 **text:** String. The complete utf-8 document. If longer than 1M characters it is split. 
 
 ### Dataset Creation
-We are providing two a **train** and a **validation** split. The standard size of the validation is a single 1GB file, while train is sharded in 1GB chunks. The files are gxipped.
+We are providing a **train** and a **validation** split. The standard size of the validation is a single 1GB file, while train is sharded in 1GB chunks. All files are gzipped.
 
 Build date: <builddate>
 
 #### Initial Data Collection and Curation
 The procedure for the dataset creation is described in detail in our paper.
 
-#### Who are the source language producers?
-[Needs More Information]
-
-
 <stats>
 
 ## Considerations for Using the Data
-This is part of the private dataset collection of the National Library of Norway. The dataset should not be distributed.
+This corpus contains data under copyright and is not allowed to be used outide the National Library of Norway. The dataset should not be distributed.
 
 
 ### Discussion of Biases
@@ -76,11 +63,10 @@ Freddy.wetjen@nb.no
 Per.Kummervold@nb.no
 
 ### Licensing Information
-
-Restricted license
+Not lisenced for use outide the National Library of Norway.
 
 ### Citation Information
-If you use our models or our corpus, please cite our article:
+We are preparing an article with detailed information about this corpus. Until it is published, please cite out paper discussing the first version of this corpus:
 
     @inproceedings{kummervold-etal-2021-operationalizing,
     title = {Operationalizing a National Digital Library: The Case for a {N}orwegian Transformer Model},
