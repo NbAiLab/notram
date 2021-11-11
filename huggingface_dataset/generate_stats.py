@@ -89,7 +89,7 @@ def main(args):
     file.write(output)
     file.close()
     
-    print(f"Markdown file is written to {args.ouput_file}")
+    print(f"Markdown file is written to {args.output_file}")
 
 def parse_args():
     # Parse commandline
