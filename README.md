@@ -72,35 +72,3 @@ If you use our models or our corpus, please cite our article:
     pages = "20--29",
     abstract = "In this work, we show the process of building a large-scale training set from digital and digitized collections at a national library. The resulting Bidirectional Encoder Representations from Transformers (BERT)-based language model for Norwegian outperforms multilingual BERT (mBERT) models in several token and sequence classification tasks for both Norwegian Bokm{\aa}l and Norwegian Nynorsk. Our model also improves the mBERT performance for other languages present in the corpus such as English, Swedish, and Danish. For languages not included in the corpus, the weights degrade moderately while keeping strong multilingual properties. Therefore, we show that building high-quality models within a memory institution using somewhat noisy optical character recognition (OCR) content is feasible, and we hope to pave the way for other memory institutions to follow.",
     }
-
-## Statistics
-### Document Types
-| Source                               | Words   |   Documents | Words/Document   |
-|-------------------------------------:|--------:|------------:|-----------------:|
-| vgdebatt                             | 22,034  |         416 | 52               |
-| facebook                             | 6,987   |         198 | 35               |
-| Published_article                    | 5,241   |           2 | 2,620            |
-| newspapers_online_nb                 | 4,589   |          50 | 91               |
-| twitter                              | 3,671   |         235 | 15               |
-| lovdata_transfer                     | 2,785   |          56 | 49               |
-| reddit                               | 495     |           7 | 70               |
-| wikipedia_download_nbo               | 413     |           3 | 137              |
-| twitter_news                         | 389     |          29 | 13               |
-| lovdata_cd_sentrale_forskrifter_2005 | 314     |           1 | 314              |
-| lovdata_cd_rtv_rundskriv_2005        | 71      |           1 | 71               |
-| lovdata_cd_lokaleforskrifter_2005    | 34      |           1 | 34               |
-| wikipedia_download_da                | 25      |           1 | 25               |
-
-### Languages
-| Language   | Words   | Documents   |   Words/Document |
-|-----------:|--------:|------------:|-----------------:|
-| no         | 47,048  | 1,000       |               47 |
-
-### Publish Periode
-|   Decade | Words   |   Documents |   Words/Document |
-|---------:|--------:|------------:|-----------------:|
-|     2020 | 14,373  |         139 |              154 |
-|     2010 | 19,206  |         622 |              431 |
-|     2000 | 13,046  |         237 |              533 |
-|     1990 | 423     |           2 |              211 |
-
