@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
-
-from bs4 import BeautifulSoup
-import requests
-import ftfy
-import glob
 import argparse
 import os
 import jsonlines
 from tqdm import tqdm
-from datetime import datetime
 import json
 import pprint
 import pandas as pd
+#pd.options.display.float_format = '{:,}'.format
+#pd.options.display.float_format = '${:,.2f}'.format
 
 def main(args):
 
@@ -72,18 +68,31 @@ def main(args):
     df_year_all['Words/Document'] = (df_year_all['Words']/df_year_all['Documents']).astype(int)
     #sort
     df_year_all = df_year_all.sort_values(by=['Year'], ascending=False).reset_index(drop=True)
+
     #group by decade
     df_decade_all = df_year_all.groupby((df_year_all['Year']//10)*10).sum()
     df_decade_all = df_decade_all.drop(['Year'], axis=1)
     df_decade_all['Decade'] = df_decade_all.index
     df_decade_all = df_decade_all.sort_values(by=['Decade'], ascending=False).reset_index(drop=True)
     df_decade_all = df_decade_all[['Decade', 'Words', 'Documents', 'Words/Document']]
+   
+    #Format all columns correctly
+    df_doc_all['Words'] = df_doc_all['Words'].apply(lambda x:'{:,}'.format(x))    
+    df_doc_all['Documents'] = df_doc_all['Documents'].apply(lambda x:'{:,}'.format(x))    
+    df_doc_all['Words/Document'] = df_doc_all['Words/Document'].apply(lambda x:'{:,}'.format(x))    
+    df_lang_all['Words'] = df_lang_all['Words'].apply(lambda x:'{:,}'.format(x))    
+    df_lang_all['Documents'] = df_lang_all['Documents'].apply(lambda x:'{:,}'.format(x))    
+    df_lang_all['Words/Document'] = df_lang_all['Words/Document'].apply(lambda x:'{:,}'.format(x))    
+    df_decade_all['Words'] = df_decade_all['Words'].apply(lambda x:'{:,}'.format(x))    
+    df_decade_all['Documents'] = df_decade_all['Documents'].apply(lambda x:'{:,}'.format(x))    
+    df_decade_all['Words/Document'] = df_decade_all['Words/Document'].apply(lambda x:'{:,}'.format(x))    
+
     
 
     output = "## Statistics\n"
-    output += "### Document Types\n"+df_doc_all.to_markdown(index=False)+"\n\n"
-    output += "### Languages\n"+df_lang_all.to_markdown(index=False)+"\n\n"
-    output += "### Publish Periode\n"+df_decade_all.to_markdown(index=False)+"\n\n"
+    output += "### Document Types\n"+df_doc_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
+    output += "### Languages\n"+df_lang_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
+    output += "### Publish Periode\n"+df_decade_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     
     file = open(args.output_file, 'w')
     file.write(output)
