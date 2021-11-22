@@ -48,7 +48,7 @@ zcat nn.txt.gz > oscar_nn.txt
 zcat no*.txt.gz > oscar_nb.txt
 rm *.gz
 
-#look at the files
+#look at the files to verify they are text only
 head oscar_nb.txt
 ```
 
