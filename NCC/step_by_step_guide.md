@@ -153,7 +153,7 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 ## 4) Standardisation and cross corpus deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises for instance date formet. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpuses, and keeps the paragraphs in the longest documents. 
 
-To have full flexibility on what to include in the final corpuses, and which files should be deduplicated, this script requires a list of the files that should be included.
+To have full flexibility on what to include in the final corpuses, this script requires a list of the files that should be included. The file is *corpus\_files\_4/filelist.txt* and is a text file with absolute paths. 
 
 
 ```bash
@@ -171,9 +171,36 @@ ls -1 corpus/clean_json_3/*.json > filelist.txt
 
 ```
 
+<details>
+  <summary>**TO BE DONE**One line of corpus/corpus_files_4/oscar_nn.json</summary>
+
+  ```json
+ 
+{
+  "doc_type": "oscar_nn",
+  "id": "oscar_nn_2",
+  "publish_year": 2021,
+  "doc_length": 360,
+  "paragraphs": [
+    {
+      "paragraph_id": 0,
+      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)",
+      "hash": "0022d3206973366fc86dc83bb3718757"
+    },
+    {
+      "paragraph_id": 1,
+      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?",
+      "hash": "30743e4da2e8120bba8fa7576f60f082"
+    }
+  ]
+}
+  
+```
+  
+</details>
 
 ## 5) Creating the dataset
-Even after step 4 we have individual datasets. Now we want to callate this corpuses, shuffle them and in the end create a train and validation set.
+In the final step we collate the corpuses, shuffle them and then create a train and validation file. For uploading this to Huggingface, please look at **THIS GUIDE**. 
 
 ```bash
 cd ~ 
@@ -183,4 +210,31 @@ cd ~
 **FREDDY**
 
 ```
+<details>
+  <summary>**TO BE DONE**One line of corpus/corpus_?????_5/train.json</summary>
+
+  ```json
+ 
+{
+  "doc_type": "oscar_nn",
+  "id": "oscar_nn_2",
+  "publish_year": 2021,
+  "doc_length": 360,
+  "paragraphs": [
+    {
+      "paragraph_id": 0,
+      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)",
+      "hash": "0022d3206973366fc86dc83bb3718757"
+    },
+    {
+      "paragraph_id": 1,
+      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?",
+      "hash": "30743e4da2e8120bba8fa7576f60f082"
+    }
+  ]
+}
+  
+```
+  
+</details>
 
