@@ -64,7 +64,7 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json2/oscar
 python notram/corpus_generation_scripts/clean.py --input_file corpus/json2/oscar_nb.json --ouput_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
 ```
 
-4) Standardisation and cross corpus deduplication
+## 4) Standardisation and cross corpus deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises the json for instance for publication year. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs a The final json will have this structure:
 
 |**id:** | String with id to source of line and a unique identifier|
@@ -85,7 +85,7 @@ cd ~
 ```
 
 
-5) Creating the dataset
+## 5) Creating the dataset
 Even after step 4 we have individual datasets. Now we want to callate this corpuses, shuffle them and in the end create a train and validation set.
 
 ```bash
