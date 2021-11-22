@@ -26,3 +26,4 @@ scikit_learn==0.24.2
 sentence_splitter==1.4
 unicode_slugify==0.1.3
 wandb==0.12.0
+
