@@ -3,7 +3,6 @@ spacy==2.3.5
 numpy==1.19.2
 seqeval==1.2.2
 lxml==4.6.1
-datasets==1.9.1.dev0
 pandarallel==1.5.1
 psutil==5.7.2
 nltk==3.5
