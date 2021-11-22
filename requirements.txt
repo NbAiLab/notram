@@ -12,8 +12,6 @@ jsonlines==2.0.0
 joblib==0.17.0
 langid==1.1.6
 Unidecode==1.3.2
-ftfy==5.8
-tqdm==4.49.0
 beautifulsoup4==4.9.3
 fitz==0.0.1.dev2
 pdfminer==20191125
