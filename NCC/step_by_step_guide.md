@@ -53,7 +53,7 @@ head oscar_nb.txt
 ```
 
 ## 2) Converting to json
-For the OSCAR dataset, you will notice that there is a prepared create-script called [*create_oscar.py*](https://github.com/NBAiLab/notram/blob/master/corpus_generation_scripts/create_oscar.py) available in */home/user/notram/corpus_generation_scripts/create_oscar.py*. Documentation is available [here](https://github.com/NBAiLab/notram/blob/master/guides/create_scripts.md#create_oscarpy). The OSCAR dataset is in a simple txt-based format where each line is a document. There are multiple other create-scripts in the same directory, and if your dataset has another format (like pdf, xml, xhtml, json) it is likely that you can find another script to use as a starting point.
+For the OSCAR dataset, you will notice that there is a prepared create-script called [*create_oscar.py*](https://github.com/NBAiLab/notram/blob/master/corpus_generation_scripts/create_oscar.py) available in */home/user/notram/corpus_generation_scripts/create_oscar.py*. Documentation is available [here](https://github.com/NBAiLab/notram/blob/master/guides/create_scripts.md#create_oscarpy). The OSCAR dataset is in a simple txt-based format where double line breaks separates documents, and single line breaks separates paragraphs. There are multiple other create-scripts in the same directory, and if your dataset has another format (like pdf, xml, xhtml, json) it is likely that you can find another script to use as a starting point.
 
 The goal of this script is to convert the external dataset to a structures [json-lines format](https://github.com/NBAiLab/notram/blob/master/guides/text_extraction_format.md) are used. format. This 
 
@@ -61,12 +61,47 @@ The goal of this script is to convert the external dataset to a structures [json
 cd ~
 
 # Convert the source files to json
-# How long this takes is depended upon your hardware. 
-# Run the Nynorsk corpus first. The corpus is 66MB and will give you an indication. The Bokmål corpus is 60 times larger (4GB). 
+# Running nynorsk file indicates how long it will take running the 60 times larger Bokmål file
+
 python notram/corpus_generation_scripts/create_oscar.py --language_reported nn --doc_type oscar_nn --input_file corpus/source_1/oscar_nn.txt --output_file corpus/json_2/oscar_nn.json
+
 python notram/corpus_generation_scripts/create_oscar.py --language_reported nb  --doc_type oscar_nb --input_file corpus/source_1/oscar_nb.txt --output_file corpus/json_2/oscar_nb.json
 
 ```
+<details>
+  <summary>Structure of corpus/source_1/oscar_nn.txt</summary>
+ 
+```bash
+Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)
+I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?
+```
+  
+</details>
+
+<details>
+  <summary>Structure of corpus/json_2/oscar_nn.json</summary>
+
+  ```bash
+ 
+  {
+  "doc_type": "oscar_nn",
+  "id": "oscar_nn_2",
+  "language_reported": "nn",
+  "paragraphs": [
+    {
+      "paragraph_id": 0,
+      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)"
+    },
+    {
+      "paragraph_id": 1,
+      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?"
+    }
+  ]
+}
+  
+```
+  
+</details>
 
 ## 3) Cleaning and Deduplication
 The problem with using web based sources for training languge models is that they contain a lot of noise. Typical examples is long product lists that are not really language and considerable amount of machine generated text. The OSCAR corpus is considerably more cleaned than for instance MC4, but we still apply our cleaning procedure also on this corpus.
