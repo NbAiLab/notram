@@ -1,20 +1,13 @@
 # Step-By-Step Corpus Building Guide
 This step-by-step guide walks you through the entire process of curating a corpus in the json-format used by the NCC. The examples here is applied on the OSCAR corpus, but can easily be adaptet to any sub-corpus you would like to convert to this format.
 
-| 1  |   2 |  3 | 4 | 5 |
-| :--------: |   :-----:|   :-----:| :-----:| :-----:|
-| **General**|  |  | **117GB** | **18972942342** |
-
-The general structure is:
-1) Preparation and obtaining source files
-2) Converting to json
-3) Cleaning and deduplication
-4) Collation and cross corpus deduplication
-5) Creating the dataset
+| 1  | 2 |  3 | 4 | 5 |
+| :--------: |   :--------: | :--------:| :--------:| :--------:|
+| **Preparation and obtaining source files**| **Converting to json**  | **Cleaning and deduplication** | **Collation and cross corpus deduplication** | **Creating the dataset** |
 
 
 ## 1) Preparation and Obtaining Source Files
-In this example we store all the files under */home/user*. Here we will have two directories, */home/user/notram* that is the notram-git, and */home/user/corpus* where our subcorpus is stored. Under the last folder, there will be the following sub-directories: *source\_1*, *json\_2*, *clean\_json\_3*, *corpus\_files\_4*, *corpus\_collections_5*.
+In this example we store all the files under */home/user*. Here we will have two directories, */home/user/notram* that is the notram-git, and */home/user/corpus* where our subcorpus is stored. Under the last folder, there will be the following sub-directories: *source\_1*, *json\_2*, *clean\_json\_3*, *corpus\_files\_4*, *dataset_5*.
 
 Lets create this structure
 ```bash
