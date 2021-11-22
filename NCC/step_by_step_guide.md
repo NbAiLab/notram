@@ -27,7 +27,7 @@ mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/corpus_fil
 
 ```
 
-In this example we download the [OSCAR](https://oscar-corpus.com/post/oscar-v21-09/) corpus. Please note that this is also available as a [Hugging Face Dataset](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109). You can both contact the OSCAR authors to get access to the dataset, or you can download it from HuggingFace. Downloading it from Huggingface, do require you to log in and accept a disclaimer first. When you have done that, download the following files (since an authentication token is involed, you might have to do this from your browser and transfer the files to your server afterwards):
+In this example we download the [OSCAR](https://oscar-corpus.com/post/oscar-v21-09/) corpus. Please note that this is also available as a [Hugging Face Dataset](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109). You can either contact the OSCAR authors to get access to the dataset, or you can download it from HuggingFace. Here we choose to download it from Huggingface. This does require you to log in and accept a disclaimer first. When you have done that, download the following files (since an authentication token is involed, you might have to do this from your browser and transfer the files to your server afterwards):
 
 * [nn.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/blob/main/packaged/nn/nn.txt.gz)
 * [no_part_1.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_1.txt.gz)
@@ -36,11 +36,20 @@ In this example we download the [OSCAR](https://oscar-corpus.com/post/oscar-v21-
 * [no_part_4.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_4.txt.gz)
 * [no_part_5.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_5.txt.gz)
 
+Make sure the files are named as above, and downloaded to the folder *corpus/source_1* before continuing.
 
 ```bash
+#
+cd ~
+cd corpus/source_1/
 
-# To be written.... we can also download this from HuggingFace RAW.....
+# Unzip and rename files
+zcat nn.txt.gz > oscar_nn.txt
+zcat no*.txt.gz > oscar_nb.txt
+rm *.gz
 
+#look at the files
+head oscar_nb.txt
 ```
 
 ## 2) Converting to json
