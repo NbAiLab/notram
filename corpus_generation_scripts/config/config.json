@@ -17,5 +17,7 @@
 	"remove_non_terminated_paragraphs": true,
 	"truncate_last_valid_sentence": true,
 	"minimise_jsonl": true,
-	"assume_late_missing_dates": true
+	"assume_late_missing_dates": true,
+	"drop_paragraphs_with_curly_brackets": true,
+	"drop_paragraphs_with_encoding_errors": true
 }

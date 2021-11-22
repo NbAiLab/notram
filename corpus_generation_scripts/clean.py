@@ -197,7 +197,7 @@ def main(args):
 
     logging.basicConfig(filename=os.path.join(args.output_folder,"log/",log_name), format='%(asctime)s %(message)s', filemode='w')
 
-    config = read_config(os.path.join(args.output_folder,args.config_file))
+    config = read_config(args.config_file)
     
     print(f'*** Starting to process: {args.input_file}')
     data = load_jsonl(args.input_file)

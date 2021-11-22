@@ -19,22 +19,32 @@ def main(args):
     print('Starting to read text/csv file...')
     with open(args.input_file) as f:
         i = 0
+        p = 0
+        myarticle = {}
+        myarticle['doc_type'] = str(args.doc_type)
+        myarticle['id'] = str(args.doc_type)+"_"+str(i)
+        myarticle['language_reported'] = str(args.language_reported)
+        myarticle['paragraphs'] = []
+        
         for line in f:
-            myarticle = {}
-            myarticle['doc_type'] = str(args.doc_type)
-            myarticle['id'] = str(args.doc_type)+"_"+str(i)
-            myarticle['language_reported'] = str(args.language_reported)
-            myarticle['paragraphs'] = []
+            if line == "\n":
+                i += 1
+                all_articles.append(myarticle)
+                myarticle = {}
+                myarticle['doc_type'] = str(args.doc_type)
+                myarticle['id'] = str(args.doc_type)+"_"+str(i)
+                myarticle['language_reported'] = str(args.language_reported)
+                myarticle['paragraphs'] = []
+                p = 0
+            else:
+                par = {}
+                par['paragraph_id'] = p
+                par['text'] = str(ftfy.fix_text(line.rstrip("\n")))
+                myarticle['paragraphs'].append(par)
+                p += 1
 
-            p = {}
-            p['paragraph_id'] = 0
-            p['text'] = str(ftfy.fix_text(line.rstrip("\n")))
-
-            myarticle['paragraphs'].append(p)
-
-            valid_article_count += 1
-            all_articles.append(myarticle)
-            i += 1
+        #Append the last line as well 
+        all_articles.append(myarticle)
 
     with jsonlines.open(args.output_file, 'w') as writer:
         writer.write_all(all_articles)
