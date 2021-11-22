@@ -158,38 +158,27 @@ cd ~
 
 # Generate the file list
 # In this case it will be just our two files
-# Note that the parameter to ls here is the number "1" and not "l"
-ls -1 corpus/clean_json_3/*.json > filelist.txt
+# Note that the parameter to ls here is the number "1" and not the letter "l"
+
+ls -1 corpus/clean_json_3/*.* > corpus/corpus_files_4/filelist.txt
 
 # You can of course edit this file before proceding
-# Run the corpus_file script
 
-**FREDDY**
+python notram/corpus_generation_scripts/corpus_files_builder.py --corpus_output_dir corpus/corpus_files_4/
 
 ```
 
 <details>
-  <summary>**TO BE DONE**One line of corpus/corpus_files_4/oscar_nn.json</summary>
+  <summary>One line of corpus/corpus_files_4/oscar_nn.json</summary>
 
   ```json
- 
-{
+ {
+  "id": "oscar_nn_2000",
   "doc_type": "oscar_nn",
-  "id": "oscar_nn_2",
   "publish_year": 2021,
-  "doc_length": 360,
-  "paragraphs": [
-    {
-      "paragraph_id": 0,
-      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)",
-      "hash": "0022d3206973366fc86dc83bb3718757"
-    },
-    {
-      "paragraph_id": 1,
-      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?",
-      "hash": "30743e4da2e8120bba8fa7576f60f082"
-    }
-  ]
+  "lang_fasttext": "nn",
+  "lang_fasttext_conf": "0.823",
+  "text": "Men skal ein forhandle, må det også vere forhandlingsvilje. Og evne til å både skape og utnytte eit forhandlingsrom. Partane må, ikkje minst i eit hovudoppgjer, vurdere situasjonen både på kort og lang sikt. Store delar av offentleg sektor står i ein heilt annan situasjon enn industrien og ein del andre næringar. I offentleg sektor er det ikkje mangel på arbeid og oppgåver. Det som manglar er folk med nødvendig utdanning og kompetanse."
 }
   
 ```
@@ -203,35 +192,11 @@ In the final step we collate the corpuses, shuffle them and then create a train 
 cd ~ 
 
 # Run the corpus file creator
-
 **FREDDY**
 
-```
-<details>
-  <summary>**TO BE DONE**One line of corpus/corpus_?????_5/train.json</summary>
+python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/ --corpus_output_dir corpus/corpus_collections_5/
 
-  ```json
- 
-{
-  "doc_type": "oscar_nn",
-  "id": "oscar_nn_2",
-  "publish_year": 2021,
-  "doc_length": 360,
-  "paragraphs": [
-    {
-      "paragraph_id": 0,
-      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)",
-      "hash": "0022d3206973366fc86dc83bb3718757"
-    },
-    {
-      "paragraph_id": 1,
-      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?",
-      "hash": "30743e4da2e8120bba8fa7576f60f082"
-    }
-  ]
-}
-  
-```
-  
-</details>
+**FREDDY input_folder
+**FREDDY Hvorfor ikke bare --output_folder som brukes i de andre scriptene....?
+
 
