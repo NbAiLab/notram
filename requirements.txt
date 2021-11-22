@@ -29,4 +29,4 @@ wandb==0.12.0
 jsonlines==2.0.0
 ftfy==6.0.3
 tqdm==4.62.3
-
+emoji==1.6.1
