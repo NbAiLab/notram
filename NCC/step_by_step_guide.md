@@ -115,6 +115,7 @@ cd ~
 
 # Run the clean scripts
 # Here you could also use the Nynorsk to get an estimate of how long the Bokmål script will take
+
 python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/oscar_nn.json --output_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
 
 python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/oscar_nb.json --output_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
@@ -150,20 +151,21 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 
 
 ## 4) Standardisation and cross corpus deduplication
-Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises the json for instance for publication year. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs a The final json will have this structure:
+Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises for instance date formet. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpuses, and keeps the paragraphs in the longest documents. 
 
-|**id:** | String with id to source of line and a unique identifier|
-|:-----------|:------------|
-|**doc_type ** | String describing type of media text extracted from (I.e. book,newspaper etc)|
-|**publish_year ** | Integer. The year text published. When year is undetermined it is set to 2021.|
-|**lang_fasttext ** | String. Language of text identified by FastText|
-|**lang_fasttext_conf ** | String. Confidence calculated by FastText|
-|**text ** | String. The complete utf-8 document. If longer than 1M characters it is split.|
+To have full flexibility on what to include in the final corpuses, and which files should be deduplicated, this script requires a list of the files that should be included.
+
 
 ```bash
 cd ~ 
 
-# Run the corpus file creator
+# Generate the file list
+# In this case it will be just our two files
+# Note that the parameter to ls here is the number "1" and not "l"
+ls -1 corpus/clean_json_3/*.json > filelist.txt
+
+# You can of course edit this file before proceding
+# Run the corpus_file script
 
 **FREDDY**
 
