@@ -1,6 +1,10 @@
 # Step-By-Step Corpus Building Guide
 This step-by-step guide walks you through the entire process of curating a corpus in the json-format used by the NCC. The examples here is applied on the OSCAR corpus, but can easily be adaptet to any sub-corpus you would like to convert to this format.
 
+| 1  |   2 |  3 | 4 | 5 |
+| :--------: |   :-----:|   :-----:| :-----:| :-----:|
+| **General**|  |  | **117GB** | **18972942342** |
+
 The general structure is:
 1) Preparation and obtaining source files
 2) Converting to json
