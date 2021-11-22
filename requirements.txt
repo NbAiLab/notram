@@ -28,4 +28,5 @@ unicode_slugify==0.1.3
 wandb==0.12.0
 jsonlines==2.0.0
 ftfy==6.0.3
+tqdm==4.62.3
 
