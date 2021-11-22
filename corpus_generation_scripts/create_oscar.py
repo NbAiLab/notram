@@ -22,7 +22,7 @@ def main(args):
         for line in f:
             myarticle = {}
             myarticle['doc_type'] = str(args.doc_type)
-            myarticle['id'] = i
+            myarticle['id'] = str(args.doc_type)+"_"+str(i)
             myarticle['language_reported'] = str(args.language_reported)
             myarticle['paragraphs'] = []
 
