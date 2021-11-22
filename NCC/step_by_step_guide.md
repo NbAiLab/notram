@@ -23,7 +23,7 @@ git clone https://github.com/NBAiLab/notram.git
 pip install -r notram/requirements.txt
 
 # Make the directories
-mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/corpus_files_4 corpus/corpus_collections_5
+mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/clean_json_3/log corpus/corpus_files_4 corpus/corpus_collections_5
 
 ```
 
@@ -69,9 +69,9 @@ python notram/corpus_generation_scripts/create_oscar.py --language_reported nb  
 
 ```
 <details>
-  <summary>Structure of corpus/source_1/oscar_nn.txt</summary>
+  <summary>A segment of corpus/source_1/oscar_nn.txt</summary>
  
-```bash
+```text
 Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)
 I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?
 ```
@@ -79,9 +79,9 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
 </details>
 
 <details>
-  <summary>Structure of corpus/json_2/oscar_nn.json</summary>
+  <summary>One line of corpus/json_2/oscar_nn.json</summary>
 
-  ```bash
+  ```json
  
   {
   "doc_type": "oscar_nn",
@@ -113,9 +113,39 @@ cd ~
 
 # Run the clean scripts
 # Here you could also use the Nynorsk to get an estimate of how long the Bokmål script will take
-python notram/corpus_generation_scripts/clean.py --input_file corpus/json2/oscar_nn.json --ouput_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
-python notram/corpus_generation_scripts/clean.py --input_file corpus/json2/oscar_nb.json --ouput_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
+python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/oscar_nn.json --output_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
+
+python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/oscar_nb.json --output_folder corpus/clean_json_3 --config_file notram/corpus_generation_scripts/config/config.json
 ```
+
+<details>
+  <summary>One line of corpus/clean_json_3/oscar_nn.json</summary>
+
+  ```json
+ 
+{
+  "doc_type": "oscar_nn",
+  "id": "oscar_nn_2",
+  "publish_year": 2021,
+  "doc_length": 360,
+  "paragraphs": [
+    {
+      "paragraph_id": 0,
+      "text": "Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)",
+      "hash": "0022d3206973366fc86dc83bb3718757"
+    },
+    {
+      "paragraph_id": 1,
+      "text": "I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?",
+      "hash": "30743e4da2e8120bba8fa7576f60f082"
+    }
+  ]
+}
+  
+```
+  
+</details>
+
 
 ## 4) Standardisation and cross corpus deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises the json for instance for publication year. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs a The final json will have this structure:
