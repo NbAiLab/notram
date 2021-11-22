@@ -153,7 +153,7 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 ## 4) Standardisation and cross corpus deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises for instance date formet. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpuses, and keeps the paragraphs in the longest documents. 
 
-To have full flexibility on what to include in the final corpuses, this script requires a list of the files that should be included. The file is *corpus\_files\_4/filelist.txt* and is a text file with absolute paths. 
+To have full flexibility on what to include in the final corpuses, this script requires specification of what files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
 
 
 ```bash
