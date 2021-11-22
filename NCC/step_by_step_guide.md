@@ -166,6 +166,12 @@ ls -1 corpus/clean_json_3/*.* > corpus/corpus_files_4/filelist.txt
 
 python notram/corpus_generation_scripts/corpus_files_builder.py --corpus_output_dir corpus/corpus_files_4/
 
+
+**FREDDY**
+Her hadde det også vært ryddigere om den tok --input_folder og --output_folder som parametre. Siden de andre skriptene gjør det.
+** Bug med at den ikke har katalogen helt riktig. Doble //
+** Bug der den gir doble filnavn oscar_nb.json.json. Trolig fordi jeg ikke bruker .jsonl
+
 ```
 
 <details>
