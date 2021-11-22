@@ -47,9 +47,6 @@ cd corpus/source_1/
 zcat nn.txt.gz > oscar_nn.txt
 zcat no*.txt.gz > oscar_nb.txt
 rm *.gz
-
-#look at the files to verify they are text only
-head oscar_nb.txt
 ```
 <details>
   <summary>A segment of corpus/source_1/oscar_nn.txt</summary>
