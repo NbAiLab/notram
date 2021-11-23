@@ -17,19 +17,20 @@ def main(args):
     with open_fn(args.input_file) as fp:
         reader = jsonlines.Reader(fp)
         doc_type, doc_type_lines, lang_fasttext, lang_fasttext_lines, publish_year, publish_year_lines = [dict() for _ in range(6)]
-
         for n, line in tqdm(enumerate(reader)):
-            num_words = len(line['text'].split())
-            doc_type[line['doc_type']] = doc_type.get(line['doc_type'], 0) + num_words
-            doc_type_lines[line['doc_type']] = doc_type_lines.get(line['doc_type'], 0) + 1
-            lang_fasttext[line['lang_fasttext']] = lang_fasttext.get(line['lang_fasttext'], 0) + num_words
-            lang_fasttext_lines[line['lang_fasttext']] = lang_fasttext_lines.get(line['lang_fasttext'], 0) + 1
-            year = line['publish_year']
-            if year == 2099:
-                year = 2021
-            publish_year[year] = publish_year.get(year, 0) + num_words
-            publish_year_lines[year] = publish_year_lines.get(year, 0) + 1
-
+            if line!="\n":
+                num_words = len(line['text'].split())
+                doc_type[line['doc_type']] = doc_type.get(line['doc_type'], 0) + num_words
+                doc_type_lines[line['doc_type']] = doc_type_lines.get(line['doc_type'], 0) + 1
+                lang_fasttext[line['lang_fasttext']] = lang_fasttext.get(line['lang_fasttext'], 0) + num_words
+                lang_fasttext_lines[line['lang_fasttext']] = lang_fasttext_lines.get(line['lang_fasttext'], 0) + 1
+                year = line['publish_year']
+                if year == 2099:
+                    year = 2021
+                publish_year[year] = publish_year.get(year, 0) + num_words
+                publish_year_lines[year] = publish_year_lines.get(year, 0) + 1
+            else:
+                print(f'Error in {args.input_file} on line {n}')
     #Do sone reasonable sorting
     publish_year = list(publish_year.items())
     publish_year_lines= list(publish_year_lines.items())
