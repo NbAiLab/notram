@@ -4,11 +4,9 @@ A collection of documentation and guides used for creating the NB-models. This i
 The process consists of five separate steps from source to corpus and HuggingFace (HF) dataset.
 
 ## Specifications
-* [Process overview](corpus_building.md)
 * [Internal jsonl-format](text_extraction_format.md)
 
 ## Creating dataset
-* [Creating the Norwegian Collossal Corpus v2](creating_corpus_v2.md)
 * [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
 
