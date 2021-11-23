@@ -1,12 +1,10 @@
 # Guides
-A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work. The is the complete set of scripts needed going from source to corpus file and HF (HugingFace) dataset.
-
-The process consists of five separate steps from source to corpus and HuggingFace (HF) dataset.
+A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for other working on similar topics. 
 
 ## Specifications
 * [Internal jsonl-format](text_extraction_format.md)
 
-## Creating dataset
+## Dataset Creation
 * [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
 
@@ -14,7 +12,7 @@ The process consists of five separate steps from source to corpus and HuggingFac
 * [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
 
 ## Tensorflow
-* [Trained Tensorflow models](models_tensorflow.md)
+* [Model Documentation - NB-BERT-BASE](models_tensorflow.md)
 * [Configuring a VM](configure_vm_tensorflow.md)
 * [Create VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
 * [Starting training](start_training_tensorflow.md)
