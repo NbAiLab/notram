@@ -1,4 +1,4 @@
-# Tensorflow - Models and Training Set
+# Models and Training Set - NB-BERT-BASE
 The basic design is to train the same number of iterations as the original BERT model is trained. There will be a model with maximum batch size and [the lamb optimizer](https://arxiv.org/pdf/1904.00962.pdf). This will be compared to two standard BERT Base as described in [Devlin & al](https://www.aclweb.org/anthology/N19-1423.pdf). One with a typical 1e-4 learning rate, and one with the 2e-5 that is [recommended](https://github.com/google-research/bert#pre-training-tips-and-caveats) when you continue from an existing BERT checkpoint.
 
 ### Devlin
