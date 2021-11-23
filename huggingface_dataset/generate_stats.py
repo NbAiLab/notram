@@ -75,6 +75,9 @@ def main(args):
     df_decade_all = df_decade_all.sort_values(by=['Decade'], ascending=False).reset_index(drop=True)
     df_decade_all = df_decade_all[['Decade', 'Words', 'Documents', 'Words/Document']]
    
+    #Summarise
+    df_sum = pd.DataFrame([[sum(df_doc_all['Words']),sum(df_doc_all['Documents']),int(sum(df_doc_all['Words'])/sum(df_doc_all['Documents']))]],columns = ['Words','Documents','Words/Document'])
+    
     #Format all columns correctly
     df_doc_all['Words'] = df_doc_all['Words'].apply(lambda x:'{:,}'.format(x))    
     df_doc_all['Documents'] = df_doc_all['Documents'].apply(lambda x:'{:,}'.format(x))    
@@ -85,10 +88,12 @@ def main(args):
     df_decade_all['Words'] = df_decade_all['Words'].apply(lambda x:'{:,}'.format(x))    
     df_decade_all['Documents'] = df_decade_all['Documents'].apply(lambda x:'{:,}'.format(x))    
     df_decade_all['Words/Document'] = df_decade_all['Words/Document'].apply(lambda x:'{:,}'.format(x))    
+    df_sum['Words'] = df_sum['Words'].apply(lambda x:'{:,}'.format(x))    
+    df_sum['Documents'] = df_sum['Documents'].apply(lambda x:'{:,}'.format(x))    
+    df_sum['Words/Document'] = df_sum['Words/Document'].apply(lambda x:'{:,}'.format(x))    
 
     
-
-    output = "## Statistics\n"
+    output = "### Summary\n"+df_sum.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     output += "### Document Types\n"+df_doc_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     output += "### Languages\n"+df_lang_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
     output += "### Publish Periode\n"+df_decade_all.to_markdown(index=False).replace("|:--","|---").replace("---|","--:|")+"\n\n"
