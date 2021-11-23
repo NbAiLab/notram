@@ -889,6 +889,7 @@ A large collection of out-of-copyright books from the National Library of Norway
 | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| ? | ? | ? |
 <details>
 <summary>View dataset statistics</summary>
+ 
 ### Document Types
 | Source   | Words       | Documents   | Words/Document   |
 |---------:|------------:|------------:|-----------------:|
