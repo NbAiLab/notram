@@ -11,6 +11,7 @@ A collection of documents and reports from the Norwegian government. The files a
 
 <details>
 <summary>View dataset statistics</summary>
+ 
 ### Document Types
 | Source        | Words       | Documents   | Words/Document   |
 |--------------:|------------:|------------:|-----------------:|
