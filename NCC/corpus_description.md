@@ -802,7 +802,7 @@ A large collection of out-of-copyright newspapers from the National Library of N
 
 | License  | Size | Words | Documents | Avg words per doc  |
 | -------- |   :-----|   -----:| -----:| -----:|
-| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
+| [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
 <details>
 <summary>View dataset statistics</summary>
  
