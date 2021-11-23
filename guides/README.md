@@ -8,13 +8,13 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
 
-## Flax
+## Setting up Training Environment
 * [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
 
 ## Tensorflow
 * [Model Documentation - NB-BERT-BASE](models_tensorflow.md)
-* [Configuring a VM](configure_vm_tensorflow.md)
-* [Create VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
+* [Setting up a standard Google Cloud VM](configure_vm_tensorflow.md)
+* [Create Google Cloud VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
 * [Starting training](start_training_tensorflow.md)
 * [Publish Tensorflow Checkpoint](publish_checkpoint.md)
 
