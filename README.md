@@ -30,19 +30,6 @@ We aim at building a copus of Norwegian text that is on par with available datas
 
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus).
 
-We are working on releasing a significant part of the corpus to the public in the next months. 
-
-Comparable corpora:
-| Sources  |  Size (GB) |
-| -------- |  -----:|
-| Norwegian part of mBERT | 1 GB |
-| English BERT | 16 GB |
-| Swedish BERT | 20 GB |
-| English XLNet Base | 16 GB |
-| English XLNet Large | 113 GB |
-| English RoBERTa | 160 GB |
-| Norwegian Colossal Corpus v1 | 109 GB |
-| Norwegian Colossal Corpus v2 | 256 GB |
 
 # Colab Notebooks
 The original model needs to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
