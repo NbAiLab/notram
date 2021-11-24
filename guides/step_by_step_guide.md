@@ -7,7 +7,7 @@ This step-by-step guide walks you through the entire process of curating a corpu
 
 
 ## 1) Preparation and Obtaining Source Files
-In this example we store all the files under */home/user*. Here we will have two directories, */home/user/notram* that is the notram-git, and */home/user/corpus* where our subcorpus is stored. Under the last folder, there will be the following sub-directories: *source\_1*, *json\_2*, *clean\_json\_3*, *corpus\_files\_4*, *dataset_5*.
+In this example we store all the files under **/home/user**. Here we will have two directories, **/home/user/notram** that is the notram-git, and **/home/user/corpus** where our subcorpus is stored. Under the last folder, there will be the following sub-directories: **source\_1**, **json\_2**, **clean\_json\_3**, **corpus\_files\_4**, **dataset_5**.
 
 Lets create this structure
 ```bash
@@ -20,7 +20,7 @@ git clone https://github.com/NBAiLab/notram.git
 pip install -r notram/requirements.txt
 
 # Make the directories
-mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/clean_json_3/log corpus/corpus_files_4 corpus/corpus_collections_5
+mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/clean_json_3/log corpus/corpus_files_4 corpus/dataset_5 corpus/dataset_5/my_dataset
 
 ```
 
@@ -33,7 +33,7 @@ In this example we download the [OSCAR](https://oscar-corpus.com/post/oscar-v21-
 * [no_part_4.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_4.txt.gz)
 * [no_part_5.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_5.txt.gz)
 
-Make sure the files are named as above, and downloaded to the folder *corpus/source_1* before continuing.
+Make sure the files are named as above, and downloaded to the folder **corpus/source_1** before continuing.
 
 ```bash
 #
@@ -151,9 +151,8 @@ To have full flexibility on what to include in the final corpuses, this script r
 
 ```bash
 cd ~ 
-mkdir corpus/corpus_files_4/dedup
 
-python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4/dedup --input_files corpus/corpus_files_4/filelist.txt
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4 --input_files corpus/corpus_files_4/filelist.txt
 
 
 ```
@@ -163,7 +162,7 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 cd ~ 
 mkdir corpus/corpus_files_4/dedup
 
-python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4/dedup --input_folder corpus/clean_json_3
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4 --input_folder corpus/clean_json_3
 
 
 ```
@@ -186,17 +185,15 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 </details>
 
 ## 5) Creating the dataset
-In the final step we collate the corpuses, shuffle them and then create a train and validation file. The training file are properly sharded for streaming purposes on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for,for example, huggingface upload. if you ae creating a ataset for huggingface,skip the rest of this guide and go to [create_huggingface_dataset](creating_huggingface_dataset.md)
+In the final step we collate the corpuses, shuffle them and then create a train and validation file. The training file are properly sharded for streaming purposes on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for,for example, HuggingFace upload. if you ae creating a dataset for HuggingFace,skip the rest of this guide and go to [create_huggingface_dataset](creating_huggingface_dataset.md)
 
 ```bash
 cd ~ 
-mkdir corpus/corpus_collections_5/dedup
-# Run the corpus file creator
 
-python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/dedup --output_folder corpus/corpus_collections_5/dedup
+# Run the corpus file creator
+python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/dataset_5/my_dataset
 ```
-**input_folder**  'Folder with all corpus_files_4 files for the dataset.' 
-**Output_folder** 'Result Folder'
+The **input_folder** is the folder where the corpus-files are generated. The result will create multiple sub folders, in **corpus/dataset_5/my_dataset**. The name **my_dataset** will be used if you choose to upload your dataset to HuggingFace.
 
 
 
