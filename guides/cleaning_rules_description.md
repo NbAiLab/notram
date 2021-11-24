@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Cleaning Rules
 Here is a [list of config-files](https://github.com/NBAiLab/notram/tree/master/corpus_generation_scripts/config) that are used.
 
