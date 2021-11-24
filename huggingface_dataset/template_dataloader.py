@@ -54,8 +54,13 @@ class <corpusname>(datasets.GeneratorBasedBuilder):
             description=_DESCRIPTION,
             features=datasets.Features(
                 {
-                    "text": datasets.Value("string"),
                     "id": datasets.Value("string"),
+                    "doc_type": datasets.Value("string"),
+                    "publish_year":  datasets.Value("int32"),
+                    "lang_fasttext":  datasets.Value("string"),
+                    "lang_fasttext_conf":  datasets.Value("string"),
+                    "text":  datasets.Value("string"),
+
                 }
             ),
             supervised_keys=None,

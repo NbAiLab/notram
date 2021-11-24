@@ -24,27 +24,50 @@
 - **Paper:** https://arxiv.org/abs/2104.09617
 - **Point of Contact:** [Freddy Wetjen][mailto:freddy.wetjen@nb.no]
 
-## How to Use
-```
-from datasets import load_dataset
-data = load_dataset("NBAiLab/<corpusname>")
-```
+<description>
 
+## How to Use
+```python
+from datasets import load_dataset
+data = load_dataset("NBAiLab/<corpusname>", streaming=True)
+```
+## Download Data
+If you do not want to use the HuggingFace Dataset-library for training, or if you want to do additional pre-processing, it is also possible to download the files locally.
+```bash
+# Download all files in one batch operation
+
+for i in $(seq -f "%04g" 1 <nosplits>): do wget https://huggingface.co/datasets/NbAiLab/<corpusname>/blob/main/data/train-shard-$i-of-<nosplitszeropadded>.json.gz &; done
+# Create one large training file of all shards without unpacking
+zcat *.gz > onefile.json.gz
+```
+<details>
+<summary>List of all the files.</summary>
+<filelist>
+</details>
 ### Dataset Summary
 The <corpusname> dataset contains json lines with language training data. Here is an example json line:
-```
-{"id": "1006205", "doc_type": "cc100", "publish_year": 2021, "lang_fasttext": "no", "lang_fasttext_conf": "0.641", "text": "Eg har en PLAN! KOS deg og ha en fortryllende herlig pinse :)"}
+```json
+{ 
+  "id": "1006205", 
+  "doc_type": "cc100",
+  "publish_year": 2021,
+  "lang_fasttext": "nn",
+  "lang_fasttext_conf": "0.641",
+  "text": "Eg har ein PLAN! KOS deg og ha ei fin helg"
+}
 ```
 ## Data Fields
-**id:** String with id to source of line and a unique identifier  
-**doc_type:** String describing type of media text extracted from (I.e. book,newspaper etc)  
-**publish_year:** String with year text published  
-**lang_fasttext:** String. Language of text identified by FastText  
-**lang_fasttext_conf:** String. Confidence calculated by FastText  
-**text:** String. The complete utf-8 document. If longer than 1M characters it is split.   
+|**id:** | String with id to source of line and a unique identifier|
+|:-----------|:------------|
+|**doc_type ** | String describing type of media text extracted from (I.e. book,newspaper etc)|
+|**publish_year ** | Integer. The year text published. When year is undetermined it is set to 2021.|
+|**lang_fasttext ** | String. Language of text identified by FastText|
+|**lang_fasttext_conf ** | String. Confidence calculated by FastText|
+|**text ** | String. The complete utf-8 document. If longer than 1M characters it is split.|
 
 ### Dataset Creation
-We are providing a **train** and a **validation** split. The standard size of the validation is a single 1GB file, while train is sharded in 1GB chunks. All files are gzipped.
+We are providing a **train** and a **validation** split. The standard size of the validation is a single 1GB file, while train is sharded in 1GB chunks. 
+All files are gzipped.
 
 Build date: <builddate>
 
@@ -65,6 +88,8 @@ Per.Kummervold@nb.no
 
 ### Licensing Information
 Not lisenced for use outside the National Library of Norway.
+
+<license>
 
 ### Citation Information
 We are preparing an article with detailed information about this corpus. Until it is published, please cite out paper discussing the first version of this corpus:
