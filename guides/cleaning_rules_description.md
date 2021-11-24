@@ -27,7 +27,8 @@ The **clean.py**-script is using configuration files to do the actual cleaning. 
 | drop_paragraphs_with_encoding_errors|true | Drop all paragraphs with encoding errors. |
 | drop_paragraphs_with_curly_brackets|true | Drop paragraphs with curly {brackets}. This effectively removes javascript from a lot of web documents.|
 
-## Overview of the used config-files.
+
+## Overview of Config-files
 The following config-files are used when training NCC. These files are located [here](../corpus_generation_scripts/config/).
 
 <details>
