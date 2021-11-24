@@ -1,9 +1,6 @@
 # Guides
 A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for other working on similar topics. 
 
-## Specifications
-* [Internal jsonl-format](text_extraction_format.md)
-
 ## Dataset Creation
 * [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
@@ -14,7 +11,8 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Create Google Cloud VM, Bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
 * [Tensorflow - Configure for Training BERT](configure_vm_tensorflow.md)
 
-## Tensorflow
+## Documentation
+* [Internal jsonl-format](text_extraction_format.md)
 * [Model Documentation - NB-BERT-BASE](models_tensorflow.md)
 
 
