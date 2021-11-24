@@ -12,3 +12,6 @@ This is a short overview of how the [NCC](corpus_description.md) is processed. T
 4) **Collation and deduplication**. At this stage paragraphs are collated, fasttext-language detections are performed and the keys are standardised and reduced. 
 
 5) **Training dataset**. In the end training dataset are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use. 
+
+---
+<sup>Per Egil Kummervold</sup>
