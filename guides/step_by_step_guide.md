@@ -199,5 +199,5 @@ The **input_folder** is the folder where the corpus-files are generated. The res
 
 
 ---
-<center>written by Freddy Wetjen and Per Egil Kummervold</center>
+<p align="center"><sup>Written by Freddy Wetjen and Per Egil Kummervold</sup></p>
 
