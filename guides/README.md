@@ -19,7 +19,7 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Norwegian Colossal Corpus Description](corpus_description.md)
 * [JSON-lines Format](json_format.md)
 * [Corpus Create-scripts](create_scripts.md)
-* [Corpus Cleaning-rules](cleaning_rules_description.md)
+* [Corpus Cleaning-rules](cleaning_rules_description.md)**❗❗TODO PER EGIL❗❗**
 * [Fequently Used Commands for JSON-line Files](json_commands.md)
 
 
