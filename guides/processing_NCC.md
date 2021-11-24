@@ -1,5 +1,5 @@
 [<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
-[<img align="left" width="400px" src="../images/bilderavsteg_5.png">](https://ai.nb.no)
+<img align="left" width="400px" src="../images/bilderavsteg_5.png">
 
 
 # Overview - Processing the NCC
