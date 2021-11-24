@@ -4,7 +4,7 @@ This document gives an overview of how the [NCC](corpus_description.md) is proce
 ## Processing Structure
 
 ### **Source files**. NCC is composed from multiple sources in various formats. At the "source file"-level the files are stored as close to the original format as possibly.
-> <details>
+<details>
   <summary>Example source format</summary>
  
 ```text
