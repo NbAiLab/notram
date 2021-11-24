@@ -1,5 +1,5 @@
 # Guides
-A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for other working on similar topics. 
+A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for others working on similar topics. 
 
 ## Dataset Creation
 * [Overview Processing the NCC](processing_NCC.md)
