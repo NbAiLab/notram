@@ -1,4 +1,4 @@
-
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Setting up TPU VM for Flax
 Following these documents:
 ```bash
