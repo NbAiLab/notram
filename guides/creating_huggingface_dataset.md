@@ -1,9 +1,9 @@
 
-![image info](../images/bilderavsteg_5.png)
+
 
 # Routines for creating a Huggingface Dataset
 
-This is a general description for creating a huggingface dataset. It shows all the necessary steps to do the process from data generated with "corpus_dataset_builder.py" to finished dataset in huggingface. As an example we use one of our open datasets so the process can be visible. All scripts used for this task is available from this site. We use the dataset "dedup" as the example. 
+This is a general description for creating a huggingface dataset. It shows all the necessary steps to do the process from data generated with "corpus_dataset_builder.py" to finished dataset in huggingface. As an example we use one of our open datasets so the process can be visible. All scripts used for this task is available from this site. We use the dataset "mydataset" as the example. 
 
 Log in to your huggingface account and create your empty corpus
 
@@ -24,22 +24,21 @@ Checkout first version of the corpus:
 
 ```bash
 cd corpus/corpus_collections_5
-git clone https://huggingface.co/datasets/<owner>/dedup
-cd dedup
+git clone https://huggingface.co/datasets/<owner>/mydataset
+cd mydataset
 git lfs track "*tfevents*"
-git lfs track "*model*"
 git lfs track "*gz*"
-git lfs track "*md*"
+git lfs track "*json*"
 huggingface-cli lfs-enable-largefiles .
 
 ```
-After this you can create or modify the contents of your dataset with the dataset builder (datasetname is 'dedup' as an example) and the folder 
-'corpus/corpus_files_4/dedup' contains all the necessary files.
+After this you can create or modify the contents of your dataset with the dataset builder (datasetname is 'mydataset' as an example) and the folder 
+'corpus/corpus_files_4/mydataset' contains all the necessary files.
 
 ```bash
 cd ~
 
-python corpus_dataset_builder.py --input_folder corpus/corpus_files_4/dedup --output_folder corpus/corpus_collections_5/dedup 
+python corpus_dataset_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/corpus_collections_5/mydataset 
 ```
 
 The dataset builder does the following tasks:
@@ -50,7 +49,7 @@ The dataset builder does the following tasks:
 * Create single train and validation files 
 * Create dummy training and a dummy validation file on the proper format.
 * Creates statistics of your dataset (word counts,year distribution,no of documents).
-* Generates a python loader functions *"dedup.py"*
+* Generates python loader functions *"mydataset.py"*
 
 **Make dummy dataset**
 
@@ -59,8 +58,8 @@ The files for the dummy dataset is ready for you.
 ```bash
 cd ~
 cd corpus/corpus_collections_5
-datasets-cli dummy_data dedup
-cd dedup/dummy/dedup/0.0.0
+datasets-cli dummy_data mydataset
+cd mydataset/dummy/mydataset/0.0.0
 mkdir dummy_data
 cp ../../../complete_all/train-shard-0001-of* dummy_data/.
 cp ../../../complete_all/validation-shard-0001-of* dummy_data/.
@@ -71,12 +70,12 @@ cd ../../../
 ```
 
 
-After this you can check in your dataset. Here we do a check in of the example "dedup":
+After this you can check in your dataset. Here we do a check in of the example "mydataset":
 ```bash
 cd ~
-cd corpus/corpus_collections_5/dedup
+cd corpus/corpus_collections_5/mydataset
 git add .
-git commit -m "First commit of dataset dedup"
+git commit -m "First commit of dataset mydataset"
 git push
 
 ```
@@ -86,18 +85,6 @@ All files are named and packed with the naming rules of huggingface in mind.
 ``bash
 cd ~
 cd corpus/corpus_collections_5/
-datasets-cli test dedup
+datasets-cli test mydataset
 ```
 
-After this you can check 
-
-
-And upload all the sharded files to the bucket
-
-```
-gsutil -m cp *shard*.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/shards/ &&
-gsutil -m cp nb_nn_balanced_shuffled_train.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&
-gsutil -m cp nb_nn_balanced_shuffled_test.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/ &&v
-gsutil -m cp nb_nn_balanced_shuffled_validation.json.gz gs://notram-west4-a/pretrain_datasets/nb_nn_balanced_shuffled/splits/
-
-```
