@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # JSON-lines Format
 Specification for the internal format used when extracting text from OCR documents. It allows for storing the relevant information from METS/ALTO for further processing.
 
