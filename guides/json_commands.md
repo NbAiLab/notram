@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Frequnetly Used JSON-lines Commands
 This is a collection of commands we frequently use for handling large json-line files.
 
