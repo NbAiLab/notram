@@ -1,5 +1,5 @@
 [<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
-<img align="left" width="400px" src="../images/bilderavsteg_5.png"><sup> - written by __Processing steps__</sup>
+<img align="left" width="400px" src="../images/bilderavsteg_5.png">(<sup> __Processing steps__</sup>)
 
 
 # Overview - Processing the NCC
