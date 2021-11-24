@@ -1,3 +1,6 @@
+
+![image info](../images/bilderavsteg_5.png)
+
 # Routines for creating a Huggingface Dataset
 
 This is a general description for creating a huggingface dataset. It shows all the necessary steps to do the process from data generated with "corpus_dataset_builder.py" to finished dataset in huggingface. As an example we use one of our open datasets so the process can be visible. All scripts used for this task is available from this site. We use the dataset "dedup" as the example. 
@@ -79,6 +82,14 @@ git push
 ```
 All files are named and packed with the naming rules of huggingface in mind.
 
+**Test dataset**
+``bash
+cd ~
+cd corpus/corpus_collections_5/
+datasets-cli test dedup
+```
+
+After this you can check 
 
 
 And upload all the sharded files to the bucket
