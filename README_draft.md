@@ -1,7 +1,6 @@
 # Norwegian Transformer Model
 The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models. This includes building the Norwegian Colossal Corpus.
 ### Most of these links should appear naturally in the text below
-## 🛠 Dataset Creation
 * [Overview Processing the NCC](processing_NCC.md)
 * [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
 * [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md) **❗TODO FREDDY**
@@ -10,6 +9,8 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 * [Corpus Create-scripts](create_scripts.md)
 * [Corpus Cleaning-rules](cleaning_rules_description.md)
 * [Fequently Used Commands for JSON-line Files](json_commands.md)
+
+
 
 
 
@@ -42,19 +43,19 @@ We aim at building a copus of Norwegian text that is on par with available datas
 
 In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus).
 
-We are working on releasing a significant part of the corpus to the public in the next months. 
+| Corpus  | License  | Size | Words | Documents | Avg words per doc  |
+| -------- | -------- |   :-----|   -----:| -----:| -----:|
+| Government Reports | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|1.1 GB| 155,318,754 | 4,648       | 33,416           |
+| Parliament Collections | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| GB| 1,301,766,124 | 9,528       | 136,625          |
+| Pulic Reports| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.5 GB| 80,064,396 | 3,365       | 23,793           |
+| LovData CD | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.4 GB| 54,923,432 | 51,920      | 1,057            |
+| Målfrid Collection| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|14.0 GB| 1,905,481,776 | 6,735,367   |              282 |
+| Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
+| Newspapers Online | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
+| Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
+| Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
+| Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
-Comparable corpora:
-| Sources  |  Size (GB) |
-| -------- |  -----:|
-| Norwegian part of mBERT | 1 GB |
-| English BERT | 16 GB |
-| Swedish BERT | 20 GB |
-| English XLNet Base | 16 GB |
-| English XLNet Large | 113 GB |
-| English RoBERTa | 160 GB |
-| Norwegian Colossal Corpus v1 | 109 GB |
-| Norwegian Colossal Corpus v2 | 256 GB |
 
 # Colab Notebooks
 The original model needs to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
