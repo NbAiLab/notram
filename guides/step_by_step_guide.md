@@ -177,7 +177,7 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 </details>
 
 ## 5) Creating the dataset
-In the final step we collate the corpuses, shuffle them and then create a train and validation file. The training file are properly sharded for streaming purposes on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for,for example, huggingface upload. For uploading this to Huggingface, please see ref. 
+In the final step we collate the corpuses, shuffle them and then create a train and validation file. The training file are properly sharded for streaming purposes on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for,for example, huggingface upload. if you ae creating a ataset for huggingface,skip the rest of this guide and go to: [a relative link](creating_huggingface_dataset.md)
 
 ```bash
 cd ~ 
