@@ -14,9 +14,6 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
 
 2) **Json files**. The corpus is then converted to a common json-lines format. In general all relevant information from the source files are kept but they are converted to a common format for reading. In general we are striving to have one document per line, separate paragraphs. The json-format does not limit what keys can be used since this depends on the source, however, it recommends that if possible the following [json keys](json_format.md) are used. Please see the following [documentation](create_scripts.md) for the set of scripts provided to convert specific source files to json.
 
-<details>
-  <summary>Example json-format</summary>
-
   ```json
  
   {
@@ -36,13 +33,10 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
 }
   
 ```
-  
-</details>
+<br />
 
 3) **Clean json files**. At this stage the files are cleaned and standardised. All documents are still on a paragraph level. Please see the [description of cleaning rules](cleaning_rules_description.md) that are applied. The cleaning procedure does differ between the sources. The sub-corpora are deduplicated internally on paragraph level.
 
-<details>
-  <summary>Example clean json format</summary>
 
   ```json
  
@@ -66,12 +60,10 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
 }
   
 ```
-  
-</details>
+ <br />
 
 4) **Collation and deduplication**. At this stage paragraphs are collated, fasttext-language detections are performed and the keys are standardised and reduced. 
-<details>
-  <summary>Example corpus file format</summary>
+
 
   ```json
  {
@@ -84,6 +76,6 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
 }
 ```
   
-</details>
+<br />
 
 5) **Training dataset**. In the end training dataset are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use. 
