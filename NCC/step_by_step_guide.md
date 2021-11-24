@@ -152,22 +152,10 @@ To have full flexibility on what to include in the final corpuses, this script r
 
 ```bash
 cd ~ 
+mkdir corpus/corpus_files_4/dedup
 
-# Generate the file list
-# In this case it will be just our two files
-# Note that the parameter to ls here is the number "1" and not the letter "l"
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4/dedup --input_folder corpus/clean_json_3
 
-ls -1 corpus/clean_json_3/*.* > corpus/corpus_files_4/filelist.txt
-
-# You can edit this file before proceeding
-
-python notram/corpus_generation_scripts/corpus_files_builder.py --corpus_output_dir corpus/corpus_files_4/
-
-
-**FREDDY**
-Her hadde det også vært ryddigere om den tok --input_folder og --output_folder som parametre. Siden de andre skriptene gjør det.
-** Bug med at den ikke har katalogen helt riktig. Doble //
-** Bug der den gir doble filnavn oscar_nb.json.json. Trolig fordi jeg ikke bruker .jsonl
 
 ```
 
@@ -193,10 +181,10 @@ In the final step we collate the corpuses, shuffle them and then create a train 
 
 ```bash
 cd ~ 
-
+mkdir corpus/corpus_collections_5/dedup
 # Run the corpus file creator
 
-python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/nynorsk --output_folder corpus/corpus_collections_5/nynorsk
+python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/dedup --output_folder corpus/corpus_collections_5/dedup
 ```
 **input_folder**  'Folder with all corpus_files_4 files for the dataset.'
 **Output_folder** 'Result Folder'
