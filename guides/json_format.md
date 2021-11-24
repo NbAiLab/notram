@@ -1,4 +1,4 @@
-# Text Extraction Format
+# JSON Format
 Specification for the internal format used when extracting text from OCR documents. It allows for storing the relevant information from METS/ALTO for further processing.
 
 ## Book example (one for each book)
