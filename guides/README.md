@@ -11,8 +11,8 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 
 ## Setting up Training Environment
 * [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
-* [Create Google Cloud VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
-* [Tensorflow - Configure for training BERT](configure_vm_tensorflow.md)
+* [Create Google Cloud VM, Bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
+* [Tensorflow - Configure for Training BERT](configure_vm_tensorflow.md)
 
 ## Tensorflow
 * [Model Documentation - NB-BERT-BASE](models_tensorflow.md)
