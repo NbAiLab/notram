@@ -96,7 +96,7 @@ The following config-files are used when training NCC. These files are located [
   
   
 <details>
-  <summary>config_ocr.json</summary>
+  <summary>config_twitter.json</summary>
   
 ```json
 {
