@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Create VM, buckets and TPU
 This goes through the process of setting up the machines necessary for training with Tensorflow on a TPU. With the new TPU VM architecture, this step is unnecessary.
 
