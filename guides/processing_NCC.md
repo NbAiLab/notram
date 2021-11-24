@@ -1,5 +1,5 @@
 # Overview - Processing the NCC
-This document gives an overview of how the [NCC](corpus_description.md) is processed. The document links to guides with the exact steps that needs to be performed to recreate the NCC. There is also a practical [step-by-step guide](step_by_step_guide.md) for how to build this corpus.
+This document gives an overview of how the [NCC](corpus_description.md) is processed. The document links to guides with the exact steps that needs to be performed to recreate the NCC. There is also a practical [step-by-step guide](step_by_step_guide.md) for how to build this corpus. It also shows how the data format changes during the process.
 
 ## Processing Structure
 
