@@ -1,5 +1,5 @@
 [<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
-[<img align="left" width="300px" src="../images/bilderavsteg_5.png">][Processing steps]
+[<img align="left" width="400px" src="../images/bilderavsteg_5.png">]
 # Overview - Processing the NCC
 This is a short overview of how the [NCC](corpus_description.md) is processed. The document links to guides with the exact steps that needs to be performed to recreate the NCC. There is also a more thorough practical [step-by-step guide](step_by_step_guide.md) for how to build this corpus. 
 ## Processing Structure
