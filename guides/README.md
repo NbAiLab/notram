@@ -1,3 +1,6 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](http://nb.no)
+
+
 # Guides
 A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for others working on similar topics. 
 
