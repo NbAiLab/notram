@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Routines for creating a Huggingface Dataset
 
 This is a general description for creating a huggingface dataset. It shows all the necessary steps to do the process from data generated with "corpus_dataset_builder.py" to finished dataset in huggingface. As an example we use one of our open datasets so the process can be visible. All scripts used for this task is available from this site. We use the dataset "mydataset" as the example. 
