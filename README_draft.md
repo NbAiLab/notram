@@ -1,4 +1,7 @@
 # Norwegian Transformer Model
+## 🔥 December 1st - Release the Norwegian Colossal Corpus 🔥
+## 🔥 December 1st - Release New Norwegian RoBERTa Models 🔥
+
 The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models. This includes building the Norwegian Colossal Corpus.
 ### Most of these links should appear naturally in the text below
 * [Overview Processing the NCC](processing_NCC.md)
