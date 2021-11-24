@@ -6,7 +6,7 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 ### Most of these links should appear naturally in the text below
 * [Overview Processing the NCC](processing_NCC.md)
 * [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
-* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md) **❗TODO FREDDY**
+* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md)
 * [Norwegian Colossal Corpus Description](corpus_description.md)
 * [JSON-lines Format](json_format.md)
 * [Corpus Create-scripts](create_scripts.md)
