@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Norwegian Colossal Corpus
 This page summarizes the Norwegian Collossal Corpus. The corpus is a collection of multiple smaller Norwegian corpuses that are suitable for training large language models. We have done extensive cleaning on the datasets, and have made them available in a common format.
 
