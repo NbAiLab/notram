@@ -144,11 +144,20 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 </details>
 
 
-## 4) Standardisation and cross corpus deduplication
+## 4) Standardisation and between corpus files deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple substeps. Firstly it strips away any unnecessary meta-data and standardises the fields, i.e. date format. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpus files, and keeps the paragraphs of the longest documents. 
 
 To have full flexibility on what to include in the final corpuses, this script requires specification of what files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
 
+```bash
+cd ~ 
+mkdir corpus/corpus_files_4/dedup
+
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4/dedup --input_files corpus/corpus_files_4/filelist.txt
+
+
+```
+**or** you can run the 'corpus_files_builder.py' directly on the folder as shown below
 
 ```bash
 cd ~ 
@@ -186,7 +195,7 @@ mkdir corpus/corpus_collections_5/dedup
 
 python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/dedup --output_folder corpus/corpus_collections_5/dedup
 ```
-**input_folder**  'Folder with all corpus_files_4 files for the dataset.'
+**input_folder**  'Folder with all corpus_files_4 files for the dataset.' 
 **Output_folder** 'Result Folder'
 
 
