@@ -83,7 +83,8 @@ git push
 All files are named and packed with the naming rules of huggingface in mind.
 
 **Test dataset**
-``bash
+
+```bash
 cd ~
 cd corpus/corpus_collections_5/
 datasets-cli test mydataset
