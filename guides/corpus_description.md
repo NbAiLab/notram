@@ -39,7 +39,7 @@ A collection of documents and reports from the Norwegian government. The files a
 **NEED MORE TEXT HERE - WHO HAS COLLECTED THIS** Also referred to as Stortingsforhandlingene. Collection of documents from the Norwegian Parliament. The corpus contains mainly OCRed reports. Part of the collection at the National Library. 
 | License  | Size | Words | Documents | Avg words per doc  |
 | -------- |   :-----|   -----:| -----:| -----:|
-| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| GB| 1,301,766,124 | 9,528       | 136,625          |
+| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| 8.0 GB| 1,301,766,124 | 9,528       | 136,625          |
 
 <details>
 <summary>View dataset statistics</summary>
@@ -887,14 +887,9 @@ A large collection of out-of-copyright books from the National Library of Norway
 
 | License  | Size | Words | Documents | Avg words per doc  |
 | -------- |   :-----|   -----:| -----:| -----:|
-| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| ? | ? | ? |
+| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
 <details>
 <summary>View dataset statistics</summary>
- 
-### Document Types
-| Source   | Words       | Documents   | Words/Document   |
-|---------:|------------:|------------:|-----------------:|
-| books    | 861,465,907 | 24,253      | 35,519           |
 
 ### Languages
 | Language   | Words       | Documents   | Words/Document   |
