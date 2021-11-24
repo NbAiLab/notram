@@ -1,4 +1,4 @@
-# Commands for handling json lines
+# Frequnetly Used JSON-lines Commands
 This is a collection of commands we frequently use for handling large json-line files.
 
 ## Splitting a file at a specific point
