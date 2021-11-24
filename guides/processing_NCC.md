@@ -9,6 +9,7 @@ This document gives an overview of how the [NCC](corpus_description.md) is proce
 Bygda Ålfoten vart ein del av Bremanger kommune då Davik kommune vart delt i tre ved kommunereguleringa i 1964. (Foto: Arild Nybø, NRK)
 I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor dei andre øyane i Solund, og er det vestlegaste punktet i Noreg som har vore busett. Kvifor vart det bygd eit gudshus bokstaveleg tala midt ute i havet?
 ```
+<br />
   
 
 2) **Json files**. The corpus is then converted to a common json-lines format. In general all relevant information from the source files are kept but they are converted to a common format for reading. In general we are striving to have one document per line, separate paragraphs. The json-format does not limit what keys can be used since this depends on the source, however, it recommends that if possible the following [json keys](json_format.md) are used. Please see the following [documentation](create_scripts.md) for the set of scripts provided to convert specific source files to json.
