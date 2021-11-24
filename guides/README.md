@@ -1,4 +1,4 @@
-[<img align="right" width="150px" src="../images/nblogo.png">](http://nb.no)
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 
 
 # Guides
