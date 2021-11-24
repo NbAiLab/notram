@@ -1,5 +1,17 @@
 # Norwegian Transformer Model
 The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models. This includes building the Norwegian Colossal Corpus.
+### Most of these links should appear naturally in the text below
+## 🛠 Dataset Creation
+* [Overview Processing the NCC](processing_NCC.md)
+* [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
+* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md) **❗TODO FREDDY**
+* [Norwegian Colossal Corpus Description](corpus_description.md)
+* [JSON-lines Format](json_format.md)
+* [Corpus Create-scripts](create_scripts.md)
+* [Corpus Cleaning-rules](cleaning_rules_description.md)
+* [Fequently Used Commands for JSON-line Files](json_commands.md)
+
+
 
 # Models
 Currently the following models are available. 
