@@ -1,6 +1,6 @@
 # Publish Pretrained Tensorflow Checkpoints
 
-This assumes having pretrained a model with [covid-twitter-bert](https://github.com/digitalepidemiologylab/covid-twitter-bert). Basically this is onlye relevant if you have followed the training procedure of nb-bert-base.
+This is marked as obsolete. This assumes having pretrained a model with [covid-twitter-bert](https://github.com/digitalepidemiologylab/covid-twitter-bert). Basically this is onlye relevant if you have followed the training procedure of nb-bert-base.
 
 ## Huggingface
 
