@@ -7,8 +7,8 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Publish Tensorflow Checkpoints on HuggingFace](publish_checkpoint.md)
 
 ## Setting up Training Environment
-* [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
 * [Create Google Cloud VM, Bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
+* [Flax - Configure for training RoBERTa, T5 and GPTNeo](flax.md)
 * [Tensorflow - Configure for Training BERT](configure_vm_tensorflow.md)
 
 ## Documentation
