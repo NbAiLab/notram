@@ -2,7 +2,10 @@
 A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for other working on similar topics. 
 
 ## Dataset Creation
-* [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
+* [Overview Processing the NCC](processing_NCC.md)
+* [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
+* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md)
+* [Exporting Dataset to HuggingFace](creating_huggingface_dataset.md)
 * [Processing MC4 (obsolete)](prepare_common_crawl.md)
 * [Publish Tensorflow Checkpoints on HuggingFace](publish_checkpoint.md)
 
@@ -12,8 +15,11 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Tensorflow - Configure for Training BERT](configure_vm_tensorflow.md)
 
 ## Documentation
-* [Internal jsonl-format](text_extraction_format.md)
+* [Norwegian Colossal Corpus Description](corpus_description.md)
+* [Internal jsonl-format](json_format.md)
 * [Corpus Create-scripts Documentation](create_scripts.md)
+* [Fequently Used Commands for JSON-line Files](json_commands.md)
+* [Corpus Cleaning-rules Documentation](cleaning_rules_description.md)
 * [Model Documentation - NB-BERT-BASE](models_tensorflow.md)
 
 
