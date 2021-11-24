@@ -4,7 +4,7 @@ This document gives an overview of how the [NCC](corpus_description.md) is proce
 ## Processing Structure
 
 1) **Source files**. NCC is composed from multiple sources in various formats. At the "source file"-level the files are stored as close to the original format as possibly.
-<details>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<details>
   <summary>Example source format</summary>
  
 ```text
@@ -84,6 +84,8 @@ I mellomalderen låg det ei kyrkje på Utvær. Utvær ligg åtte km vestanfor de
   "lang_fasttext_conf": "0.823",
   "text": "Men skal ein forhandle, må det også vere forhandlingsvilje. Og evne til å både skape og utnytte eit forhandlingsrom. Partane må, ikkje minst i eit hovudoppgjer, vurdere situasjonen både på kort og lang sikt. Store delar av offentleg sektor står i ein heilt annan situasjon enn industrien og ein del andre næringar. I offentleg sektor er det ikkje mangel på arbeid og oppgåver. Det som manglar er folk med nødvendig utdanning og kompetanse."
 }
-
+```
+  
+</details>
 
 5) **Training dataset**. In the end training dataset are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use. 
