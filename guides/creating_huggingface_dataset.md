@@ -12,6 +12,7 @@ Log in to your huggingface account and create your empty corpus
 *In your top right menu from huggingface, select "new dataset". Set the proper settings private/public, although you will be better off to set the dataset to public for the duration of the creation. After this you can switch the dataset to private. This is done through the huggingface menus for datasets.*
 
 *Go to your local environment (where you store your different corpi)*
+
 **Warning: if you're corpus contains files over 1 GB do not use nfsmounted storage.**
 
 ```bash
