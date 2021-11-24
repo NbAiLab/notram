@@ -10,16 +10,16 @@ The first time you will have to connect to the new VM either through the browser
 
 [This guide](configure_vm_tensorflow.md) explains in details how to set up a Notram VM from scratch. You might want to load a pre-built VM image instead since this is easier. You will however still need to check out the latest code from the git and authenticate with gcloud. You will find details about this in the guide as well.
 
-## Create a bucket
+## Create a Bucket
 The bucket needs to be in the same zone as your TPU and VM. The easiest way to create a bucket is through https//console.cloud.google.com -> Storage. Click "Create Bucket". Create a bucket called "notram-myzone" (replace myzone with the zone you are using). Use standard settings, however choosing the non-default "unigram" access control should be sufficient and make things easier later.
 
-### Copy necessary files to the bucket
+### Copy Necessary Files to the Bucket
 You will find a [bucket](gs://cloud-tpu-checkpoints/bert) with pretrained NLP models [here](https://console.cloud.google.com/storage/browser/cloud-tpu-checkpoints). If you continue from a checkpoint, you will need these files. You should have used the vocabulary-file from here to generate your tfrecord-files. Alternatively you can copy all the files from Googles public bucket to your bucket. 
 
 Here is the code for uploading tfrecord-files to a directory we call "corpus1" and a locally copied cased-wwm-BERT-model to the bucket named "notram-myzone". A small detail is the "-m" parameter. It allows for uploading multiple files at the same time, and also automatically restores if your upload is interrupted.  
 
 ```bash
-# After having downloaded the Bert-files
+# After having downloaded the BERT-files
 # Unpack and change to the correct directory to copy the unpacked BERT files to the bucket
 # Here we are using the wwm multicased model
 gsutil cp gs://cloud-tpu-checkpoints/bert/keras_bert/multi_cased_L-12_H-768_A-12.tar.gz .
