@@ -18,7 +18,6 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [Corpus Create-scripts Documentation](create_scripts.md)
 * [Fequently Used Commands for JSON-line Files](json_commands.md)
 * [Corpus Cleaning-rules Documentation](cleaning_rules_description.md)
-* [Model Documentation - nb-bert-base](models_tensorflow.md)
 
 
 
