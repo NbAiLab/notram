@@ -1,7 +1,7 @@
 [<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 
 
-# Guides
+# 📖 Guides
 A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for others working on similar topics. 
 
 ## Dataset Creation
