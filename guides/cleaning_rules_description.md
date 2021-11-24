@@ -26,3 +26,38 @@ The **clean.py**-script is using configuration files to do the actual cleaning. 
 | assume_late_missing_dates| true| Assyme that any missing dates (for instance ocr_date) is late, meaning today.|
 | drop_paragraphs_with_encoding_errors|true | Drop all paragraphs with encoding errors. |
 | drop_paragraphs_with_curly_brackets|true | Drop paragraphs with curly {brackets}. This effectively removes javascript from a lot of web documents.|
+
+## Overview of the used config-files.
+The following config-files are used when training NCC. These files are located [here](../corpus_generation_scripts/config/).
+
+<details>
+  <summary>config.json</summary>
+  
+```json
+  {
+	"min_alphawords_paragraph": 0,
+	"min_length_article": 20,
+	"min_words_paragraph": 0,
+	"max_word_length_paragraph":1000,
+	"remove_control_characters": true,
+	"standardize_punctuation": true,
+	"replace_usernames_tweets": false,
+	"replace_urls": false,
+	"replace_email_addresses": false,
+	"fix_unicode":true,
+	"normalise_unicode": true,
+	"min_ocr_date": "20090101",
+	"min_publish_date": "18140517",
+	"min_document_word_confidence": 0.9,
+	"min_confidence_paragraph": 0.9,
+	"remove_non_terminated_paragraphs": true,
+	"truncate_last_valid_sentence": true,
+	"minimise_jsonl": true,
+	"assume_late_missing_dates": true,
+	"drop_paragraphs_with_encoding_errors": true,
+	"drop_paragraphs_with_curly_brackets": true
+}
+ ```
+  
+  
+  >/details>
