@@ -2,6 +2,7 @@
 du -s .
 if ! test -d small_files; then
 	mkdir small_files
+fi
 
 if ! test -f open_books_no.json; then
 	awk '{print}' open_books_published_* > open_books_no.json
