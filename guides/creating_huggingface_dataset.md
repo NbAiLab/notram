@@ -40,7 +40,7 @@ python corpus_dataset_builder.py --input_folder corpus/corpus_files_4 --output_f
 ```
 The dataset builder takes the following parameters:
 
-**input_folder**    The folder that contains the files cross corpus deduplicated files (output from step 4) \n
+**input_folder**    The folder that contains the files cross corpus deduplicated files (output from step 4) <br\>
 **output_folder**   The folder for storing the result dataset
 
 
