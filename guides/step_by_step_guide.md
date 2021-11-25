@@ -194,7 +194,7 @@ cd ~
 # Run the corpus file creator
 python notram/corpus_generation_scripts/corpus_streaming_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/dataset_5/mydataset
 ```
-The **input_folder** is the folder where the corpus-files are generated. The result will create multiple sub folders <br/> **output_folder** corpus/dataset_5/mydataset. The name **mydataset** will be used if you choose to upload your dataset to HuggingFace.
+The **input_folder** is the folder where the original corpus-files are generated. <br/> **output_folder** The name **mydataset** will be used. Subdirectories ar automaticlly generated.
 
 
 
