@@ -36,9 +36,13 @@ After this you can create or modify the contents of your dataset with the datase
 
 ```bash
 cd ~
-
 python corpus_dataset_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/corpus_collections_5/mydataset 
 ```
+The dataset builder takes the following parameters:
+
+**input_folder**    The folder that contains the files cross corpus deduplicated files (output from step 4)
+**output_folder**   The folder for storing the result dataset
+
 
 The dataset builder does the following tasks:
 
