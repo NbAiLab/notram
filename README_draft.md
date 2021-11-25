@@ -62,13 +62,13 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 
 ## Licenses
 | Doc_type  | License  | 
-| :-------- | :-------- |  
-| government_nb, government_nn, parliament, publicreports, lovdata_cd_*, maalfrid_* | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|
+| :-------- | :------------- |  
+| government_nb, government_nn, parliament, publicreports, lovdata_cd_\*, maalfrid_\* | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|
 | newspapers_ocr, newspapers_pdf, books| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|
 | newspapers_online_nb, newspapers_online_nn | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|
 | opensubtitles, wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|
-| mc4, oscar_nb, oscar_nn | available from other sources |
-| newspapers_restricted_*, books_restricted, norart, lovdata_transfer, twitter, twitter_news, facebook, vgdebatt, reddit | restricted |
+| mc4, oscar_nb, oscar_nn | externally available |
+| newspapers_restricted_\*, books_restricted, norart, lovdata_transfer, twitter, twitter_news, facebook, vgdebatt, reddit | restricted |
 
 
 
