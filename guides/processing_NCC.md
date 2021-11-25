@@ -19,4 +19,4 @@ This is a short overview of how the [NCC](corpus_description.md) is processed. T
 5) **Training dataset**. In the end training dataset are created from the corpus files. These corpuses can be in multiple formats (tfds, json, huggingface datasets etc) depending on the use. 
 
 ---
-<img align="center" width="150px" src="../images/Nasjonalbiblioteket.jpg"> <sup> - written by __Per Egil Kummervold__ and __Freddy Wetjen__</sup>
+<img width="150px" src="../images/Nasjonalbiblioteket.jpg"> <sup> - written by __Per Egil Kummervold__ and __Freddy Wetjen__</sup>
