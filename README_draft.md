@@ -60,7 +60,10 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
 
-## Licenses
+Needs to be adapted for NCC... Just here for reference.
+## License
+Various licences applies to different parts of the corpus. Every document in the corpus has a tag telling what **"doc_type"** it belongs to. If you are unable to accept any of the licenses, you should filter out the **"doc_type"** with a conflicting license. 
+
 | Doc_type  | License  | 
 | :-------- | :------------- |  
 | government_nb, government_nn, parliament, publicreports, lovdata_cd_\*, maalfrid_\* | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|
