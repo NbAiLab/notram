@@ -5,7 +5,7 @@
 This is a short overview of how the [NCC](corpus_description.md) is processed. The document links to guides with the exact steps that needs to be performed to recreate the NCC. There is also a more thorough practical [step-by-step guide](step_by_step_guide.md) for how to build this corpus. 
 ## Processing Structure
 
-[<img width="600px" src="../images/bilderavsteg.png">](https://ai.nb.no)
+[<img width="1000px" src="../images/bilderavsteg.png">](https://ai.nb.no)
 
 
 1) **Source files**. NCC is composed from multiple sources in various formats. At the "source file"-level the files are stored as close to the original format as possibly.
