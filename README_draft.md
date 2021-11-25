@@ -18,7 +18,7 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 
 
 # Models
-Currently the following models are available. 
+Currently the following models are available. Trained on a larger corpus.
 | Name  |  Description | Download/Demo|
 | -------- |  -----| -----:|
 | nb-bert-base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). It is trained on The Colossal Norwegian Corpus v1.  | [INFO](https://huggingface.co/NbAiLab/nb-bert-base)|
