@@ -22,7 +22,7 @@
 - **Homepage:** https://github.com/NBAiLab/notram
 - **Repository:** https://github.com/NBAiLab/notram
 - **Paper:** https://arxiv.org/abs/2104.09617
-- **Point of Contact:** [Freddy Wetjen][mailto:freddy.wetjen@nb.no]
+- **Point of Contact:** [Freddy Wetjen](mailto:freddy.wetjen@nb.no)
 
 <description>
 
@@ -38,12 +38,14 @@ If you do not want to use the HuggingFace Dataset-library for training, or if yo
 
 for i in $(seq -f "%04g" 1 <nosplits>): do wget https://huggingface.co/datasets/NbAiLab/<corpusname>/blob/main/data/train-shard-$i-of-<nosplitszeropadded>.json.gz &; done
 # Create one large training file of all shards without unpacking
-zcat *.gz > onefile.json.gz
+cat *.gz > onefile.json.gz
 ```
+
 <details>
 <summary>List of all the files.</summary>
 <filelist>
 </details>
+
 ### Dataset Summary
 The <corpusname> dataset contains json lines with language training data. Here is an example json line:
 ```json
