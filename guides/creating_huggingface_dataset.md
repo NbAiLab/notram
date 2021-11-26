@@ -91,6 +91,7 @@ cd corpus/corpus_collections_5/
 datasets-cli test mydataset
 ```
 This command will test your dataset and verify that everything is in order for using the dataset.
+
 ---
 <p align="center"><sup>Written by Freddy Wetjen and Per Egil Kummervold</sup></p>
 
