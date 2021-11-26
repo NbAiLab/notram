@@ -9,7 +9,7 @@ Log in to your huggingface account and create your empty corpus
 
 *In your top right menu from huggingface, select "new dataset". Set the proper settings private/public, although you will be better off to set the dataset to public for the duration of the creation. After this you can switch the dataset to private. This is done through the huggingface menus for datasets.*
 
-*Go to your local environment (where you store your different corpi)*
+*Go to your local environment (where you store your different corpora)*
 
 **Warning: if you're corpus contains files over 1 GB do not use nfsmounted storage.**
 
@@ -77,6 +77,7 @@ After this you can check in your dataset. Here we do a check in of the example "
 ```bash
 cd ~
 cd corpus/corpus_collections_5/mydataset
+echo "complete_all/" >> .gitignore       #Ignore complete_all to save space
 git add .
 git commit -m "First commit of dataset mydataset"
 git push
@@ -91,4 +92,5 @@ cd ~
 cd corpus/corpus_collections_5/
 datasets-cli test mydataset
 ```
+This command will test your dataset and verify that everything is in order for using the dataset. 
 
