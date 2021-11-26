@@ -69,9 +69,7 @@ cp ../../../complete_all/validation-shard-0001-of* dummy_data/.
 zip -r dummy_data.zip dummy_data/
 rm -r dummy_data/
 
-
 ```
-
 
 After this you can check in your dataset. Here we do a check in of the example "mydataset":
 ```bash
@@ -92,5 +90,8 @@ cd ~
 cd corpus/corpus_collections_5/
 datasets-cli test mydataset
 ```
-This command will test your dataset and verify that everything is in order for using the dataset. 
+This command will test your dataset and verify that everything is in order for using the dataset.
+---
+<p align="center"><sup>Written by Freddy Wetjen and Per Egil Kummervold</sup></p>
+
 
