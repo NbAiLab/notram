@@ -42,9 +42,9 @@ The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are 
 * *F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.*
 
 # Colossal Norwegian Corpus
-We aim at building a copus of Norwegian text that is on par with available datasets for English. Our aim is to make as much of this publicly available as possible. 
+We aim at building a corpus of Norwegian text that is comparable in size and quality with available datasets for English. Our goal is to make as much of this publicly available as possible. We think that available training data will be the crucial point for making good machine learning based models. 
 
-In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are processed are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus).
+In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are built are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus). This document shows one way to go from digitized (ocr'd) text to machine learning traing set. 
 
 | Corpus  | License  | Size | Words | Documents | Avg words per doc  |
 | -------- | -------- |   :-----|   -----:| -----:| -----:|
@@ -59,7 +59,7 @@ In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-
 | Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
-
+The list above shows the different sources being included in the corpus. It shows a diversity both in size and character of the data. This diversity we found to be 
 Needs to be adapted for NCC... Just here for reference.
 ## License
 Various licences applies to different parts of the corpus. Every document in the corpus has a tag telling what **"doc_type"** it belongs to. If you are unable to accept any of the licenses, you should filter out the **"doc_type"** with a conflicting license. 
