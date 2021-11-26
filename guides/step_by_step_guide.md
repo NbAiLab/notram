@@ -145,10 +145,10 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 </details>
 
 
-## 4) Standardisation and between corpus files deduplication
+## 4) Simplification of files and between corpus files deduplication
 Often we will have a lot of small corpuses that we want to combine. The last step has multiple substeps. Firstly it strips away any unnecessary meta-data and standardises the fields, i.e. date format. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpus files, and keeps the paragraphs of the longest documents. 
 
-To have full flexibility on what to include in the final corpuses, this script requires specification of what files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
+To have full flexibility on what to include in the final corpuses, this script allowes specification of which files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
 
 ```bash
 cd ~ 
@@ -157,14 +157,13 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 
 
 ```
-**or** you can run the 'corpus_files_builder.py' directly on the folder as shown below
+**or** <br\> you can run the 'corpus_files_builder.py' directly on the folder as shown below
 
 ```bash
 cd ~ 
-mkdir corpus/corpus_files_4/dedup
+mkdir corpus/corpus_files_4/
 
 python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4 --input_folder corpus/clean_json_3
-
 
 ```
 
@@ -186,7 +185,7 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 </details>
 
 ## 5) Creating the dataset
-In the final step we collate the corpuses, shuffle them and then create a train and validation file. The training file are properly sharded for streaming purposes on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for,for example, HuggingFace upload. if you ae creating a dataset for HuggingFace,skip the rest of this guide and go to [create_huggingface_dataset](creating_huggingface_dataset.md)
+In the final step we collate the corpuses, shuffle the lines and then create a train and validation file. The training file are properly sharded for streaming purposes, for example on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for HuggingFace upload. if you are creating a dataset for HuggingFace, skip the rest of this guide and go to [create_huggingface_dataset](creating_huggingface_dataset.md)
 
 ```bash
 cd ~ 
@@ -194,7 +193,7 @@ cd ~
 # Run the corpus file creator
 python notram/corpus_generation_scripts/corpus_streaming_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/dataset_5/mydataset
 ```
-**input_folder** is the folder where the original corpus-files are generated. <br/> **output_folder** The name **mydataset** will be used. Subdirectories ar automaticlly generated.
+**input_folder** is the folder where the original corpus-files are generated. <br/> **output_folder** The name **mydataset** will be used. Subdirectories are automaticlly generated.
 
 
 
