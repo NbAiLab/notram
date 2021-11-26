@@ -68,7 +68,7 @@ cp ../../../complete_all/train-shard-0001-of* dummy_data/.
 cp ../../../complete_all/validation-shard-0001-of* dummy_data/.
 zip -r dummy_data.zip dummy_data/
 rm -r dummy_data/
-cd ../../../
+
 
 ```
 
