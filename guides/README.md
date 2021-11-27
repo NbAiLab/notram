@@ -24,7 +24,7 @@ A collection of stand-alone documentation and guides used for creating the NB-mo
 * [JSON-lines Format](json_format.md)
 * [Corpus Create-scripts](create_scripts.md)
 * [Corpus Cleaning-rules](cleaning_rules_description.md)
-* [Fequently Used Commands for JSON-line Files](json_commands.md)
+* [Frequently Used Commands for JSON-line Files](json_commands.md)
 
 
 
