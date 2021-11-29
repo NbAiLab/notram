@@ -18,6 +18,13 @@ sed -i "s/<languages>/$languages/g"  ${outputdir}/tmp.md
 mindato=`date +"%d%m%Y"`
 sed -i "s/<builddate>/$mindato/g"  ${outputdir}/tmp.md
 
+if test -f "${outputdir}/template_yaml.md"
+then
+yaml=$(< ${outputdir}/template_yaml.md)
+else
+yaml=$(< ./template_yaml.md)
+
+fi
 foo=$(< ${outputdir}/stats.md)
 desc=$(< ${outputdir}/description.md)
 license=$(< ${outputdir}/license.md)
@@ -30,17 +37,22 @@ printf '%s\n' "$foo" >>  ${outputdir}/tmp2.md
 
 elif [[ ${line} == "<filelist>" ]]
 then
+echo -e "\n">>  ${outputdir}/tmp2.md
 for f in `ls -1 ${outputdir}/data`
 do
 fibasename=`echo $f |rev|cut -d "/" -f 1 | rev | cut -d "." -f 1`
 echo "* [${fibasename}](https://huggingface.co/datasets/NbAiLab/${corpusname}/resolve/main/data/${fibasename}.json.gz)" >>  ${outputdir}/tmp2.md
 done
+echo -e "\n">>  ${outputdir}/tmp2.md
 elif [[ ${line} == "<description>" ]]
 then
   printf '%s\n' "$desc" >>  ${outputdir}/tmp2.md
 elif [[ ${line} == "<license>" ]]
 then
   printf '%s\n' "$license" >>  ${outputdir}/tmp2.md
+elif [[ ${line} == "<yaml>" ]]
+then
+  printf '%s\n' "$yaml" >>  ${outputdir}/tmp2.md
 else
   printf '%s\n' "$line" >>   ${outputdir}/tmp2.md
 fi
