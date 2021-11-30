@@ -60,7 +60,7 @@ def main(args):
                     if match:
                         for p in match:
                             pnr_count += 1
-                            pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p, "filler":pnr_filler}
+                            pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p[0], "filler":pnr_filler}
                             log_writer.write(pnr_log)
                         output_line['text'] = re.sub(pnr_regex2, pnr_filler, output_line['text'])
 
