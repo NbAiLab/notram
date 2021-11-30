@@ -1,7 +1,7 @@
 import os, sys, jsonlines, json, re
 from tqdm import tqdm
 from utils.misc import ArgParseDefault, add_bool_arg
-
+import pnr
 
 def main(args):
     # compile regexes
@@ -51,18 +51,20 @@ def main(args):
                     match = re.findall(pnr_regex1, line['text'])
                     if match:
                         for p in match:
-                            pnr_count += 1
-                            pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p[0], "filler":pnr_filler}
-                            log_writer.write(pnr_log)
-                        output_line['text'] = re.sub(pnr_regex1, pnr_filler, output_line['text'])
-                                        
+                            if pnr.IsValidNorwegianPersonalIdentificationNumber(p[0].replace(" ","").replace("-","")):
+                                pnr_count += 1
+                                pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p[0], "filler":pnr_filler}
+                                log_writer.write(pnr_log)
+                                output_line['text'] = re.sub(pnr_regex1, pnr_filler, output_line['text'])
+
                     match = re.findall(pnr_regex2, line['text'])
                     if match:
                         for p in match:
-                            pnr_count += 1
-                            pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p[0], "filler":pnr_filler}
-                            log_writer.write(pnr_log)
-                        output_line['text'] = re.sub(pnr_regex2, pnr_filler, output_line['text'])
+                            if pnr.IsValidNorwegianPersonalIdentificationNumber(p[0].replace(" ","").replace("-","")):
+                                pnr_count += 1
+                                pnr_log = {"id":line['id'],"doc_type": line['doc_type'], "pnr":p[0], "filler":pnr_filler}
+                                log_writer.write(pnr_log)
+                                output_line['text'] = re.sub(pnr_regex2, pnr_filler, output_line['text'])
 
                     #Email removal
                     match = re.findall(email_regex, line['text'])
@@ -74,8 +76,8 @@ def main(args):
 
                         output_line['text'] = re.sub(email_regex, email_filler, output_line['text'])
 
-                    if not n%10000:
-                        print(".", end = '', flush=True)
+                    #if not n%10000:
+                    #    print(".", end = '', flush=True)
                     
         
                     writer.write(output_line)
