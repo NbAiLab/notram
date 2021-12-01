@@ -1,5 +1,5 @@
 # Norwegian Transformer Model
-## 🔥 December 1st - Release the Norwegian Colossal Corpus 🔥
+## 🔥 December 1st 2021 - First Release of the Norwegian Colossal Corpus 🔥
 
 The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The goal is to create transformer-based models for the Norwegian language, and using the libraries resources in building a huge Norwegian text corpus.
 
@@ -21,20 +21,19 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 | Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
-The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). On this page you will also find extensice information of the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar)
+The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). On this page you will also find extensice information of the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
+
+
 
 ### Most of these links should appear naturally in the text below
-* [Overview Processing the NCC](processing_NCC.md)
-* [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
-* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md)
+* [Overview Processing the NCC](guides/processing_NCC.md)
+* [Step-by-Step Guide Processing the NCC](guides/step_by_step_guide.md)
+* [Creating and Uploading HuggingFace Dataset](guides/creating_huggingface_dataset.md)
 
-* [JSON-lines Format](json_format.md)
-* [Corpus Create-scripts](create_scripts.md)
-* [Corpus Cleaning-rules](cleaning_rules_description.md)
-* [Fequently Used Commands for JSON-line Files](json_commands.md)
-
-
-
+* [JSON-lines Format](guides/json_format.md)
+* [Corpus Create-scripts](guides/create_scripts.md)
+* [Corpus Cleaning-rules](guides/cleaning_rules_description.md)
+* [Fequently Used Commands for JSON-line Files](guides/json_commands.md)
 
 
 # Models
