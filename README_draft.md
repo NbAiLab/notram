@@ -2,6 +2,12 @@
 
 The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The goal is to create transformer-based models for the Norwegian language, and using the libraries resources in building a huge Norwegian text corpus.
 
+The goal of the project is therefore twofold:
+
+* Build transformer-based models for Norwegian and nordic languages on modern transformer architectures (BERT,Roberta,T5 a.o)
+* Build an execellent corpus (both in quality and quantity) for specialized for unsupervised language training. Our goal s to ake ts availbale to the machine learning community.
+
+
 
 ## 🔥 December 1st 2021 - First Release of the Norwegian Colossal Corpus 🔥
 # Norwegian Colossal Corpus
