@@ -1,13 +1,33 @@
 # Norwegian Transformer Model
 ## 🔥 December 1st - Release the Norwegian Colossal Corpus 🔥
-## 🔥 December 1st - Release New Norwegian RoBERTa Models 🔥
 
-The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The purpose is to create a transformer-based model for the Norwegian language. In addition the project aims at collecting and facilitate language resources that can be used for creating other Norweigan NLP models. This includes building the Norwegian Colossal Corpus.
+The project "NoTraM - Norwegian Transformer Model" is owned by the National Library of Norway. The goal is to create transformer-based models for the Norwegian language, and using the libraries resources in building a huge Norwegian text corpus.
+
+# Norwegian Colossal Corpus
+The Norwegian Colossal Corpus is an open text corpus comparable in size and quality with available datasets for English. 
+
+The core of the corpus is based on a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006. In the digitalisation project the goal has veeb to digitize and store all content ever published in Norwegian. In addition we have added multiple other public sources of Norwegian text. Details about the sources as well as how they are built are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus). 
+
+| Corpus  | License  | Size | Words | Documents | Avg words per doc  |
+| -------- | -------- |   :-----|   -----:| -----:| -----:|
+| Government Reports | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|1.1 GB| 155,318,754 | 4,648       | 33,416           |
+| Parliament Collections | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| 8.0 GB| 1,301,766,124 | 9,528       | 136,625          |
+| Pulic Reports| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.5 GB| 80,064,396 | 3,365       | 23,793           |
+| LovData CD | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.4 GB| 54,923,432 | 51,920      | 1,057            |
+| Målfrid Collection| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|14.0 GB| 1,905,481,776 | 6,735,367   |              282 |
+| Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
+| Newspapers Online | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
+| Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
+| Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
+| Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
+
+The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). On this page you will also find extensice information of the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar)
+
 ### Most of these links should appear naturally in the text below
 * [Overview Processing the NCC](processing_NCC.md)
 * [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
 * [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md)
-* [Norwegian Colossal Corpus Description](corpus_description.md)
+
 * [JSON-lines Format](json_format.md)
 * [Corpus Create-scripts](create_scripts.md)
 * [Corpus Cleaning-rules](cleaning_rules_description.md)
@@ -41,25 +61,7 @@ The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are 
 
 * *F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.*
 
-# Colossal Norwegian Corpus
-We aim at building a corpus of Norwegian text that is comparable in size and quality with available datasets for English. Our goal is to make as much of this publicly available as possible. We think that available training data will be the crucial point for making good machine learning based models. 
 
-In a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006, the National Library of Norway is aiming at digitizing and storing all content ever published in Norwegian and making it available to the public. This is the basis for the training corpus. In addition we add several other public sources of Norwegian text. Details about the sources as well as how they are built are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus). This document shows one way to go from digitized (ocr'd) text to machine learning traing set. 
-
-| Corpus  | License  | Size | Words | Documents | Avg words per doc  |
-| -------- | -------- |   :-----|   -----:| -----:| -----:|
-| Government Reports | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|1.1 GB| 155,318,754 | 4,648       | 33,416           |
-| Parliament Collections | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| 8.0 GB| 1,301,766,124 | 9,528       | 136,625          |
-| Pulic Reports| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.5 GB| 80,064,396 | 3,365       | 23,793           |
-| LovData CD | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.4 GB| 54,923,432 | 51,920      | 1,057            |
-| Målfrid Collection| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|14.0 GB| 1,905,481,776 | 6,735,367   |              282 |
-| Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
-| Newspapers Online | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
-| Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
-| Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
-| Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
-
-The list above shows the different sources being included in the corpus. It shows a diversity both in size and character of the data. This diversity we found to be 
 Needs to be adapted for NCC... Just here for reference.
 ## License
 Various licences applies to different parts of the corpus. Every document in the corpus has a tag telling what **"doc_type"** it belongs to. If you are unable to accept any of the licenses, you should filter out the **"doc_type"** with a conflicting license. 
