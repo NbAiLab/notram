@@ -21,32 +21,23 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 | Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
-The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). On this page you will also find extensice information of the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
+The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This page explains in details how the corpus can be used. It also gives extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
 
-
-
-### Most of these links should appear naturally in the text below
-* [Overview Processing the NCC](guides/processing_NCC.md)
-* [Step-by-Step Guide Processing the NCC](guides/step_by_step_guide.md)
-* [Creating and Uploading HuggingFace Dataset](guides/creating_huggingface_dataset.md)
-
-* [JSON-lines Format](guides/json_format.md)
-* [Corpus Create-scripts](guides/create_scripts.md)
-* [Corpus Cleaning-rules](guides/cleaning_rules_description.md)
-* [Fequently Used Commands for JSON-line Files](guides/json_commands.md)
+In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a [step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md)
 
 
 # Models
-Currently the following models are available. Trained on a larger corpus.
-| Name  |  Description | Download/Demo|
-| -------- |  -----| -----:|
-| nb-bert-base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). It is trained on The Colossal Norwegian Corpus v1.  | [INFO](https://huggingface.co/NbAiLab/nb-bert-base)|
-| nb-bert-base-mnli | The nb-bert-base-model finetuned on the mnli task. Unlike the other models, this model can be used for classification tasks without any additional finetuning. | [INFO](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
-| nb-bert-large (beta) | The model is based on the BERT-large-uncased architecture, and is trained on the Colossal Norwegian Corpus v1. For classification tasks, this model will give the best results.| [INFO](https://huggingface.co/NbAiLab/nb-bert-large)|
+Currently the following models are available from the National Library. The models below are all trained on an older, and partly restricted corpus. We are planning on releasing a set of models trained on our newest corpus.
+
+| Name  |  Description | Model|
+| -------- |  :-----| ----------:|
+| nb&#8209;bert&#8209;base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). Even if it is trained mainly on Norwegian text, it does also maintain some of the multilingual capabilities. Especially it has good scores on Swedish, Danish and English. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base)|
+| nb&#8209;bert&#8209;base&#8209;mnli | The nb-bert-base-model finetuned on the mnli task. Unlike the other models, this model can be used for classification tasks without any additional finetuning. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
+| nb&#8209;bert&#8209;large | The model is based on the BERT-large-uncased architecture. For classification tasks, this model will give the best results. Since it is uncased it might not give as good results on NER-tasks. It might require more processing power both for finetuning and for inference.| [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-large)|
 
 
 ## Results
-The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are some of our results:
+The NB-BERT-Base model is thoroughly tested in the article cited below. Here are some of our results:
 | Task  |   mBERT-base| NB-BERT-base |
 | -------- |   -----:| -----:|
 |POS - NorNE - Bokmål|98.32|**98.86**|
@@ -61,25 +52,8 @@ The NB-BERT-Base modelis thoroughly tested in the article cited below. Here are 
 * *F1-scores on test dataset. Both models were finetuned for 4 epochs with learning rate 3e-5.*
 
 
-Needs to be adapted for NCC... Just here for reference.
-## License
-Various licences applies to different parts of the corpus. Every document in the corpus has a tag telling what **"doc_type"** it belongs to. If you are unable to accept any of the licenses, you should filter out the **"doc_type"** with a conflicting license. 
-
-| Doc_type  | License  | 
-| :-------- | :------------- |  
-| government_nb, government_nn, parliament, publicreports, lovdata_cd_\*, maalfrid_\* | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|
-| newspapers_ocr, newspapers_pdf, books| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|
-| newspapers_online_nb, newspapers_online_nn | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|
-| opensubtitles, wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|
-| mc4, oscar_nb, oscar_nn | externally available |
-| newspapers_restricted_\*, books_restricted, norart, lovdata_transfer, twitter, twitter_news, facebook, vgdebatt, reddit | restricted |
-
-
-
-
-
 # Colab Notebooks
-The original model needs to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebook will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
+The original models need to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebooks will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
 
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
@@ -88,6 +62,10 @@ The original model needs to be fine-tuned for the target task. A typical task is
 | How to finetune a classification model (advanced)| <a href="https://colab.research.google.com/gist/peregilk/3c5e838f365ab76523ba82ac595e2fcc/nbailab-finetuning-and-evaluating-a-bert-model-for-classification.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
 | How to finetune a NER/POS-model (advanced) | <a href="https://colab.research.google.com/gist/peregilk/6f5efea432e88199f5d68a150cef237f/-nbailab-finetuning-and-evaluating-a-bert-model-for-ner-and-pos.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>|
 
+# Disclaimer 
+_The models published in this repository are intended for a generalist purpose and are available to third parties. These models may have bias and/or any other undesirable distortions.
+When third parties, deploy or provide systems and/or services to other parties using any of these models (or using systems based on these models) or become users of the models, they should note that it is their responsibility to mitigate the risks arising from their use and, in any event, to comply with applicable regulations, including regulations regarding the use of artificial intelligence.
+In no event shall the owner of the models (The National Library of Norway) be liable for any results arising from the use made by third parties of these models._
 
 # Citation
 If you use our models or our corpus, please cite our article:
