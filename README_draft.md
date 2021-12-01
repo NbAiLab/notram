@@ -4,8 +4,8 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 
 The goal of the project is therefore twofold:
 
-* Build transformer-based models for Norwegian and nordic languages on modern transformer architectures (BERT,Roberta,T5 a.o)
-* Build an execellent corpus (both in quality and quantity) for specialized for unsupervised language training. Our goal s to ake ts availbale to the machine learning community.
+* Build transformer-based models for Norwegian and nordic languages based on modern transformer architectures (BERT,Roberta,T5 a.o)
+* Build an execellent corpus (both in quality and quantity) specialized for unsupervised language training. Our goal is to make it available openly to the machine learning community. And thereby make a good resource for future language models in Norwegian.
 
 
 
@@ -28,9 +28,9 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 | Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
-The easiest way to access the corpus is to [downloaded from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This page explains in details how the corpus can be used. It also gives extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
+The easiest way to access the corpus is to [download from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This site explains in details how the corpus can be used. It also gives an extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
 
-In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a [step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md)
+In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a guide where you can follow us in creating a corpus for your data sources[step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and a description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md). We have made all our software available for anyone to use. Most of it is written in python 3. 
 
 
 # Models
@@ -60,7 +60,7 @@ The NB-BERT-Base model is thoroughly tested in the article cited below. Here are
 
 
 # Colab Notebooks
-The original models need to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebooks will allow you to both test the model, and to train your own specialised model on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
+The original models need to be fine-tuned for the target task. A typical task is classification, and it is then recommeded that you train a top fully connected layer for this specific task. The following notebooks will allow you to both test the model, and **to train your own specialised model** on top of our model. Especially the notebook about classification models that trains a sentiment classification task, can very easily be adapted to training any NLP classification task.
 
 | Task  |   Colaboratory Notebook |
 | -------- | -----:|
