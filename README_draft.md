@@ -23,7 +23,6 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 | Newspapers Online | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
 | Library Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
 | Library Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
-| Subtitles | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
 The easiest way to access the corpus is to [download from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This site explains in details how the corpus can be used. It also gives an extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
