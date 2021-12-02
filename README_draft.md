@@ -45,7 +45,7 @@ These models are finetuned on a specific task, and can be used directly.
 | Name  |  Description | Model|
 | -------- |  :-----| ----------:|
 | nb&#8209;bert&#8209;base&#8209;mnli | The nb-bert-base-model finetuned on the mnli task. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
-| saattrupdan/nbailabnb&#8209;basenb&#8209;nernb&#8209;scandi | This NER model is trained by Dan Saatrup on top of nb-bert-base. It has been fine-tuned on the concatenation of DaNE, NorNE, SUC 3.0 and the Icelandic and Faroese parts of the WikiANN dataset. The model yields better results on Norwegian NER tasks than the models only finetuned on Norweigan. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/saattrupdan/nbailab-base-ner-scandi)|
+| saattrupdan/nbailab&#8209;nb&#8209;basenb&#8209;nernb&#8209;scandi | This NER model is trained by Dan Saatrup on top of nb-bert-base. It has been fine-tuned on the concatenation of DaNE, NorNE, SUC 3.0 and the Icelandic and Faroese parts of the WikiANN dataset. The model yields better results on Norwegian NER tasks than the models only finetuned on Norweigan. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/saattrupdan/nbailab-base-ner-scandi)|
 
 
 ## Results
