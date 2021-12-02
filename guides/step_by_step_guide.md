@@ -157,7 +157,7 @@ python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder 
 
 
 ```
-**or** <br\> you can run the 'corpus_files_builder.py' directly on the folder as shown below
+**or** <br /> you can run the 'corpus_files_builder.py' directly on the folder as shown below
 
 ```bash
 cd ~ 
