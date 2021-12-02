@@ -31,14 +31,20 @@ The easiest way to access the corpus is to [download from HuggingFace](https://h
 In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a guide where you can follow us in creating a corpus for your data sources[step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and a description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md). We have made all our software available for anyone to use. Most of it is written in python 3. 
 
 
-# Models
-Currently the following models are available from the National Library. The models below are all trained on an older, and partly restricted corpus. We are planning on releasing a set of models trained on our newest corpus.
-
+# Pretrained Models
+The following pretrained models are available. These models have to be finetuned on a specific task. The finetuning is straight forward if you have a dataset available. Please take a look at the Colabs below for sample code. Often you will only need to change a couple of lines of code to adapt it to your task.
 | Name  |  Description | Model|
 | -------- |  :-----| ----------:|
 | nb&#8209;bert&#8209;base | The original model based on the same structure as [BERT Cased multilingual model](https://github.com/google-research/bert/blob/master/multilingual.md). Even if it is trained mainly on Norwegian text, it does also maintain some of the multilingual capabilities. Especially it has good scores on Swedish, Danish and English. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base)|
-| nb&#8209;bert&#8209;base&#8209;mnli | The nb-bert-base-model finetuned on the mnli task. Unlike the other models, this model can be used for classification tasks without any additional finetuning. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
 | nb&#8209;bert&#8209;large | The model is based on the BERT-large-uncased architecture. For classification tasks, this model will give the best results. Since it is uncased it might not give as good results on NER-tasks. It might require more processing power both for finetuning and for inference.| [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-large)|
+
+
+# Finetuned Models
+These models are finetuned on a specific task, and can be used directly.
+
+| Name  |  Description | Model|
+| -------- |  :-----| ----------:|
+| nb&#8209;bert&#8209;base&#8209;mnli | The nb-bert-base-model finetuned on the mnli task. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
 
 
 ## Results
