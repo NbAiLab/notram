@@ -2,3 +2,38 @@ gcloud alpha compute tpus tpu-vm create pytorch1 --zone=europe-west4-a --acceler
 gcloud alpha compute tpus tpu-vm ssh pytorch1 --zone=europe-west4-a
 export XRT_TPU_CONFIG="localservice;0;localhost:51011"
 
+# Useful Resources
+https://huggingface.co/blog/pytorch-xla
+https://colab.research.google.com/github/huggingface/blog/blob/master/notebooks/13_pytorch_xla.ipynb#scrollTo=GmmBgJmplL29
+
+
+# Install Transformers
+git clone https://github.com/huggingface/transformers
+cd transformers
+pip install --user .
+cd ..
+pip install --user datasets
+
+# If you are planning on streaming datasets
+git clone https://github.com/huggingface/datasets.git
+cd datasets
+pip install -e ".[streaming]"
+cd ~/
+
+!python transformers/examples/xla_spawn.py \
+    --num_cores 8 \
+    transformers/examples/language-modeling/run_mlm.py \
+    --model_name_or_path roberta-base \
+    --dataset_name wikitext \
+    --dataset_config_name wikitext-2-raw-v1 \
+    --max_seq_length 512 \
+    --pad_to_max_length \
+    --logging_dir tensorboard \
+    --num_train_epochs 3 \
+    --do_train \
+    --do_eval \
+    --output_dir output \
+    --per_device_train_batch_size 4 \
+    --per_device_eval_batch_size 4 \
+    --logging_steps=50 \
+    --save_steps=5000
