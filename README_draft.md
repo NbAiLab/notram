@@ -11,7 +11,7 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 # Norwegian Colossal Corpus
 The Norwegian Colossal Corpus is an open text corpus comparable in size and quality with available datasets for English. 
 
-The core of the corpus is based on a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006. In the digitalisation project the goal has veeb to digitize and store all content ever published in Norwegian. In addition we have added multiple other public sources of Norwegian text. Details about the sources as well as how they are built are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/corpus). 
+The core of the corpus is based on a [unique project](https://www.zdnet.com/article/norways-petabyte-plan-store-everything-ever-published-in-a-1000-year-archive/) started in 2006. In the digitalisation project the goal has veeb to digitize and store all content ever published in Norwegian. In addition we have added multiple other public sources of Norwegian text. Details about the sources as well as how they are built are available in the [Colossal Norwegian Corpus Description](https://github.com/NBAiLab/notram/tree/master/guides/corpus_description.md). 
 
 | Corpus  | License  | Size | Words | Documents | Avg words per doc  |
 | -------- | -------- |   :-----|   -----:| -----:| -----:|
@@ -28,7 +28,7 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 
 The easiest way to access the corpus is to [download from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This site explains in details how the corpus can be used. It also gives an extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
 
-In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a guide where you can follow us in creating a corpus for your data sources[step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and a description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md). We have made all our software available for anyone to use. Most of it is written in python 3. 
+In addition to the corpus itself we do provide a set of scripts for [creating](guides/create_scripts.md) and [cleaning](guides/cleaning_rules_description.md) corpus files. We also provide a guide where you can follow us in creating a corpus for your data sources [step-by-Step Guide about how to create corpus file](guides/step_by_step_guide.md), and a description about how to [create and upload a HuggingFace dataset](guides/creating_huggingface_dataset.md). Other tools and guides can also be found on our [Guides Page](guides/README.md). We have made all our software available for anyone to use. Most of it is written in python 3. 
 
 
 # Pretrained Models
@@ -45,7 +45,7 @@ These models are finetuned on a specific task, and can be used directly.
 | Name  |  Description | Model|
 | -------- |  :-----| ----------:|
 | nb&#8209;bert&#8209;base&#8209;mnli | The nb-bert-base-model finetuned on the mnli task. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/NbAiLab/nb-bert-base-mnli)|
-| saattrupdan/nbailab&#8209;nb&#8209;basenb&#8209;nernb&#8209;scandi | This NER model is trained by Dan Saatrup on top of our nb-bert-base. It has been fine-tuned on the concatenation of DaNE, NorNE, SUC 3.0 and the Icelandic and Faroese parts of the WikiANN dataset. The model yields better results on Norwegian NER tasks than the models only finetuned on Norweigan. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/saattrupdan/nbailab-base-ner-scandi)|
+| saattrupdan/nbailab&#8209;nb&#8209;basenb&#8209;nernb&#8209;scandi | This NER model is trained by Dan Saatrup on top of our nb-bert-base. It has been fine-tuned on the concatenation of DaNE, NorNE, SUC 3.0 and the Icelandic and Faroese parts of the WikiANN dataset. The model yields better results on Norwegian NER tasks than the models only finetuned on Norwegian. See model page for more details. | [🤗&nbsp;Model](https://huggingface.co/saattrupdan/nbailab-base-ner-scandi)|
 
 
 ## Results
