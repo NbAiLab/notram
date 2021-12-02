@@ -1,0 +1,4 @@
+gcloud alpha compute tpus tpu-vm create pytorch1 --zone=europe-west4-a --accelerator-type=v3-8 --version=tpu-vm-pt-1.10
+gcloud alpha compute tpus tpu-vm ssh pytorch1 --zone=europe-west4-a
+export XRT_TPU_CONFIG="localservice;0;localhost:51011"
+
