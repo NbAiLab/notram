@@ -15,14 +15,14 @@ The core of the corpus is based on a [unique project](https://www.zdnet.com/arti
 
 | Corpus  | License  | Size | Words | Documents | Avg words per doc  |
 | -------- | -------- |   :-----|   -----:| -----:| -----:|
+| Library Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
+| Library Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
+| LovData CD | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.4 GB| 54,923,432 | 51,920      | 1,057            |
 | Government Reports | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|1.1 GB| 155,318,754 | 4,648       | 33,416           |
 | Parliament Collections | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)| 8.0 GB| 1,301,766,124 | 9,528       | 136,625          |
 | Public Reports| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.5 GB| 80,064,396 | 3,365       | 23,793           |
-| LovData CD | [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|0.4 GB| 54,923,432 | 51,920      | 1,057            |
 | Målfrid Collection| [NLOD 2.0](https://data.norge.no/nlod/en/2.0/)|14.0 GB| 1,905,481,776 | 6,735,367   |              282 |
 | Newspapers Online | [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/)|3.7 GB| 541,481,947 | 3,695,943   |              146 |
-| Library Newspapers| [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|14.0 GB| 2,019,172,625 | 10,096,424  |              199 |
-| Library Books | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)|6.2 GB| 861,465,907 | 24,253 | 35,519 |
 | Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|1.0 GB| 140,992,663 | 681,973     |              206 |
 
 The easiest way to access the corpus is to [download from HuggingFace](https://huggingface.co/datasets/NbAiLab/NCC). This site explains in details how the corpus can be used. It also gives an extensive information about the content of the corpus, as well as how to filter out certain part of the corpus and how it can be combined with other Norwegian datasets like [MC4](https://huggingface.co/datasets/mc4) and [OSCAR](https://huggingface.co/datasets/oscar).
