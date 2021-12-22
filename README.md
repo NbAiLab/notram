@@ -7,7 +7,6 @@ The project "NoTraM - Norwegian Transformer Model" is owned by the National Libr
 * Build and publish a state-of-the-art Norwegian corpus for unsupervised language training, and make it available to the NLP community
 <br />
 
-## 🔥 December 1st 2021 - First Release of the Norwegian Colossal Corpus 🔥
 # Norwegian Colossal Corpus
 The Norwegian Colossal Corpus is an open text corpus comparable in size and quality with available datasets for English. 
 
