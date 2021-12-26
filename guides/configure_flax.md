@@ -57,7 +57,7 @@ source flax/bin/activate
 Run this on the VM. Dont worry if the first command returns a few errors.:
 ```bash
 pip install --upgrade clu
-pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+pip install "jax[tpu]>=0.2.26" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 export USE_TORCH=False
 ```
 
