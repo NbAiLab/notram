@@ -24,7 +24,7 @@ gcloud alpha compute tpus tpu-vm ssh flax --zone europe-west4-a
 However, if an additional disk is required. This sets up the VM with an external disk of 1TB
 ```bash
 gcloud compute disks create flaxdisk1 --size 1000 --zone europe-west4-a
-gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/nancy-194708/zones/europe-west4-a/disks/flaxdisk1
+gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accelerator-type v3-8 --version v2-alpha --data-disk source=projects/[MYPROJECT]/zones/europe-west4-a/disks/flaxdisk1
 gcloud alpha compute tpus tpu-vm ssh gptneo-red --zone europe-west4-a
 ```
 
