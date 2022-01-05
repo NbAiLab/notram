@@ -944,50 +944,6 @@ A large collection of out-of-copyright books from the National Library of Norway
 |     1810 | 1,013,747   | 58          | 130,214          |
 </details>
 
-## Subtitles
-Norwegian subtitles from OpenSubtitles.
-| License  | Size | Words | Documents | Avg words per doc  |
-| -------- |   :-----|   -----:| -----:| -----:|
-| [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)|0.2 GB| 54,133,135 | 13,416      | 4,034            |
-<details>
-<summary>View dataset statistics</summary>
- 
- ### Languages
-| Language   | Words      | Documents   | Words/Document   |
-|-----------:|-----------:|------------:|-----------------:|
-| no         | 32,485,846 | 8,252       | 3,936            |
-| da         | 21,646,096 | 5,117       | 4,230            |
-| sv         | 876        | 14          | 62               |
-| nn         | 120        | 5           | 24               |
-| en         | 81         | 9           | 9                |
-| ru         | 46         | 2           | 23               |
-| fr         | 21         | 5           | 4                |
-| de         | 11         | 2           | 5                |
-| ro         | 10         | 2           | 5                |
-| pt         | 8          | 2           | 4                |
-| es         | 6          | 1           | 6                |
-| sh         | 4          | 1           | 4                |
-| oc         | 3          | 1           | 3                |
-| ja         | 3          | 1           | 3                |
-| eo         | 2          | 1           | 2                |
-| nl         | 2          | 1           | 2                |
-
-### Publish Periode
-|   Decade | Words      | Documents   | Words/Document   |
-|---------:|-----------:|------------:|-----------------:|
-|     2020 | 13,412     | 9           | 1,490            |
-|     2010 | 27,638,493 | 7,289       | 30,488           |
-|     2000 | 14,104,886 | 3,546       | 39,812           |
-|     1990 | 5,298,273  | 1,178       | 44,776           |
-|     1980 | 2,194,461  | 515         | 42,851           |
-|     1970 | 1,661,891  | 356         | 48,088           |
-|     1960 | 1,269,907  | 233         | 56,574           |
-|     1950 | 1,166,250  | 169         | 68,309           |
-|     1940 | 537,825    | 77          | 69,822           |
-|     1930 | 238,155    | 35          | 63,086           |
-|     1920 | 9,582      | 9           | 4,473            |
- 
-</details>
 
 ## Wikipedia
 A dump of Wikipedia downloaded 2021.06.20. The text is cleaned. The dump contains both Bokmål and Nynorsk, however this is marked in the corpus in the doc_type-tag. In addition there is automatic language detection by Fasttext that in most cases will overlap.
