@@ -28,6 +28,11 @@ gcloud alpha compute tpus tpu-vm create gptneo-red --zone europe-west4-a --accel
 gcloud alpha compute tpus tpu-vm ssh gptneo-red --zone europe-west4-a
 ```
 
+**Note:** Make sure there exists a `default` VPC network in the project.
+```bash
+gcloud compute networks create default --project=[MYPROJECT] --subnet-mode=auto --mtu=1460 --bgp-routing-mode=global
+```
+
 After starting the VM, the disk needs to be formatted according to this: https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting
 ```bash
 sudo lsblk
