@@ -1041,10 +1041,3 @@ Please also note that there are Norwegian Web Corpora available, most notably th
 
 We are unable to redistribute these sets but the datasets are in the same HuggingFace Dataset format and can easily be combined with these sets. 
 
-
-## Statistics
-
-|---------:|-----------:|------------:|-----------------:|
-|     2020 | 80,064,396 | 3,365       | 23,793           |
-|     2020 | 80,064,396 | 3,365       | 23,793           |
- 
