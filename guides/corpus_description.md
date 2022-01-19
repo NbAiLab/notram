@@ -1040,3 +1040,11 @@ A dump of Wikipedia downloaded 2021.06.20. The text is cleaned. The dump contain
 Please also note that there are Norwegian Web Corpora available, most notably the [OSCAR](https://huggingface.co/datasets/oscar) and the [MC4](https://huggingface.co/datasets/mc4) dataset.  Both these sets have a Norwegian Bokmål and a Norwegian Nynorsk subset. MC4 is the largest set (70GB) but is fairly uncleaned with a significant part of machine generated text. The OSCAR set is smaller (**?**) but is better clened. Almost the entire OSCAR corpus is contained in MC4, so it is not recommented adding both. It might also be an alternative to add just a portion of MC4 because of its size and relatively low quality.
 
 We are unable to redistribute these sets but the datasets are in the same HuggingFace Dataset format and can easily be combined with these sets. 
+
+
+## Statistics
+
+|---------:|-----------:|------------:|-----------------:|
+|     2020 | 80,064,396 | 3,365       | 23,793           |
+|     2020 | 80,064,396 | 3,365       | 23,793           |
+ 
