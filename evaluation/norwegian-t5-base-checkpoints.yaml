@@ -1,0 +1,70 @@
+name: Norwegian T5-base checkpoints evals
+project: norwegian-t5-base-checkpoints
+program: run_translation_t5_flax.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval_score
+  goal: maximize
+parameters:
+  model_name_or_path:
+    values:
+    - pere/norwegian-t5-base-NCC-fast@1cb5886a497c22970bc52e383efc7374cedd8453
+    - pere/norwegian-t5-base-NCC-fast@8fdc9cbc4da57055b0706690e5f8d67966b88a80
+    - pere/norwegian-t5-base-NCC-fast@6b974ff6a1eb6e282dc4f38c47f689b0ded96656
+    - pere/norwegian-t5-base-NCC-fast@6ace84aa46e9601abe187f38c2395ccb1542800c
+    - pere/norwegian-t5-base-NCC-fast@5404b0166a10b3a36072d10a2145fbaa3666b19b
+  train_file:
+    value: src_tgt_nb-nn.json
+  validation_file:
+    value: parallel_src_tgt_dev.json
+  test_file:
+    value: parallel_src_tgt_test.json
+  do_train:
+    value: true
+  do_eval:
+    value: true
+  do_predict:
+    value: true
+  predict_with_generate:
+    value: true
+  adafactor:
+    value: true
+  dropout_rate:
+    value: 0.1
+  weight_decay:
+    values:
+    - 0.0
+    - 0.05
+  run:
+    values:
+    - 1
+    - 2
+    - 3
+  num_train_epochs:
+    value:  20
+  learning_rate:
+    values:
+    - 1e-3
+  learning_rate_is_constant:
+    values:
+    - false
+  warmup_steps:
+    value: 0
+  per_device_train_batch_size:
+    value: 4
+  per_device_eval_batch_size:
+    value: 4
+  overwrite_output_dir:
+    value: true
+  max_source_length:
+    value: 512
+  max_target_length:
+    value: 512
+  output_dir:
+    value: ./output

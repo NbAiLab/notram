@@ -1,0 +1,53 @@
+name: RoBERTa-base-highlr token evaluation (same seed, prior to saving weights and logs of step 100001)
+project: roberta-base-highlr-step-100k
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_macro
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norwegian_parliament
+  task_name:
+    values:
+    - political
+  model_name:
+    values:
+    - pere/norwegian-roberta-base-highlr@f589f31eed4791f33a78cbe3c1a2e08f2e7f8a3e
+    - pere/norwegian-roberta-base-highlr@dc0afdf07deab31937b71bba14ce92147f8a33a0
+    - pere/norwegian-roberta-base-highlr@c85aa53e7926b26a1a05da1fd0d4996ac8416ffa
+    - pere/norwegian-roberta-base-highlr@450794e190b388c4a7f6acb7828171236ac37290
+    - pere/norwegian-roberta-base-highlr@bc7462b3ecb9d850174268564383ded7d838ead0
+    - pere/norwegian-roberta-base-highlr@e0e397edfca23cfa8c09de9728b5ee746322b609
+    - pere/norwegian-roberta-base-highlr@8f84b5f1bb61836d746c995731fcdc9af819d8a0
+    - pere/norwegian-roberta-base-highlr@d2917876ada0b57ad5191b51eb078e87779d7b4b
+    - pere/norwegian-roberta-base-highlr@e7e0a08e9f7e7ced0f43090eb18c885b1bdeb4d4
+    - pere/norwegian-roberta-base-highlr@535adbfeba5d6c917e7fb82fead4a34fd04fde88
+    - pere/norwegian-roberta-base-highlr@f9ba9b027cb1c9e06af92a7cb6fffa18105e0c20
+    - pere/norwegian-roberta-base-highlr@43cb6ac965e3459725b78d2954fad622ede3b509
+  from_flax:
+    value: true
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 3
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  seed:
+    value: 2021

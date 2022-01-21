@@ -1,0 +1,48 @@
+name: RoBERTa-base DSP speech evaluation (3 runs)
+project: roberta-base-dsp-speech-eval
+program: notram_eval.py
+entity: nbailab
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1_macro
+  goal: maximize
+parameters:
+  dataset_name:
+    value: NbAiLab/norwegian_parliament
+  task_name:
+    value: "speech"
+  model_name:
+    values:
+    - NbAiLab/nb-roberta-base-scandinavian
+    - NbAiLab/nb-roberta-base-bokmaal
+    - NbAiLab/nb-roberta-base-nynorsk
+    - NbAiLab/nb-roberta-base-social
+    - NbAiLab/nb-roberta-base-bokmaal-hq
+    # - NbAiLab/nb-roberta-base-bokmaal-hq-supercased
+    # - NbAiLab/nb-roberta-base-bokmaal-hq-uncased-supercased
+    - NbAiLab/nb-roberta-base-bokmaal-admin
+  from_flax:
+    value: true
+  force_download:
+    value: true
+  num_train_epochs:
+    value: 3
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0.0
+  learning_rate:
+    value: 3e-5
+  train_batch_size:
+    value: 8
+  cache_dir:
+    value: ./cache
+  output_dir:
+    value: ./output
+  run:
+    values: [1, 2, 3]

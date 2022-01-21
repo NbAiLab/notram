@@ -25,7 +25,8 @@ import time
 from dataclasses import dataclass, field
 from functools import partial
 from pathlib import Path
-from typing import Callable, Optional
+import random
+from typing import Callable, Optional, Tuple
 
 import datasets
 import nltk  # Here to have a nice missing dependency error message early on
@@ -52,6 +53,7 @@ from transformers import (
     TrainingArguments,
     FlaxT5ForConditionalGeneration,
     is_tensorboard_available,
+    set_seed,
 )
 from transformers.file_utils import is_offline_mode
 
@@ -232,6 +234,9 @@ class ExtraArguments:
     dropout_rate: Optional[float] = field(
         default=None, metadata={"help": "Dropout rate. By default loaded from the model config."}
     )
+    run: Optional[int] = field(
+        default=None, metadata={"help": "Control variable for doing several runs of the same experiment. It will force random seeds even across the same set of parameters fo a grid search."}
+    )
 
 
 summarization_name_mapping = {
@@ -297,6 +302,13 @@ def create_learning_rate_fn(
     )
     schedule_fn = optax.join_schedules(schedules=[warmup_fn, decay_fn], boundaries=[num_warmup_steps])
     return schedule_fn
+
+
+def extract_revision(name: str) -> Tuple[str, None]:
+    if name and "@" in name:
+        return name.split("@")
+    else:
+        return name, None
 
 
 def main():
@@ -371,37 +383,48 @@ def main():
     # Load pretrained model and tokenizer
 
     if model_args.config_name:
-        config = AutoConfig.from_pretrained(model_args.config_name, cache_dir=model_args.cache_dir)
+        config_name, revision = extract_revision(model_args.config_name)
+        config = AutoConfig.from_pretrained(config_name, cache_dir=model_args.cache_dir, revision=revision)
     elif model_args.model_name_or_path:
-        config = AutoConfig.from_pretrained(model_args.model_name_or_path, cache_dir=model_args.cache_dir)
+        model_name_or_path, revision = extract_revision(model_args.model_name_or_path)
+        config = AutoConfig.from_pretrained(model_name_or_path, cache_dir=model_args.cache_dir, revision=revision)
     else:
         config = CONFIG_MAPPING[model_args.model_type]()
         logger.warning("You are instantiating a new config instance from scratch.")
 
     if model_args.tokenizer_name:
+        tokenizer_name, revision = extract_revision(model_args.tokenizer_name)
         tokenizer = AutoTokenizer.from_pretrained(
-            model_args.tokenizer_name, cache_dir=model_args.cache_dir, use_fast=model_args.use_fast_tokenizer
+            tokenizer_name, cache_dir=model_args.cache_dir, use_fast=model_args.use_fast_tokenizer, revision=revision
         )
     elif model_args.model_name_or_path:
+        model_name_or_path, revision = extract_revision(model_args.model_name_or_path)
         tokenizer = AutoTokenizer.from_pretrained(
-            model_args.model_name_or_path, cache_dir=model_args.cache_dir, use_fast=model_args.use_fast_tokenizer
+            model_name_or_path, cache_dir=model_args.cache_dir, use_fast=model_args.use_fast_tokenizer, revision=revision
         )
     else:
         raise ValueError(
             "You are instantiating a new tokenizer from scratch. This is not supported by this script."
             "You can do it from another script, save it, and load it from here, using --tokenizer_name."
         )
+
     if extra_args.dropout_rate is not None:
         logger.info(f"Overwriting dropout_rate from {config.dropout_rate} to {extra_args.dropout_rate}")
         config.dropout_rate = extra_args.dropout_rate
+
+    if extra_args.run:
+        training_args.seed = random.randrange(10**3)
+    set_seed(training_args.seed)
+
     if model_args.model_name_or_path:
-        # from_flax, from_pt
+        model_name_or_path, revision = extract_revision(model_args.model_name_or_path)
         model = FlaxT5ForConditionalGeneration.from_pretrained(
-            model_args.model_name_or_path, config=config, seed=training_args.seed, dtype=getattr(jnp, model_args.dtype)
+            model_name_or_path, config=config, seed=training_args.seed, dtype=getattr(jnp, model_args.dtype), revision=revision
         )
     else:
+        _, revision = extract_revision(config)
         model = FlaxT5ForConditionalGeneration.from_config(
-            config, seed=training_args.seed, dtype=getattr(jnp, model_args.dtype)
+            config, seed=training_args.seed, dtype=getattr(jnp, model_args.dtype), revision=revision
         )
 
     if model.config.decoder_start_token_id is None:
@@ -564,13 +587,16 @@ def main():
     # Enable tensorboard only on the master node
     has_tensorboard = is_tensorboard_available()
     if has_tensorboard and jax.process_index() == 0:
-        run_name  = f"{model_args.model_name_or_path.replace('/', '-').replace('.', '')}_"
-        run_name += f"e{int(training_args.num_train_epochs)}_"
-        run_name += f"bs{int(training_args.per_device_train_batch_size)}_"
-        run_name += f"lr{float(training_args.learning_rate)}_"
-        run_name += f"{'constant' if extra_args.learning_rate_is_constant else 'decaying'}_"
-        run_name += f"d{float(extra_args.dropout_rate)}_"
-        run_name += f"wd{float(training_args.weight_decay)}"
+        run_name  = f"{model_args.model_name_or_path.replace('/', '-').replace('.', '')}"
+        run_name += f"_e{int(training_args.num_train_epochs)}"
+        run_name += f"_bs{int(training_args.per_device_train_batch_size)}"
+        run_name += f"_lr{float(training_args.learning_rate)}"
+        run_name += f"_{'constant' if extra_args.learning_rate_is_constant else 'decaying'}"
+        run_name += f"_d{float(extra_args.dropout_rate)}"
+        run_name += f"_wd{float(training_args.weight_decay)}"
+        run_name += f"_s{str(training_args.seed)}"
+        if extra_args.run:
+            run_name += f"_r{str(extra_args.run)}"
 
         logger.info(f"Run name: {run_name}")
         try:
@@ -584,6 +610,11 @@ def main():
             wandb.config.update(training_args)
             wandb.config.update(model_args)
             wandb.config.update(data_args)
+            wandb.config.update(extra_args)
+            wandb.config.update({
+                "model_name": model_name_or_path,
+                "revision": revision,
+            }, allow_val_change=True)
             from flax.metrics.tensorboard import SummaryWriter
             summary_writer = SummaryWriter(log_dir=Path(training_args.output_dir))
         except ImportError as ie:

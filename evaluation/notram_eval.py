@@ -315,7 +315,11 @@ def main(args):
     run_name = f"{run_name}_lr{str(args.learning_rate)}"
     run_name = f"{run_name}_ws{str(args.warmup_steps)}"
     run_name = f"{run_name}_wd{str(args.weight_decay)}"
+    run_name = f"{run_name}_ab1{str(args.adam_beta1)}"
+    run_name = f"{run_name}_ab2{str(args.adam_beta2)}"
+    run_name = f"{run_name}_ae{str(args.adam_epsilon)}"
     run_name = f"{run_name}_s{str(seed)}"
+
     if args.max_length != 512:
         run_name = f"{run_name}_seq{str(args.max_length)}"
     if args.label_all_tokens:
@@ -331,9 +335,9 @@ def main(args):
     max_length = args.max_length #@param {type: "number"}
     # Training settings
     weight_decay = args.weight_decay  #@param {type: "number"}
-    adam_beta1 = 0.9  #@param {type: "number"}
-    adam_beta2 = 0.999  #@param {type: "number"}
-    adam_epsilon = 1e-08  #@param {type: "number"}
+    adam_beta1 = args.adam_beta1  # 0.9  #@param {type: "number"}
+    adam_beta2 = args.adam_beta2  # 0.999  #@param {type: "number"}
+    adam_epsilon = args.adam_epsilon  # 1e-08  #@param {type: "number"}
     max_grad_norm = 1.0  #@param {type: "number"}
     save_total_limit = 1  #@param {type: "integer"}
     load_best_model_at_end = False  #@param {type: "boolean"}
@@ -397,6 +401,7 @@ def main(args):
         cache_dir=args.cache_dir,
         force_download=args.force_download,
         revision=revision,
+        use_auth_token=True,
     )
     tokenizer = AutoTokenizer.from_pretrained(
         model_name,
@@ -404,6 +409,7 @@ def main(args):
         use_fast=True,
         force_download=args.force_download,
         revision=revision,
+        use_auth_token=True,
     )
     if isinstance(tokenizer, (RobertaTokenizer, RobertaTokenizerFast)):
         tokenizer = AutoTokenizer.from_pretrained(
@@ -412,6 +418,7 @@ def main(args):
             use_fast=True,
             force_download=args.force_download,
             revision=revision,
+            use_auth_token=True,
             add_prefix_space=True,
         )
     tokenizer_test_sentence = """
@@ -433,6 +440,7 @@ def main(args):
             force_download=args.force_download,
             from_flax=args.from_flax,
             revision=revision,
+            use_auth_token=True,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -457,6 +465,7 @@ def main(args):
             force_download=args.force_download,
             from_flax=args.from_flax,
             revision=revision,
+            use_auth_token=True,
         )
         # Preprocessing the dataset
         tokenized_datasets = dataset.map(
@@ -526,8 +535,9 @@ def main(args):
         seed=seed,
         save_total_limit=save_total_limit,
         run_name=run_name,
-        disable_tqdm=True,
+        disable_tqdm=False,
         eval_steps=500,
+        report_to="all",
     )
     # Initialize our Trainer
     trainer = Trainer(
@@ -695,6 +705,18 @@ if __name__ == "__main__":
     parser.add_argument('--weight_decay',
         metavar='weight_decay', type=float, default=0.0,
         help='Weight decay',
+    )
+    parser.add_argument('--adam_beta1',
+        metavar='adam_beta1', type=float, default=0.9,
+        help='AdamW beta1',
+    )
+    parser.add_argument('--adam_beta2',
+        metavar='adam_beta2', type=float, default=0.999,
+        help='AdamW beta2',
+    )
+    parser.add_argument('--adam_epsilon',
+        metavar='adam_epsilon', type=float, default=1e-8,
+        help='AdamW epsilon',
     )
     parser.add_argument('--label_all_tokens',
         metavar='label_all_tokens', type=bool, default=False,

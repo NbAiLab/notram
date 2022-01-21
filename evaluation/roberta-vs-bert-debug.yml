@@ -1,0 +1,57 @@
+name: RoBERTa vs BERT
+project: roberta-vs-bert-debug
+entity: nbailab
+program: notram_eval.py
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+method: grid
+metric:
+  name: eval:f1
+  goal: maximize
+parameters:
+  cache_dir:
+    value: ./cache
+  force_download:
+    value: true
+  model_name:
+    values:
+    - NbAiLab/nb-roberta-base
+    - NbAiLab/nb-bert-base
+    # - NbAiLab/test
+  from_flax:
+    value: false
+  dataset_name:
+    values:
+    - NbAiLab/norne:bokmaal
+  learning_rate:
+    value: 3e-5
+  num_train_epochs:
+    value: 3
+  output_dir:
+    value: ./output
+  seed:
+    values:
+    - 2021
+  task_name:
+    value: ner
+  train_batch_size:
+    value: 8
+  warmup_steps:
+    value: 0.1
+  weight_decay:
+    value: 0
+  adam_beta1:
+    value: 0.9
+  adam_beta2:
+    value: 0.98
+  adam_epsilon:
+    value: 1e-6
+    # adam_beta1:
+  #   value: 0.9
+  # adam_beta2:
+  #   value: 0.999
+  # adam_epsilon:
+  #   value: 1e-8

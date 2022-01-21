@@ -24,10 +24,14 @@ parameters:
     # - pere/norwegian-roberta-base-highlr@d2917876ada0b57ad5191b51eb078e87779d7b4b
     # - pere/norwegian-roberta-base-highlr@8c35d5759fb7e83ea0415d9a0fa3fb13d1b63241
     # - pere/norwegian-roberta-base-highlr@992f1bffc0d27d32a31b678e822751c9dcc251dd
-    - pere/norwegian-roberta-base-highlr@c27ac92cf6806cccd8122452681627a6c6b5c78b
-    - pere/norwegian-roberta-base-highlr@c9b57a36124f9f4804da578564c45eabea9a2b66
-    - pere/norwegian-roberta-base-highlr@bb294db72f4c4b623ab0923712b85363bb1f8900
-    - pere/norwegian-roberta-base-highlr-512@7043fc5cf5bc349aaa230f1b504c4686108c2cbe
+    # - pere/norwegian-roberta-base-highlr@c27ac92cf6806cccd8122452681627a6c6b5c78b
+    # - pere/norwegian-roberta-base-highlr@c9b57a36124f9f4804da578564c45eabea9a2b66
+    # - pere/norwegian-roberta-base-highlr@bb294db72f4c4b623ab0923712b85363bb1f8900
+    # - pere/norwegian-roberta-base-highlr-512@7043fc5cf5bc349aaa230f1b504c4686108c2cbe
+    - pere/norwegian-roberta-base-highlr-512@9a03e72d85bcb59de52ad777b6350495b5c7ca3b
+    - pere/norwegian-roberta-base-highlr-512@8e7898d01e32a083d7fbf578887522c4291f18c1
+    - pere/norwegian-roberta-base-highlr-512@c9828f99df4d91f9a99a3738000a3f16ab52fae2
+    - pere/norwegian-roberta-base-highlr-512@d49d542bd5e51e6fda6e25e182c2be4c27557ee7
   from_flax:
     value: true
   force_download:
