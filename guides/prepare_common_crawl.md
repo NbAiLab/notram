@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Preparing the mC4
 This guide is sort of outdated now since AllenAI has done this job and published this entire dataset on HuggingFace. Keeping just for the archive.
 

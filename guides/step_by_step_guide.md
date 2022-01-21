@@ -1,5 +1,6 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Step-By-Step Corpus Building Guide
-This step-by-step guide walks you through the entire process of curating a corpus in the json-format used by the NCC. The examples here is applied on the OSCAR corpus, but can easily be adaptet to any sub-corpus you would like to convert to this format.
+This step-by-step guide walks you through the entire process of curating a corpus in the json-format used by the NCC. The examples here is applied on the OSCAR corpus, but can easily be adaptet to any sub-corpus you would like to convert to this format. The steps are ordered identified by the number given.
 
 | 1  | 2 |  3 | 4 | 5 |
 | :--------: |   :--------: | :--------:| :--------:| :--------:|
@@ -7,7 +8,7 @@ This step-by-step guide walks you through the entire process of curating a corpu
 
 
 ## 1) Preparation and Obtaining Source Files
-In this example we store all the files under */home/user*. Here we will have two directories, */home/user/notram* that is the notram-git, and */home/user/corpus* where our subcorpus is stored. Under the last folder, there will be the following sub-directories: *source\_1*, *json\_2*, *clean\_json\_3*, *corpus\_files\_4*, *dataset_5*.
+In this example we store all the files under **/home/user**. Here we will have two directories, **/home/user/notram** that is the notram-git, and **/home/user/corpus** where our subcorpus is stored. Under the last folder, there will be the following sub-directories: **source\_1**, **json\_2**, **clean\_json\_3**, **corpus\_files\_4**, **dataset_5**.
 
 Lets create this structure
 ```bash
@@ -20,7 +21,7 @@ git clone https://github.com/NBAiLab/notram.git
 pip install -r notram/requirements.txt
 
 # Make the directories
-mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/clean_json_3/log corpus/corpus_files_4 corpus/corpus_collections_5
+mkdir corpus corpus/source_1 corpus/json_2 corpus/clean_json_3 corpus/clean_json_3/log corpus/corpus_files_4 corpus/dataset_5 corpus/dataset_5/my_dataset
 
 ```
 
@@ -33,7 +34,7 @@ In this example we download the [OSCAR](https://oscar-corpus.com/post/oscar-v21-
 * [no_part_4.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_4.txt.gz)
 * [no_part_5.txt.gz](https://huggingface.co/datasets/oscar-corpus/OSCAR-2109/resolve/main/packaged/no/no_part_5.txt.gz)
 
-Make sure the files are named as above, and downloaded to the folder *corpus/source_1* before continuing.
+Make sure the files are named as above, and downloaded to the folder **corpus/source_1** before continuing.
 
 ```bash
 #
@@ -100,7 +101,7 @@ python notram/corpus_generation_scripts/create_oscar.py --language_reported nb  
 </details>
 
 ## 3) Cleaning and Deduplication
-The problem with using web based sources for training languge models is that they contain a lot of noise. Typical examples is long product lists that are not really language and considerable amount of machine generated text. The OSCAR corpus is considerably more cleaned than for instance MC4, but we still apply our cleaning procedure also on this corpus.
+The problem with using web based sources for training language models is that they contain a lot of noise. Typical examples is long product lists that are not really language and considerable amount of machine generated text. The OSCAR corpus is considerably more cleaned than for instance MC4, but we still apply our cleaning procedure also on this corpus.
 
 The cleaning routines are defined in separate config-files. These can be adapted to the specific source. Cleaning procedures for OCR-based texts are usually different from digitally born texts. Here we are using a config.script from the notram-repository. You can of course make your own config-file and refer to this instead. The cleaning also does a few other tricks: It calculates the document length and a hash for each of the paragraphs. This speeds up the process of deduplicating across the corpuses.
 
@@ -144,30 +145,25 @@ python notram/corpus_generation_scripts/clean.py --input_file corpus/json_2/osca
 </details>
 
 
-## 4) Standardisation and cross corpus deduplication
-Often we will have a lot of small corpuses that we want to combine. The last step has multiple steps. Firstly it strips away any unnecessary meta-data and standardises for instance date formet. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpuses, and keeps the paragraphs in the longest documents. 
+## 4) Simplification of files and between corpus files deduplication
+Often we will have a lot of small corpuses that we want to combine. The last step has multiple substeps. Firstly it strips away any unnecessary meta-data and standardises the fields, i.e. date format. It then uses Fasttext to do language detection based on the text. Please refer to the Fasttext pages for how to install this. In the end it runs deduplication across all corpus files, and keeps the paragraphs of the longest documents. 
 
-To have full flexibility on what to include in the final corpuses, this script requires specification of what files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
-
+To have full flexibility on what to include in the final corpuses, this script allowes specification of which files to be included. The file is *corpus\_files\_4/filelist.txt* is a text file with absolute paths. 
 
 ```bash
 cd ~ 
 
-# Generate the file list
-# In this case it will be just our two files
-# Note that the parameter to ls here is the number "1" and not the letter "l"
-
-ls -1 corpus/clean_json_3/*.* > corpus/corpus_files_4/filelist.txt
-
-# You can of course edit this file before proceding
-
-python notram/corpus_generation_scripts/corpus_files_builder.py --corpus_output_dir corpus/corpus_files_4/
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4 --input_files corpus/corpus_files_4/filelist.txt
 
 
-**FREDDY**
-Her hadde det også vært ryddigere om den tok --input_folder og --output_folder som parametre. Siden de andre skriptene gjør det.
-** Bug med at den ikke har katalogen helt riktig. Doble //
-** Bug der den gir doble filnavn oscar_nb.json.json. Trolig fordi jeg ikke bruker .jsonl
+```
+**or** <br /> you can run the 'corpus_files_builder.py' directly on the folder as shown below
+
+```bash
+cd ~ 
+mkdir corpus/corpus_files_4/
+
+python notram/corpus_generation_scripts/corpus_files_builder.py --output_folder corpus/corpus_files_4 --input_folder corpus/clean_json_3
 
 ```
 
@@ -189,17 +185,18 @@ Her hadde det også vært ryddigere om den tok --input_folder og --output_folder
 </details>
 
 ## 5) Creating the dataset
-In the final step we collate the corpuses, shuffle them and then create a train and validation file. For uploading this to Huggingface, please look at **THIS GUIDE**. 
+In the final step we collate the corpuses, shuffle the lines and then create a train and validation file. The training file are properly sharded for streaming purposes, for example on hugginface. in subdirectory 'complete_all' all files are kept in original size both the original file, the shuffled file, and the train/validation split. In the subdirectory 'data' you will find properly splitted shards (both train and validation) with proper naming for HuggingFace upload. if you are creating a dataset for HuggingFace, skip the rest of this guide and go to [create_huggingface_dataset](creating_huggingface_dataset.md)
 
 ```bash
 cd ~ 
 
 # Run the corpus file creator
-**FREDDY**
+python notram/corpus_generation_scripts/corpus_streaming_builder.py --input_folder corpus/corpus_files_4 --output_folder corpus/dataset_5/mydataset
+```
+**input_folder** is the folder where the original corpus-files are generated. <br/> **output_folder** The name **mydataset** will be used. Subdirectories are automaticlly generated.
 
-python notram/corpus_generation_scripts/dataset_builder.py --input_folder corpus/corpus_files_4/ --corpus_output_dir corpus/corpus_collections_5/
 
-**FREDDY input_folder
-**FREDDY Hvorfor ikke bare --output_folder som brukes i de andre scriptene....?
 
+---
+<p align="center"><sup>Written by Freddy Wetjen and Per Egil Kummervold</sup></p>
 

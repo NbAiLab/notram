@@ -271,11 +271,23 @@ if __name__ == '__main__':
 
     corpusfiledirfile = ""
 
-    corpusfiledir = indir
+    corpusfiledir = ind
 
     makesinglecorpusfile(datasetname,corpusfiledir,outdir)
     shuffleandsplitcorpusfile(outdir + "/complete_all/" + datasetname + ".json")
     shutil.copy(outdir + "/" + "complete_all/validation.json",outdir + "/" + "data/validation-shard-0001-of-0001.json")
+    if fileexists(indir + "/description.md") == True:
+        print("copying description.md")
+        shutil.copy(indir + "/description.md",outdir + "/description.md")
+    else:
+        print(indir + "/description.md does not exist")
+
+    if fileexists(indir + "/license.md") == True:
+        print("copying license.md")
+        shutil.copy(indir + "/license.md",outdir + "/license.md")
+    else:
+        print(indir + "/license.md does not exist")
+
     print("Start gzip data")
     gzipsplitfiles(outdir + "/data" )
     complete_all = outdir + "/" + "complete_all"
@@ -295,21 +307,4 @@ if __name__ == '__main__':
     gzipsplitfiles(complete_all)
     print("End gzip complete_all")
 
-    print("generating datacard")
-    cardcmd = './generatedatacard.sh' + " " + "template_datacard.md" + " " + setname + " " + str(numberofsplits) + " " + "no-NN,no-NB,sv-SE,da-DK,fi-FI,fo-FO,is-IS"  + " " +  outdir
-    #print(cardcmd)
-    process = subprocess.Popen(cardcmd, shell=True, stdout=subprocess.PIPE)
-    process.wait()
-    print("generating dataloader")
-    loadercmd = './generatedataloader.sh' + " " + "template_dataloader.py" + " " + setname + " " + str(numberofsplits)   + " " +  outdir
-    process = subprocess.Popen(loadercmd, shell=True, stdout=subprocess.PIPE)
-    process.wait()
-
-    #print(" end generating dummy zip")
-    #datacardfrom="README.md"
-    # datacardto = args.corpus_output_dir + "/"+ "README.md"
-    # dataloaderfrom=setname+".py"
-    # dataloaderto = args.corpus_output_dir + "/"+ setname + ".py"
-    # shutil.move(dataloaderfrom, dataloaderto)
-    # shutil.move(datacardfrom, datacardto)
-
+   

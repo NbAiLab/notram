@@ -160,8 +160,11 @@ def appenddict(sumdict,appdict):
     return newdict
 
 def parse_args():
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('--corpus_output_dir', help='Dir for resulting corpus files', required=True, type=str)
+    parser.add_argument('--input_files', help='Path to file with a listing of files to be included ', required=False, type=str)
+    parser.add_argument('--input_folder', help='Folder with all cleaned input json files', required=False, type=str)
+    parser.add_argument('--output_folder', help='Folder for  deduplicated jsonl files', required=True, type=str)
     args = parser.parse_args()
     return args
 
@@ -169,48 +172,51 @@ def parse_args():
 if __name__ == '__main__':
 
     args = parse_args()
+    if args.input_folder is not None and args.input_files is not None:
+        print("Error: You can not specify both 'input_files' and 'input_folder'")
+        exit(-1)
+
+    if args.input_folder is None and args.input_files is None:
+        print("Error: You must specify either 'input_files' and 'input_folder'")
+        exit(-1)
+
     start = datetime.now()
     printwithtime("Start")
     cnttotal = 0
-    outputdir = args.corpus_output_dir
-    outputindexdir = outputdir + "/tmp"
-    filelistfile = outputdir + "/filelist.txt"
+    outputfolder = args.output_folder
+    if args.output_folder.endswith('/'):
+        outputfolder = args.output_folder[:-1]
+
+    listoffilestoinclude = ""
+    if args.input_folder is not None:
+        inputfolder = args.input_folder
+        if args.input_folder.endswith('/'):
+            inputfolder = args.input_folder[:-1]
+        listoffilestoinclude = glob.glob(inputfolder + "/*.json*")
+    else:
+        listoffilestoinclude =open(args.input_files,"r").readlines()
+
+    outputindexdir = outputfolder + "/tmp"
+
     if directoryexists(outputindexdir ) == False:
         os.makedirs(outputindexdir )
     else:
         shutil.rmtree(outputindexdir)
         os.makedirs(outputindexdir)
 
-    if (fileexists(filelistfile) == False):
-        printwithtime("Filelist does not exist for dir: " + args.corpus_output_dir)
-        exit(-1)
-
-    filelistfp = open(filelistfile, "r")
-    listoffilestoinclude = filelistfp.readlines()
-    filelistfp.close()
-    relativesettoinclude=set()
-    relativefilenamesok = True
-    for l in listoffilestoinclude:
-        if l.split("/")[-1].strip() in relativesettoinclude:
-            relativefilenamesok=False
-        else:
-            relativesettoinclude.add(l.split("/")[-1].strip())
-
-
-    if relativefilenamesok == True:
-        printwithtime("Relative file names are ok for: " + args.corpus_output_dir)
-    else:
-        printwithtime("Relative file names are not ok for: " + args.corpus_output_dir)
 
     sumdict = {}
+
+    #print(listoffilestoinclude)
     for l in listoffilestoinclude:
+        #print("###" +l)
         relindexfilename=l.strip().replace("/","_").split(".")[0] + ".idx"
         indexfilename = outputindexdir + "/" +relindexfilename
         ldict=indexlevel_1(l.strip(), indexfilename)
         sumdict=appenddict(sumdict,ldict)
 
     #aggdict = buildaggregatedindex(outputindexdir, outputdir + "/aggregatedindex.aidx" )
-    printaggregatedindex(sumdict,outputdir + "/aggregatedindex.aidx" )
+    printaggregatedindex(sumdict,outputfolder + "/aggregatedindex.aidx" )
     aggdict=sumdict
     printwithtime("Aggregated dictionary size: " + str(len(aggdict)))
 
@@ -218,12 +224,8 @@ if __name__ == '__main__':
     #print(aggdict)
     for l in listoffilestoinclude:
         outfilename = ""
-        if relativefilenamesok == True:
-            outfilename = outputdir + "/" + l.split("/")[-1].strip()
-        else:
-            outfilename=outputdir + "/" + l.strip().replace("/","_")
-
-        if outfilename.endswith(".jsonl"):
+        outfilename = outputfolder + "/" + l.split("/")[-1].strip()
+        if outfilename.endswith(".jsonl") or outfilename.endswith(".json"):
             outfilename=outfilename.split(".")[0] + ".json"
         else:
             outfilename = outfilename + ".json"
@@ -233,8 +235,8 @@ if __name__ == '__main__':
         printwithtime("Writing corpus file: " +  outfilename)
         with open(srcfilename, "r") as reader:
             cnttotal = 0
-            for l in reader:
-                j = json.loads(l)
+            for line in reader:
+                j = json.loads(line)
                 # printwithtime(j)
                 outputstring = ""
                 jlen = j['doc_length']
@@ -265,7 +267,7 @@ if __name__ == '__main__':
                         jsonObject = {"id": j['id'], "doc_type":j['doc_type'],"publish_year":j['publish_year'],"lang_fasttext":lang,"lang_fasttext_conf": str(precision),"text": outputstring.strip()}
                         outputfilefp.write(jsonObject)
 
-        outputfilefp.write("\n")
+        #outputfilefp.write("\n")
         outputfilefp.close()
         print("\n")
     printwithtime("End writing corpus files")

@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 
     cnttotal=0
-    print("fixing (. is 10000 records) ",flush=True)
+    print("Fixing (. is 10000 records) ",flush=True)
 
     with open(args.sourcejsonlfile) as reader:
             for l in reader:

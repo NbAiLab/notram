@@ -271,11 +271,23 @@ if __name__ == '__main__':
 
     corpusfiledirfile = ""
 
-    corpusfiledir = indir
+    corpusfiledir = ind
 
     makesinglecorpusfile(datasetname,corpusfiledir,outdir)
     shuffleandsplitcorpusfile(outdir + "/complete_all/" + datasetname + ".json")
     shutil.copy(outdir + "/" + "complete_all/validation.json",outdir + "/" + "data/validation-shard-0001-of-0001.json")
+    if fileexists(indir + "/description.md") == True:
+        print("copying description.md")
+        shutil.copy(indir + "/description.md",outdir + "/description.md")
+    else:
+        print(indir + "/description.md does not exist")
+
+    if fileexists(indir + "/license.md") == True:
+        print("copying license.md")
+        shutil.copy(indir + "/license.md",outdir + "/license.md")
+    else:
+        print(indir + "/license.md does not exist")
+
     print("Start gzip data")
     gzipsplitfiles(outdir + "/data" )
     complete_all = outdir + "/" + "complete_all"

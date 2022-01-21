@@ -1,24 +1,32 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
+
+
 # Guides
-A collection of documentation and guides used for creating the NB-models. This is used internally as a collaboration tool. However, we also hope that it can be useful for other that want to replicate our work. The is the complete set of scripts needed going from source to corpus file and HF (HugingFace) dataset.
+A collection of stand-alone documentation and guides used for creating the NB-models. We use this for documenting our work, but we also hope that it can be useful for others working on similar topics. 
 
-The process consists of five separate steps from source to corpus and HuggingFace (HF) dataset.
+## 🛠 Dataset Creation
+* [Overview Processing the NCC](processing_NCC.md)
+* [Step-by-Step Guide Processing the NCC](step_by_step_guide.md)
+* [Creating and Uploading HuggingFace Dataset](creating_huggingface_dataset.md)
+* [Processing MC4](prepare_common_crawl.md)
 
-## Specifications
-* [Process overview](corpus_building.md)
-* [Internal jsonl-format](text_extraction_format.md)
+<br />
 
-## Creating dataset
-* [Creating the Norwegian Collossal Corpus v2](creating_corpus_v2.md)
-* [Exporting dataset to HuggingFace](creating_huggingface_dataset.md)
-* [Processing MC4 (obsolete)](prepare_common_crawl.md)
+## 🖥 Setting up the Training Environment
+* [Create Google Cloud VM, Bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
+* [Flax - Configure for training RoBERTa, T5 and GPTNeo](configure_flax.md)
+* [Set up a VM and Configure Tensorflow for Training BERT](configure_vm_tensorflow.md)
 
-## Flax
-* [Guide for setting up Flax and training RoBERTa, T5 and GPTNeo](flax.md)
+<br />
 
-## Tensorflow
-* [Trained Tensorflow models](models_tensorflow.md)
-* [Configuring a VM](configure_vm_tensorflow.md)
-* [Create VM, bucket and TPU](create_vm_bucket_tpu_tensorflow.md)
-* [Starting training](start_training_tensorflow.md)
-* [Publish Tensorflow Checkpoint](publish_checkpoint.md)
+## 📖 Documentation
+* [Norwegian Colossal Corpus Description](corpus_description.md)
+* [JSON-lines Format](json_format.md)
+* [Corpus Create-scripts](create_scripts.md)
+* [Corpus Cleaning-rules](cleaning_rules_description.md)
+* [Frequently Used Commands for JSON-line Files](json_commands.md)
+
+
+
+
 

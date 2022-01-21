@@ -1,3 +1,4 @@
+[<img align="right" width="150px" src="../images/nblogo.png">](https://ai.nb.no)
 # Create scripts
 These scripts are used for creating the json-files (2) from the source-files (1). 
 
