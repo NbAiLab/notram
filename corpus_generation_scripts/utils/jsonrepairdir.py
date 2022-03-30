@@ -43,7 +43,9 @@ if __name__ == '__main__':
     parser.add_argument('sourcejsonldir', help='source filedir')
     args = parser.parse_args()
     for f in glob.glob(args.sourcejsonldir + "/*.json*"):
-        writer = jsonlines.open("tmp.jsonlcpy", mode='w')
+        tmpfile=args.sourcejsonldir + "/tmp.jsonlcpy"
+        writer = jsonlines.open(tmpfile, mode='w')
+
         cnttotal = 0
         print("Fixing file:" + f + "(. is 10000 records) ", flush=True)
         with open(f) as reader:
@@ -61,7 +63,7 @@ if __name__ == '__main__':
                     print("erroneous json record [" + l + "]")
                     continue
         writer.close()
-        os.rename("tmp.jsonlcpy",f)
+        os.rename(tmpfile,f)
 
         print("The file: " + f + " contained " + str(cnttotal) + " jsonl records! These are written to file " )
 
