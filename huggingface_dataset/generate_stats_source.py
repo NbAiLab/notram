@@ -21,7 +21,7 @@ def main(args):
         doc_type, doc_type_lines, lang_fasttext, lang_fasttext_lines, publish_year, publish_year_lines = [dict() for _
                                                                                                           in range(6)]
         for n, line in tqdm(enumerate(reader)):
-            if line != "\n" and (args.source_filter in doc_type[line['doc_type']]):
+            if line != "\n" and (str(args.source_filter) in str(line['doc_type'])):
                 num_words = len(line['text'].split())
                 doc_type[line['doc_type']] = doc_type.get(line['doc_type'], 0) + num_words
                 doc_type_lines[line['doc_type']] = doc_type_lines.get(line['doc_type'], 0) + 1
@@ -32,7 +32,7 @@ def main(args):
                     year = 2021
                 publish_year[year] = publish_year.get(year, 0) + num_words
                 publish_year_lines[year] = publish_year_lines.get(year, 0) + 1
-            else:
+            elif line== "\n":
                 print(f'Error in {args.input_file} on line {n}')
     # Do sone reasonable sorting
     publish_year = list(publish_year.items())
@@ -60,8 +60,6 @@ def main(args):
     df_lang_all = pd.merge(df_lang_fasttext, df_lang_fasttext_length, on='Language')
     df_lang_all['Words/Document'] = (df_lang_all['Words'] / df_lang_all['Documents']).astype(int)
     
-
-    breakpoint()
 
     # Report Publish Year
     df_publish_year = pd.DataFrame.from_dict(publish_year)
@@ -99,13 +97,14 @@ def main(args):
     df_sum['Documents'] = df_sum['Documents'].apply(lambda x: '{:,}'.format(x))
     df_sum['Words/Document'] = df_sum['Words/Document'].apply(lambda x: '{:,}'.format(x))
 
-    output = "### Summary\n" + df_sum.to_markdown(index=False).replace("|:--", "|---").replace("---|", "--:|") + "\n\n"
-    output += "### Document Types\n" + df_doc_all.to_markdown(index=False).replace("|:--", "|---").replace("---|",
-                                                                                                           "--:|") + "\n\n"
+    output = "### Summary " + str(args.source_filter) + "\n" + df_sum.to_markdown(index=False).replace("|:--", "|---").replace("---|", "--:|") + "\n\n"
+    # output += "### Document Types\n" + df_doc_all.to_markdown(index=False).replace("|:--", "|---").replace("---|",
+    #                                                                                                       "--:|") + "\n\n"
+    
     output += "### Languages\n" + df_lang_all.to_markdown(index=False).replace("|:--", "|---").replace("---|",
                                                                                                        "--:|") + "\n\n"
-    output += "### Publish Periode\n" + df_decade_all.to_markdown(index=False).replace("|:--", "|---").replace("---|",
-                                                                                                               "--:|") + "\n\n"
+    # output += "### Publish Periode\n" + df_decade_all.to_markdown(index=False).replace("|:--", "|---").replace("---|",
+    #                                                                                                           "--:|") + "\n\n"
 
     if ".md" in args.output_file:
         file = open(args.output_file, 'w')
