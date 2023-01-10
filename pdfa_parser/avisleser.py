@@ -350,7 +350,7 @@ def get_text_fitz(
                     chars = ""
                     for char in span_text:
                         if char.strip() != "":
-                            fonts.append((span_font, span["size"], span["color"]))
+                            fonts.append((span_font, span["size"], span["color"], span["flags"]))
                             chars += char
                     line_text += span_text.strip()
                 if chars:
@@ -365,11 +365,11 @@ def get_text_fitz(
                 font_tuple for font_tuple, freq in freqs
                 if freq >= occurrence_rate
             )
-            font, size, color = list(zip(*font_tuples))
+            font, size, color, flags = list(zip(*font_tuples))
         else:
-            font, size, color = Counter(fonts).most_common(1)[0][0]
-            font, size, color = [font], [size], [color]
-        font, size, color = set(font), set(size), set(color)
+            font, size, color, flags = Counter(fonts).most_common(1)[0][0]
+            font, size, color, flags = [font], [size], [color], [flags]
+        font, size, color, flags = set(font), set(size), set(color), set(flags)
         # if len(lengths) > 1:
         #     lengths_std = statistics.stdev(lengths)
         #     lengths_mean = statistics.mean(lengths)
@@ -381,12 +381,15 @@ def get_text_fitz(
                 line_text = ""
                 for span_index, span in enumerate(line.get("spans", [])):
                     span_text = span["text"].strip()
+                    # Previously we had span["flags"] in (0, 4, 6), but flags are font
+                    # modifiers expressed in binary bits that may change from one file
+                    # to another. See PDF Font Descriptor Flags.
                     if (span_text
                         and any(span["font"].startswith(f) for f in font)
                         and any(span["color"] == c for c in color)
                         and (any(span["size"] == s for s in size)
                              or not same_sizes)
-                        and span["flags"] in (0, 4, 6)
+                        and any(span["flags"] == f for f in flags)
                         and line["wmode"] == 0
                         ):
                         line_text += span["text"]
