@@ -7,7 +7,7 @@ The **clean.py**-script is using configuration files to do the actual cleaning. 
 | :-------- |  :-----| :-----| 
 |min_alphawords_paragraph |0 | Set a minimum number of words in a paragraph with only letters [a-Å]. Typically used in OCR text|
 |min_length_article | 20 | Minimum number of characters in an article.|
-|min_words_paragraph | 20 | Minimum number words in a paragraph.|
+|min_words_paragraph | 0 | Minimum number words in a paragraph.|
 |max_word_length_paragraph | 1000 | Maximum word length in a paragraph. Typically used in OCR text where you somethimes get extremely long words. Might also be triggered by urls.|
 |remove_control_characters | true | Removed control characters.|
 | standardize_punctuation| true | Standardises the punctation.|
