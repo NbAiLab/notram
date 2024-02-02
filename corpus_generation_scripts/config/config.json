@@ -19,5 +19,6 @@
 	"minimise_jsonl": true,
 	"assume_late_missing_dates": true,
 	"drop_paragraphs_with_encoding_errors": true,
-	"drop_paragraphs_with_curly_brackets": true
+	"drop_paragraphs_with_curly_brackets": true,
+	"run_stopword_cleaner": true
 }

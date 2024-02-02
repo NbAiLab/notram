@@ -20,6 +20,7 @@ from datetime import datetime
 import logging
 import time
 from pandarallel import pandarallel
+import stopword_cleaner
 
 pandarallel.initialize(use_memory_fs=True)
 
@@ -36,6 +37,7 @@ url_regex = re.compile(r'((www\.[^\s]+)|(https?://[^\s]+)|(http?://[^\s]+))')
 email_regex = re.compile(r'[\w\.-]+@[\w\.-]+')
 control_char_regex = re.compile(r'[\r\n\t]+')
 
+stopwordCleaner = stopword_cleaner.Cleaner()
 
 def read_config(cfile):
     try:
@@ -187,6 +189,14 @@ def replace_email_addresses(text, filler='email@email.no'):
 
     return text
 
+def run_stopword_cleaner(text):
+    cleaned_text = stopwordCleaner.clean(text)
+    if cleaned_text != None:
+        return True
+    else:
+        logger.debug(f'Removed {text} (due to low stop word density.)"')
+        return False
+
 def main(args):
     pd.set_option("display.max_rows", None)
     ocr_doc = 1
@@ -268,6 +278,15 @@ def main(args):
     logger.info(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time()})')
     print(f'***  Completed filtering out pragraphs with too long words. Valid posts = {len(data)}. ({exec_time()})')
     
+    #Do stopword cleaning
+    if config["run_stopword_cleaner"]:
+        cond = data["text"].parallel_apply(run_stopword_cleaner)
+        data = data[cond]
+        logger.info(f'***  Removed sentences with low stopword density. Valid posts = {len(data)}. ({exec_time()})')
+        print(f'***  Removed sentences with low stopword density. Valid posts = {len(data)}. ({exec_time()})')
+    else:
+        logger.info(f'***  Skipped stop word cleaning. ({exec_time()})')
+        print(f'***  Skipped stop word cleaning. ({exec_time()})')
 
     #Add hash
     data['hash'] = data['text'].parallel_apply(lambda x: get_hash(x))
