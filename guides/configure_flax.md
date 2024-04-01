@@ -49,6 +49,52 @@ sudo blkid /dev/sdb
 #Add this to /etc/fstab with the correct uuid
 UUID=52af08e4-f249-4efa-9aa3-7c7a9fd560b0 /mnt/disks/flaxdisk ext4 discard,defaults,nofail 0 2
 ```
+
+## Shared disk between multiple VMs
+Thanks to @javier for providing this tips for sharing a NFS disk between multiple VMs. It has not yet been verified. But sharing here anyway.
+
+First create a NFS disk in the correct zone, and get the ip-address for this disk. Then use this ip-address (here 10.63.96.66), and run the following command on each of the VMs.
+```bash
+sudo mount 10.63.96.66:/share /share
+grep '/share' /proc/mounts | sudo tee -a /etc/fstab
+```
+
+Also make sure the ~/.cache/huggingface/datasets/ points to the shared disk instead. Create with the right permissions if not. Run this on all the VMs. 
+```bash
+#!/bin/bash
+
+# Define the shared and local cache directories
+SHARED_CACHE_DIR="/share/.cache/huggingface/datasets"
+LOCAL_CACHE_DIR="$HOME/.cache/huggingface/datasets"
+
+# Step 1: Move existing local cache directory if it exists
+if [ -d "$LOCAL_CACHE_DIR" ]; then
+    echo "Moving existing local cache directory to backup..."
+    mv "$LOCAL_CACHE_DIR" "${LOCAL_CACHE_DIR}_backup_$(date +%s)"
+fi
+
+# Step 2: Ensure the shared cache directory exists
+if [ ! -d "$SHARED_CACHE_DIR" ]; then
+    echo "Creating shared cache directory..."
+    mkdir -p "$SHARED_CACHE_DIR"
+fi
+
+# Step 3: Set permissions for full access (read/write/execute) for all users
+# Note: Adjust permissions as necessary for your environment's security requirements
+echo "Setting permissions for shared cache directory..."
+chmod -R 777 "$SHARED_CACHE_DIR"
+
+# Step 4: Create a symlink from the local to the shared cache directory
+echo "Creating symlink to shared cache directory..."
+ln -s "$SHARED_CACHE_DIR" "$LOCAL_CACHE_DIR"
+
+echo "Setup complete."
+```
+
+It might also be possible to pre-tokenize the data, and load it like shown here [https://github.com/NbAiLab/nb-easylm/blob/main/EasyLM/data.py#L167](https://github.com/NbAiLab/nb-easylm/blob/main/EasyLM/data.py#L167)
+
+
+## Create a venv
 Make a sane virtual environment. Here we give it the name of the project "flax"
 ```bash
 sudo apt-get update
