@@ -81,7 +81,7 @@ In no event shall the owner of the models (The National Library of Norway) be li
 If you use our models or our corpus, please cite our article:
 
     @inproceedings{kummervold-etal-2021-operationalizing,
-    title = {Operationalizing a National Digital Library: The Case for a {N}orwegian Transformer Model},
+    title = {Operationalizing a National Digital Library: The Case for a Norwegian Transformer Model},
     author = {Kummervold, Per E  and
       De la Rosa, Javier  and
       Wetjen, Freddy  and
