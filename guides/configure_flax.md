@@ -53,9 +53,9 @@ UUID=52af08e4-f249-4efa-9aa3-7c7a9fd560b0 /mnt/disks/flaxdisk ext4 discard,defau
 ## Shared disk between multiple VMs
 Thanks to @javier for providing this tips for sharing a NFS disk between multiple VMs. It has not yet been verified. But sharing here anyway.
 
-First create a NFS disk in the correct zone, and get the ip-address for this disk. Then use this ip-address (here 10.63.96.66), and run the following command on each of the VMs.
+First create a NFS disk in the correct zone, and get the ip-address for this disk. Then use this ip-address (here 10.10.10.10), and run the following command on each of the VMs.
 ```bash
-sudo mount 10.63.96.66:/share /share
+sudo mount 10.10.10.10:/share /share
 grep '/share' /proc/mounts | sudo tee -a /etc/fstab
 ```
 
