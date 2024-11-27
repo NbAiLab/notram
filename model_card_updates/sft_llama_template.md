@@ -24,6 +24,7 @@ license: llama{{ version }}
 ---
 
 ### Model Overview
+This is the SFT-version of the NB-Llama-models. This means the model has gone through supervised finetuning, and it now understands a basic template. Note that this model has not yet been aligned, so it will behave fairly unpredictable. It is most suited for additional fine tuning. 
 
 **{{ model_name }}** is part of the **NB-Llama-{{ version }}** series of models, trained on top of [{{ base_model_name }}]({{ base_model_link }}). This multilingual generative model was fine-tuned specifically to support Norwegian Bokmål, Norwegian Nynorsk, and English, with partial support for Swedish and Danish.
 
@@ -83,19 +84,25 @@ Please note tht this is still a research project, and the purpose of releasing t
 #### Using `transformers`
 
 ```python
-import transformers
+import torch
+from transformers import pipeline
 
 model_id = "{{ model_id }}"
-
-pipeline = transformers.pipeline(
+pipe = pipeline(
     "text-generation",
     model=model_id,
-    model_kwargs={"torch_dtype": "bfloat16"},
-    device_map="auto"
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
 )
+messages = [
+    {"role": "user", "content": "Hvem er du?"},
+]
+outputs = pipe(
+    messages,
+    max_new_tokens=256,
+)
+print(outputs[0]["generated_text"][-1])
 
-output = pipeline("Hva er Nasjonalbibliotekets rolle i AI-utvikling?")
-print(output)
 ```
 ---
 
