@@ -9,40 +9,40 @@ if not HF_TOKEN:
     exit(1)
 
 # Load the model card template
-with open('sft_llama_template.md', 'r') as file:
+with open('dpo_llama_template.md', 'r') as file:
     model_card_template = file.read()
 
 # Define the models
 models = [
     {
-        "model_id": "north/nb-llama-3.2-3B-sft",
-        "model_name": "NB-Llama-3.2-3B-sft",
-        "base_model_name": "NB-Llama-3.2-3B",
-        "base_model_link": "https://huggingface.co/north/Llama-3.2-3B",
+        "model_id": "north/nb-llama-3.2-3B-Instruct",
+        "model_name": "NB-Llama-3.2-3B-Instruct",
+        "base_model_name": "Llama-3.2-3B",
+        "base_model_link": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
         "parameter_count": "3 billion",
         "version": "3.2"
     },
     {
-        "model_id": "north/nb-llama-3.2-1B-sft",
-        "model_name": "NB-Llama-3.2-1B-sft",
-        "base_model_name": "NB-Llama-3.2-1B",
-        "base_model_link": "https://huggingface.co/north/Llama-3.2-1B",
+        "model_id": "north/nb-llama-3.2-1B-Instruct",
+        "model_name": "NB-Llama-3.2-1B-Instruct",
+        "base_model_name": "Llama-3.2-1B-Instruct",
+        "base_model_link": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
         "parameter_count": "1 billion",
         "version": "3.2"
     },
     {
-        "model_id": "north/nb-llama-3.1-8B-sft",
-        "model_name": "NB-Llama-3.1-8B-sft",
-        "base_model_name": "NB-Llama-3.1-8B",
-        "base_model_link": "https://huggingface.co/north/Llama-3.1-8B",
+        "model_id": "north/nb-llama-3.1-8B-Instruct",
+        "model_name": "NB-Llama-3.1-8B-Instruct",
+        "base_model_name": "Llama-3.1-8B-Instruct",
+        "base_model_link": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
         "parameter_count": "8 billion",
         "version": "3.1"
     },
     {
-        "model_id": "north/nb-llama-3.1-70B-sft",
-        "model_name": "NB-Llama-3.1-70B-sft",
-        "base_model_name": "NB-Llama-3.1-70B",
-        "base_model_link": "https://huggingface.co/north/Llama-3.1-70B",
+        "model_id": "north/nb-llama-3.1-70B-Instruct",
+        "model_name": "NB-Llama-3.1-70B-Instruct",
+        "base_model_name": "Llama-3.1-70B-Instruct",
+        "base_model_link": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct",
         "parameter_count": "70 billion",
         "version": "3.1"
     }

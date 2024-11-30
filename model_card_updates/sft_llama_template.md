@@ -141,3 +141,8 @@ To ensure the highest quality training data, only a small subset of the original
 The model is released under the [Llama {{ version }} Community License](https://github.com/meta-llama/llama-models/blob/main/models/llama{{ version }}/LICENSE), allowing for research and commercial use within defined limitations. Refer to the [Acceptable Use Policy](https://llama.meta.com/llama{{ version }}/use-policy) for specific restrictions.
 
 ---
+
+### Citing & Authors
+The model was trained and documentation written by Per Egil Kummervold.
+
+---

@@ -24,8 +24,9 @@ license: llama{{ version }}
 ---
 
 ### Model Overview
-
 **{{ model_name }}** is part of the **NB-Llama-{{ version }}** series of models, trained on top of [{{ base_model_name }}]({{ base_model_link }}). This multilingual generative model was fine-tuned specifically to support Norwegian Bokmål, Norwegian Nynorsk, and English, with partial support for Swedish and Danish.
+
+The Instruct-model is trained using Supervised FineTuning (SFT) and then Direct Preference Optimalisation (DPO). The SFT training is based on synthetic datasets, the English [Magpie](https://huggingface.co/Magpie-Align) dataset and a translated/filtered version of this dataset. The DPO training is based on [Anthropics Helpful and Harmless](https://huggingface.co/datasets/Anthropic/hh-rlhf) dataset. The training is supposed to be fairly basic, giving the models a decent undertstanding of a chat template. 
 
 The basic idea with this model series was to explore how current state-of-the-art models could be improved for Norwegian by training only on publicly available data. While these models are trained by the National Library of Norway, they do not include data only available through legal deposit. They do, however, contain public data like governmental reports that are both publicly available and legally deposited.
 
@@ -83,19 +84,25 @@ Please note tht this is still a research project, and the purpose of releasing t
 #### Using `transformers`
 
 ```python
-import transformers
+import torch
+from transformers import pipeline
 
 model_id = "{{ model_id }}"
-
-pipeline = transformers.pipeline(
+pipe = pipeline(
     "text-generation",
     model=model_id,
-    model_kwargs={"torch_dtype": "bfloat16"},
-    device_map="auto"
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
 )
+messages = [
+    {"role": "user", "content": "Hvem er du?"},
+]
+outputs = pipe(
+    messages,
+    max_new_tokens=256,
+)
+print(outputs[0]["generated_text"][-1])
 
-output = pipeline("Hva er Nasjonalbibliotekets rolle i AI-utvikling?")
-print(output)
 ```
 ---
 
@@ -105,27 +112,11 @@ print(output)
 
 The training data is based entirely on publicly available datasets and synthetically generated data. A key aspect of the training process was leveraging high-quality knowledge sources in Norwegian, English, Swedish, and Danish.
 
-Parts of the following publicly available datasets were used:
-
-- [CulturaX](https://huggingface.co/datasets/uonlp/CulturaX)
-- [High Performance Language Technologies (HPLT)](https://huggingface.co/datasets/HPLT/hplt_monolingual_v1_2)
-- [Norwegian Colossal Corpus (NCC)](https://huggingface.co/datasets/NCC/Norwegian-Colossal-Corpus)
-- [Wikipedia](https://huggingface.co/datasets/wikimedia/wikipedia)
-
----
-
-### Data Selection
-
-To ensure the highest quality training data, only a small subset of the original raw data was used. An encoder-only classifier built on [nb-bert-base](https://huggingface.co/NbAiLab/nb-bert-base) was trained to evaluate both educational value and linguistic quality of the training samples.
-
-- **Categorization Methods:**
-  - Inspired by the [FineWeb](https://example.com/FineWeb) project.
-  - Evaluated for:
-    - **Educational Value:** Prioritizing high-value training samples.
-    - **Linguistic Quality:** Ensuring clarity and accuracy in training data.
-- **Guidance and Release:**
-  - Categorization was guided by insights from [Gemini 1.5](https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/#gemini-15).
-  - The classifiers are released alongside this model and are [available here](https://classifier-release-link-here).
+For SFT and DPO the following data were used:
+- [Magpie](https://huggingface.co/Magpie-Align)
+- [Anthropics Helpful and Harmless](https://huggingface.co/datasets/Anthropic/hh-rlhf)
+- Various synthetic and translated datasets
+- See [{{ base_model_name }}]({{ base_model_link }}) for more details on the pretraining data and data selection
 
 ---
 
@@ -136,4 +127,4 @@ The model is released under the [Llama {{ version }} Community License](https://
 ---
 
 ### Citing & Authors
-The model was trained and documentation written by Per Egil Kummervold.
+The model was trained and documentation written by Per Egil Kummervold. 

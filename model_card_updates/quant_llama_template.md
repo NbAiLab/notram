@@ -45,3 +45,6 @@ For more information, refer to the [llama.cpp repository](https://github.com/gge
 - [Original Model Card]({{ base_model_link }})
 - [llama.cpp Repository](https://github.com/ggerganov/llama.cpp)
 - [GGUF Format Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/llama)
+
+### Citing & Authors
+The model was trained and documentation written by Per Egil Kummervold.
