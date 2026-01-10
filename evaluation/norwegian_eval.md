@@ -1,6 +1,5 @@
-Help me to order these. For each of the questions, the models should be ranked from small to large (B parameters). 
-
-After that, order them so that the original/international models are first, and then the NbAiLab-models. Keep it in valid markdown. Return in a text box:
+# Norwegian Cultural Knowledge
+This is a set of question that aims at discovering if the models has knowledge about Norwegian culture. 
 
 ## Når åpner norske barn julegavene sine?
 
