@@ -21,12 +21,11 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | I Norge er det vanlig at barn åpner julegavene sine på julaften, som er 24. desember. Dette skjer ofte etter at de har spist julemiddag og sett på TV, eller etter at de har deltatt i andre juleaktiviteter. Åpning av julegaver er en viktig del av julefeiringen i Norge, og det er vanlig at barnene er spesielt spent på å se hva de har fått i gave. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Norske barn åpner julegavene sine på julaften. |
 
+
 ## Hvem døde på Stiklestad?
 
 | Model | Answer |
 |---|---|
-| `meta-llama/Llama-3.3-70B-Instruct` | Olav Haraldsson, også kjent som Olav den hellige, døde i slaget på Stiklestad i 1030. Han var konge av Norge og ble drept i et slag mot en hær av norske bønder. Olav var en viktig skikkelse i norsk historie og ble senere kåret til helgen. Slaget på Stiklestad regnes som et vendepunkt i norsk historie og markerer begynnelsen på kristningen av Norge. |
-| `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Olav Haraldsson, senere kjent som Olav den hellige, døde på Stiklestad. |
 | `meta-llama/Llama-3.2-1B-Instruct` | Stiklestad er et fælde i Norge, der har været et vigtigt symbol for Norske krigere. I 1819 døde 1.700 soldater på Stiklestad, hvor en stor del af dem var fra det 19. og 20. århundrede. <br><br>I 1819 døde 1.700 soldater på Stiklestad, hvor en stor del af dem var fra det 19. og 20. århundrede. |
 | `NbAiLab/nb-notram-llama-3.2-1b-instruct` | Olav Haraldsson |
 | `meta-llama/Llama-3.2-3B-Instruct` | Stiklestad er et sted i Norge, hvor en stor slagfelt er fundet, og her er det antatt, at en stor seir for de norrøne konger og krigere var tabt. Slaget på Stiklestad er et af de mest kendte og mytologiske slag i norsk historie.<br><br>Ifølge den norrøne saga "Heimskringla" døde kong Harald Hårfagre (eller Harald Fairhair) på Stiklestad i 1066. Sagaen beskriver, at Harald var på vej til en sejr over sine fjender, da han blev angrepet af en storkonge fra Vestfold, og at han døde under slaget.<br><br>Det er imidlertid ikke kun Harald Hårfagre, der er dødt på Stiklestad. Ifølge sagaen døde også mange andre konger og krigere under slaget, herunder Harald Hardrada, som var Harald Hårfagres søn.<br><br>Det er vigtigt at notere, at sagaen "Heimskringla |
@@ -40,6 +39,9 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `NbAiLab/nb-gpt-j-6B-alpaca` | Hvem døde på Stiklestad?<br><br>### Respons:<br>Olav den hellige. |
 | `NbAiLab/nb-gpt-j-6B-norpaca` | Hvem døde på Stiklestad?<br><br>### Respons:<br>Slaget på Stiklestad, også kjent som slaget ved Olav den helliges fall, skjedde 29. juli 1030, da kong Olav Haraldsson, senere kjent som Olav den hellige, ble drept av en gruppe bondehærer ledet av hans tidligere hærfører, Kalv Arness. |
 | `NbAiLab/nb-gpt-j-6B-torgersen` | Hvem døde på Stiklestad?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», «Hvem var Olav Haraldsson?», «Hvem var Olav Tryggvason?», «Hvem var Olav den hellige?», « |
+| `meta-llama/Llama-3.3-70B-Instruct` | Olav Haraldsson, også kjent som Olav den hellige, døde i slaget på Stiklestad i 1030. Han var konge av Norge og ble drept i et slag mot en hær av norske bønder. Olav var en viktig skikkelse i norsk historie og ble senere kåret til helgen. Slaget på Stiklestad regnes som et vendepunkt i norsk historie og markerer begynnelsen på kristningen av Norge. |
+| `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Olav Haraldsson, senere kjent som Olav den hellige, døde på Stiklestad. |
+
 
 ## Hva mener vi hvis vi sier at noen ikke har rent mel i posen?
 
