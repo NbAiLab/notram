@@ -20,7 +20,7 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `NbAiLab/nb-gpt-j-6B-torgersen` | Når åpner norske barn julegavene sine?», spør en leser. «Når er det vanlig å gi julegaver?», spør en annen. «Når er det vanlig å gi julegaver?», spør en tredje. «Når er det vanlig å gi julegaver?», spør en fjerde. «Når er det vanlig å gi julegaver?», spør en femte. «Når er det vanlig å gi julegaver?», spør en sjette. «Når er det vanlig å gi julegaver?», spør en syvende. «Når er det vanlig å gi julegaver?», spør en åttende. «Når er det vanlig å gi julegaver?», spør en niende. «Når er det vanlig å gi julegaver?», spør en tiende. «Når er det vanlig å gi julegaver? |
 | `meta-llama/Llama-3.3-70B-Instruct` | I Norge er det vanlig at barn åpner julegavene sine på julaften, som er 24. desember. Dette skjer ofte etter at de har spist julemiddag og sett på TV, eller etter at de har deltatt i andre juleaktiviteter. Åpning av julegaver er en viktig del av julefeiringen i Norge, og det er vanlig at barnene er spesielt spent på å se hva de har fått i gave. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Norske barn åpner julegavene sine på julaften. |
-
+<br><br>
 
 ## Hvem døde på Stiklestad?
 
