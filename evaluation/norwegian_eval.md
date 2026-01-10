@@ -44,6 +44,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Olav Haraldsson, også kjent som Olav den hellige, døde i slaget på Stiklestad i 1030. Han var konge av Norge og ble drept i et slag mot en hær av norske bønder. Olav var en viktig skikkelse i norsk historie og ble senere kåret til helgen. Slaget på Stiklestad regnes som et vendepunkt i norsk historie og markerer begynnelsen på kristningen av Norge. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Olav Haraldsson, senere kjent som Olav den hellige, døde på Stiklestad. |
 
+<br>
+<br>
 
 ## Hva mener vi hvis vi sier at noen ikke har rent mel i posen?
 
@@ -65,6 +67,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Uttrykket "rent mel i posen" betyr at noen er ærlig og har ingenting å skjule. Hvis noen ikke har rent mel i posen, betyr det at de har noe å skjule, eller at de ikke er helt ærlige. Det kan også bety at de har gjort noe galt eller har en hemmelighet som de prøver å holde skjult. Uttrykket brukes ofte for å beskrive noen som er mistenkelig eller som har en tvilsom karakter. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Det betyr at personen har gjort noe galt eller har skjulte motiver. |
 
+<br>
+<br>
 
 ## Hva er en særskrivingsfeil?
 
@@ -86,6 +90,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | En særskrivingsfeil er en type skrivefeil der en ord eller uttrykk skrives på en annen måte enn det som er vanlig eller korrekt i språket. Dette kan inkludere feil i stavemåte, bokstavkombinasjoner eller annen type avvik fra standard skrivemåten. Særskrivingsfeil kan være vanskelige å oppdage, spesielt hvis de ligner på korrekte ord eller uttrykk, og de kan forårsake misforståelser eller kommunikasjonsproblemer. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | En særskrivingsfeil er en feil der to ord som skal skrives sammen, skrives hver for seg. |
 
+<br>
+<br>
 
 ## Hvorfor synes noen janteloven er problematisk?
 
@@ -107,6 +113,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Janteloven er en samling av ti aforismer som ble skrevet av den danske forfatteren Aksel Sandemose i 1933. Disse aforismene handler om hvordan mennesker i en liten by eller samfunn kan oppføre seg overfor hverandre, og hvordan de kan være negative og kritiske overfor dem som skiller seg ut eller har suksess.<br><br>Noen mennesker synes at janteloven er problematisk fordi den kan fremme en kultur der:<br><br>* Mennesker blir straffet for å være ambisiøse eller å ha suksess<br>* Det er vanskelig å være seg selv og å uttrykke sine egne meninger og følelser<br>* Det er en sterk tendens til å være negativ og kritisk overfor andre<br>* Det er vanskelig å innføre nye ideer eller å endre på eksisterende strukturer<br><br>Dette kan føre til at mennesker blir motvillige til å ta risiko, å prøve nye ting eller å være kreative, fordi de er redd for å bli kritisert eller latterliggjort av |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Noen synes janteloven er problematisk fordi den kan hindre folk i å vise seg frem og være stolte av sine prestasjoner. |
 
+<br>
+<br>
 
 ## Hvis noen sa «jeg kom for sent – jeg kom først 18. mai 1814», hva mente de da at de gikk glipp av?
 
@@ -128,6 +136,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Dette er en vits som spiller på datoen 18. mai 1814, som er datoen da Grunnloven ble signert i Norge. Uttrykket "jeg kom for sent" betyr vanligvis at noen ankommer et sted etter at noe viktig allerede har skjedd.<br><br>I denne sammenhengen kan det tolkes som at personen som sier dette, mente at de kom for sent til å være med på signeringen av Grunnloven, eller kanskje til å være en del av de historiske hendelsene som fant sted den dagen. Det kan også være en måte å si at de føler seg forsinket eller utenfor tidens løp på.<br><br>Men det kan også være en mer humoristisk eller ironisk måte å si at de kom for sent til å være med på å skape Norges historie, eller at de føler seg som om de har gått glipp av noe veldig viktig. Uansett hva som menes, er dette en vittig og kreativ måte å bruke datoen 18. mai 1814 i en samtale. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | De gikk glipp av 17. mai 1814, dagen da Norge fikk sin grunnlov. |
 
+<br>
+<br>
 
 ## Når er russetiden?
 
@@ -149,6 +159,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Russetiden varer normalt fra slutten av september til midten av november, avhengig av været. I denne perioden kan det være mye regn og vind, og temperaturen kan variere mye fra dag til dag. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Russetiden er en tradisjon i Norge som markerer avslutningen på videregående skole. |
 
+<br>
+<br>
 
 ## Etter at jeg holdt et innlegg i et møte sa noen til meg: «Ta en bolle.» Hvordan bør jeg tolke det?
 
@@ -170,6 +182,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Det er sannsynlig at personen som sa "Ta en bolle" mente at du burde ta en pause eller slappe av etter å ha holdt et innlegg i møtet. Uttrykket "Ta en bolle" er et vanlig norsk uttrykk som kan oversettes til "ta en pause" eller "slapp av". Det kan også være en måte å si at du har gjort en god jobb og nå kan du ta en pause og nyte en bolle, som er en type norsk brød eller bakevare.<br><br>I denne konteksten er det sannsynlig at personen som sa dette mente å være vennlig og oppmuntrende, og ikke hadde noen negativ mening om ditt innlegg. De kunne ha ment at du har gjort en god jobb og nå kan du ta en pause og nyte en bolle, eller at du burde ta en pause for å samle tanker og komme tilbake med ny energi.<br><br>Det er alltid viktig å tolke slike uttrykk i konteksten de blir sagt, og å være oppmerksom på tone og kroppsspråk. Hvis du er us |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Det er et uttrykk som betyr at du skal roe deg ned og ikke ta ting så alvorlig. |
 
+<br>
+<br>
 
 ## Hvorfor sier noen at «fattigmann» er en av «de sju slag»?
 
@@ -191,6 +205,8 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | Uttrykket «de sju slag» viser til syv tradisjonelle norske kaker som har vært populære i mange år. Disse kakeene er kjent for å være spesielt gode og har blitt en del av norsk bakekultur. «Fattigmann» er en av disse syv kakeene, og det er en tynn, sprø kake som vanligvis serveres til jul. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Fordi det er en av de sju vanligste typene av småkaker som bakes til jul. |
 
+<br>
+<br>
 
 ## I Norge brukes «de fire store» både om forfattere fra slutten av 1800-tallet og om norske rockeband fra slutten av 1900-tallet. Nevn de åtte navnene.
 
