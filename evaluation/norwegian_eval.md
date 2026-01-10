@@ -21,12 +21,10 @@ This is a set of question that aims at discovering if the models has knowledge a
 | `meta-llama/Llama-3.3-70B-Instruct` | I Norge er det vanlig at barn åpner julegavene sine på julaften, som er 24. desember. Dette skjer ofte etter at de har spist julemiddag og sett på TV, eller etter at de har deltatt i andre juleaktiviteter. Åpning av julegaver er en viktig del av julefeiringen i Norge, og det er vanlig at barnene er spesielt spent på å se hva de har fått i gave. |
 | `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Norske barn åpner julegavene sine på julaften. |
 
-&nbsp;
-&nbsp;
-&nbsp;
+<br>
+<br>
 
 ## Hvem døde på Stiklestad?
-<br><br>
 
 | Model | Answer |
 |---|---|
