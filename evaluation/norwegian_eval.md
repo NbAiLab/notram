@@ -1,28 +1,6 @@
 # Norwegian Cultural Knowledge
 This is a set of question that aims at discovering if the models has knowledge about Norwegian culture. 
 
-# Når åpner vanligvis norske barn julegavene sine?
-
-| Model | Answer |
-|---|---|
-| `meta-llama/Llama-3.2-1B-Instruct` | Jeg tror at svaret er "Når barnet er på skole" |
-| `NbAiLab/nb-notram-llama-3.2-1b-instruct` | Når de er 12 år gamle. |
-| `meta-llama/Llama-3.2-3B-Instruct` | En vanlig norsk tradisjon er at barnene åpner sine julegaver på julaften, men noen familier åpner dem tidligere, ofte på en eller to dagene før julaften. |
-| `NbAiLab/nb-notram-llama-3.2-3b-instruct` | Vanligvis åpner norske barn julegavene sine på julaften. |
-| `meta-llama/Llama-3.1-8B-Instruct` | I Norge åpner vanligvis norske barn julegavene sine på julaften, 24. desember. |
-| `NbAiLab/nb-notram-llama-3.1-8b-instruct` | Julaften, 1. juledag, 25. desember eller 24. desember.<br><br>Riktig svar: Julaften |
-| `google/gemma-3-4b-it` | Vanligvis åpner norske barn julegavene sine **på julaften, eller kvelden før (23. desember)**. <br><br>Det er imidlertid variasjoner:<br><br>*   **I mange familier er det tradisjon med å åpne gavene sammen som en familie på julaften.** Dette er den vanligste praksisen.<br>*   **Noen familier åpner gavene 23. desember, spesielt hvis barna er små og ikke klarer å vente til julaften.**<br>*   **I enkelte områder, spesielt i mer tradisjonelle områder, kan det være vanlig å vente til julaften.**<br><br>Det er altså ingen fast regel, men 23. desember og julaften er de mest vanlige tidspunktene.<br><br>Håper dette var et godt svar! |
-| `NbAiLab/borealis-4b-instruct-preview` | Vanligvis åpner norske barn julegavene sine 27. desember. |
-| `NbAiLab/nb-gpt-j-6B` | Svar så riktig som mulig på dette spørsmålet: Når åpner vanligvis norske barn julegavene sine? A. 1. desember B. 2. desember C. 3. desember D. 4. desember E. 5. desember F. 6. desember G. 7. desember H. 8. desember I. 9. desember J. 10. desember K. 11. desember L. 12. desember M. 13. desember N. 14. desember O. 15. desember P. 16. desember Q. 17. desember R. 18. desember S. 19. desember T. 20. desember U. 21. desember V. 22. desember W. 23. desember X. 24. desember Y. 25. desember Z. 26. desember Æ. 27. desember Ø. 28. desember Å. 29. desember Åpningstider i julen: Julaften: Stengt 1. juledag: Stengt 2. juledag: Stengt Nyttårsaften: Stengt 1. nyttårsdag: Stengt Romjulen: Stengt Nyttårsdagen: Stengt 1. |
-| `NbAiLab/nb-gpt-j-6B-v2` | Svar så riktig som mulig på dette spørsmålet: Når åpner vanligvis norske barn julegavene sine? |
-| `NbAiLab/nb-gpt-j-6B-alpaca` | Svar så riktig som mulig på dette spørsmålet: Når åpner vanligvis norske barn julegavene sine?<br><br>### Respons:<br>Norske barn åpner vanligvis julegavene sine på julaften, men noen familier velger å åpne gavene på lille julaften eller dagen før. |
-| `NbAiLab/nb-gpt-j-6B-norpaca` | Svar så riktig som mulig på dette spørsmålet: Når åpner vanligvis norske barn julegavene sine?<br><br>### Respons:<br>Norske barn åpner vanligvis julegavene sine på julaften, som faller på 24. desember i desembermåneden. |
-| `NbAiLab/nb-gpt-j-6B-torgersen` | Svar så riktig som mulig på dette spørsmålet: Når åpner vanligvis norske barn julegavene sine? A) 1. desember B) 2. desember C) 3. desember D) 4. desember E) 5. desember F) 6. desember G) 7. desember H) 8. desember I) 9. desember J) 10. desemberKilde: NTB1. desember er den første dagen i adventstiden, og markerer starten på julemåneden. I Norge er 1. desember offisiell åpning av julegavehandelen. 2. desember er den andre dagen i adventstiden, og markerer starten på julegavehandelen. 3. desember er den tredje dagen i adventstiden, og markerer starten på julegavehandelen. 4. desember er den fjerde dagen i adventstiden, og markerer starten på julegavehandelen. 5. desember er den femte dagen i adventstiden, og markerer starten på julegavehandelen. 6. desember er den sj |
-| `meta-llama/Llama-3.3-70B-Instruct` | Julaften, som er 24. desember, er dagen da de fleste norske barn åpner julegavene sine. Dette skjer vanligvis på kvelden, etter at de har spist julemiddag og før de går til sengs. |
-| `NbAiLab/nb-notram-llama-3.3-70b-instruct` | Natt til 24. desember, 24. desember, 25. desember eller 1. juledag.<br><br>Svar: 24. desember |
-
-<br>
-<br>
 
 ## Per inviterer en kamerat over for å se fotballkamp. Hvor forventes kameraten å sette fra seg skoene?
 
